@@ -40,7 +40,7 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-
+    
     }
 
 }
