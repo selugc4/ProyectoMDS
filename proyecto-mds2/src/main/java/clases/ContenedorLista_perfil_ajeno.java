@@ -1,0 +1,5 @@
+package clases;
+public class ContenedorLista_perfil_ajeno extends Contenedor_modificar_vista_de_lista {
+	public Ver_perfil_usuario_ajeno _ver_perfil_usuario_ajeno;
+	public Listas_de_reproduccion_perfil_ajeno _listas_de_reproduccion_perfil_ajeno;
+}
