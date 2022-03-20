@@ -18,10 +18,10 @@ export class VistaCabecera_comun extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; flex-direction: row;">
+<vaadin-vertical-layout style="width: 100%; flex-direction: row; border-bottom: 1px solid black">
  <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;">
-  <vaadin-horizontal-layout style="width: 7%;">
-   <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 100%; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png">
+  <vaadin-horizontal-layout>
+   <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png">
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout>
    <vaadin-vertical-layout style="width: 100%; margin-top: var(--lumo-space-s); padding: var(--lumo-space-m); margin-left: var(--lumo-space-s);">
