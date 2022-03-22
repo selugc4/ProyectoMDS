@@ -1,5 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@polymer/iron-icon/iron-icon.js';
 
 @customElement('vista-cancion_con_imagen')
 export class VistaCancion_con_imagen extends LitElement {
@@ -14,13 +17,18 @@ export class VistaCancion_con_imagen extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing">
+<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="margin-right: var(--lumo-space-xl);">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU">
   <label>Título canción</label>
   <label>Nombre artista</label>
  </vaadin-vertical-layout>
-</vaadin-vertical-layout>
+ <label style="margin-right: var(--lumo-space-xl);">Álbum</label>
+ <label style="margin-right: var(--lumo-space-xl);">Duración</label>
+ <vaadin-button theme="icon" aria-label="Add new">
+  <iron-icon src="https://w7.pngwing.com/pngs/261/757/png-transparent-computer-icons-google-play-music-button-play-angle-rectangle-triangle.png"></iron-icon>
+ </vaadin-button>
+</vaadin-horizontal-layout>
 `;
   }
 

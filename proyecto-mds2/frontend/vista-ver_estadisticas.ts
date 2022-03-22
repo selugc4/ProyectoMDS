@@ -41,7 +41,7 @@ export class VistaVer_estadisticas extends LitElement {
    </vaadin-split-layout>
   </vaadin-vertical-layout>
   <vaadin-button style="align-self: center;">
-   Volver atrás
+    Volver atrás 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
