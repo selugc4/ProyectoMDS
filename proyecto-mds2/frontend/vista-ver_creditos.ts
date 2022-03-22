@@ -1,6 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-ver_creditos')
 export class VistaVer_creditos extends LitElement {
@@ -16,7 +16,6 @@ export class VistaVer_creditos extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 15%;"></vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: center; width: 70%; flex-grow: 0; flex-shrink: 0; margin-top: var(--lumo-space-xl); height: 11%; margin-bottom: var(--lumo-space-l);">
   <vaadin-horizontal-layout theme="spacing">
    <label>Título de canción </label>
@@ -57,7 +56,6 @@ export class VistaVer_creditos extends LitElement {
    <label style="width: 100%; height: 100%;">Texto de ejemplo donde iría el nombre de los intérpretes</label>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 13%; flex-grow: 0;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

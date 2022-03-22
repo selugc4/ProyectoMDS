@@ -1,12 +1,10 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_comun';
-import './vista-reproductor_completo';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-upload/src/vaadin-upload.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-date-picker/src/vaadin-date-picker.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-vista_dar_alta_album')
 export class VistaVista_dar_alta_album extends LitElement {
@@ -22,9 +20,6 @@ export class VistaVista_dar_alta_album extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vista-cabecera_comun style="width: 100%; margin-bottom: var(--lumo-space-xl);"></vista-cabecera_comun>
- </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin-bottom: var(--lumo-space-xl);">
   <vaadin-vertical-layout theme="spacing-xl" style="width: 100%; margin-left: var(--lumo-space-xl);">
    <vaadin-horizontal-layout theme="spacing">
@@ -50,16 +45,11 @@ export class VistaVista_dar_alta_album extends LitElement {
    <vaadin-horizontal-layout theme="spacing" style="width: 60%; align-items: center; flex-direction: row; justify-content: space-between;">
     <label style="width: 100%;">Lista de canciones</label>
     <vaadin-button style="width: 40%;">
-     Añadir Canción 
+      Añadir Canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 75%;">
-    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;">
-     <vaadin-horizontal-layout theme="spacing" style="border-bottom: 1px black solid; width: 100%; justify-content: center; height: 100%; padding: var(--lumo-space-m);"></vaadin-horizontal-layout>
-     <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 100%; justify-content: center; height: 100%; padding: var(--lumo-space-m); border-bottom: 1px solid black"></vaadin-horizontal-layout>
-     <vaadin-horizontal-layout style="align-self: center; width: 100%; justify-content: center; height: 100%; padding: var(--lumo-space-m); border-bottom: 1px solid black"></vaadin-horizontal-layout>
-     <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%; padding: var(--lumo-space-m);"></vaadin-horizontal-layout>
-    </vaadin-vertical-layout>
+    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;"></vaadin-vertical-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;">
@@ -67,26 +57,23 @@ export class VistaVista_dar_alta_album extends LitElement {
     <vaadin-vertical-layout theme="spacing" style="align-items: center;">
      <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha"></vaadin-date-picker>
      <vaadin-button>
-      Asignar fecha
+       Asignar fecha 
      </vaadin-button>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" style="align-items: center;">
     <vaadin-horizontal-layout theme="spacing">
      <vaadin-button>
-      Añadir Álbum
+       Añadir Álbum 
      </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout theme="spacing">
      <vaadin-button>
-      Volver atrás
+       Volver atrás 
      </vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vista-reproductor_completo style="width: 100%;"></vista-reproductor_completo>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

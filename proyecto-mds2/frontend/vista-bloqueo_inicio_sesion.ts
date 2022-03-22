@@ -18,7 +18,7 @@ export class VistaBloqueo_inicio_sesion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="border: 1px solid black; flex-shrink: 1; flex-grow: 0; padding: var(--lumo-space-xl); align-self: center; margin-top: var(--lumo-space-m);">
+ <vaadin-vertical-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; align-self: center; margin-top: var(--lumo-space-m); padding: var(--lumo-space-xl);">
   <vaadin-horizontal-layout theme="spacing" style="align-self: flex-start;">
    <label style="flex-shrink: 1; flex-grow: 0;">Su cuenta ha sido bloqueada por sobrepasar los límites de</label>
   </vaadin-horizontal-layout>
@@ -31,7 +31,7 @@ export class VistaBloqueo_inicio_sesion extends LitElement {
   <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
    <label style="flex-shrink: 1; flex-grow: 0;">xx:xx/xx:xx</label>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
    <vaadin-progress-bar style="width: 100%; height: 50%;" value="1"></vaadin-progress-bar>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout style="align-self: stretch;" theme="spacing-xl">

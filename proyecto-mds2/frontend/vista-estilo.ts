@@ -3,8 +3,8 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
-@customElement('vista-cancion_encontrada')
-export class VistaCancion_encontrada extends LitElement {
+@customElement('vista-estilo')
+export class VistaEstilo extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -17,12 +17,17 @@ export class VistaCancion_encontrada extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; flex-direction: row; padding: var(--lumo-space-m); width: 100%; align-items: center;">
-  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%; height: 100%;">
-   <label style="width: 100%;">Canción 1</label>
-   <vaadin-button style="width: 100%;">
-     Añadir 
-   </vaadin-button>
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;">
+   <label style="width: 100%;">Estilo </label>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
+    <vaadin-button style="width: 100%;">
+     Modificar
+    </vaadin-button>
+    <vaadin-button style="width: 100%;">
+     Eliminar
+    </vaadin-button>
+   </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

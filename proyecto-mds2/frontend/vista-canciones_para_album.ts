@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
-@customElement('vista-canciones_buscadas')
-export class VistaCanciones_buscadas extends LitElement {
+@customElement('vista-canciones_para_album')
+export class VistaCanciones_para_album extends LitElement {
   static get styles() {
     return css`
       :host {

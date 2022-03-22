@@ -1,11 +1,9 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_comun';
-import './vista-reproductor_completo';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-upload/src/vaadin-upload.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-vista_dar_alta_cancion')
 export class VistaVista_dar_alta_cancion extends LitElement {
@@ -21,11 +19,8 @@ export class VistaVista_dar_alta_cancion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; margin-bottom: var(--lumo-space-xl);">
-  <vista-cabecera_comun style="width: 100%;"></vista-cabecera_comun>
- </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin-bottom: var(--lumo-space-xl);">
-  <vaadin-vertical-layout theme="spacing-xl" style="flex-grow: 0; width: 100%; height: 100%; justify-content: space-between;">
+  <vaadin-vertical-layout style="flex-grow: 0; width: 100%; height: 100%; justify-content: space-between;">
    <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-m);">
     <label style="font-size: 30px; font-weight: bolder">Añadir Canción</label>
    </vaadin-horizontal-layout>
@@ -79,7 +74,7 @@ export class VistaVista_dar_alta_cancion extends LitElement {
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="width: 100%; justify-content: flex-end; height: 50%; align-self: center;">
+   <vaadin-vertical-layout theme="spacing" style="width: 100%; justify-content: flex-end; height: 100%; align-self: center;">
     <label style="align-self: center; font-size: 25px; font-weight: bolder; flex-grow: 0;">Archivo multimedia de la canción</label>
     <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
      <vaadin-upload></vaadin-upload>
@@ -102,9 +97,6 @@ export class VistaVista_dar_alta_cancion extends LitElement {
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
- </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vista-reproductor_completo style="width: 100%;"></vista-reproductor_completo>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

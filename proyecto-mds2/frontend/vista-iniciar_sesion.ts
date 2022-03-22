@@ -1,5 +1,4 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_comun';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
@@ -17,10 +16,9 @@ export class VistaIniciar_sesion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%;">
- <vista-cabecera_comun style="width: 100%; flex-shrink: 1; height: 100%; flex-grow: 0; margin-bottom: var(--lumo-space-xl);"></vista-cabecera_comun>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
   <vaadin-vertical-layout style="width: 100%; height: 100%; margin-top: var(--lumo-space-xl);">
-   <vaadin-vertical-layout theme="spacing" style="align-self: center; border: 1px solid black; height: 100%; padding: var(--lumo-space-xl);">
+   <vaadin-vertical-layout theme="spacing" style="align-self: center; height: 100%; padding: var(--lumo-space-xl);">
     <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
      <label style="flex-shrink: 1; flex-grow: 0; font-size: 25px">Iniciar Sesión</label>
     </vaadin-horizontal-layout>
@@ -44,14 +42,14 @@ export class VistaIniciar_sesion extends LitElement {
      </vaadin-vertical-layout>
      <vaadin-vertical-layout theme="spacing">
       <vaadin-button style="width: 100%; padding: var(--lumo-space-xs);">
-       Iniciar Sesión
+        Iniciar Sesión 
       </vaadin-button>
      </vaadin-vertical-layout>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;">
      <label style="width: 150%;">¿Ha olvidado su contraseña?</label>
      <vaadin-button style="width: 100%; padding: var(--lumo-space-xs);">
-      Recuperar cuenta
+       Recuperar cuenta 
      </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout style="flex-direction: row; align-self: center; flex-grow: 0;">
@@ -59,12 +57,12 @@ export class VistaIniciar_sesion extends LitElement {
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout style="align-self: center;">
      <vaadin-button style="width: 100%; height: 100%;">
-      Regístrate aquí
+       Regístrate aquí 
      </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout style="align-self: center;">
      <vaadin-button>
-      Volver atrás
+       Volver atrás 
      </vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>

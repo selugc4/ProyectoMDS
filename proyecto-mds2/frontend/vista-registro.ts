@@ -1,13 +1,12 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_comun';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-text-field/src/vaadin-password-field.js';
 import '@vaadin/vaadin-upload/src/vaadin-upload-file.js';
 import '@vaadin/vaadin-upload/src/vaadin-upload.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-progress-bar/src/vaadin-progress-bar.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-registro')
 export class VistaRegistro extends LitElement {
@@ -23,11 +22,8 @@ export class VistaRegistro extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout style="width: 100%; flex-shrink: 1; flex-grow: 1; flex-direction: row; justify-content: space-between; margin-bottom: var(--lumo-space-xl);">
-  <vista-cabecera_comun style="width: 100%; height: 100%; flex-shrink: 1; flex-grow: 1;"></vista-cabecera_comun>
- </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
-  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding: var(--lumo-space-xl); border: 1px solid black">
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding: var(--lumo-space-xl);">
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
     <label style="flex-shrink: 1; flex-grow: 0; font-size: 25px">Registro</label>
    </vaadin-horizontal-layout>

@@ -1,10 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
-import '@polymer/iron-icon/iron-icon.js';
 
-@customElement('vista-buscador_cancion_administracion')
-export class VistaBuscador_cancion_administracion extends LitElement {
+@customElement('vista-usuarios')
+export class VistaUsuarios extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -17,11 +15,7 @@ export class VistaBuscador_cancion_administracion extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vaadin-text-field placeholder="Search" style="width: 100%;">
-   <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
-  </vaadin-text-field>
- </vaadin-horizontal-layout>
+ <label style="margin: var(--lumo-space-xl);">Usuarios</label>
 </vaadin-vertical-layout>
 `;
   }

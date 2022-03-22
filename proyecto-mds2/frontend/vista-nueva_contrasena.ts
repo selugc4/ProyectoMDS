@@ -1,8 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cabecera_comun';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-progress-bar/src/vaadin-progress-bar.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-nueva_contrasena')
 export class VistaNueva_contrasena extends LitElement {
@@ -18,10 +17,7 @@ export class VistaNueva_contrasena extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; margin-bottom: var(--lumo-space-xl);">
-  <vista-cabecera_comun style="flex-shrink: 1; flex-grow: 0; width: 100%;"></vista-cabecera_comun>
- </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="border: 1px solid black; flex-shrink: 1; flex-grow: 0; padding: var(--lumo-space-xl); align-self: center;">
+ <vaadin-vertical-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; padding: var(--lumo-space-xl); align-self: center;">
   <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
    <label style="flex-shrink: 1; flex-grow: 0; font-size: 25px">Cambio de contraseña</label>
   </vaadin-horizontal-layout>

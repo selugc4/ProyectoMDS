@@ -1,6 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import './vista-cabecera_comun';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
@@ -19,9 +18,8 @@ export class VistaVerificacion_registro extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-cabecera_comun style="margin-bottom: var(--lumo-space-xl); width: 100%; flex-shrink: 1; flex-grow: 0;"></vista-cabecera_comun>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-shrink: 0;">
-  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding: var(--lumo-space-xl); border: 1px solid black">
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; padding: var(--lumo-space-xl); ">
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
     <label style="flex-shrink: 1; flex-grow: 0; font-size: 25px">Confirmación de registro</label>
    </vaadin-horizontal-layout>
@@ -38,7 +36,7 @@ export class VistaVerificacion_registro extends LitElement {
     <vaadin-text-field placeholder="Código"></vaadin-text-field>
     <vaadin-horizontal-layout theme="spacing">
      <vaadin-button style="width: 100%;">
-      Volver a enviar código
+       Volver a enviar código 
      </vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
@@ -47,10 +45,10 @@ export class VistaVerificacion_registro extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout style="flex-direction: row; justify-content: space-between; flex-shrink: 0; align-self: stretch;" theme="spacing-xl">
     <vaadin-button style="flex-shrink: 1; flex-grow: 1;">
-     Volver atrás 
+      Volver atrás 
     </vaadin-button>
     <vaadin-button style="flex-grow: 1;">
-     Aceptar
+      Aceptar 
     </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
