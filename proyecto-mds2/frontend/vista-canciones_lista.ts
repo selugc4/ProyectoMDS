@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-canciones_lista')
 export class VistaCanciones_lista extends LitElement {
@@ -14,8 +15,14 @@ export class VistaCanciones_lista extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-xl);">
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl);">
  <label>Canciones</label>
+ <vaadin-vertical-layout theme="spacing" style="padding: var(--lumo-space-xl);">
+  <label style="font-size: 35px;">No se han añadido canciones a esta lista de reproducción</label>
+  <vaadin-button style="align-self: center;">
+   Modificar lista
+  </vaadin-button>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }
