@@ -1,5 +1,5 @@
 package clases;
-public class Cancion_busqueda {
+public class Cancion_busqueda extends vistas.VistaCancion_busqueda{
 //	private Label _titulo_CancionL;
 //	private Label _artistaL;
 //	private Button _anadir_a_favoritosB;

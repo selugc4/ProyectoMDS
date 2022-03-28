@@ -1,5 +1,5 @@
 package clases;
-public class Album {
+public class Album extends vistas.VistaAlbum {
 //	private Image _foto_Album;
 //	private Label _titulo_AlbumL;
 //	public Albumes_buscador _albumes;

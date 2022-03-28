@@ -1,5 +1,5 @@
 package clases;
-public class Buscar_elementos {
+public class Buscar_elementos extends vistas.VistaBuscar_elementos {
 //	private Label _titulo_BusquedaL;
 //	public Cabecera_artista _cabecera_artista;
 //	public Cabecera_usuario_registrado _cabecera_usuario_registrado;

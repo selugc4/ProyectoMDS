@@ -1,7 +1,6 @@
 package clases;
-import com.vaadin.flow.component.combobox.ComboBox;
 
-public class Agregar_evento {
+public class Agregar_evento extends vistas.VistaAgregar_evento{
 //	private Label _tituloAnadirEventoL;
 //	private Label _tipoEventoL;
 //	private ComboBox _dropdown_concierto_o_festival;

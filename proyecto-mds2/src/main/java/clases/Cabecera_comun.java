@@ -1,5 +1,5 @@
 package clases;
-public class Cabecera_comun {
+public class Cabecera_comun extends vistas.VistaCabecera_comun {
 //	private Image _imagen_Inicio;
 //	private Label _textoContacto;
 //	private TextField _buscador;

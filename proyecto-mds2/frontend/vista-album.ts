@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-album')
 export class VistaAlbum extends LitElement {
@@ -14,9 +15,15 @@ export class VistaAlbum extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 15%; height: 100%; margin: var(--lumo-space-l);">
+<vaadin-vertical-layout style="width: 15%; height: 100%; align-items: center;">
  <img style="width: 100%;" src="https://m.media-amazon.com/images/I/71B-wiFzFkL._SY355_.jpg">
  <label style="align-self: center;">Álbum</label>
+ <vaadin-button>
+  Editar
+ </vaadin-button>
+ <vaadin-button>
+  Eliminar
+ </vaadin-button>
 </vaadin-vertical-layout>
 `;
   }

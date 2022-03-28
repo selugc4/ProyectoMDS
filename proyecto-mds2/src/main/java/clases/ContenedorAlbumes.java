@@ -1,5 +1,5 @@
 package clases;
-public class ContenedorAlbumes {
+public class ContenedorAlbumes extends vistas.VistaContenedoralbumes {
 //	private Button _siguiente_Pagina;
 //	private Button _anterior_Pagina;
 //	public Ver_perfil_propio_de_artista _ver_perfil_propio_de_artista;

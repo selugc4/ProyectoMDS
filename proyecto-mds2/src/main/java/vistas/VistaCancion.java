@@ -5,19 +5,19 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 
 /**
- * A Designer generated component for the vista-verificacion_registro template.
+ * A Designer generated component for the vista-cancion template.
  *
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-verificacion_registro")
-@JsModule("./vista-verificacion_registro.ts")
-public class VistaVerificacion_registro extends LitTemplate {
+@Tag("vista-cancion")
+@JsModule("./vista-cancion.ts")
+public class VistaCancion extends LitTemplate {
 
     /**
-     * Creates a new VistaVerificacion_registro.
+     * Creates a new VistaCancion.
      */
-    public VistaVerificacion_registro() {
+    public VistaCancion() {
         // You can initialise any data required for the connected UI components here.
     }
 

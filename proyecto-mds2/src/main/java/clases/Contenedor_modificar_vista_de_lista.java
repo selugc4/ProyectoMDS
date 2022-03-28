@@ -1,5 +1,5 @@
 package clases;
-public class Contenedor_modificar_vista_de_lista {
+public class Contenedor_modificar_vista_de_lista extends vistas.VistaContenedor_modificar_vista_de_lista {
 //	private Button _cambiar_Numero5;
 //	private Button _cambiar_Numero10;
 //	private Button _cambiar_Numero15;

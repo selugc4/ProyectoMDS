@@ -1,5 +1,5 @@
 package clases;
-public class Cancion_mas_exitosa {
+public class Cancion_mas_exitosa extends vistas.VistaCancion_mas_exitosa {
 //	private Image _imagen_Cancion;
 //	private Label _titulo_Cancion;
 //	private Label _numero_ReproduccionesL;

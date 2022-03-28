@@ -1,6 +1,6 @@
 package clases;
 public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_listados {
-	public Ver_perfil_propio_de_artista _ver_perfil_propio_de_artista;
-	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
-	public Listas_de_reproduccion_con_sus_canciones _listas_de_reproduccion_con_sus_canciones;
+//	public Ver_perfil_propio_de_artista _ver_perfil_propio_de_artista;
+//	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
+//	public Listas_de_reproduccion_con_sus_canciones _listas_de_reproduccion_con_sus_canciones;
 }

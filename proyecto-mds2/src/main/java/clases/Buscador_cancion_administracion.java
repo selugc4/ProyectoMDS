@@ -1,5 +1,5 @@
 package clases;
-public class Buscador_cancion_administracion {
+public class Buscador_cancion_administracion extends vistas.VistaBuscador_cancion_administracion {
 //	private TextField _buscador_CancionesTF;
 //	private Button _buscador_CancionesB;
 //	public Vista_administracion _vista_administracion;

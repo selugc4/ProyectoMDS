@@ -1,5 +1,5 @@
 package clases;
-public class Buscador_cancion_para_album {
+public class Buscador_cancion_para_album extends vistas.VistaCancion_para_album {
 //	private TextField _buscador_CancionesTF;
 //	private Button _buscador_CancionesB;
 //	public Vista_dar_alta_album _vista_dar_alta_album;
