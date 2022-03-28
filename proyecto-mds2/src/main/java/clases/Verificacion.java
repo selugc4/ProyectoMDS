@@ -1,5 +1,5 @@
 package clases;
-public class Verificacion {
+public class Verificacion extends vistas.VistaVerificacion{
 //	private Label _codigoL;
 //	private Button _volverB;
 //	private Label _mensaje_EnvioL;

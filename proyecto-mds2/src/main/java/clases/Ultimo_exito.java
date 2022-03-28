@@ -1,5 +1,5 @@
 package clases;
-public class Ultimo_exito {
+public class Ultimo_exito extends vistas.VistaUltimo_exito {
 //	private Button _eliminarB;
 //	private Label _cancionL;
 //	private Label _artistaL;

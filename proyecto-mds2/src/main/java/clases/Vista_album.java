@@ -1,9 +1,9 @@
 package clases;
-public class Vista_album {
+public class Vista_album extends vistas.VistaAlbum {
 //	private Image _foto_Album;
 //	private Label _titulo_Album;
 //	private Label _fecha_EdicionL;
 //	private Label _artistasL;
-	public Album _album;
-	public Canciones_lista _canciones_lista;
+//	public Album _album;
+//	public Canciones_lista _canciones_lista;
 }

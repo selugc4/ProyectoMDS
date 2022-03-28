@@ -1,12 +1,12 @@
 package clases;
-public class Eleccion_evento {
+public class Eleccion_evento extends vistas.VistaEleccion_evento {
 //	private Label _nombreEventoL;
 //	private TextField _nombreEventoTF;
 //	private Label _fechaEventoL;
 //	private Image _asignar_Fecha;
 //	private Button _boton_anadir_eventoB;
 //	private Button _volver_AtrasB;
-	public Tipo_evento _tipo_evento;
+//	public Tipo_evento _tipo_evento;
 
 	public void Asignar_fecha() {
 		throw new UnsupportedOperationException();

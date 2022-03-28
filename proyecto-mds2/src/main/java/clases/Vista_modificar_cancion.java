@@ -1,5 +1,5 @@
 package clases;
-public class Vista_modificar_cancion {
+public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion {
 //	private Button _modificar_Archivo_MultimediaB;
 //	private Button _modificar_CancionB;
 //	private Label _compositores_CreditosL;
@@ -19,7 +19,7 @@ public class Vista_modificar_cancion {
 //	private TextField _titulo_CancionTF;
 //	private Button _volver_AtrasB;
 //	private Label _titulo_Modificar_CancionL;
-	public Cancion_administrador _cancion_administrador;
+//	public Cancion_administrador _cancion_administrador;
 
 	public void volverAtras() {
 		throw new UnsupportedOperationException();

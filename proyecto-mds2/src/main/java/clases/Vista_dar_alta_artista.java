@@ -1,5 +1,5 @@
 package clases;
-public class Vista_dar_alta_artista {
+public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 //	private Label _titulo_Dar_Alta_ArtistaL;
 //	private Label _emailL;
 //	private TextField _emailTF;
@@ -16,7 +16,7 @@ public class Vista_dar_alta_artista {
 //	private Image _foto_Artista;
 //	private Button _dar_Alta_ArtistaB;
 //	private Button _volver_AtrasB;
-	public Menu_dar_alta _menu_dar_alta;
+//	public Menu_dar_alta _menu_dar_alta;
 
 	public void Elegir_foto() {
 		throw new UnsupportedOperationException();

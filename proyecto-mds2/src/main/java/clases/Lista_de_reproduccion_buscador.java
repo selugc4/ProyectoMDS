@@ -1,5 +1,5 @@
 package clases;
-public class Lista_de_reproduccion_buscador {
+public class Lista_de_reproduccion_buscador extends vistas.VistaLista_de_reproduccion_buscador{
 //	private Label _nombre_ListaL;
 //	private Label _autor;
 //	private Button _seguir_ListaB;

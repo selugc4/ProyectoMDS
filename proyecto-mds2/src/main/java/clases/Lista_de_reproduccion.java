@@ -1,5 +1,5 @@
 package clases;
-public class Lista_de_reproduccion {
+public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 //	private Label _texto_ListaL;
 	public Listas_de_reproduccion _listas_de_reproduccion;
 	public Sus_listas_de_reproduccion _sus_listas_de_reproduccion;

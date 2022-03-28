@@ -1,5 +1,5 @@
 package clases;
-public class Iniciar_sesion {
+public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 //	private Label _iniciar_SesionL;
 //	private Label _nombre_UsuarioL;
 //	private Label _contrasenaL;

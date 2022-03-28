@@ -1,5 +1,5 @@
 package clases;
-public class Nueva_contrasena {
+public class Nueva_contrasena extends vistas.VistaNueva_contrasena {
 //	private Label _titulo_Nueva_ContrasenaL;
 //	private Label _nueva_ContrasenaL;
 //	private TextField _nueva_ContrasenaTF;

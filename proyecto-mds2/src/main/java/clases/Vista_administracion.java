@@ -1,5 +1,5 @@
 package clases;
-public class Vista_administracion {
+public class Vista_administracion extends vistas.VistaVista_administracion{
 //	private Button _menu_Dar_AltaB;
 //	private Button _menu_Buscador_UsuariosB;
 //	private Button _modificar_Numero_Canciones_MostradasB;
@@ -15,12 +15,12 @@ public class Vista_administracion {
 //	private Label _modificar_CancionesL;
 //	private Dialog _buscador_Cancion_Administracion;
 //	private Dialog _buscador_Estilo;
-	public Cabecera_administrador _cabecera_administrador;
-	public Buscador_cancion_administracion _buscador_cancion_administracion;
-	public ContenedorUltimosExitos _contenedorUltimosExitos;
-	public Menu_dar_alta _menu_dar_alta;
-	public Vista_buscador_usuarios _vista_buscador_usuarios;
-	public Estilos_buscados _estilos_buscados;
+//	public Cabecera_administrador _cabecera_administrador;
+//	public Buscador_cancion_administracion _buscador_cancion_administracion;
+//	public ContenedorUltimosExitos _contenedorUltimosExitos;
+//	public Menu_dar_alta _menu_dar_alta;
+//	public Vista_buscador_usuarios _vista_buscador_usuarios;
+//	public Estilos_buscados _estilos_buscados;
 
 	public void Modificar_numero_de_canciones_reproducibles_por_el_cibernauta() {
 		throw new UnsupportedOperationException();

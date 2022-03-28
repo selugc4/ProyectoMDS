@@ -1,5 +1,5 @@
 package clases;
-public class Reproductor_canciones_simple {
+public class Reproductor_canciones_simple extends vistas.VistaReproductor_canciones_simple {
 //	private Slider _barraVolumenS;
 //	private Label _titulo_CancionL;
 //	private Label _tiempo_CancionL;

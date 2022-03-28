@@ -1,5 +1,5 @@
 package clases;
-public class Cancion_administrador {
+public class Cancion_administrador extends vistas.VistaCancion_administrador {
 //	private Label _titulo_CancionL;
 //	private Label _artistaL;
 //	private Button _reproducirB;

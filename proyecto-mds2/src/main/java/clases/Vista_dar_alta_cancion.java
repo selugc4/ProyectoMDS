@@ -1,5 +1,5 @@
 package clases;
-public class Vista_dar_alta_cancion {
+public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 //	private Label _titulo_Anadir_CancionL;
 //	private Label _titulo_CancionL;
 //	private TextField _titulo_CancionTF;
@@ -18,7 +18,7 @@ public class Vista_dar_alta_cancion {
 //	private Label _formato_ArchivoL;
 //	private Button _anadir_CancionB;
 //	private Button _volver_AtrasB;
-	public Menu_dar_alta _menu_dar_alta;
+//	public Menu_dar_alta _menu_dar_alta;
 
 	public void Anadir_archivo_multimedia() {
 		throw new UnsupportedOperationException();

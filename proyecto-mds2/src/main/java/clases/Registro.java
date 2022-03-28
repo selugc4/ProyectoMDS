@@ -1,5 +1,5 @@
 package clases;
-public class Registro {
+public class Registro extends vistas.VistaRegistro {
 //	private Label _titulo_Registro;
 //	private Label _emailL;
 //	private TextField _emailTF;
@@ -17,9 +17,9 @@ public class Registro {
 //	private Image _foto;
 //	private Button _volver_atrasB;
 //	private Button _registrarseB;
-	public Iniciar_sesion _iniciar_sesion;
-	public Cabecera_cibernauta _cabecera_cibernauta;
-	public Verificacion_registro _verificacion_registro;
+//	public Iniciar_sesion _iniciar_sesion;
+//	public Cabecera_cibernauta _cabecera_cibernauta;
+//	public Verificacion_registro _verificacion_registro;
 
 	public void Validar_correo() {
 		throw new UnsupportedOperationException();

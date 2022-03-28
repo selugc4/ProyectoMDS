@@ -1,5 +1,5 @@
 package clases;
-public class Lista_de_reproduccion_administrador {
+public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 //	private Button _eliminar_ListaB;
 //	private Button _modificar_ListaB;
 //	public Listas_de_reproduccion_administrador _listas_de_reproduccion_administrador;

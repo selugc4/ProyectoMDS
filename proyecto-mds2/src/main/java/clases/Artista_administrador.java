@@ -1,5 +1,5 @@
 package clases;
-public class Artista_administrador {
+public class Artista_administrador extends ArtistaBuscador{
 //	private Button _editarB;
 //	private Button _eliminar_artistaB;
 //	public Artistas_administrador _artistas_administrador;

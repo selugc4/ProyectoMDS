@@ -5,19 +5,19 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
 
 /**
- * A Designer generated component for the vista-listas-de-reproduccion-buscador template.
+ * A Designer generated component for the vista-listas_de_reproduccion_buscador template.
  *
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-listas-de-reproduccion-buscador")
-@JsModule("./vista-listas-de-reproduccion-buscador.ts")
-public class VistaListasDeReproduccionBuscador extends LitTemplate {
+@Tag("vista-listas_de_reproduccion_buscador")
+@JsModule("./vista-listas_de_reproduccion_buscador.ts")
+public class VistaListas_de_reproduccion_buscador extends LitTemplate {
 
     /**
-     * Creates a new VistaListasDeReproduccionBuscador.
+     * Creates a new VistaListas_de_reproduccion_buscador.
      */
-    public VistaListasDeReproduccionBuscador() {
+    public VistaListas_de_reproduccion_buscador() {
         // You can initialise any data required for the connected UI components here.
     }
 

@@ -1,7 +1,6 @@
 package clases;
-import com.vaadin.flow.component.combobox.ComboBox;
 
-public class Ir_a_cancion {
+public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 //	private Image _imagen;
 //	private Label _titulo_CancionL;
 //	private Label _artistaL;
@@ -11,10 +10,10 @@ public class Ir_a_cancion {
 //	private Button _anadir_ListaB;
 //	private Button _anadir_favoritosB;
 //	private Button _ver_CreditosB;
-	public Reproductor_completo _reproductor_completo;
-	public Dropdown_Listas_de_reproduccion _dropdown_Listas_de_reproduccion;
-	public Ver_creditos _ver_creditos;
-	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
+//	public Reproductor_completo _reproductor_completo;
+//	public Dropdown_Listas_de_reproduccion _dropdown_Listas_de_reproduccion;
+//	public Ver_creditos _ver_creditos;
+//	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
 
 	public void Anadir_a_lista() {
 		throw new UnsupportedOperationException();

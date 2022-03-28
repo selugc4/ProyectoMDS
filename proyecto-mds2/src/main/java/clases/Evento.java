@@ -1,6 +1,6 @@
 package clases;
-public class Evento {
+public class Evento extends vistas.VistaEvento {
 //	private Label _nombre_EventoL;
 //	private Label _fechaL;
-	public Conciertos_y_festivales _conciertos_y_festivales;
+//	public Conciertos_y_festivales _conciertos_y_festivales;
 }

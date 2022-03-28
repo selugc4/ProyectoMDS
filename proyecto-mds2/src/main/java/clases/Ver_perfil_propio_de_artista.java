@@ -9,8 +9,8 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 //	public Canciones_mas_exitosas _canciones_mas_exitosas;
 //	public ContenedorBotonAgregar _contenedorBotonAgregar;
 //	public Artistas _artistas;
-	public ContenedorAlbumes _contenedorAlbumes;
-	public ContenedorSus_Listas_Propio _contenedorSus_Listas_Propio;
+//	public ContenedorAlbumes _contenedorAlbumes;
+//	public ContenedorSus_Listas_Propio _contenedorSus_Listas_Propio;
 
 	public void Modificar_foto() {
 		throw new UnsupportedOperationException();

@@ -1,5 +1,5 @@
 package clases;
-public class Vista_dar_alta_album {
+public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 //	private Label _titulo_Anadir_AlbumL;
 //	private Label _titulo_AlbumL;
 //	private TextField _titulo_AlbumTF;
@@ -16,9 +16,9 @@ public class Vista_dar_alta_album {
 //	private Button _asignar_FechaB;
 //	private Button _anadir_AlbumB;
 //	private Button _volver_AtrasB;
-	public Menu_dar_alta _menu_dar_alta;
-	public Buscador_cancion_para_album _buscador_cancion_para_album;
-	public Canciones_modificar_y_crear _canciones_modificar_y_crear;
+//	public Menu_dar_alta _menu_dar_alta;
+//	public Buscador_cancion_para_album _buscador_cancion_para_album;
+//	public Canciones_modificar_y_crear _canciones_modificar_y_crear;
 
 	public void Elegir_foto() {
 		throw new UnsupportedOperationException();
