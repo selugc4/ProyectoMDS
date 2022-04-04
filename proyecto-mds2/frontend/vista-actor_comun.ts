@@ -15,9 +15,9 @@ export class VistaActor_comun extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button>
-  Ver estadísticas
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-button id="vaadinButton">
+   Ver estadísticas 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

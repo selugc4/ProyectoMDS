@@ -8,14 +8,14 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 
 /**
- * A Designer generated component for the vista-listas_de_reproduccion_buscador template.
+ * A Designer generated component for the vista-conciertos_y_festivales template.
  *
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-listas_de_reproduccion_buscador")
-@JsModule("./vista-listas_de_reproduccion_buscador.ts")
-public class VistaListas_de_reproduccion_buscador extends LitTemplate {
+@Tag("vista-conciertos_y_festivales")
+@JsModule("./vista-conciertos_y_festivales.ts")
+public class VistaConciertos_y_festivales extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
@@ -23,9 +23,9 @@ public class VistaListas_de_reproduccion_buscador extends LitTemplate {
 	private Label label;
 
 	/**
-     * Creates a new VistaListas_de_reproduccion_buscador.
+     * Creates a new VistaConciertos_y_festivales.
      */
-    public VistaListas_de_reproduccion_buscador() {
+    public VistaConciertos_y_festivales() {
         // You can initialise any data required for the connected UI components here.
     }
 

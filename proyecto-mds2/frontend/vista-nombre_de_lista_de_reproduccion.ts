@@ -14,8 +14,8 @@ export class VistaNombre_de_lista_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label>Nombre de lista</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <label id="label">Nombre de lista</label>
 </vaadin-vertical-layout>
 `;
   }

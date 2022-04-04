@@ -14,9 +14,9 @@ export class VistaEvento extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: center;">
- <label style="margin: var(--lumo-space-xl);">Concierto</label>
- <label style="margin: var(--lumo-space-xl);">Fecha</label>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: center;" id="vaadinHorizontalLayout">
+ <label style="margin: var(--lumo-space-xl);" id="label">Concierto</label>
+ <label style="margin: var(--lumo-space-xl);" id="label1">Fecha</label>
 </vaadin-horizontal-layout>
 `;
   }

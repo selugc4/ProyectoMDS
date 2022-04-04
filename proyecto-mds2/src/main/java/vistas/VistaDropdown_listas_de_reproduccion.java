@@ -3,6 +3,8 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.template.Id;
 
 /**
  * A Designer generated component for the vista-dropdown_listas_de_reproduccion template.
@@ -14,7 +16,10 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-dropdown_listas_de_reproduccion.ts")
 public class VistaDropdown_listas_de_reproduccion extends LitTemplate {
 
-    /**
+    @Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+
+	/**
      * Creates a new VistaDropdown_listas_de_reproduccion.
      */
     public VistaDropdown_listas_de_reproduccion() {

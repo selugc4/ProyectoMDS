@@ -15,9 +15,9 @@ export class VistaListas_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-m);">
-  <label>Listas de reproducción</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-m);" id="vaadinHorizontalLayout">
+  <label id="label">Listas de reproducción</label>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

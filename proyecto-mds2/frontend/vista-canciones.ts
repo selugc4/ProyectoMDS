@@ -14,8 +14,8 @@ export class VistaCanciones extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout>
- <label style="margin: var(--lumo-space-m);">Nombre lista</label>
+<vaadin-vertical-layout id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-m);" id="label">Nombre lista</label>
 </vaadin-vertical-layout>
 `;
   }

@@ -14,8 +14,8 @@ export class VistaCanciones_administrador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="margin: var(--lumo-space-xl); padding: var(--lumo-space-m);">Canciones </label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-xl); padding: var(--lumo-space-m);" id="label">Canciones </label>
 </vaadin-vertical-layout>
 `;
   }

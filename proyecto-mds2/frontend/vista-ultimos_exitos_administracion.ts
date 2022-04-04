@@ -14,8 +14,8 @@ export class VistaUltimos_exitos_administracion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-xl);">
- <label>Últimos éxitos cibernauta </label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+ <label id="label">Últimos éxitos cibernauta </label>
 </vaadin-vertical-layout>
 `;
   }

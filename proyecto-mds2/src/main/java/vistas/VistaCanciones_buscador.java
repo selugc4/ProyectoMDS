@@ -3,6 +3,8 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
 
 /**
  * A Designer generated component for the vista-canciones_buscador template.
@@ -14,7 +16,10 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-canciones_buscador.ts")
 public class VistaCanciones_buscador extends LitTemplate {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+
+	/**
      * Creates a new VistaCanciones_buscador.
      */
     public VistaCanciones_buscador() {

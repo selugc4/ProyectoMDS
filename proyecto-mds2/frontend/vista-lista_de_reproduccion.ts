@@ -16,18 +16,18 @@ export class VistaLista_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="flex-direction: row; align-items: center; width: 100%; justify-content: space-between;">
-  <label style="margin: var(--lumo-space-m); width: 100%;">Lista de reproducción</label>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-   <vaadin-button>
-    Seguir
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="flex-direction: row; align-items: center; width: 100%; justify-content: space-between;" id="vaadinHorizontalLayout">
+  <label style="margin: var(--lumo-space-m); width: 100%;" id="label">Lista de reproducción</label>
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout1">
+   <vaadin-button id="vaadinButton">
+     Seguir 
    </vaadin-button>
-   <vaadin-button>
-    Editar
+   <vaadin-button id="vaadinButton1">
+     Editar 
    </vaadin-button>
-   <vaadin-button>
-    Eliminar
+   <vaadin-button id="vaadinButton2">
+     Eliminar 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>

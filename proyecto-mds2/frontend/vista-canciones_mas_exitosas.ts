@@ -14,8 +14,8 @@ export class VistaCanciones_mas_exitosas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="margin: var(--lumo-space-xl);">Tus canciones más exitosas</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-xl);" id="label">Tus canciones más exitosas</label>
 </vaadin-vertical-layout>
 `;
   }

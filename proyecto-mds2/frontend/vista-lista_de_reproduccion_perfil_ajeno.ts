@@ -14,8 +14,8 @@ export class VistaLista_de_reproduccion_perfil_ajeno extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <label style="margin: var(--lumo-space-xl);">Lista de reproducción</label>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
+ <label style="margin: var(--lumo-space-xl);" id="label">Lista de reproducción</label>
 </vaadin-horizontal-layout>
 `;
   }

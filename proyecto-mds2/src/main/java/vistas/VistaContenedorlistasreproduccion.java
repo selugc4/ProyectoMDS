@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.orderedlayout.Scroller;
 
 /**
  * A Designer generated component for the vista-contenedorlistasreproduccion template.
@@ -14,7 +17,12 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-contenedorlistasreproduccion.ts")
 public class VistaContenedorlistasreproduccion extends LitTemplate {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("vaadinScroller")
+	private Scroller vaadinScroller;
+
+	/**
      * Creates a new VistaContenedorlistasreproduccion.
      */
     public VistaContenedorlistasreproduccion() {

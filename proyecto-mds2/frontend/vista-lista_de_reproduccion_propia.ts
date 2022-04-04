@@ -15,10 +15,10 @@ export class VistaLista_de_reproduccion_propia extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="align-items: center;">
- <label style="margin: var(--lumo-space-xl);">Lista de reproducción</label>
- <vaadin-button style="margin: var(--lumo-space-xl);">
-  Modificar
+<vaadin-horizontal-layout class="content" style="align-items: center;" id="vaadinHorizontalLayout">
+ <label style="margin: var(--lumo-space-xl);" id="label">Lista de reproducción</label>
+ <vaadin-button style="margin: var(--lumo-space-xl);" id="vaadinButton">
+   Modificar 
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

@@ -17,16 +17,16 @@ export class VistaCancion_con_imagen extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="margin-right: var(--lumo-space-xl);">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU">
-  <label>Título canción</label>
-  <label>Nombre artista</label>
+<vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
+ <vaadin-vertical-layout theme="spacing" style="margin-right: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU" id="img">
+  <label id="label">Título canción</label>
+  <label id="label1">Nombre artista</label>
  </vaadin-vertical-layout>
- <label style="margin-right: var(--lumo-space-xl);">Álbum</label>
- <label style="margin-right: var(--lumo-space-xl);">Duración</label>
- <vaadin-button theme="icon" aria-label="Add new">
-  <iron-icon src="https://w7.pngwing.com/pngs/261/757/png-transparent-computer-icons-google-play-music-button-play-angle-rectangle-triangle.png"></iron-icon>
+ <label style="margin-right: var(--lumo-space-xl);" id="label2">Álbum</label>
+ <label style="margin-right: var(--lumo-space-xl);" id="label3">Duración</label>
+ <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton">
+  <iron-icon src="https://w7.pngwing.com/pngs/261/757/png-transparent-computer-icons-google-play-music-button-play-angle-rectangle-triangle.png" id="ironIcon"></iron-icon>
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

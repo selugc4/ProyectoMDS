@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
-@customElement('vista-artistas')
-export class VistaArtistas extends LitElement {
+@customElement('vista-conciertos_y_festivales')
+export class VistaConciertos_y_festivales extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -15,7 +15,7 @@ export class VistaArtistas extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <label style="margin: var(--lumo-space-xl);" id="label">Artistas similares o que sigues</label>
+ <label id="label" style="margin: var(--lumo-space-xl);">Tus conciertos y festivales</label>
 </vaadin-vertical-layout>
 `;
   }

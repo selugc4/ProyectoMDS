@@ -16,12 +16,12 @@ export class VistaLista_de_reproduccion_buscador extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 40%; margin: var(--lumo-space-xl); align-items: center;">
- <vaadin-vertical-layout style="margin-right: var(--lumo-space-xl);">
-  <label>Lista de reproducción</label>
-  <label style="font-size: 13px">Autor</label>
+<vaadin-horizontal-layout class="content" style="width: 40%; margin: var(--lumo-space-xl); align-items: center;" id="vaadinHorizontalLayout">
+ <vaadin-vertical-layout style="margin-right: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+  <label id="label">Lista de reproducción</label>
+  <label style="font-size: 13px" id="label1">Autor</label>
  </vaadin-vertical-layout>
- <vaadin-button style="margin-left: var(--lumo-space-xl); width: 100%;">
+ <vaadin-button style="margin-left: var(--lumo-space-xl); width: 100%;" id="vaadinButton">
    Seguir 
  </vaadin-button>
 </vaadin-horizontal-layout>

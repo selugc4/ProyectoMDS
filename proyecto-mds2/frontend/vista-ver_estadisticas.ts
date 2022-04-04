@@ -17,30 +17,30 @@ export class VistaVer_estadisticas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); margin: var(--lumo-space-xl);">
-  <label style="font-size:50px; font-weight:bolder;">Tus estadísticas</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); margin: var(--lumo-space-xl);" id="vaadinVerticalLayout1">
+  <label style="font-size:50px; font-weight:bolder;" id="label">Tus estadísticas</label>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 94%; margin: var(--lumo-space-xl); align-self: flex-end;">
-  <vaadin-vertical-layout theme="spacing" style="width: 75%; align-self: center;">
-   <vaadin-split-layout theme="minimal" style="width: 100%;">
-    <label style="font-size: 25px;">Estilo más escuchado:</label>
-    <label style="font-size: 25px; font-weight:bold;">Estilo más escuchado</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 94%; margin: var(--lumo-space-xl); align-self: flex-end;" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing" style="width: 75%; align-self: center;" id="vaadinVerticalLayout2">
+   <vaadin-split-layout theme="minimal" style="width: 100%;" id="vaadinSplitLayout">
+    <label style="font-size: 25px;" id="label1">Estilo más escuchado:</label>
+    <label style="font-size: 25px; font-weight:bold;" id="label2">Estilo más escuchado</label>
    </vaadin-split-layout>
-   <vaadin-split-layout theme="minimal" style="width: 100%;">
-    <label style="font-size: 25px">Artista más escuchado:</label>
-    <label style="font-size: 25px; font-weight:bold;">Artista más escuchado</label>
+   <vaadin-split-layout theme="minimal" style="width: 100%;" id="vaadinSplitLayout1">
+    <label style="font-size: 25px" id="label3">Artista más escuchado:</label>
+    <label style="font-size: 25px; font-weight:bold;" id="label4">Artista más escuchado</label>
    </vaadin-split-layout>
-   <vaadin-split-layout theme="minimal" style="width: 100%;">
-    <label style="font-size: 25px">Canción más escuchada:</label>
-    <label style="font-size: 25px; font-weight:bold;">Canción más escuchada</label>
+   <vaadin-split-layout theme="minimal" style="width: 100%;" id="vaadinSplitLayout2">
+    <label style="font-size: 25px" id="label5">Canción más escuchada:</label>
+    <label style="font-size: 25px; font-weight:bold;" id="label6">Canción más escuchada</label>
    </vaadin-split-layout>
-   <vaadin-split-layout theme="minimal" style="width: 100%;">
-    <label style="font-size: 25px">Horas escuchadas:</label>
-    <label style="font-size: 25px; font-weight:bold;">Horas escuchadas</label>
+   <vaadin-split-layout theme="minimal" style="width: 100%;" id="vaadinSplitLayout3">
+    <label style="font-size: 25px" id="label7">Horas escuchadas:</label>
+    <label style="font-size: 25px; font-weight:bold;" id="label8">Horas escuchadas</label>
    </vaadin-split-layout>
   </vaadin-vertical-layout>
-  <vaadin-button style="align-self: center;">
+  <vaadin-button style="align-self: center;" id="vaadinButton">
     Volver atrás 
   </vaadin-button>
  </vaadin-horizontal-layout>

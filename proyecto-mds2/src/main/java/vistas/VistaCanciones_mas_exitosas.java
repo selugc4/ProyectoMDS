@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-canciones_mas_exitosas template.
@@ -14,7 +17,12 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-canciones_mas_exitosas.ts")
 public class VistaCanciones_mas_exitosas extends LitTemplate {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("label")
+	private Label label;
+
+	/**
      * Creates a new VistaCanciones_mas_exitosas.
      */
     public VistaCanciones_mas_exitosas() {

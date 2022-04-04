@@ -16,26 +16,26 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">
-  <label style="align-self: center;">Nombre de la lista de reproducción</label>
-  <vaadin-button style="margin-left: var(--lumo-space-xl);">
-   Editar
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
+  <label style="align-self: center;" id="label">Nombre de la lista de reproducción</label>
+  <vaadin-button style="margin-left: var(--lumo-space-xl);" id="vaadinButton">
+    Editar 
   </vaadin-button>
-  <vaadin-button style="margin-left: var(--lumo-space-xl);">
-   Seguir
+  <vaadin-button style="margin-left: var(--lumo-space-xl);" id="vaadinButton1">
+    Seguir 
   </vaadin-button>
-  <vaadin-button style="margin-left: var(--lumo-space-xl);">
-   Dejar de seguir
+  <vaadin-button style="margin-left: var(--lumo-space-xl);" id="vaadinButton2">
+    Dejar de seguir 
   </vaadin-button>
-  <vaadin-button style="margin-left: var(--lumo-space-xl);">
-   Compartir
+  <vaadin-button style="margin-left: var(--lumo-space-xl);" id="vaadinButton3">
+    Compartir 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">
-  <label style="align-self: center;">Autor: XXXXXXXXX</label>
-  <vaadin-button>
-   Ver perfil
+ <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="vaadinHorizontalLayout1">
+  <label style="align-self: center;" id="label1">Autor: XXXXXXXXX</label>
+  <vaadin-button id="vaadinButton4">
+    Ver perfil 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

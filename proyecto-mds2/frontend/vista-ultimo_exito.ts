@@ -15,16 +15,16 @@ export class VistaUltimo_exito extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="align-items: center; align-self: center; width: 100%; flex-direction: row; margin: var(--lumo-space-xl);">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="align-items: flex-start; align-self: center; width: 100%;">
-    <label style="font-size: 20px">Canción 1</label>
-    <label>Artista</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="align-items: center; align-self: center; width: 100%; flex-direction: row; margin: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout1">
+   <vaadin-vertical-layout theme="spacing" style="align-items: flex-start; align-self: center; width: 100%;" id="vaadinVerticalLayout1">
+    <label style="font-size: 20px" id="label">Canción 1</label>
+    <label id="label1">Artista</label>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-   <vaadin-button style="width: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout2">
+   <vaadin-button style="width: 100%;" id="vaadinButton">
      Eliminar 
    </vaadin-button>
   </vaadin-horizontal-layout>

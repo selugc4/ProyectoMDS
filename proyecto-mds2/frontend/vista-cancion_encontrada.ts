@@ -16,11 +16,11 @@ export class VistaCancion_encontrada extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; flex-direction: row; padding: var(--lumo-space-m); width: 100%; align-items: center;">
-  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%; height: 100%;">
-   <label style="width: 100%;">Canción 1</label>
-   <vaadin-button style="width: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; flex-direction: row; padding: var(--lumo-space-m); width: 100%; align-items: center;" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%; height: 100%;" id="vaadinHorizontalLayout1">
+   <label style="width: 100%;" id="label">Canción 1</label>
+   <vaadin-button style="width: 100%;" id="vaadinButton">
      Añadir 
    </vaadin-button>
   </vaadin-horizontal-layout>

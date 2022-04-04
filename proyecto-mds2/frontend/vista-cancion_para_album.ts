@@ -16,14 +16,14 @@ export class VistaCancion_para_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-m); align-items: center; width: 100%;">
-  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%;">
-   <label style="width: 100%;">Canción 1</label>
-   <vaadin-button style="width: 100%;">
-    Añadir a Álbum
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="padding: var(--lumo-space-m); align-items: center; width: 100%;" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%;" id="vaadinHorizontalLayout1">
+   <label style="width: 100%;" id="label">Canción 1</label>
+   <vaadin-button style="width: 100%;" id="vaadinButton">
+     Añadir a Álbum 
    </vaadin-button>
-   <img style="width: 50px; height: 50px;" src="https://th.bing.com/th/id/R.637bcd9c2940cbd2d6026782c1d7b110?rik=S5%2bJchxCr8QqCg&amp;riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_487212.png&amp;ehk=cd9IBuyS8Zsgetraav%2bzV%2fmEER%2b323nxzTpKjdofcq8%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0">
+   <img style="width: 50px; height: 50px;" src="https://th.bing.com/th/id/R.637bcd9c2940cbd2d6026782c1d7b110?rik=S5%2bJchxCr8QqCg&amp;riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_487212.png&amp;ehk=cd9IBuyS8Zsgetraav%2bzV%2fmEER%2b323nxzTpKjdofcq8%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" id="img">
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-lista_de_reproduccion_perfil_ajeno template.
@@ -14,7 +17,12 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-lista_de_reproduccion_perfil_ajeno.ts")
 public class VistaLista_de_reproduccion_perfil_ajeno extends LitTemplate {
 
-    /**
+    @Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("label")
+	private Label label;
+
+	/**
      * Creates a new VistaLista_de_reproduccion_perfil_ajeno.
      */
     public VistaLista_de_reproduccion_perfil_ajeno() {

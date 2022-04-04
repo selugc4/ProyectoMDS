@@ -16,13 +16,13 @@ export class VistaCancion_buscada extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <label style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">Nombre de canción</label>
- <vaadin-button theme="icon" aria-label="Add new" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">
-  <iron-icon src="https://cdn-icons-png.flaticon.com/512/18/18297.png"></iron-icon>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
+ <label style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="label">Nombre de canción</label>
+ <vaadin-button theme="icon" aria-label="Add new" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="vaadinButton">
+  <iron-icon src="https://cdn-icons-png.flaticon.com/512/18/18297.png" id="ironIcon"></iron-icon>
  </vaadin-button>
- <vaadin-button style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);">
-  Añadir a lista
+ <vaadin-button style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="vaadinButton1">
+   Añadir a lista 
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

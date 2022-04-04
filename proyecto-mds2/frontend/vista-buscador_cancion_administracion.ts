@@ -16,10 +16,10 @@ export class VistaBuscador_cancion_administracion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;">
-  <vaadin-text-field placeholder="Search" style="width: 100%;">
-   <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout">
+  <vaadin-text-field placeholder="Search" style="width: 100%;" id="vaadinTextField">
+   <iron-icon icon="lumo:search" slot="prefix" id="ironIcon"></iron-icon>
   </vaadin-text-field>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

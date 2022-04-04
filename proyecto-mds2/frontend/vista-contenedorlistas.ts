@@ -15,9 +15,9 @@ export class VistaContenedorlistas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-button>
-  Ver más
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-button id="vaadinButton">
+   Ver más 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

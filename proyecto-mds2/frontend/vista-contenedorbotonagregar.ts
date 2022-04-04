@@ -16,9 +16,9 @@ export class VistaContenedorbotonagregar extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: flex-end;">
- <vaadin-button theme="icon" aria-label="Add new" style="margin: var(--lumo-space-xl); width: 3%;">
-  <iron-icon src="https://img2.freepng.es/20180427/bfe/kisspng-plus-and-minus-signs-font-awesome-plus-minus-sign-simple-blue-graphics-box-5ae309cde75d97.3939703215248286219477.jpg"></iron-icon>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: flex-end;" id="vaadinHorizontalLayout">
+ <vaadin-button theme="icon" aria-label="Add new" style="margin: var(--lumo-space-xl); width: 3%;" id="vaadinButton">
+  <iron-icon src="https://img2.freepng.es/20180427/bfe/kisspng-plus-and-minus-signs-font-awesome-plus-minus-sign-simple-blue-graphics-box-5ae309cde75d97.3939703215248286219477.jpg" id="ironIcon"></iron-icon>
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

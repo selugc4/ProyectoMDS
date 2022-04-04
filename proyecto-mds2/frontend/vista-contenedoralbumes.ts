@@ -13,14 +13,14 @@ export class VistaContenedoralbumes extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout theme="spacing">
- <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); width: 100%; align-items: center; justify-content: center;">
-  <vaadin-button theme="icon" aria-label="Add new">
-   <iron-icon src="https://cdn.pixabay.com/photo/2020/03/22/15/19/arrow-4957487_960_720.png"></iron-icon>
+<vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); width: 100%; align-items: center; justify-content: center;" id="vaadinHorizontalLayout1">
+  <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton">
+   <iron-icon src="https://cdn.pixabay.com/photo/2020/03/22/15/19/arrow-4957487_960_720.png" id="ironIcon"></iron-icon>
   </vaadin-button>
-  <label style="align-self: center;">Página 1 de x</label>
-  <vaadin-button theme="icon" aria-label="Add new" style="align-self: center;">
-   <iron-icon src="https://flyclipart.com/thumb2/icono-de-desplazamiento-flecha-a-la-derecha-gratis-de-entypo-icons-768097.png"></iron-icon>
+  <label style="align-self: center;" id="label">Página 1 de x</label>
+  <vaadin-button theme="icon" aria-label="Add new" style="align-self: center;" id="vaadinButton1">
+   <iron-icon src="https://flyclipart.com/thumb2/icono-de-desplazamiento-flecha-a-la-derecha-gratis-de-entypo-icons-768097.png" id="ironIcon1"></iron-icon>
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-horizontal-layout>

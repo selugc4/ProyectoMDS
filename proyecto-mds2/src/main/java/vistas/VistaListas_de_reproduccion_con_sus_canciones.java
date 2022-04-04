@@ -3,6 +3,9 @@ package vistas;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-listas_de_reproduccion_con_sus_canciones template.
@@ -14,7 +17,12 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 @JsModule("./vista-listas_de_reproduccion_con_sus_canciones.ts")
 public class VistaListas_de_reproduccion_con_sus_canciones extends LitTemplate {
 
-    /**
+    @Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+	@Id("label")
+	private Label label;
+
+	/**
      * Creates a new VistaListas_de_reproduccion_con_sus_canciones.
      */
     public VistaListas_de_reproduccion_con_sus_canciones() {

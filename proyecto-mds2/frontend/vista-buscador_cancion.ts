@@ -16,9 +16,9 @@ export class VistaBuscador_cancion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-text-field placeholder="Search" style="margin: var(--lumo-space-xl);">
-  <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-text-field placeholder="Search" style="margin: var(--lumo-space-xl);" id="vaadinTextField">
+  <iron-icon icon="lumo:search" slot="prefix" id="ironIcon"></iron-icon>
  </vaadin-text-field>
 </vaadin-vertical-layout>
 `;

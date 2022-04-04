@@ -14,8 +14,8 @@ export class VistaBuscar_elementos extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="margin: var(--lumo-space-xl);">Resultados de la búsqueda</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-xl);" id="label">Resultados de la búsqueda</label>
 </vaadin-vertical-layout>
 `;
   }

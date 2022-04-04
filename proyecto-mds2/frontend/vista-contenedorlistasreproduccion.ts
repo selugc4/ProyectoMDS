@@ -15,8 +15,8 @@ export class VistaContenedorlistasreproduccion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-scroller style="width: 100%; height: 100%;"></vaadin-scroller>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-scroller style="width: 100%; height: 100%;" id="vaadinScroller"></vaadin-scroller>
 </vaadin-vertical-layout>
 `;
   }

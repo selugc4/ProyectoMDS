@@ -14,8 +14,8 @@ export class VistaListas_de_reproduccion_buscador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <label style="margin: var(--lumo-space-xl); padding: var(--lumo-space-s);">Listas de reproduccion</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-xl); padding: var(--lumo-space-s);" id="label">Listas de reproduccion</label>
 </vaadin-vertical-layout>
 `;
   }

@@ -14,7 +14,7 @@ export class VistaContenedorultimosexitos extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="height: 100%;"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="height: 100%;" id="vaadinVerticalLayout"></vaadin-vertical-layout>
 `;
   }
 

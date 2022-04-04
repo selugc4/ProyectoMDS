@@ -14,8 +14,8 @@ export class VistaAlbumes_buscador extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl);">
- <label>Álbumes buscador</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+ <label id="label">Álbumes buscador</label>
 </vaadin-vertical-layout>
 `;
   }
