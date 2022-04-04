@@ -1,29 +1,17 @@
 package clases;
-public class Reproductor_canciones_simple extends vistas.VistaReproductor_canciones_simple {
-//	private Slider _barraVolumenS;
-//	private Label _titulo_CancionL;
-//	private Label _tiempo_CancionL;
-//	private Image _imagen_Cancion;
-//	private Button _boton_ReproducirB;
-//	private Button _boton_PausaB;
-//	private Button _ver_CreditosB;
-//	public Cibernauta _cibernauta;
-	public Cancion__Vista_Cibernauta_ _cancion__Vista_Cibernauta_;
-	public Ver_creditos _ver_creditos;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Tag;
 
-	public void Reproducir() {
-		throw new UnsupportedOperationException();
-	}
+@Tag("audio")
+public class Reproductor_canciones_simple  extends Component {
 
-	public void Pausar() {
-		throw new UnsupportedOperationException();
-	}
+    public Reproductor_canciones_simple() {
+		// TODO Auto-generated constructor stub
+        getElement().setAttribute("controls",true);
+    }
 
-	public void Cambiar_volumen() {
-		throw new UnsupportedOperationException();
-	}
+    public  void setSource(String path){
+        getElement().setProperty("src",path);
+    }
 
-	public void ver_Creditos() {
-		throw new UnsupportedOperationException();
-	}
 }
