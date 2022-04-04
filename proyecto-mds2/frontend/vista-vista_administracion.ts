@@ -18,41 +18,41 @@ export class VistaVista_administracion extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <vaadin-vertical-layout theme="spacing-xl" style="margin-bottom: var(--lumo-space-xl); align-self: flex-start; align-items: flex-start; flex-direction: column; width: 100%;">
-  <vaadin-horizontal-layout theme="spacing" style="width: 80%; align-self: center;">
-   <vaadin-button style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
+ <vaadin-vertical-layout theme="spacing-xl" style="margin-bottom: var(--lumo-space-xl); align-self: flex-start; align-items: flex-start; flex-direction: column; width: 100%;" id="vaadinVerticalLayout1">
+  <vaadin-horizontal-layout theme="spacing" style="width: 80%; align-self: center;" id="vaadinHorizontalLayout">
+   <vaadin-button style="width: 100%; height: 100%;" id="vaadinButton">
      Dar de alta 
    </vaadin-button>
-   <vaadin-button style="width: 100%; height: 100%;">
+   <vaadin-button style="width: 100%; height: 100%;" id="vaadinButton1">
      Modificar/Dar de baja usuarios 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;">
-   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl);">Número de canciones mostradas a usuarios no registrados</label>
-   <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual"></vaadin-text-field>
-   <vaadin-button style="width: 10%;">
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;" id="vaadinHorizontalLayout1">
+   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl);" id="label">Número de canciones mostradas a usuarios no registrados</label>
+   <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual" id="vaadinTextField"></vaadin-text-field>
+   <vaadin-button style="width: 10%;" id="vaadinButton2">
      Modificar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%; margin-bottom: var(--lumo-space-xl);">
-   <label>Número de canciones reproducibles por usuarios no registrados</label>
-   <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual"></vaadin-text-field>
-   <vaadin-button style="width: 10%; flex-shrink: 0; flex-grow: 0;">
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout2">
+   <label id="label1">Número de canciones reproducibles por usuarios no registrados</label>
+   <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual" id="vaadinTextField1"></vaadin-text-field>
+   <vaadin-button style="width: 10%; flex-shrink: 0; flex-grow: 0;" id="vaadinButton3">
      Modificar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;">
-   <vaadin-horizontal-layout theme="spacing" style="width: 70%; align-items: center;">
-    <label>Modificar canciones para el cibernauta</label>
-    <vaadin-button style="flex-shrink: 0; flex-grow: 0;">
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;" id="vaadinHorizontalLayout3">
+   <vaadin-horizontal-layout theme="spacing" style="width: 70%; align-items: center;" id="vaadinHorizontalLayout4">
+    <label id="label2">Modificar canciones para el cibernauta</label>
+    <vaadin-button style="flex-shrink: 0; flex-grow: 0;" id="vaadinButton4">
       Añadir canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;">
-    <label>Buscador por estilos </label>
-    <vaadin-text-field placeholder="Estilos" style="width: 30%;">
-     <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;" id="vaadinHorizontalLayout5">
+    <label id="label3">Buscador por estilos </label>
+    <vaadin-text-field placeholder="Estilos" style="width: 30%;" id="vaadinTextField2">
+     <iron-icon icon="lumo:search" slot="prefix" id="ironIcon"></iron-icon>
     </vaadin-text-field>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>

@@ -19,56 +19,56 @@ export class VistaVista_dar_alta_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin-bottom: var(--lumo-space-xl);">
-  <vaadin-vertical-layout theme="spacing-xl" style="width: 100%; margin-left: var(--lumo-space-xl);">
-   <vaadin-horizontal-layout theme="spacing">
-    <label style="font-size: 30px; font-weight: bolder">Añadir Álbum</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing-xl" style="width: 100%; margin-left: var(--lumo-space-xl);" id="vaadinVerticalLayout1">
+   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
+    <label style="font-size: 30px; font-weight: bolder" id="label">Añadir Álbum</label>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;">
-    <label style="flex-shrink: 1; width: 100%;">Título</label>
-    <vaadin-text-field required invalid="" style="width: 100%;"></vaadin-text-field>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout2">
+    <label style="flex-shrink: 1; width: 100%;" id="label1">Título</label>
+    <vaadin-text-field required invalid="" style="width: 100%;" id="vaadinTextField"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;">
-    <label style="flex-shrink: 1; width: 100%;">Nombre del artista</label>
-    <vaadin-text-field required invalid="" style="width: 100%;"></vaadin-text-field>
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout3">
+    <label style="flex-shrink: 1; width: 100%;" id="label2">Nombre del artista</label>
+    <vaadin-text-field required invalid="" style="width: 100%;" id="vaadinTextField1"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout style="width: 60%; flex-direction: row; align-items: center; justify-content: space-between;">
-    <vaadin-vertical-layout theme="spacing">
-     <label style="flex-shrink: 1; width: 100%;">Imagen</label>
-     <vaadin-upload></vaadin-upload>
+   <vaadin-horizontal-layout style="width: 60%; flex-direction: row; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout4">
+    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
+     <label style="flex-shrink: 1; width: 100%;" id="label3">Imagen</label>
+     <vaadin-upload id="vaadinUpload"></vaadin-upload>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout theme="spacing">
-     <img style="width: 125px; height: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png">
+    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout3">
+     <img style="width: 125px; height: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 60%; align-items: center; flex-direction: row; justify-content: space-between;">
-    <label style="width: 100%;">Lista de canciones</label>
-    <vaadin-button style="width: 40%;">
+   <vaadin-horizontal-layout theme="spacing" style="width: 60%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout5">
+    <label style="width: 100%;" id="label4">Lista de canciones</label>
+    <vaadin-button style="width: 40%;" id="vaadinButton">
       Añadir Canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 75%;">
-    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;"></vaadin-vertical-layout>
+   <vaadin-horizontal-layout theme="spacing" style="width: 75%;" id="vaadinHorizontalLayout6">
+    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;" id="vaadinVerticalLayout4"></vaadin-vertical-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;">
-   <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%; height: 50%;">
-    <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha"></vaadin-date-picker>
-     <vaadin-button>
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinVerticalLayout5">
+   <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%; height: 50%;" id="vaadinHorizontalLayout7">
+    <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout6">
+     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha" id="fechaDeEdición"></vaadin-date-picker>
+     <vaadin-button id="vaadinButton1">
        Asignar fecha 
      </vaadin-button>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-    <vaadin-horizontal-layout theme="spacing">
-     <vaadin-button>
+   <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout7">
+    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout8">
+     <vaadin-button id="vaadinButton2">
        Añadir Álbum 
      </vaadin-button>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout theme="spacing">
-     <vaadin-button>
+    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout9">
+     <vaadin-button id="vaadinButton3">
        Volver atrás 
      </vaadin-button>
     </vaadin-horizontal-layout>
