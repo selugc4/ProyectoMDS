@@ -32,5 +32,29 @@ public class VistaCancion_mas_exitosa extends LitTemplate {
     public VistaCancion_mas_exitosa() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Label getLabel1() {
+		return label1;
+	}
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Image getImg() {
+		return img;
+	}
+	public void setImg(Image img) {
+		this.img = img;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
 
 }

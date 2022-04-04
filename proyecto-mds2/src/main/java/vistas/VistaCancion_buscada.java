@@ -35,5 +35,35 @@ public class VistaCancion_buscada extends LitTemplate {
     public VistaCancion_buscada() {
         // You can initialise any data required for the connected UI components here.
     }
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+	public Element getIronIcon() {
+		return ironIcon;
+	}
+	public void setIronIcon(Element ironIcon) {
+		this.ironIcon = ironIcon;
+	}
+	public Button getVaadinButton1() {
+		return vaadinButton1;
+	}
+	public void setVaadinButton1(Button vaadinButton1) {
+		this.vaadinButton1 = vaadinButton1;
+	}
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
 
 }

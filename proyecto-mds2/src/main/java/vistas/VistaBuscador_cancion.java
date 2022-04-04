@@ -31,4 +31,28 @@ public class VistaBuscador_cancion extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public Element getIronIcon() {
+		return ironIcon;
+	}
+
+	public void setIronIcon(Element ironIcon) {
+		this.ironIcon = ironIcon;
+	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public TextField getVaadinTextField() {
+		return vaadinTextField;
+	}
+
+	public void setVaadinTextField(TextField vaadinTextField) {
+		this.vaadinTextField = vaadinTextField;
+	}
+
 }

@@ -44,5 +44,59 @@ public class VistaCancion_con_imagen extends LitTemplate {
     public VistaCancion_con_imagen() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+	public Label getLabel1() {
+		return label1;
+	}
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public Image getImg() {
+		return img;
+	}
+	public void setImg(Image img) {
+		this.img = img;
+	}
+	public Label getLabel3() {
+		return label3;
+	}
+	public void setLabel3(Label label3) {
+		this.label3 = label3;
+	}
+	public Label getLabel2() {
+		return label2;
+	}
+	public void setLabel2(Label label2) {
+		this.label2 = label2;
+	}
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
+	public Element getIronIcon() {
+		return ironIcon;
+	}
+	public void setIronIcon(Element ironIcon) {
+		this.ironIcon = ironIcon;
+	}
 
 }

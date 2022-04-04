@@ -26,4 +26,12 @@ public class VistaDropdown_listas_de_reproduccion extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
 }

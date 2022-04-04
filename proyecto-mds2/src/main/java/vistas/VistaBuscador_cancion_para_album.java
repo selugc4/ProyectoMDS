@@ -32,5 +32,29 @@ public class VistaBuscador_cancion_para_album extends LitTemplate {
     public VistaBuscador_cancion_para_album() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+	public TextField getVaadinTextField() {
+		return vaadinTextField;
+	}
+	public void setVaadinTextField(TextField vaadinTextField) {
+		this.vaadinTextField = vaadinTextField;
+	}
+	public Element getIronIcon() {
+		return ironIcon;
+	}
+	public void setIronIcon(Element ironIcon) {
+		this.ironIcon = ironIcon;
+	}
 
 }

@@ -34,5 +34,35 @@ public class VistaCanciones_lista extends LitTemplate {
     public VistaCanciones_lista() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+	public Label getLabel1() {
+		return label1;
+	}
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
 
 }

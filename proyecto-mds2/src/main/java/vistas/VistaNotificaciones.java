@@ -26,4 +26,12 @@ public class VistaNotificaciones extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
 }

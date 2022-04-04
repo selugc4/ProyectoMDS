@@ -27,5 +27,17 @@ public class VistaBuscar_elementos extends LitTemplate {
     public VistaBuscar_elementos() {
         // You can initialise any data required for the connected UI components here.
     }
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
 
 }

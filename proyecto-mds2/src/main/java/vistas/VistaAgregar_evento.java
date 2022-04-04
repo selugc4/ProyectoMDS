@@ -43,4 +43,68 @@ public class VistaAgregar_evento extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
+
+	public Label getLabel1() {
+		return label1;
+	}
+
+	public void setLabel1(Label label1) {
+		this.label1 = label1;
+	}
+
+	public Select getVaadinSelect() {
+		return vaadinSelect;
+	}
+
+	public void setVaadinSelect(Select vaadinSelect) {
+		this.vaadinSelect = vaadinSelect;
+	}
+
+	public Element getVaadinListBox() {
+		return vaadinListBox;
+	}
+
+	public void setVaadinListBox(Element vaadinListBox) {
+		this.vaadinListBox = vaadinListBox;
+	}
+
+	public Element getVaadinItem() {
+		return vaadinItem;
+	}
+
+	public void setVaadinItem(Element vaadinItem) {
+		this.vaadinItem = vaadinItem;
+	}
+
+	public Element getVaadinItem1() {
+		return vaadinItem1;
+	}
+
+	public void setVaadinItem1(Element vaadinItem1) {
+		this.vaadinItem1 = vaadinItem1;
+	}
+
 }
