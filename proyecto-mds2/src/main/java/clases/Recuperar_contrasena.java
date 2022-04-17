@@ -8,19 +8,40 @@ public class Recuperar_contrasena extends vistas.VistaRecuperar_contrasena{
 //	public Iniciar_sesion _iniciar_sesion;
 //	public Verifcacion_de_recuperacion _verifcacion_de_recuperacion;
 
-	public void Validar_correo() {
-		throw new UnsupportedOperationException();
+//	public void Validar_correo() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void enviar_Correo() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void volverAtras() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void confirmarCorreo() {
+//		throw new UnsupportedOperationException();
+//	}
+	
+	public Verifcacion_de_recuperacion vr = new Verifcacion_de_recuperacion();
+	
+	public Recuperar_contrasena() {
+		
+		
+		
 	}
 
-	public void enviar_Correo() {
-		throw new UnsupportedOperationException();
+	public Verifcacion_de_recuperacion getVr() {
+		return vr;
 	}
-
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
+	
+	
+	public boolean existeCorreo() {
+		if(this.getTfCorreo().getValue().equals("prueba"))
+			return true;
+		else
+			return false;
 	}
-
-	public void confirmarCorreo() {
-		throw new UnsupportedOperationException();
-	}
+	
 }

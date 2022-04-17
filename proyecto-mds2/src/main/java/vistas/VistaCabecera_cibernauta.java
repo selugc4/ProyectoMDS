@@ -8,47 +8,24 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.button.Button;
 
 /**
- * A Designer generated component for the vista-cabecera_comun template.
+ * A Designer generated component for the vista-cabecera_cibernauta template.
  *
  * Designer will add and remove fields with @Id mappings but
  * does not overwrite or otherwise change this file.
  */
-@Tag("vista-cabecera_comun")
-@JsModule("./vista-cabecera_comun.ts")
-public class VistaCabecera_comun extends LitTemplate {
+@Tag("vista-cabecera_cibernauta")
+@JsModule("./vista-cabecera_cibernauta.ts")
+public class VistaCabecera_cibernauta extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("vaadinButton4")
-	private Button vaadinButton4;
-	@Id("ironIcon2")
-	private Element ironIcon2;
-	@Id("vaadinButton5")
-	private Button vaadinButton5;
-	@Id("ironIcon3")
-	private Element ironIcon3;
-	@Id("vaadinVerticalLayout")
+    @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("img")
-	private Image img;
 	@Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("vaadinVerticalLayout1")
@@ -57,159 +34,137 @@ public class VistaCabecera_comun extends LitTemplate {
 	private Label label;
 	@Id("label1")
 	private Label label1;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
 	@Id("label2")
 	private Label label2;
 	@Id("vaadinHorizontalLayout3")
 	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinTextField")
-	private TextField vaadinTextField;
+	@Id("vaadinHorizontalLayout5")
+	private HorizontalLayout vaadinHorizontalLayout5;
+	@Id("vaadinButton")
+	private Button vaadinButton;
+	@Id("vaadinButton1")
+	private Button vaadinButton1;
+	@Id("img")
+	private Image img;
 	/**
-     * Creates a new VistaCabecera_comun.
+     * Creates a new VistaCabecera_cibernauta.
      */
-    public VistaCabecera_comun() {
+    public VistaCabecera_cibernauta() {
         // You can initialise any data required for the connected UI components here.
     }
+
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
+
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
-	}
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
-	}
-	public Image getImg() {
-		return img;
-	}
-	public void setImg(Image img) {
-		this.img = img;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}
+
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+
+	public Image getImg() {
+		return img;
+	}
+
+	public void setImg(Image img) {
+		this.img = img;
+	}
+
 	public HorizontalLayout getVaadinHorizontalLayout2() {
 		return vaadinHorizontalLayout2;
 	}
+
 	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
 		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
 	}
+
 	public Element getVaadinVerticalLayout1() {
 		return vaadinVerticalLayout1;
 	}
+
 	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
+
 	public Label getLabel() {
 		return label;
 	}
+
 	public void setLabel(Label label) {
 		this.label = label;
 	}
+
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	}
+
 	public Label getLabel1() {
 		return label1;
 	}
+
 	public void setLabel1(Label label1) {
 		this.label1 = label1;
 	}
-	public Label getLabel2() {
-		return label2;
-	}
-	public void setLabel2(Label label2) {
-		this.label2 = label2;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout3() {
 		return vaadinHorizontalLayout3;
 	}
+
 	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
 		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
+
+	public Label getLabel2() {
+		return label2;
 	}
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
+
+	public void setLabel2(Label label2) {
+		this.label2 = label2;
 	}
-	public TextField getVaadinTextField() {
-		return vaadinTextField;
-	}
-	public void setVaadinTextField(TextField vaadinTextField) {
-		this.vaadinTextField = vaadinTextField;
-	}
-	public Element getIronIcon() {
-		return ironIcon;
-	}
-	public void setIronIcon(Element ironIcon) {
-		this.ironIcon = ironIcon;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout5() {
 		return vaadinHorizontalLayout5;
 	}
+
 	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
 		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
 	}
+
 	public Button getVaadinButton() {
 		return vaadinButton;
 	}
+
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
 	}
+
 	public Button getVaadinButton1() {
 		return vaadinButton1;
 	}
+
 	public void setVaadinButton1(Button vaadinButton1) {
 		this.vaadinButton1 = vaadinButton1;
-	}
-	public Button getVaadinButton3() {
-		return vaadinButton3;
-	}
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
-	}
-	public Element getIronIcon1() {
-		return ironIcon1;
-	}
-	public void setIronIcon1(Element ironIcon1) {
-		this.ironIcon1 = ironIcon1;
-	}
-	public Button getVaadinButton2() {
-		return vaadinButton2;
-	}
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
-	}
-	public Button getVaadinButton4() {
-		return vaadinButton4;
-	}
-	public void setVaadinButton4(Button vaadinButton4) {
-		this.vaadinButton4 = vaadinButton4;
-	}
-	public Element getIronIcon2() {
-		return ironIcon2;
-	}
-	public void setIronIcon2(Element ironIcon2) {
-		this.ironIcon2 = ironIcon2;
-	}
-	public Button getVaadinButton5() {
-		return vaadinButton5;
-	}
-	public void setVaadinButton5(Button vaadinButton5) {
-		this.vaadinButton5 = vaadinButton5;
-	}
-	public Element getIronIcon3() {
-		return ironIcon3;
-	}
-	public void setIronIcon3(Element ironIcon3) {
-		this.ironIcon3 = ironIcon3;
 	}
 
 }

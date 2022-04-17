@@ -19,31 +19,45 @@ public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 //	public Recuperar_contrasena _recuperar_contrase�a;
 //	public Registro _registro;
 
-	public void Validar_contrasena() {
-		throw new UnsupportedOperationException();
+//	public void Validar_contrasena() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Iniciar_sesion_con_terceros() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Validar_nombre_de_usuario() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void iniciarSesion() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void recuperarCuenta() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void registro() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void volverAtras() {
+//		throw new UnsupportedOperationException();
+//	}
+	
+	public Bloqueo_inicio_sesion bis = new Bloqueo_inicio_sesion();
+	public Recuperar_contrasena rc = new Recuperar_contrasena();
+	public boolean comprobarUsuario() {
+		return true;
 	}
-
-	public void Iniciar_sesion_con_terceros() {
-		throw new UnsupportedOperationException();
+	public Bloqueo_inicio_sesion getBis() {
+		return bis;
 	}
-
-	public void Validar_nombre_de_usuario() {
-		throw new UnsupportedOperationException();
+	public Recuperar_contrasena getRc() {
+		return rc;
 	}
-
-	public void iniciarSesion() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void recuperarCuenta() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void registro() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
-	}
+	
+	
 }

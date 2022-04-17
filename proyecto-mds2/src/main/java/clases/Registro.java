@@ -1,4 +1,7 @@
 package clases;
+
+import java.util.regex.Pattern;
+
 public class Registro extends vistas.VistaRegistro {
 //	private Label _titulo_Registro;
 //	private Label _emailL;
@@ -21,27 +24,63 @@ public class Registro extends vistas.VistaRegistro {
 //	public Cabecera_cibernauta _cabecera_cibernauta;
 //	public Verificacion_registro _verificacion_registro;
 
-	public void Validar_correo() {
-		throw new UnsupportedOperationException();
-	}
+//	public void Validar_correo() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Registrarse() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Validar_contrasena() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Elegir_foto() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Validar_nombre_de_usuario() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void volverAtras() {
+//		throw new UnsupportedOperationException();
 
-	public void Registrarse() {
-		throw new UnsupportedOperationException();
+//	}
+	
+	public Verificacion_registro vr = new Verificacion_registro();
+	
+	
+	public Verificacion_registro getVr() {
+		return vr;
 	}
+	public boolean validarRegistro() {
+		/*validarCorreo();
+		validarNombre();
+		validarContrasena();
+		confirmarContrasena();
+		*/
+		return true;
+	
+	}
+	public boolean validarContrasena(String pass) {
+		String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
+		if(pass.isEmpty() || pass.length() < 10) {
+			return false;
+		}else if (esMalsonante()){
+			boolean correcta = true;
+			for(int i = 0; i < pass.length(); i++) {
+				if(!Character.isLowerCase(pass.charAt(i)) && !Character.isLowerCase(pass.charAt(i)) && !Character.isDigit(pass.charAt(i))) {
+					correcta = false;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private boolean esMalsonante() {
+		return false;
+		}
 
-	public void Validar_contrasena() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Elegir_foto() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Validar_nombre_de_usuario() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
-	}
 }

@@ -18,7 +18,7 @@ export class VistaCabecera_comun extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; flex-direction: row; border-bottom: 1px solid black" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; border-bottom: 1px solid black;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;" id="vaadinHorizontalLayout">
   <vaadin-horizontal-layout id="vaadinHorizontalLayout1">
    <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
@@ -37,12 +37,6 @@ export class VistaCabecera_comun extends LitElement {
     </vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%; margin: var(--lumo-space-m);" id="vaadinHorizontalLayout5">
-    <vaadin-button style="width: 100%;" id="vaadinButton">
-      Registrarse 
-    </vaadin-button>
-    <vaadin-button style="width: 100%;" id="vaadinButton1">
-      Iniciar Sesión 
-    </vaadin-button>
     <vaadin-button style="width: 100%;" id="vaadinButton2">
       Administración 
     </vaadin-button>

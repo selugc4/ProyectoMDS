@@ -9,6 +9,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
+
+import clases.Cibernauta;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -40,7 +43,10 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-    
+
+    	Cibernauta ciber = new Cibernauta();
+    	add(ciber);
+    	
     }
 
 }

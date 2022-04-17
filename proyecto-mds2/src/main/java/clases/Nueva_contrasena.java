@@ -24,4 +24,20 @@ public class Nueva_contrasena extends vistas.VistaNueva_contrasena {
 	public void volverAtras() {
 		throw new UnsupportedOperationException();
 	}
+
+	public boolean passIguales() {
+		if(this.getTfPass().getValue().equals(this.getTfPassC().getValue()))
+			return true;
+		else
+			return false;
+	
+	}
+
+	public boolean passValida() {
+		if(this.getTfPass().getValue().equals("pass"))
+			return true;
+		else
+			return false;
+		
+	}
 }

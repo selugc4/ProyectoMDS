@@ -24,94 +24,88 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./vista-registro.ts")
 public class VistaRegistro extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vaadinVerticalLayout1")
-	private Element vaadinVerticalLayout1;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label")
-	private Label label;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("label1")
-	private Label label1;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("required")
-	private TextField required;
-	@Id("label2")
-	private Label label2;
-	@Id("required1")
-	private TextField required1;
-	@Id("vaadinVerticalLayout3")
-	private Element vaadinVerticalLayout3;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("label3")
-	private Label label3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("label4")
-	private Label label4;
-	@Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("label5")
-	private Label label5;
-	@Id("vaadinHorizontalLayout6")
-	private HorizontalLayout vaadinHorizontalLayout6;
-	@Id("label6")
-	private Label label6;
-	@Id("contraseña")
-	private PasswordField contraseña;
-	@Id("vaadinVerticalLayout4")
-	private Element vaadinVerticalLayout4;
-	@Id("vaadinHorizontalLayout7")
-	private HorizontalLayout vaadinHorizontalLayout7;
-	@Id("label7")
-	private Label label7;
-	@Id("vaadinHorizontalLayout8")
-	private HorizontalLayout vaadinHorizontalLayout8;
-	@Id("label8")
-	private Label label8;
-	@Id("vaadinVerticalLayout5")
-	private Element vaadinVerticalLayout5;
-	@Id("vaadinHorizontalLayout9")
-	private HorizontalLayout vaadinHorizontalLayout9;
+  
+
+	@Id("verticalPrincipal")
+	private Element verticalPrincipal;
+	@Id("verticalContenedor")
+	private Element verticalContenedor;
+	@Id("horizontalTitulo")
+	private HorizontalLayout horizontalTitulo;
+	@Id("tituloRegistro")
+	private Label tituloRegistro;
+	@Id("horizontalEmail")
+	private HorizontalLayout horizontalEmail;
+	@Id("labelEmail")
+	private Label labelEmail;
+	@Id("tfemail")
+	private TextField tfemail;
+	@Id("horizontalUsuario")
+	private HorizontalLayout horizontalUsuario;
+	@Id("labelUsuario")
+	private Label labelUsuario;
+	@Id("tfusuario")
+	private TextField tfusuario;
+	@Id("vertticalMalsonantes")
+	private Element vertticalMalsonantes;
+	@Id("labelMalsonante1")
+	private Label labelMalsonante1;
+	@Id("labelMalsonante2")
+	private Label labelMalsonante2;
+	@Id("labelMalsonante3")
+	private Label labelMalsonante3;
+	@Id("horizontalcontrasena")
+	private HorizontalLayout horizontalcontrasena;
+	@Id("labelPass")
+	private Label labelPass;
+	@Id("verticalcaracteres")
+	private Element verticalcaracteres;
+	@Id("horizontalcarac1")
+	private HorizontalLayout horizontalcarac1;
+	@Id("tfcontrasena1")
+	private PasswordField tfcontrasena1;
+	@Id("labelcaracteres1")
+	private Label labelcaracteres1;
+	@Id("horizontalcarac2")
+	private HorizontalLayout horizontalcarac2;
+	@Id("labelcaracteres11")
+	private Label labelcaracteres11;
+	@Id("verticalSeguridad")
+	private Element verticalSeguridad;
+	@Id("horizontalbarra")
+	private HorizontalLayout horizontalbarra;
 	@Id("vaadinProgressBar")
 	private ProgressBar vaadinProgressBar;
-	@Id("vaadinHorizontalLayout10")
-	private HorizontalLayout vaadinHorizontalLayout10;
-	@Id("label9")
-	private Label label9;
-	@Id("vaadinHorizontalLayout11")
-	private HorizontalLayout vaadinHorizontalLayout11;
-	@Id("label10")
-	private Label label10;
-	@Id("contraseña1")
-	private PasswordField contraseña1;
-	@Id("vaadinHorizontalLayout12")
-	private HorizontalLayout vaadinHorizontalLayout12;
-	@Id("label11")
-	private Label label11;
-	@Id("vaadinHorizontalLayout13")
-	private HorizontalLayout vaadinHorizontalLayout13;
+	@Id("horizontalNivel")
+	private HorizontalLayout horizontalNivel;
+	@Id("NivelSec")
+	private Label nivelSec;
+	@Id("horizontalccontrasena")
+	private HorizontalLayout horizontalccontrasena;
+	@Id("labelConfPass")
+	private Label labelConfPass;
+	@Id("tfccontrasena")
+	private PasswordField tfccontrasena;
+	@Id("horizontalFoto")
+	private HorizontalLayout horizontalFoto;
+	@Id("labelfoto")
+	private Label labelfoto;
+	@Id("horizontalUpload")
+	private HorizontalLayout horizontalUpload;
 	@Id("vaadinUpload")
 	private Upload vaadinUpload;
-	@Id("vaadinHorizontalLayout14")
-	private HorizontalLayout vaadinHorizontalLayout14;
-	@Id("vaadinHorizontalLayout15")
-	private HorizontalLayout vaadinHorizontalLayout15;
+	@Id("horizontalimg")
+	private HorizontalLayout horizontalimg;
 	@Id("img")
 	private Image img;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinHorizontalLayout16")
-	private HorizontalLayout vaadinHorizontalLayout16;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
+	@Id("horizontalRegistrarse")
+	private HorizontalLayout horizontalRegistrarse;
+	@Id("botonRegistro")
+	private Button botonRegistro;
+	@Id("horizontalAtras")
+	private HorizontalLayout horizontalAtras;
+	@Id("botonVolver")
+	private Button botonVolver;
 
 	/**
      * Creates a new VistaRegistro.
@@ -120,228 +114,196 @@ public class VistaRegistro extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	public Element getVerticalPrincipal() {
+		return verticalPrincipal;
 	}
 
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setVerticalPrincipal(Element verticalPrincipal) {
+		this.verticalPrincipal = verticalPrincipal;
 	}
 
-	public Element getVaadinVerticalLayout1() {
-		return vaadinVerticalLayout1;
+	public Element getVerticalContenedor() {
+		return verticalContenedor;
 	}
 
-	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
-		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	public void setVerticalContenedor(Element verticalContenedor) {
+		this.verticalContenedor = verticalContenedor;
 	}
 
-	public Element getVaadinVerticalLayout2() {
-		return vaadinVerticalLayout2;
+	public HorizontalLayout getHorizontalTitulo() {
+		return horizontalTitulo;
 	}
 
-	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
-		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	public void setHorizontalTitulo(HorizontalLayout horizontalTitulo) {
+		this.horizontalTitulo = horizontalTitulo;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
+	public Label getTituloRegistro() {
+		return tituloRegistro;
 	}
 
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	public void setTituloRegistro(Label tituloRegistro) {
+		this.tituloRegistro = tituloRegistro;
 	}
 
-	public Label getLabel() {
-		return label;
+	public HorizontalLayout getHorizontalEmail() {
+		return horizontalEmail;
 	}
 
-	public void setLabel(Label label) {
-		this.label = label;
+	public void setHorizontalEmail(HorizontalLayout horizontalEmail) {
+		this.horizontalEmail = horizontalEmail;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
+	public Label getLabelEmail() {
+		return labelEmail;
 	}
 
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	public void setLabelEmail(Label labelEmail) {
+		this.labelEmail = labelEmail;
 	}
 
-	public Label getLabel1() {
-		return label1;
+	public TextField getTfemail() {
+		return tfemail;
 	}
 
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
+	public void setTfemail(TextField tfemail) {
+		this.tfemail = tfemail;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout2() {
-		return vaadinHorizontalLayout2;
+	public HorizontalLayout getHorizontalUsuario() {
+		return horizontalUsuario;
 	}
 
-	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
-		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
+	public void setHorizontalUsuario(HorizontalLayout horizontalUsuario) {
+		this.horizontalUsuario = horizontalUsuario;
 	}
 
-	public TextField getRequired() {
-		return required;
+	public Label getLabelUsuario() {
+		return labelUsuario;
 	}
 
-	public void setRequired(TextField required) {
-		this.required = required;
+	public void setLabelUsuario(Label labelUsuario) {
+		this.labelUsuario = labelUsuario;
 	}
 
-	public Label getLabel2() {
-		return label2;
+	public TextField getTfusuario() {
+		return tfusuario;
 	}
 
-	public void setLabel2(Label label2) {
-		this.label2 = label2;
+	public void setTfusuario(TextField tfusuario) {
+		this.tfusuario = tfusuario;
 	}
 
-	public TextField getRequired1() {
-		return required1;
+	public Element getVertticalMalsonantes() {
+		return vertticalMalsonantes;
 	}
 
-	public void setRequired1(TextField required1) {
-		this.required1 = required1;
+	public void setVertticalMalsonantes(Element vertticalMalsonantes) {
+		this.vertticalMalsonantes = vertticalMalsonantes;
 	}
 
-	public Element getVaadinVerticalLayout3() {
-		return vaadinVerticalLayout3;
+	public Label getLabelMalsonante1() {
+		return labelMalsonante1;
 	}
 
-	public void setVaadinVerticalLayout3(Element vaadinVerticalLayout3) {
-		this.vaadinVerticalLayout3 = vaadinVerticalLayout3;
+	public void setLabelMalsonante1(Label labelMalsonante1) {
+		this.labelMalsonante1 = labelMalsonante1;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout3() {
-		return vaadinHorizontalLayout3;
+	public Label getLabelMalsonante2() {
+		return labelMalsonante2;
 	}
 
-	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
-		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
+	public void setLabelMalsonante2(Label labelMalsonante2) {
+		this.labelMalsonante2 = labelMalsonante2;
 	}
 
-	public Label getLabel3() {
-		return label3;
+	public Label getLabelMalsonante3() {
+		return labelMalsonante3;
 	}
 
-	public void setLabel3(Label label3) {
-		this.label3 = label3;
+	public void setLabelMalsonante3(Label labelMalsonante3) {
+		this.labelMalsonante3 = labelMalsonante3;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
+	public HorizontalLayout getHorizontalcontrasena() {
+		return horizontalcontrasena;
 	}
 
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
+	public void setHorizontalcontrasena(HorizontalLayout horizontalcontrasena) {
+		this.horizontalcontrasena = horizontalcontrasena;
 	}
 
-	public Label getLabel4() {
-		return label4;
+	public Label getLabelPass() {
+		return labelPass;
 	}
 
-	public void setLabel4(Label label4) {
-		this.label4 = label4;
+	public void setLabelPass(Label labelPass) {
+		this.labelPass = labelPass;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout5() {
-		return vaadinHorizontalLayout5;
+	public Element getVerticalcaracteres() {
+		return verticalcaracteres;
 	}
 
-	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
-		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
+	public void setVerticalcaracteres(Element verticalcaracteres) {
+		this.verticalcaracteres = verticalcaracteres;
 	}
 
-	public Label getLabel5() {
-		return label5;
+	public HorizontalLayout getHorizontalcarac1() {
+		return horizontalcarac1;
 	}
 
-	public void setLabel5(Label label5) {
-		this.label5 = label5;
+	public void setHorizontalcarac1(HorizontalLayout horizontalcarac1) {
+		this.horizontalcarac1 = horizontalcarac1;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout6() {
-		return vaadinHorizontalLayout6;
+	public PasswordField getTfcontrasena1() {
+		return tfcontrasena1;
 	}
 
-	public void setVaadinHorizontalLayout6(HorizontalLayout vaadinHorizontalLayout6) {
-		this.vaadinHorizontalLayout6 = vaadinHorizontalLayout6;
+	public void setTfcontrasena1(PasswordField tfcontrasena1) {
+		this.tfcontrasena1 = tfcontrasena1;
 	}
 
-	public Label getLabel6() {
-		return label6;
+	public Label getLabelcaracteres1() {
+		return labelcaracteres1;
 	}
 
-	public void setLabel6(Label label6) {
-		this.label6 = label6;
+	public void setLabelcaracteres1(Label labelcaracteres1) {
+		this.labelcaracteres1 = labelcaracteres1;
 	}
 
-	public PasswordField getContraseña() {
-		return contraseña;
+	public HorizontalLayout getHorizontalcarac2() {
+		return horizontalcarac2;
 	}
 
-	public void setContraseña(PasswordField contraseña) {
-		this.contraseña = contraseña;
+	public void setHorizontalcarac2(HorizontalLayout horizontalcarac2) {
+		this.horizontalcarac2 = horizontalcarac2;
 	}
 
-	public Element getVaadinVerticalLayout4() {
-		return vaadinVerticalLayout4;
+	public Label getLabelcaracteres11() {
+		return labelcaracteres11;
 	}
 
-	public void setVaadinVerticalLayout4(Element vaadinVerticalLayout4) {
-		this.vaadinVerticalLayout4 = vaadinVerticalLayout4;
+	public void setLabelcaracteres11(Label labelcaracteres11) {
+		this.labelcaracteres11 = labelcaracteres11;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout7() {
-		return vaadinHorizontalLayout7;
+	public Element getVerticalSeguridad() {
+		return verticalSeguridad;
 	}
 
-	public void setVaadinHorizontalLayout7(HorizontalLayout vaadinHorizontalLayout7) {
-		this.vaadinHorizontalLayout7 = vaadinHorizontalLayout7;
+	public void setVerticalSeguridad(Element verticalSeguridad) {
+		this.verticalSeguridad = verticalSeguridad;
 	}
 
-	public Label getLabel7() {
-		return label7;
+	public HorizontalLayout getHorizontalbarra() {
+		return horizontalbarra;
 	}
 
-	public void setLabel7(Label label7) {
-		this.label7 = label7;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout8() {
-		return vaadinHorizontalLayout8;
-	}
-
-	public void setVaadinHorizontalLayout8(HorizontalLayout vaadinHorizontalLayout8) {
-		this.vaadinHorizontalLayout8 = vaadinHorizontalLayout8;
-	}
-
-	public Label getLabel8() {
-		return label8;
-	}
-
-	public void setLabel8(Label label8) {
-		this.label8 = label8;
-	}
-
-	public Element getVaadinVerticalLayout5() {
-		return vaadinVerticalLayout5;
-	}
-
-	public void setVaadinVerticalLayout5(Element vaadinVerticalLayout5) {
-		this.vaadinVerticalLayout5 = vaadinVerticalLayout5;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout9() {
-		return vaadinHorizontalLayout9;
-	}
-
-	public void setVaadinHorizontalLayout9(HorizontalLayout vaadinHorizontalLayout9) {
-		this.vaadinHorizontalLayout9 = vaadinHorizontalLayout9;
+	public void setHorizontalbarra(HorizontalLayout horizontalbarra) {
+		this.horizontalbarra = horizontalbarra;
 	}
 
 	public ProgressBar getVaadinProgressBar() {
@@ -352,68 +314,68 @@ public class VistaRegistro extends LitTemplate {
 		this.vaadinProgressBar = vaadinProgressBar;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout10() {
-		return vaadinHorizontalLayout10;
+	public HorizontalLayout getHorizontalNivel() {
+		return horizontalNivel;
 	}
 
-	public void setVaadinHorizontalLayout10(HorizontalLayout vaadinHorizontalLayout10) {
-		this.vaadinHorizontalLayout10 = vaadinHorizontalLayout10;
+	public void setHorizontalNivel(HorizontalLayout horizontalNivel) {
+		this.horizontalNivel = horizontalNivel;
 	}
 
-	public Label getLabel9() {
-		return label9;
+	public Label getNivelSec() {
+		return nivelSec;
 	}
 
-	public void setLabel9(Label label9) {
-		this.label9 = label9;
+	public void setNivelSec(Label nivelSec) {
+		this.nivelSec = nivelSec;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout11() {
-		return vaadinHorizontalLayout11;
+	public HorizontalLayout getHorizontalccontrasena() {
+		return horizontalccontrasena;
 	}
 
-	public void setVaadinHorizontalLayout11(HorizontalLayout vaadinHorizontalLayout11) {
-		this.vaadinHorizontalLayout11 = vaadinHorizontalLayout11;
+	public void setHorizontalccontrasena(HorizontalLayout horizontalccontrasena) {
+		this.horizontalccontrasena = horizontalccontrasena;
 	}
 
-	public Label getLabel10() {
-		return label10;
+	public Label getLabelConfPass() {
+		return labelConfPass;
 	}
 
-	public void setLabel10(Label label10) {
-		this.label10 = label10;
+	public void setLabelConfPass(Label labelConfPass) {
+		this.labelConfPass = labelConfPass;
 	}
 
-	public PasswordField getContraseña1() {
-		return contraseña1;
+	public PasswordField getTfccontrasena() {
+		return tfccontrasena;
 	}
 
-	public void setContraseña1(PasswordField contraseña1) {
-		this.contraseña1 = contraseña1;
+	public void setTfccontrasena(PasswordField tfccontrasena) {
+		this.tfccontrasena = tfccontrasena;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout12() {
-		return vaadinHorizontalLayout12;
+	public HorizontalLayout getHorizontalFoto() {
+		return horizontalFoto;
 	}
 
-	public void setVaadinHorizontalLayout12(HorizontalLayout vaadinHorizontalLayout12) {
-		this.vaadinHorizontalLayout12 = vaadinHorizontalLayout12;
+	public void setHorizontalFoto(HorizontalLayout horizontalFoto) {
+		this.horizontalFoto = horizontalFoto;
 	}
 
-	public Label getLabel11() {
-		return label11;
+	public Label getLabelfoto() {
+		return labelfoto;
 	}
 
-	public void setLabel11(Label label11) {
-		this.label11 = label11;
+	public void setLabelfoto(Label labelfoto) {
+		this.labelfoto = labelfoto;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout13() {
-		return vaadinHorizontalLayout13;
+	public HorizontalLayout getHorizontalUpload() {
+		return horizontalUpload;
 	}
 
-	public void setVaadinHorizontalLayout13(HorizontalLayout vaadinHorizontalLayout13) {
-		this.vaadinHorizontalLayout13 = vaadinHorizontalLayout13;
+	public void setHorizontalUpload(HorizontalLayout horizontalUpload) {
+		this.horizontalUpload = horizontalUpload;
 	}
 
 	public Upload getVaadinUpload() {
@@ -424,20 +386,12 @@ public class VistaRegistro extends LitTemplate {
 		this.vaadinUpload = vaadinUpload;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout14() {
-		return vaadinHorizontalLayout14;
+	public HorizontalLayout getHorizontalimg() {
+		return horizontalimg;
 	}
 
-	public void setVaadinHorizontalLayout14(HorizontalLayout vaadinHorizontalLayout14) {
-		this.vaadinHorizontalLayout14 = vaadinHorizontalLayout14;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout15() {
-		return vaadinHorizontalLayout15;
-	}
-
-	public void setVaadinHorizontalLayout15(HorizontalLayout vaadinHorizontalLayout15) {
-		this.vaadinHorizontalLayout15 = vaadinHorizontalLayout15;
+	public void setHorizontalimg(HorizontalLayout horizontalimg) {
+		this.horizontalimg = horizontalimg;
 	}
 
 	public Image getImg() {
@@ -448,28 +402,40 @@ public class VistaRegistro extends LitTemplate {
 		this.img = img;
 	}
 
-	public Button getVaadinButton() {
-		return vaadinButton;
+	
+
+	public HorizontalLayout getHorizontalRegistrarse() {
+		return horizontalRegistrarse;
 	}
 
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
+	public void setHorizontalRegistrarse(HorizontalLayout horizontalRegistrarse) {
+		this.horizontalRegistrarse = horizontalRegistrarse;
 	}
 
-	public HorizontalLayout getVaadinHorizontalLayout16() {
-		return vaadinHorizontalLayout16;
+	public Button getBotonRegistro() {
+		return botonRegistro;
 	}
 
-	public void setVaadinHorizontalLayout16(HorizontalLayout vaadinHorizontalLayout16) {
-		this.vaadinHorizontalLayout16 = vaadinHorizontalLayout16;
+	public void setBotonRegistro(Button botonRegistro) {
+		this.botonRegistro = botonRegistro;
 	}
 
-	public Button getVaadinButton1() {
-		return vaadinButton1;
+	public HorizontalLayout getHorizontalAtras() {
+		return horizontalAtras;
 	}
 
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
+	public void setHorizontalAtras(HorizontalLayout horizontalAtras) {
+		this.horizontalAtras = horizontalAtras;
 	}
+
+	public Button getBotonVolver() {
+		return botonVolver;
+	}
+
+	public void setBotonVolver(Button botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+
+	
 
 }

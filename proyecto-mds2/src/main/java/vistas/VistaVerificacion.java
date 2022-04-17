@@ -21,212 +21,142 @@ import com.vaadin.flow.component.textfield.PasswordField;
 @JsModule("./vista-verificacion.ts")
 public class VistaVerificacion extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vaadinVerticalLayout1")
-	private Element vaadinVerticalLayout1;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label")
-	private Label label;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("label1")
-	private Label label1;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("label2")
-	private Label label2;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("label3")
-	private Label label3;
-	@Id("vaadinTextField")
-	private TextField vaadinTextField;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("contraseA")
-	private PasswordField contraseA;
+	@Id("vertical")
+	private Element vertical;
+	@Id("verticalContenedor")
+	private Element verticalContenedor;
+	@Id("horizontalTitulo")
+	private HorizontalLayout horizontalTitulo;
+	@Id("labelTitulo")
+	private Label labelTitulo;
+	@Id("verticalDescripciones")
+	private Element verticalDescripciones;
+	@Id("horizontalDesc1")
+	private HorizontalLayout horizontalDesc1;
+	@Id("labelDesc1")
+	private Label labelDesc1;
+	@Id("horizontalDesc2")
+	private HorizontalLayout horizontalDesc2;
+	@Id("labelDesc2")
+	private Label labelDesc2;
+	@Id("horizontalCodigo")
+	private HorizontalLayout horizontalCodigo;
+	@Id("labelCodigo")
+	private Label labelCodigo;
+	@Id("tfCodigo")
+	private TextField tfCodigo;
+	@Id("botonVolverEnviar")
+	private Button botonVolverEnviar;
 	@Id("vaadinHorizontalLayout6")
 	private HorizontalLayout vaadinHorizontalLayout6;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
-
-	/**
-     * Creates a new VistaVerificacion.
-     */
-    public VistaVerificacion() {
-        // You can initialise any data required for the connected UI components here.
-    }
-
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+	@Id("botonVolver")
+	private Button botonVolver;
+	@Id("botonAceptar")
+	private Button botonAceptar;
+	@Id("botonCContrasena")
+	private Button botonCContrasena;
+	public Element getVertical() {
+		return vertical;
 	}
-
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setVertical(Element vertical) {
+		this.vertical = vertical;
 	}
-
-	public Element getVaadinVerticalLayout1() {
-		return vaadinVerticalLayout1;
+	public Element getVerticalContenedor() {
+		return verticalContenedor;
 	}
-
-	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
-		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	public void setVerticalContenedor(Element verticalContenedor) {
+		this.verticalContenedor = verticalContenedor;
 	}
-
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
+	public HorizontalLayout getHorizontalTitulo() {
+		return horizontalTitulo;
 	}
-
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	public void setHorizontalTitulo(HorizontalLayout horizontalTitulo) {
+		this.horizontalTitulo = horizontalTitulo;
 	}
-
-	public Label getLabel() {
-		return label;
+	public Label getLabelTitulo() {
+		return labelTitulo;
 	}
-
-	public void setLabel(Label label) {
-		this.label = label;
+	public void setLabelTitulo(Label labelTitulo) {
+		this.labelTitulo = labelTitulo;
 	}
-
-	public Element getVaadinVerticalLayout2() {
-		return vaadinVerticalLayout2;
+	public Element getVerticalDescripciones() {
+		return verticalDescripciones;
 	}
-
-	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
-		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	public void setVerticalDescripciones(Element verticalDescripciones) {
+		this.verticalDescripciones = verticalDescripciones;
 	}
-
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
+	public HorizontalLayout getHorizontalDesc1() {
+		return horizontalDesc1;
 	}
-
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	public void setHorizontalDesc1(HorizontalLayout horizontalDesc1) {
+		this.horizontalDesc1 = horizontalDesc1;
 	}
-
-	public Label getLabel1() {
-		return label1;
+	public Label getLabelDesc1() {
+		return labelDesc1;
 	}
-
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
+	public void setLabelDesc1(Label labelDesc1) {
+		this.labelDesc1 = labelDesc1;
 	}
-
-	public HorizontalLayout getVaadinHorizontalLayout2() {
-		return vaadinHorizontalLayout2;
+	public HorizontalLayout getHorizontalDesc2() {
+		return horizontalDesc2;
 	}
-
-	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
-		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
+	public void setHorizontalDesc2(HorizontalLayout horizontalDesc2) {
+		this.horizontalDesc2 = horizontalDesc2;
 	}
-
-	public Label getLabel2() {
-		return label2;
+	public Label getLabelDesc2() {
+		return labelDesc2;
 	}
-
-	public void setLabel2(Label label2) {
-		this.label2 = label2;
+	public void setLabelDesc2(Label labelDesc2) {
+		this.labelDesc2 = labelDesc2;
 	}
-
-	public HorizontalLayout getVaadinHorizontalLayout3() {
-		return vaadinHorizontalLayout3;
+	public HorizontalLayout getHorizontalCodigo() {
+		return horizontalCodigo;
 	}
-
-	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
-		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
+	public void setHorizontalCodigo(HorizontalLayout horizontalCodigo) {
+		this.horizontalCodigo = horizontalCodigo;
 	}
-
-	public Label getLabel3() {
-		return label3;
+	public Label getLabelCodigo() {
+		return labelCodigo;
 	}
-
-	public void setLabel3(Label label3) {
-		this.label3 = label3;
+	public void setLabelCodigo(Label labelCodigo) {
+		this.labelCodigo = labelCodigo;
 	}
-
-	public TextField getVaadinTextField() {
-		return vaadinTextField;
+	public TextField getTfCodigo() {
+		return tfCodigo;
 	}
-
-	public void setVaadinTextField(TextField vaadinTextField) {
-		this.vaadinTextField = vaadinTextField;
+	public void setTfCodigo(TextField tfCodigo) {
+		this.tfCodigo = tfCodigo;
 	}
-
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
+	public Button getBotonVolverEnviar() {
+		return botonVolverEnviar;
 	}
-
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
+	public void setBotonVolverEnviar(Button botonVolverEnviar) {
+		this.botonVolverEnviar = botonVolverEnviar;
 	}
-
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
-
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout5() {
-		return vaadinHorizontalLayout5;
-	}
-
-	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
-		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
-	}
-
-	public PasswordField getContraseA() {
-		return contraseA;
-	}
-
-	public void setContraseA(PasswordField contraseA) {
-		this.contraseA = contraseA;
-	}
-
 	public HorizontalLayout getVaadinHorizontalLayout6() {
 		return vaadinHorizontalLayout6;
 	}
-
 	public void setVaadinHorizontalLayout6(HorizontalLayout vaadinHorizontalLayout6) {
 		this.vaadinHorizontalLayout6 = vaadinHorizontalLayout6;
 	}
-
-	public Button getVaadinButton1() {
-		return vaadinButton1;
+	public Button getBotonVolver() {
+		return botonVolver;
+	}
+	public void setBotonVolver(Button botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+	public Button getBotonAceptar() {
+		return botonAceptar;
+	}
+	public void setBotonAceptar(Button botonAceptar) {
+		this.botonAceptar = botonAceptar;
+	}
+	public Button getBotonCContrasena() {
+		return botonCContrasena;
+	}
+	public void setBotonCContrasena(Button botonCContrasena) {
+		this.botonCContrasena = botonCContrasena;
 	}
 
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
-	}
-
-	public Button getVaadinButton2() {
-		return vaadinButton2;
-	}
-
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
-	}
-
-	public Button getVaadinButton3() {
-		return vaadinButton3;
-	}
-
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
-	}
-
+    
 }
