@@ -2,6 +2,11 @@ package clases;
 
 import java.util.regex.Pattern;
 
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.SucceededEvent;
+
 public class Registro extends vistas.VistaRegistro {
 //	private Label _titulo_Registro;
 //	private Label _emailL;
@@ -55,32 +60,50 @@ public class Registro extends vistas.VistaRegistro {
 	public Verificacion_registro getVr() {
 		return vr;
 	}
-	public boolean validarRegistro() {
-		/*validarCorreo();
-		validarNombre();
-		validarContrasena();
-		confirmarContrasena();
-		*/
-		return true;
+	
+	public Registro() {
+		this.getStyle().set("width", "100%" );
 	
 	}
+	public boolean validarRegistro() {
+		if(validarCorreo(this.getTfemail().getValue()) && validarNombre(this.getTfusuario().getValue()) && validarContrasena(this.getTfcontrasena1().getValue()) && this.getTfccontrasena().getValue().equals(this.getTfcontrasena1().getValue()))
+			return true;
+		else
+			return false;
+	
+	}
+	
+	
+
+	private boolean validarNombre(String value) {
+		return true;
+	}
+
+	private boolean validarCorreo(String value) {
+		return true;
+	}
+
+
 	public boolean validarContrasena(String pass) {
 		String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
 		if(pass.isEmpty() || pass.length() < 10) {
 			return false;
-		}else if (esMalsonante()){
+		}else if (!esMalsonante()){
 			boolean correcta = true;
-			for(int i = 0; i < pass.length(); i++) {
+			/*for(int i = 0; i < pass.length(); i++) {
 				if(!Character.isLowerCase(pass.charAt(i)) && !Character.isLowerCase(pass.charAt(i)) && !Character.isDigit(pass.charAt(i))) {
 					correcta = false;
 				}
-			}
+			}*/
+			return correcta;
 		}
-		return false;
+		return true;
 	}
 	
 	private boolean esMalsonante() {
 		return false;
 		}
+	
+
 
 }

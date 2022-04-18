@@ -22,6 +22,7 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 
 	void inicializar() {
 		Cargar_Ultimos_Exitos();
+		this.getStyle().set("width", "100%");
 		// TODO Auto-generated method stub
 		
 	}

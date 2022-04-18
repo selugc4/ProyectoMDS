@@ -41,7 +41,7 @@ export class VistaRegistro extends LitElement {
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 100%; align-self: flex-start; align-items: center;" id="horizontalcontrasena">
    <label style="width: 100%;" id="labelPass">Contraseña*</label>
-   <vaadin-password-field label="Contraseña" placeholder="Enter password" style="flex-grow: 0; flex-shrink: 1; width: 100%;" minlength="10" has-value id="tfcontrasena1"></vaadin-password-field>
+   <vaadin-password-field placeholder="Contraseña" style="flex-grow: 0; flex-shrink: 1; width: 100%;" minlength="10" has-value id="tfcontrasena1"></vaadin-password-field>
   </vaadin-horizontal-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: flex-end; flex-grow: 0; flex-shrink: 1; align-items: center;" id="verticalcaracteres">
    <vaadin-horizontal-layout theme="spacing" id="horizontalcarac1">

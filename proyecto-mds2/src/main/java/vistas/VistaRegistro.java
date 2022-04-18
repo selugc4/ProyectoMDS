@@ -106,7 +106,6 @@ public class VistaRegistro extends LitTemplate {
 	private HorizontalLayout horizontalAtras;
 	@Id("botonVolver")
 	private Button botonVolver;
-
 	/**
      * Creates a new VistaRegistro.
      */

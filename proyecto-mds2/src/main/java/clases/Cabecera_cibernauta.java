@@ -31,7 +31,7 @@ public class Cabecera_cibernauta extends vistas.VistaCabecera_cibernauta {
 	public Registro reg = new Registro();
 	
 	public Cabecera_cibernauta() {
-		
+		this.getStyle().set("width", "100%");
 		}
 	
 	void registrarse() {

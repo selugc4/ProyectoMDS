@@ -5,6 +5,8 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Cibernauta extends vistas.VistaCibernauta {
@@ -17,6 +19,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
 	public Cibernauta() {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		
 		v1.add(cc);
 		v1.add(ue);
 		v1.add(rcs);
@@ -42,12 +45,13 @@ public class Cibernauta extends vistas.VistaCibernauta {
 				v1.removeAll();
 				v1.add(cc);
 				v1.add(cc.getReg());
+				v1.addAndExpand(cc, cc.getReg());
 				v1.add(rcs);
 				
 			}
 		});
 		
-		//REGISTRARSE
+		//REGISTRARSE 
 		cc.getReg().getBotonRegistro().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -249,6 +253,18 @@ public class Cibernauta extends vistas.VistaCibernauta {
 				
 			}
 		});
+		
 	}
+	public Cabecera_cibernauta getCc() {
+		return cc;
+	}
+	public Ultimos_exitos getUe() {
+		return ue;
+	}
+	public static Reproductor_canciones_simple getRcs() {
+		return rcs;
+	}
+	
+	
 	
 	}

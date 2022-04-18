@@ -1,16 +1,23 @@
 package proyectoMDS2;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import clases.Administrador;
+import clases.Artista;
 import clases.Cibernauta;
+import clases.Iniciar_sesion;
+import clases.Usuario_registrado;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,6 +40,7 @@ import org.springframework.beans.factory.annotation.Autowired;
         enableInstallPrompt = false)
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
+
 public class MainView extends VerticalLayout {
 
     /**
@@ -43,10 +51,38 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-
+    	
     	Cibernauta ciber = new Cibernauta();
     	add(ciber);
-    	
+    	this.getStyle().set("width", "100%");
+    
+    	Iniciar_sesion is = ciber.getCc().getIs();
+    	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
+					if(is.getTfUsuario().getValue().equals("usuario")) {
+						Usuario_registrado user = new Usuario_registrado();
+						remove(ciber);
+						add(user);
+					}else if(is.getTfUsuario().getValue().equals("artista")) {
+						Artista artista = new Artista();
+						remove(ciber);
+						add(artista);
+					}else if(is.getTfUsuario().getValue().equals("admin")) {
+						Administrador admin = new Administrador();
+						remove(ciber);
+						add(admin);
+					}else
+						Notification.show("Se ha producido un error");
+				
+					
+				}else
+					Notification.show("Se ha producido un error");
+				
+			}
+		});
     }
 
 }

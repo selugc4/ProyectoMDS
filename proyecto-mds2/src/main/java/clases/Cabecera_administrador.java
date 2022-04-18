@@ -6,7 +6,9 @@ public class Cabecera_administrador extends Cabecera_comun {
 //	public Ver_perfil_propio _ver_perfil_propio;
 //	public Vista_administracion _vista_administracion;
 
-	public void ventanaAdministracion() {
-		throw new UnsupportedOperationException();
-	}
+	public Vista_administracion vadmin = new Vista_administracion();
+	public Buscador_administrador badmin = new Buscador_administrador();
+//	public void ventanaAdministracion() {
+//		throw new UnsupportedOperationException();
+//	}
 }
