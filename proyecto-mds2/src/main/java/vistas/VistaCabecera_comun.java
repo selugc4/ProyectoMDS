@@ -21,69 +21,68 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./vista-cabecera_comun.ts")
 public class VistaCabecera_comun extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
-	@Id("ironIcon1")
-	private Element ironIcon1;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
-	@Id("vaadinButton4")
-	private Button vaadinButton4;
-	@Id("ironIcon2")
-	private Element ironIcon2;
-	@Id("vaadinButton5")
-	private Button vaadinButton5;
-	@Id("ironIcon3")
-	private Element ironIcon3;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("vertical")
+	private Element vertical;
+	@Id("horizontalContenedor")
+	private HorizontalLayout horizontalContenedor;
+	@Id("horizontalFoto")
+	private HorizontalLayout horizontalFoto;
 	@Id("img")
 	private Image img;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
-	@Id("label")
-	private Label label;
 	@Id("label1")
 	private Label label1;
+	@Id("label")
+	private Label label;
 	@Id("label2")
 	private Label label2;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("ironIcon")
-	private Element ironIcon;
-	@Id("vaadinTextField")
-	private TextField vaadinTextField;
+	@Id("horizontalExplorador")
+	private HorizontalLayout horizontalExplorador;
+	@Id("tfBusqueda")
+	private TextField tfBusqueda;
+	@Id("horizontalBusqueda")
+	private HorizontalLayout horizontalBusqueda;
+	@Id("iconoBusqueda")
+	private Element iconoBusqueda;
+	@Id("horizontalBotones")
+	private HorizontalLayout horizontalBotones;
+	@Id("botonAdmin")
+	private Button botonAdmin;
+	@Id("botonNotificaciones")
+	private Button botonNotificaciones;
+	@Id("ironIcon1")
+	private Element ironIcon1;
+	@Id("botonPerfil")
+	private Button botonPerfil;
+	@Id("ironIcon2")
+	private Element ironIcon2;
+	@Id("botonLogout")
+	private Button botonLogout;
 	/**
      * Creates a new VistaCabecera_comun.
      */
     public VistaCabecera_comun() {
         // You can initialise any data required for the connected UI components here.
     }
-	public Element getVaadinVerticalLayout() {
-		return vaadinVerticalLayout;
+
+	public Element getVertical() {
+		return vertical;
 	}
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	public void setVertical(Element vertical) {
+		this.vertical = vertical;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
+	public HorizontalLayout getHorizontalContenedor() {
+		return horizontalContenedor;
 	}
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	public void setHorizontalContenedor(HorizontalLayout horizontalContenedor) {
+		this.horizontalContenedor = horizontalContenedor;
+	}
+	public HorizontalLayout getHorizontalFoto() {
+		return horizontalFoto;
+	}
+	public void setHorizontalFoto(HorizontalLayout horizontalFoto) {
+		this.horizontalFoto = horizontalFoto;
 	}
 	public Image getImg() {
 		return img;
@@ -91,29 +90,11 @@ public class VistaCabecera_comun extends LitTemplate {
 	public void setImg(Image img) {
 		this.img = img;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-	public HorizontalLayout getVaadinHorizontalLayout2() {
-		return vaadinHorizontalLayout2;
-	}
-	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
-		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
-	}
 	public Element getVaadinVerticalLayout1() {
 		return vaadinVerticalLayout1;
 	}
 	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
-	}
-	public Label getLabel() {
-		return label;
-	}
-	public void setLabel(Label label) {
-		this.label = label;
 	}
 	public Label getLabel1() {
 		return label1;
@@ -121,59 +102,59 @@ public class VistaCabecera_comun extends LitTemplate {
 	public void setLabel1(Label label1) {
 		this.label1 = label1;
 	}
+	public Label getLabel() {
+		return label;
+	}
+	public void setLabel(Label label) {
+		this.label = label;
+	}
 	public Label getLabel2() {
 		return label2;
 	}
 	public void setLabel2(Label label2) {
 		this.label2 = label2;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout3() {
-		return vaadinHorizontalLayout3;
+	public HorizontalLayout getHorizontalExplorador() {
+		return horizontalExplorador;
 	}
-	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
-		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
+	public void setHorizontalExplorador(HorizontalLayout horizontalExplorador) {
+		this.horizontalExplorador = horizontalExplorador;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
+	public TextField getTfBusqueda() {
+		return tfBusqueda;
 	}
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
+	public void setTfBusqueda(TextField tfBusqueda) {
+		this.tfBusqueda = tfBusqueda;
 	}
-	public TextField getVaadinTextField() {
-		return vaadinTextField;
+	public HorizontalLayout getHorizontalBusqueda() {
+		return horizontalBusqueda;
 	}
-	public void setVaadinTextField(TextField vaadinTextField) {
-		this.vaadinTextField = vaadinTextField;
+	public void setHorizontalBusqueda(HorizontalLayout horizontalBusqueda) {
+		this.horizontalBusqueda = horizontalBusqueda;
 	}
-	public Element getIronIcon() {
-		return ironIcon;
+	public Element getIconoBusqueda() {
+		return iconoBusqueda;
 	}
-	public void setIronIcon(Element ironIcon) {
-		this.ironIcon = ironIcon;
+	public void setIconoBusqueda(Element iconoBusqueda) {
+		this.iconoBusqueda = iconoBusqueda;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout5() {
-		return vaadinHorizontalLayout5;
+	public HorizontalLayout getHorizontalBotones() {
+		return horizontalBotones;
 	}
-	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
-		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
+	public void setHorizontalBotones(HorizontalLayout horizontalBotones) {
+		this.horizontalBotones = horizontalBotones;
 	}
-	public Button getVaadinButton() {
-		return vaadinButton;
+	public Button getBotonAdmin() {
+		return botonAdmin;
 	}
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
+	public void setBotonAdmin(Button botonAdmin) {
+		this.botonAdmin = botonAdmin;
 	}
-	public Button getVaadinButton1() {
-		return vaadinButton1;
+	public Button getBotonNotificaciones() {
+		return botonNotificaciones;
 	}
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
-	}
-	public Button getVaadinButton3() {
-		return vaadinButton3;
-	}
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
+	public void setBotonNotificaciones(Button botonNotificaciones) {
+		this.botonNotificaciones = botonNotificaciones;
 	}
 	public Element getIronIcon1() {
 		return ironIcon1;
@@ -181,17 +162,11 @@ public class VistaCabecera_comun extends LitTemplate {
 	public void setIronIcon1(Element ironIcon1) {
 		this.ironIcon1 = ironIcon1;
 	}
-	public Button getVaadinButton2() {
-		return vaadinButton2;
+	public Button getBotonPerfil() {
+		return botonPerfil;
 	}
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
-	}
-	public Button getVaadinButton4() {
-		return vaadinButton4;
-	}
-	public void setVaadinButton4(Button vaadinButton4) {
-		this.vaadinButton4 = vaadinButton4;
+	public void setBotonPerfil(Button botonPerfil) {
+		this.botonPerfil = botonPerfil;
 	}
 	public Element getIronIcon2() {
 		return ironIcon2;
@@ -199,17 +174,12 @@ public class VistaCabecera_comun extends LitTemplate {
 	public void setIronIcon2(Element ironIcon2) {
 		this.ironIcon2 = ironIcon2;
 	}
-	public Button getVaadinButton5() {
-		return vaadinButton5;
+	public Button getBotonLogout() {
+		return botonLogout;
 	}
-	public void setVaadinButton5(Button vaadinButton5) {
-		this.vaadinButton5 = vaadinButton5;
+	public void setBotonLogout(Button botonLogout) {
+		this.botonLogout = botonLogout;
 	}
-	public Element getIronIcon3() {
-		return ironIcon3;
-	}
-	public void setIronIcon3(Element ironIcon3) {
-		this.ironIcon3 = ironIcon3;
-	}
+	
 
 }
