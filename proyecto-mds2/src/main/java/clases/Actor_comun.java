@@ -1,5 +1,8 @@
 package clases;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Actor_comun extends vistas.VistaActor_comun {
@@ -20,11 +23,31 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public Actor_comun() {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		v1.add(cc);
-		v1.add(rc);
 		v1.add(cucr);
 		v1.add(ccf);
 		v1.add(cr);
 		v1.add(clr);
+		v1.add(rc);
 		
 	}
+	public Cabecera_comun getCc() {
+		return cc;
+	}
+	public Reproductor_completo getRc() {
+		return rc;
+	}
+	public ContenedorUltimas_canciones_reproducidas getCucr() {
+		return cucr;
+	}
+	public ContenedorCanciones_favoritas getCcf() {
+		return ccf;
+	}
+	public ContenedorRecomendaciones getCr() {
+		return cr;
+	}
+	public ContenedorListasReproduccion getClr() {
+		return clr;
+	}
+	
+	
 }

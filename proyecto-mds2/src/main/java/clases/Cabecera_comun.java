@@ -11,7 +11,8 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 //	public Actor_comun _actor_comun;
 //	public Notificaciones _notificaciones;
 
-	public void Inicio() {
+	public Notificaciones notif = new Notificaciones();
+/*	public void Inicio() {
 		throw new UnsupportedOperationException();
 	}
 
@@ -30,4 +31,10 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 	public void verPerfil() {
 		throw new UnsupportedOperationException();
 	}
+	*/
+
+	public Notificaciones getNotif() {
+		return notif;
+	}
+	
 }

@@ -20,7 +20,7 @@ export class VistaNotificacion extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%; justify-content: space-between;" id="vaadinHorizontalLayout">
   <label style="width: 100%;" id="label">Notificacion</label>
-  <vaadin-button theme="icon" aria-label="Add new" style="margin-right: var(--lumo-space-m);" id="vaadinButton">
+  <vaadin-button theme="icon" aria-label="Add new" style="margin-right: var(--lumo-space-m); width: 100%;" id="vaadinButton">
    <iron-icon src="https://th.bing.com/th/id/OIP.VjTIUIy0B4o3IZR-Hjc-AgHaHa?pid=ImgDet&amp;rs=1" id="ironIcon"></iron-icon>
   </vaadin-button>
  </vaadin-horizontal-layout>

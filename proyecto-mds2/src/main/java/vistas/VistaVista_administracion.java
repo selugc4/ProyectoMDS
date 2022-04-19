@@ -26,42 +26,42 @@ public class VistaVista_administracion extends LitTemplate {
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinButton")
-	private Button vaadinButton;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("label")
 	private Label label;
-	@Id("vaadinTextField")
-	private TextField vaadinTextField;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
 	@Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("label1")
 	private Label label1;
-	@Id("vaadinTextField1")
-	private TextField vaadinTextField1;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
 	@Id("vaadinHorizontalLayout3")
 	private HorizontalLayout vaadinHorizontalLayout3;
 	@Id("vaadinHorizontalLayout4")
 	private HorizontalLayout vaadinHorizontalLayout4;
 	@Id("label2")
 	private Label label2;
-	@Id("vaadinButton4")
-	private Button vaadinButton4;
 	@Id("vaadinHorizontalLayout5")
 	private HorizontalLayout vaadinHorizontalLayout5;
 	@Id("label3")
 	private Label label3;
-	@Id("vaadinTextField2")
-	private TextField vaadinTextField2;
 	@Id("ironIcon")
 	private Element ironIcon;
+	@Id("tfBuscador")
+	private TextField tfBuscador;
+	@Id("botonAnadir")
+	private Button botonAnadir;
+	@Id("botonReproducibles")
+	private Button botonReproducibles;
+	@Id("tfReproducibles")
+	private TextField tfReproducibles;
+	@Id("botonMostrar")
+	private Button botonMostrar;
+	@Id("tfMostrar")
+	private TextField tfMostrar;
+	@Id("botonUsuarios")
+	private Button botonUsuarios;
+	@Id("botonDarAlta")
+	private Button botonDarAlta;
 
 	/**
      * Creates a new VistaVista_administracion.
@@ -94,21 +94,6 @@ public class VistaVista_administracion extends LitTemplate {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
 
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
-
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
-	}
-
-	public Button getVaadinButton1() {
-		return vaadinButton1;
-	}
-
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
-	}
 
 	public HorizontalLayout getVaadinHorizontalLayout1() {
 		return vaadinHorizontalLayout1;
@@ -124,22 +109,6 @@ public class VistaVista_administracion extends LitTemplate {
 
 	public void setLabel(Label label) {
 		this.label = label;
-	}
-
-	public TextField getVaadinTextField() {
-		return vaadinTextField;
-	}
-
-	public void setVaadinTextField(TextField vaadinTextField) {
-		this.vaadinTextField = vaadinTextField;
-	}
-
-	public Button getVaadinButton2() {
-		return vaadinButton2;
-	}
-
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
 	}
 
 	public HorizontalLayout getVaadinHorizontalLayout2() {
@@ -158,22 +127,7 @@ public class VistaVista_administracion extends LitTemplate {
 		this.label1 = label1;
 	}
 
-	public TextField getVaadinTextField1() {
-		return vaadinTextField1;
-	}
-
-	public void setVaadinTextField1(TextField vaadinTextField1) {
-		this.vaadinTextField1 = vaadinTextField1;
-	}
-
-	public Button getVaadinButton3() {
-		return vaadinButton3;
-	}
-
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
-	}
-
+	
 	public HorizontalLayout getVaadinHorizontalLayout3() {
 		return vaadinHorizontalLayout3;
 	}
@@ -198,14 +152,6 @@ public class VistaVista_administracion extends LitTemplate {
 		this.label2 = label2;
 	}
 
-	public Button getVaadinButton4() {
-		return vaadinButton4;
-	}
-
-	public void setVaadinButton4(Button vaadinButton4) {
-		this.vaadinButton4 = vaadinButton4;
-	}
-
 	public HorizontalLayout getVaadinHorizontalLayout5() {
 		return vaadinHorizontalLayout5;
 	}
@@ -222,14 +168,7 @@ public class VistaVista_administracion extends LitTemplate {
 		this.label3 = label3;
 	}
 
-	public TextField getVaadinTextField2() {
-		return vaadinTextField2;
-	}
-
-	public void setVaadinTextField2(TextField vaadinTextField2) {
-		this.vaadinTextField2 = vaadinTextField2;
-	}
-
+	
 	public Element getIronIcon() {
 		return ironIcon;
 	}
@@ -237,5 +176,71 @@ public class VistaVista_administracion extends LitTemplate {
 	public void setIronIcon(Element ironIcon) {
 		this.ironIcon = ironIcon;
 	}
+
+	public TextField getTfBuscador() {
+		return tfBuscador;
+	}
+
+	public void setTfBuscador(TextField tfBuscador) {
+		this.tfBuscador = tfBuscador;
+	}
+
+	public Button getBotonAnadir() {
+		return botonAnadir;
+	}
+
+	public void setBotonAnadir(Button botonAnadir) {
+		this.botonAnadir = botonAnadir;
+	}
+
+	public Button getBotonReproducibles() {
+		return botonReproducibles;
+	}
+
+	public void setBotonReproducibles(Button botonReproducibles) {
+		this.botonReproducibles = botonReproducibles;
+	}
+
+	public TextField getTfReproducibles() {
+		return tfReproducibles;
+	}
+
+	public void setTfReproducibles(TextField tfReproducibles) {
+		this.tfReproducibles = tfReproducibles;
+	}
+
+	public Button getBotonMostrar() {
+		return botonMostrar;
+	}
+
+	public void setBotonMostrar(Button botonMostrar) {
+		this.botonMostrar = botonMostrar;
+	}
+
+	public TextField getTfMostrar() {
+		return tfMostrar;
+	}
+
+	public void setTfMostrar(TextField tfMostrar) {
+		this.tfMostrar = tfMostrar;
+	}
+
+	public Button getBotonUsuarios() {
+		return botonUsuarios;
+	}
+
+	public void setBotonUsuarios(Button botonUsuarios) {
+		this.botonUsuarios = botonUsuarios;
+	}
+
+	public Button getBotonDarAlta() {
+		return botonDarAlta;
+	}
+
+	public void setBotonDarAlta(Button botonDarAlta) {
+		this.botonDarAlta = botonDarAlta;
+	}
+
+	
 
 }

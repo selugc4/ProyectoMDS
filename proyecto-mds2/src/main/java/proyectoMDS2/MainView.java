@@ -51,8 +51,8 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-    	
-    	Cibernauta ciber = new Cibernauta();
+    	this.getStyle().set("width", "100%");
+/*	Cibernauta ciber = new Cibernauta();
     	add(ciber);
     	this.getStyle().set("width", "100%");
     
@@ -84,5 +84,9 @@ public class MainView extends VerticalLayout {
 			}
 		});
     }
-
+*/
+    	Administrador admin = new Administrador();
+		add(admin);
+    	
+}
 }
