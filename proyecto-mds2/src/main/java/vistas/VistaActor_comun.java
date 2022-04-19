@@ -21,6 +21,8 @@ public class VistaActor_comun extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinButton")
 	private Button vaadinButton;
+	@Id("vaadinVerticalLayout1")
+	private Element vaadinVerticalLayout1;
 
 	/**
      * Creates a new VistaActor_comun.
@@ -43,6 +45,14 @@ public class VistaActor_comun extends LitTemplate {
 
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
+	}
+
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
 
 }

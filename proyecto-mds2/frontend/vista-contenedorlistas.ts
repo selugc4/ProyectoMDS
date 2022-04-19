@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-contenedorlistas')
@@ -15,10 +16,13 @@ export class VistaContenedorlistas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-button id="vaadinButton">
-   Ver más 
- </vaadin-button>
+<vaadin-vertical-layout style="width: 100%; height: 100%; flex-direction: row;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout11" style="align-self: center;">
+  <vaadin-button id="vaadinButton">
+    Ver más 
+  </vaadin-button>
+ </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

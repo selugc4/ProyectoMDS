@@ -8,4 +8,10 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 	public void modificarLista() {
 		throw new UnsupportedOperationException();
 	}
+	public Lista_de_reproduccion_propia() {
+		inicializar();
+	}
+	private void inicializar() {
+		this.getStyle().set("width", "100%");
+	}
 }

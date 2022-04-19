@@ -13,7 +13,7 @@ public class ContenedorListasReproduccion extends vistas.VistaContenedorlistasre
 	}
 	private void inicializar() {
 	Cargar_ListasReproduccion();
-	
+	this.getStyle().set("width", "100%");
 }
 	public void Cargar_ListasReproduccion() {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);

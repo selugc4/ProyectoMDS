@@ -12,6 +12,7 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 //	public Notificaciones _notificaciones;
 
 	public Notificaciones notif = new Notificaciones();
+	public Ver_perfil_propio perfil = new Ver_perfil_propio();
 /*	public void Inicio() {
 		throw new UnsupportedOperationException();
 	}
@@ -32,7 +33,9 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 		throw new UnsupportedOperationException();
 	}
 	*/
-
+	public Ver_perfil_propio getVer_perfil_propio() {
+		return perfil;
+	}
 	public Notificaciones getNotif() {
 		return notif;
 	}

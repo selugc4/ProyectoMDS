@@ -85,7 +85,7 @@ public class MainView extends VerticalLayout {
 		});
     }
 */
-    	Administrador admin = new Administrador();
+    	Usuario_registrado admin = new Usuario_registrado();
 		add(admin);
     	
 }
