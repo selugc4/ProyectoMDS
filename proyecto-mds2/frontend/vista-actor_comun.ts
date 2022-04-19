@@ -15,11 +15,13 @@ export class VistaActor_comun extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: flex-start;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1"></vaadin-vertical-layout>
- <vaadin-button id="vaadinButton" style="align-self: flex-end;">
-   Ver estadísticas 
- </vaadin-button>
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
+  <vaadin-button id="vaadinButton" style="align-self: flex-end;">
+    Ver estadísticas 
+  </vaadin-button>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

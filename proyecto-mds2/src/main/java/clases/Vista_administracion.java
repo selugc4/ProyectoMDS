@@ -1,8 +1,14 @@
 package clases;
 
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.notification.Notification;
+
+import proyectoMDS2.MainView;
 
 public class Vista_administracion extends vistas.VistaVista_administracion{
 //	private Button _menu_Dar_AltaB;
@@ -59,13 +65,54 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 //		throw new UnsupportedOperationException();
 //	}
 	
+	public ContenedorUltimosExitos cue = new ContenedorUltimosExitos();
+	public Buscador_cancion_administracion bca = new Buscador_cancion_administracion();
+	
 	public Vista_administracion() {
 		
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO Auto-generated method stub
+				if(getTfMostrar().getValue().isEmpty() || Integer.valueOf(getTfMostrar().getValue()) < 0) {
+					Notification.show("Este valor no es correcto para mostrar canciones");
+				}else {
+					Notification.show("Número de canciones mostradas cambiadas a " + getTfMostrar().getValue());
+					getTfMostrar().clear();
+//					Cibernauta.mostradas = Integer.valueOf(getTfMostrar().getValue());		
+							
+										
+					
+					
+				}
+				
+			}
+		});
+		
+		this.getBotonReproducibles().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+		
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if(getTfReproducibles().getValue().isEmpty() || Integer.valueOf(getTfReproducibles().getValue()) < 0) {
+					Notification.show("Este valor no es correcto para seleccionar las canciones reproducibles máximas");
+				}else {
+					Notification.show("Número de canciones reproducibles cambiadas a " + getTfReproducibles().getValue());
+					getTfReproducibles().clear();
+//					Cibernauta.reproducibles= Integer.valueOf(getTfReproducibles().getValue());				
+					
+				}
+				
+			}
+		});
+		
+		this.getBotonAnadir().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Dialog diag = new Dialog(bca);
+				diag.setWidth("100%");
+				diag.open();
 				
 			}
 		});

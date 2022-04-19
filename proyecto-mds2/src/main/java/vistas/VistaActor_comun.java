@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-actor_comun template.
@@ -17,12 +18,15 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./vista-actor_comun.ts")
 public class VistaActor_comun extends LitTemplate {
 
-    @Id("vaadinVerticalLayout")
+  
+	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vaadinButton")
 	private Button vaadinButton;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
 
 	/**
      * Creates a new VistaActor_comun.
@@ -35,24 +39,19 @@ public class VistaActor_comun extends LitTemplate {
 		return vaadinVerticalLayout;
 	}
 
-	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
-		this.vaadinVerticalLayout = vaadinVerticalLayout;
-	}
-
 	public Button getVaadinButton() {
 		return vaadinButton;
-	}
-
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
 	}
 
 	public Element getVaadinVerticalLayout1() {
 		return vaadinVerticalLayout1;
 	}
 
-	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
-		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
 	}
 
+	
+
+	
 }

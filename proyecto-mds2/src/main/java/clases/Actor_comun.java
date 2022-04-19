@@ -30,6 +30,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		v1.add(rc);
 		
 	}
+	
 	public Cabecera_comun getCc() {
 		return cc;
 	}
@@ -48,6 +49,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public ContenedorListasReproduccion getClr() {
 		return clr;
 	}
+	
 	
 	
 }

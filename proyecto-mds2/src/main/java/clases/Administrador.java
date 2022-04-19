@@ -12,28 +12,78 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import ch.qos.logback.core.Layout;
+
 public class Administrador extends Actor_comun {
 //	public Cabecera_administrador _cabecera_administrador;
 	
 	public Cabecera_administrador cabadmin = new Cabecera_administrador();
+	public Ver_perfil_propio vpp = new Ver_perfil_propio();
 	public Administrador() {
 		Reproductor_completo rc = this.getRc();
-		inicializar();
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		VerticalLayout v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
+		vl.add(cc);
+		vl.add(cucr);
+		vl.add(ccf);
+		vl.add(cr);
+		vl.add(clr);
+		v2.add(rc);  
 		vl.replace(this.getCc(), cabadmin);
+
 		
-		
+		cc.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vl.removeAll();
+				vl.add(cabadmin);	
+				vl.add(cabadmin.getVer_perfil_propio());
+				vl.add(cabadmin.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
+				v2.replace(getVaadinButton(), rc);
+			}
+		});
+		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vl.removeAll();
+				vl.add(cabadmin);
+				vl.add(cucr.getListaDeReproduccion());
+				vl.add(cucr.getListaDeReproduccion().getCancionesLista());
+				v2.replace(getVaadinButton(), rc);
+			}
+	});
+		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v2.removeAll();
+				vl.add(cabadmin);
+				vl.add(cr.getListaDeReproduccion());
+				vl.add(cr.getListaDeReproduccion().getCancionesLista());
+				v2.add(rc);
+			}
+	});
+		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v2.removeAll();
+				vl.add(cabadmin);
+				vl.add(ccf.getListaDeReproduccion());
+				vl.add(ccf.getListaDeReproduccion().getCancionesLista());
+				v2.add(rc);
+			}
+		});
+	
+	
 		this.cabadmin.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				vl.removeAll();
-				vl.add(cc);
+				v2.removeAll();
+				vl.add(cabadmin);
 				vl.add(cucr);
 				vl.add(ccf);
 				vl.add(cr);
 				vl.add(clr);
-				vl.add(rc);
+				v2.add(rc);  
+
 			}
 		});
 	
@@ -42,6 +92,7 @@ public class Administrador extends Actor_comun {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				vl.removeAll();
+				v2.removeAll();
 				vl.add(cabadmin);
 				vl.add(cabadmin.getVadmin());
 				vl.add(rc);
@@ -62,12 +113,21 @@ public class Administrador extends Actor_comun {
 			}
 		});
 	
+		this.cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vl.removeAll();
+				vl.add(cabadmin);
+				vl.add(vpp);
+				vl.add(rc);
+				
+			}
+		});
 		
 	}
 	
-	 
-	private void inicializar() {
 		
-		this.getVaadinButton().setVisible(false);	
-	}
+	
+	 
 }

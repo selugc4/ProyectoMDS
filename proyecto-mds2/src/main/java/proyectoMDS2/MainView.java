@@ -85,8 +85,21 @@ public class MainView extends VerticalLayout {
 		});
     }
 */
-    	Usuario_registrado admin = new Usuario_registrado();
-		add(admin);
+//    	Usuario_registrado admin = new Usuario_registrado();
+//		add(admin);
+    	
+    	Administrador admin = new Administrador();
+    	add(admin);
+		
+		admin.getCc().getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				remove(admin);
+				add(new Cibernauta());
+				
+			}
+		});
     	
 }
 }

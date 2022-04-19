@@ -4,7 +4,12 @@ public class Cancion_encontrada extends vistas.VistaCancion_encontrada {
 //	private Button _anadir_a_la_vista_de_cibernautaB;
 //	public Canciones_buscadas _canciones_buscadas;
 
-	public void Anadir_a_la_vista_de_cibernauta() {
-		throw new UnsupportedOperationException();
+	public Cancion_encontrada(String value) {
+		this.getStyle().set("width", "100%");
+		this.getLabel().setText(value);
 	}
+
+//	public void Anadir_a_la_vista_de_cibernauta() {
+//		throw new UnsupportedOperationException();
+//	}
 }
