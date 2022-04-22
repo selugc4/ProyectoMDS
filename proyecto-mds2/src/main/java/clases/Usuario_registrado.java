@@ -1,10 +1,13 @@
 package clases;
 
+import com.vaadin.flow.component.BlurNotifier;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.BlurNotifier.BlurEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 
 import vistas.VistaActor_comun;
 
@@ -18,7 +21,7 @@ public class Usuario_registrado extends Actor_comun {
 		v1.add(ccf);
 		v1.add(cr);
 		v1.add(clr);
-		v2.add(rc);  
+		v2.add(rc);
 		cc.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
@@ -29,8 +32,8 @@ public class Usuario_registrado extends Actor_comun {
 				v1.add(ccf);
 				v1.add(cr);
 				v1.add(clr);
-				//v2.add(getVaadinButton());
-				v2.add(rc);
+				//v2.add(rc);
+				//v1.add(getVaadinButton());
 			}
 		}); 
 		cc.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -43,18 +46,18 @@ public class Usuario_registrado extends Actor_comun {
 				v1.add(ccf);
 				v1.add(cr);
 				v1.add(clr);	
-				//v2.add(getVaadinButton());
 				v2.add(rc);
+				v1.add(getVaadinButton());
 			}
 		});
 		cc.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
-				v1.add(cc);	
+				v1.add(cc);
 				v1.add(cc.getVer_perfil_propio());
-				v1.add(cc.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
-				v2.replace(getVaadinButton(), rc);
+				v1.add(new ContenedorAgregar_perfil_propio());
+				v2.add(rc);
 			}
 		});
 		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -62,27 +65,59 @@ public class Usuario_registrado extends Actor_comun {
 				v1.removeAll();
 				v1.add(cc);
 				v1.add(cucr.getListaDeReproduccion());
-				v1.add(cucr.getListaDeReproduccion().getCancionesLista());
-				v2.replace(getVaadinButton(), rc);
+				v1.add(new Canciones_lista());
+				v2.add(rc);
 			}
 	});
 		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v2.removeAll();
+				v1.removeAll();
 				v1.add(cc);
 				v1.add(cr.getListaDeReproduccion());
-				v1.add(cr.getListaDeReproduccion().getCancionesLista());
+				v1.add(new Canciones_lista());
 				v2.add(rc);
 			}
 	});
 		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v2.removeAll();
+				v1.removeAll();
 				v1.add(cc);
 				v1.add(ccf.getListaDeReproduccion());
-				v1.add(ccf.getListaDeReproduccion().getCancionesLista());
+				v1.add(new Canciones_lista());
 				v2.add(rc);
 			}
 	});
+		cc.getTfBusqueda().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>(){
+			@Override
+			public void onComponentEvent(BlurEvent<TextField> event) {
+				v1.removeAll();
+				v1.add(cc);
+				v1.add(new Canciones_busqueda());
+				v1.add(new Lista_de_reproduccion_buscador());
+				v1.add(new Artista());
+				v1.add(new Albumes_buscador());
+				v2.add(rc);
+			}
+		});
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cc);
+				v1.add(new Ver_estadisticas());
+				v2.add(rc);
+			}
+		});
+		new Ver_estadisticas().getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cc); 
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+			}
+		});
 	}
 }
