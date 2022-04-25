@@ -9,6 +9,7 @@ export class VistaListas_de_reproduccion extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

@@ -20,19 +20,16 @@ public class Administrador extends Actor_comun {
 	public Cabecera_administrador cabadmin = new Cabecera_administrador();
 	public Ver_perfil_propio vpp = new Ver_perfil_propio();
 	public Administrador() {
+    	this.getStyle().set("width", "100%");
+
+
 		Reproductor_completo rc = this.getRc();
 		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		VerticalLayout v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
-		vl.add(cc);
-		vl.add(cucr);
-		vl.add(ccf);
-		vl.add(cr);
-		vl.add(clr);
-		v2.add(rc);  
 		vl.replace(this.getCc(), cabadmin);
 
 		
-		cc.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				vl.removeAll();

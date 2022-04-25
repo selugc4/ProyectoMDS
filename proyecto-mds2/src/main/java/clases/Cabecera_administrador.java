@@ -18,7 +18,8 @@ public class Cabecera_administrador extends Cabecera_comun {
 //		throw new UnsupportedOperationException();
 	
 	public Cabecera_administrador() {
-	
+    	this.getStyle().set("width", "100%");
+
 	
 	}
 

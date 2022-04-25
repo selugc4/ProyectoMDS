@@ -5,29 +5,28 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.BlurNotifier.BlurEvent;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.textfield.TextField;import com.vaadin.flow.dom.DomEvent;
+import com.vaadin.flow.dom.DomEventListener;
 
 import vistas.VistaActor_comun;
 
 public class Usuario_registrado extends Actor_comun {
-//	public Cabecera_usuario_registrado _cabecera_usuario_registrado;
+	
+	public Cabecera_usuario_registrado cur = new Cabecera_usuario_registrado();
 	public Usuario_registrado() {	
 		VerticalLayout v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		VerticalLayout v2 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		v1.add(cc);
-		v1.add(cucr);
-		v1.add(ccf);
-		v1.add(cr);
-		v1.add(clr);
-		v2.add(rc);
-		cc.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		
+		v1.replace(cc, cur);
+		cur.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				v1.removeAll();
-				v1.add(cc); 
+				v1.add(cur); 
 				v1.add(cucr);
 				v1.add(ccf);
 				v1.add(cr);
@@ -36,29 +35,23 @@ public class Usuario_registrado extends Actor_comun {
 				//v1.add(getVaadinButton());
 			}
 		}); 
-		cc.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		
+		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(cc.getNotif());
-				v1.add(cucr);
-				v1.add(ccf);
-				v1.add(cr);
-				v1.add(clr);	
-				v2.add(rc);
-				v1.add(getVaadinButton());
+				Dialog diag = new Dialog(cur.getNotif());
+				diag.setDraggable(true);
+				diag.open();
 			}
 		});
-		cc.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		cur.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
-				v1.add(cc);
-				v1.add(cc.getVer_perfil_propio());
-				v1.add(new ContenedorAgregar_perfil_propio());
-				v2.add(rc);
-			}
+				v1.add(cur);	
+				v1.add(cur.getVer_perfil_propio());
+				v1.add(cur.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
+				v2.replace(getVaadinButton(), rc);			}
 		});
 		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			public void onComponentEvent(ClickEvent<Button> event) {

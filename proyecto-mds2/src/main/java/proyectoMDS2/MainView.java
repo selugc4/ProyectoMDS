@@ -85,10 +85,6 @@ public class MainView extends VerticalLayout {
 			}
 		});
     }
-*/
-//    	Usuario_registrado admin = new Usuario_registrado();
-//		add(admin);
-    	
     	Administrador admin = new Administrador();
     	add(admin);
 		
@@ -100,7 +96,13 @@ public class MainView extends VerticalLayout {
 				add(new Cibernauta());
 				
 			}
-		});
+			
+		});*/
+		
+
+    	Usuario_registrado usuario = new Usuario_registrado();
+    	add(usuario);
+    	
     	
 }
 }

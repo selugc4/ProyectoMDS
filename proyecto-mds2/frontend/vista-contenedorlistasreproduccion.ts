@@ -9,6 +9,7 @@ export class VistaContenedorlistasreproduccion extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

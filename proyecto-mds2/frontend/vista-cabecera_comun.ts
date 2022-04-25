@@ -12,6 +12,7 @@ export class VistaCabecera_comun extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

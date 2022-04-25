@@ -21,13 +21,14 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public ContenedorRecomendaciones cr = new ContenedorRecomendaciones();
 	public ContenedorListasReproduccion clr = new ContenedorListasReproduccion();
 	public Actor_comun() {
-		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		VerticalLayout v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		VerticalLayout v2 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		v1.add(cc);
 		v1.add(cucr);
 		v1.add(ccf);
 		v1.add(cr);
 		v1.add(clr);
-		v1.add(rc);
+		v2.add(rc);
 		
 	}
 	

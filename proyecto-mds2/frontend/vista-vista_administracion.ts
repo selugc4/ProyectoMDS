@@ -12,6 +12,7 @@ export class VistaVista_administracion extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width:100%;
       }
       `;
   }
@@ -20,7 +21,7 @@ export class VistaVista_administracion extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout theme="spacing-xl" style="margin-bottom: var(--lumo-space-xl); align-self: flex-start; align-items: flex-start; flex-direction: column; width: 100%;" id="vaadinVerticalLayout1">
-  <vaadin-horizontal-layout theme="spacing" style="width: 80%; align-self: center;" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-self: center;" id="vaadinHorizontalLayout">
    <vaadin-button style="width: 100%; height: 100%;" id="botonDarAlta">
      Dar de alta 
    </vaadin-button>
@@ -28,22 +29,22 @@ export class VistaVista_administracion extends LitElement {
      Modificar/Dar de baja usuarios 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;" id="vaadinHorizontalLayout1">
-   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl);" id="label">Número de canciones mostradas a usuarios no registrados</label>
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 100%;" id="vaadinHorizontalLayout1">
+   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl); width: 30%;" id="label">Número de canciones mostradas a usuarios no registrados</label>
    <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual" id="tfMostrar"></vaadin-text-field>
-   <vaadin-button style="width: 10%;" id="botonMostrar">
+   <vaadin-button style="width: 30%;" id="botonMostrar">
      Modificar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout2">
-   <label id="label1">Número de canciones reproducibles por usuarios no registrados</label>
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 100%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout2">
+   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl); width: 30%;"id="label1">Número de canciones reproducibles por usuarios no registrados</label>
    <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual" id="tfReproducibles"></vaadin-text-field>
-   <vaadin-button style="width: 10%; flex-shrink: 0; flex-grow: 0;" id="botonReproducibles">
+   <vaadin-button style="width: 30%; flex-shrink: 0; flex-grow: 0;" id="botonReproducibles">
      Modificar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 80%;" id="vaadinHorizontalLayout3">
-   <vaadin-horizontal-layout theme="spacing" style="width: 70%; align-items: center;" id="vaadinHorizontalLayout4">
+  <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 100%;" id="vaadinHorizontalLayout3">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;" id="vaadinHorizontalLayout4">
     <label id="label2">Modificar canciones para el cibernauta</label>
     <vaadin-button style="flex-shrink: 0; flex-grow: 0;" id="botonAnadir">
       Añadir canción 

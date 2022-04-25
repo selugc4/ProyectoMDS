@@ -32,7 +32,7 @@ public class Usuario extends vistas.VistaUsuario{
 				Button botonsi = new Button("Si");
 				Button botonno = new Button("No");
 				hl.add(botonsi, botonno);
-				vl.add("Está seguro de eliminar el siguiente estilo? Estilo: " +getLabel().getText());
+				vl.add("Está seguro de eliminar el siguiente usuario? Usuario: " +getLabel().getText());
 				vl.add(hl);
 				
 				diag.add(vl);
