@@ -52,8 +52,9 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	this.getStyle().set("width", "100%");
-/*	Cibernauta ciber = new Cibernauta();
+   /* 	Cibernauta ciber = new Cibernauta();
     	add(ciber);
+    	
     	this.getStyle().set("width", "100%");
     
     	Iniciar_sesion is = ciber.getCc().getIs();
@@ -85,21 +86,21 @@ public class MainView extends VerticalLayout {
 		});
     }
 */
-    	Usuario_registrado admin = new Usuario_registrado();
-		add(admin);
+//    	Usuario_registrado admin = new Usuario_registrado();
+//		add(admin);
     	
-    	//Administrador admin = new Administrador();
-    	//add(admin);
+    	Administrador admin = new Administrador();
+    	add(admin);
 		
-		//admin.getCc().getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		admin.getCc().getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
-			//@Override
-			//public void onComponentEvent(ClickEvent<Button> event) {
-				//remove(admin);
-				//add(new Cibernauta());
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				remove(admin);
+				add(new Cibernauta());
 				
-			//}
-		//});
+			}
+		});
     	
 }
 }

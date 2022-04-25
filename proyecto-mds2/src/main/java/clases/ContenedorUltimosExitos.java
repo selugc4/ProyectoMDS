@@ -1,5 +1,6 @@
 package clases;
 
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 //import javax.swing.JScrollPane.ScrollBar;
@@ -13,5 +14,9 @@ public class ContenedorUltimosExitos extends vistas.VistaContenedorultimosexitos
 	public ContenedorUltimosExitos() {
 		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(uea);
+	}
+
+	public Ultimos_exitos_administracion getUea() {
+		return uea;
 	}
 }

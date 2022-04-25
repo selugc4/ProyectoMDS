@@ -61,12 +61,8 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	private Label label4;
 	@Id("vaadinHorizontalLayout5")
 	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("vaadinButton")
-	private Button vaadinButton;
 	@Id("vaadinHorizontalLayout6")
 	private HorizontalLayout vaadinHorizontalLayout6;
-	@Id("vaadinVerticalLayout4")
-	private Element vaadinVerticalLayout4;
 	@Id("vaadinVerticalLayout5")
 	private Element vaadinVerticalLayout5;
 	@Id("vaadinHorizontalLayout7")
@@ -75,18 +71,22 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	private Element vaadinVerticalLayout6;
 	@Id("fechaDeEdición")
 	private DatePicker fechaDeEdición;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
 	@Id("vaadinVerticalLayout7")
 	private Element vaadinVerticalLayout7;
 	@Id("vaadinHorizontalLayout8")
 	private HorizontalLayout vaadinHorizontalLayout8;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
 	@Id("vaadinHorizontalLayout9")
 	private HorizontalLayout vaadinHorizontalLayout9;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
+	@Id("verticalListado")
+	private Element verticalListado;
+	@Id("botonFecha")
+	private Button botonFecha;
+	@Id("botonAdd")
+	private Button botonAdd;
+	@Id("botonVolver")
+	private Button botonVolver;
+	@Id("botonLista")
+	private Button botonLista;
 	/**
      * Creates a new VistaVista_dar_alta_album.
      */
@@ -207,24 +207,13 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
 		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
 	}
-	public Button getVaadinButton() {
-		return vaadinButton;
-	}
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
-	}
 	public HorizontalLayout getVaadinHorizontalLayout6() {
 		return vaadinHorizontalLayout6;
 	}
 	public void setVaadinHorizontalLayout6(HorizontalLayout vaadinHorizontalLayout6) {
 		this.vaadinHorizontalLayout6 = vaadinHorizontalLayout6;
 	}
-	public Element getVaadinVerticalLayout4() {
-		return vaadinVerticalLayout4;
-	}
-	public void setVaadinVerticalLayout4(Element vaadinVerticalLayout4) {
-		this.vaadinVerticalLayout4 = vaadinVerticalLayout4;
-	}
+
 	public Element getVaadinVerticalLayout5() {
 		return vaadinVerticalLayout5;
 	}
@@ -249,12 +238,7 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	public void setFechaDeEdición(DatePicker fechaDeEdición) {
 		this.fechaDeEdición = fechaDeEdición;
 	}
-	public Button getVaadinButton1() {
-		return vaadinButton1;
-	}
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
-	}
+
 	public Element getVaadinVerticalLayout7() {
 		return vaadinVerticalLayout7;
 	}
@@ -267,23 +251,42 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	public void setVaadinHorizontalLayout8(HorizontalLayout vaadinHorizontalLayout8) {
 		this.vaadinHorizontalLayout8 = vaadinHorizontalLayout8;
 	}
-	public Button getVaadinButton2() {
-		return vaadinButton2;
-	}
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout9() {
 		return vaadinHorizontalLayout9;
 	}
 	public void setVaadinHorizontalLayout9(HorizontalLayout vaadinHorizontalLayout9) {
 		this.vaadinHorizontalLayout9 = vaadinHorizontalLayout9;
 	}
-	public Button getVaadinButton3() {
-		return vaadinButton3;
+	public Element getVerticalListado() {
+		return verticalListado;
 	}
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
+	public void setVerticalListado(Element verticalListado) {
+		this.verticalListado = verticalListado;
+	}
+	public Button getBotonFecha() {
+		return botonFecha;
+	}
+	public void setBotonFecha(Button botonFecha) {
+		this.botonFecha = botonFecha;
+	}
+	public Button getBotonAdd() {
+		return botonAdd;
+	}
+	public void setBotonAdd(Button botonAdd) {
+		this.botonAdd = botonAdd;
+	}
+	public Button getBotonVolver() {
+		return botonVolver;
+	}
+	public void setBotonVolver(Button botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+	public Button getBotonLista() {
+		return botonLista;
+	}
+	public void setBotonLista(Button botonLista) {
+		this.botonLista = botonLista;
 	}
 
 }

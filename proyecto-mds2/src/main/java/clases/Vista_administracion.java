@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.BlurNotifier;
+import com.vaadin.flow.component.BlurNotifier.BlurEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 
 import proyectoMDS2.MainView;
 
@@ -67,8 +71,12 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 	
 	public ContenedorUltimosExitos cue = new ContenedorUltimosExitos();
 	public Buscador_cancion_administracion bca = new Buscador_cancion_administracion();
+	public Estilos_buscados eb = new Estilos_buscados();
+	public Menu_dar_alta mda = new Menu_dar_alta();
+	public Vista_buscador_usuarios vbu = new Vista_buscador_usuarios();
 	
 	public Vista_administracion() {
+		inicializar();
 		
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -116,6 +124,60 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 				
 			}
 		});
+		
+		this.bca.getCb().getLista().forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Notification.show("CLICK");
+				cue.getUea().agregar(t.getLabel().toString(), "Artista");
+				
+				
+			}
+		}));
+		
+		
+		this.getTfBuscador().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>() {
+			
+			@Override
+			public void onComponentEvent(BlurEvent<TextField> event) {
+				eb = new Estilos_buscados(getTfBuscador().getValue());
+				Dialog diag2 = new Dialog(eb);
+				diag2.setWidth("100%");
+				diag2.open();
+				
+				
+			}
+		});
+		
+		this.getBotonDarAlta().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.removeAll();
+				vl.add(mda);
+				
+			}
+		});
+		
+		this.getBotonUsuarios().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.removeAll();
+				vl.add(vbu);
+				
+			}
+		});
+	}
+	
+	private void inicializar() {
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.add(cue);
+		vl.add(eb);
+		
 	}
 	
 }

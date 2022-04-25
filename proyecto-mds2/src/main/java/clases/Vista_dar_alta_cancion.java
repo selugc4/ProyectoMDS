@@ -1,4 +1,9 @@
 package clases;
+
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+
 public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 //	private Label _titulo_Anadir_CancionL;
 //	private Label _titulo_CancionL;
@@ -20,15 +25,32 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 //	private Button _volver_AtrasB;
 //	public Menu_dar_alta _menu_dar_alta;
 
-	public void Anadir_archivo_multimedia() {
-		throw new UnsupportedOperationException();
-	}
+//	public void Anadir_archivo_multimedia() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Dar_alta_cancion() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void volverAtras() {
+//		throw new UnsupportedOperationException();
+//	}
+	
+	public Vista_dar_alta_cancion() {
 
-	public void Dar_alta_cancion() {
-		throw new UnsupportedOperationException();
-	}
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				anadirCancion();
+				
+			}
 
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
+			private void anadirCancion() {
+				//COGER TEXT FIELDS Y ARCHIVO Y GUARDARLOS EN BASE DE DATOS
+				
+			}
+		});
 	}
 }

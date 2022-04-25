@@ -29,8 +29,13 @@ public class Buscador_cancion_administracion extends vistas.VistaBuscador_cancio
 			}
 		});
 		
+	
+		
 	}
 	public void buscarCanciones() {
 		throw new UnsupportedOperationException();
+	}
+	public Canciones_buscadas getCb() {
+		return cb;
 	}
 }

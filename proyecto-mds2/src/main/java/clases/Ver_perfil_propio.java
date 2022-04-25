@@ -16,6 +16,14 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 //	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 	public ContenedorAgregar_perfil_propio _contenedor_agregar;
 
+	public Ver_perfil_propio(String name) {
+		this.getLabel().setText(name);
+	}
+	
+	public Ver_perfil_propio() {
+		
+	};
+
 	public void Modificar_correo() {
 		throw new UnsupportedOperationException();
 	}

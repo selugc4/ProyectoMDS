@@ -23,26 +23,26 @@ public class VistaMenu_dar_alta extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
 	@Id("label")
 	private Label label;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinButton")
-	private Button vaadinButton;
+	@Id("botonCanciones")
+	private Button botonCanciones;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("vaadinButton1")
-	private Button vaadinButton1;
+	@Id("botonEstilos")
+	private Button botonEstilos;
 	@Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("vaadinButton2")
-	private Button vaadinButton2;
+	@Id("botonAlbumes")
+	private Button botonAlbumes;
 	@Id("vaadinHorizontalLayout3")
 	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinButton3")
-	private Button vaadinButton3;
+	@Id("botonArtistas")
+	private Button botonArtistas;
 
 	/**
      * Creates a new VistaMenu_dar_alta.
@@ -67,20 +67,20 @@ public class VistaMenu_dar_alta extends LitTemplate {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
 
-	public Element getVaadinVerticalLayout2() {
-		return vaadinVerticalLayout2;
-	}
-
-	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
-		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
-	}
-
 	public Label getLabel() {
 		return label;
 	}
 
 	public void setLabel(Label label) {
 		this.label = label;
+	}
+
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
 	}
 
 	public HorizontalLayout getVaadinHorizontalLayout() {
@@ -91,12 +91,12 @@ public class VistaMenu_dar_alta extends LitTemplate {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
 
-	public Button getVaadinButton() {
-		return vaadinButton;
+	public Button getBotonCanciones() {
+		return botonCanciones;
 	}
 
-	public void setVaadinButton(Button vaadinButton) {
-		this.vaadinButton = vaadinButton;
+	public void setBotonCanciones(Button botonCanciones) {
+		this.botonCanciones = botonCanciones;
 	}
 
 	public HorizontalLayout getVaadinHorizontalLayout1() {
@@ -107,12 +107,12 @@ public class VistaMenu_dar_alta extends LitTemplate {
 		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
 	}
 
-	public Button getVaadinButton1() {
-		return vaadinButton1;
+	public Button getBotonEstilos() {
+		return botonEstilos;
 	}
 
-	public void setVaadinButton1(Button vaadinButton1) {
-		this.vaadinButton1 = vaadinButton1;
+	public void setBotonEstilos(Button botonEstilos) {
+		this.botonEstilos = botonEstilos;
 	}
 
 	public HorizontalLayout getVaadinHorizontalLayout2() {
@@ -123,12 +123,12 @@ public class VistaMenu_dar_alta extends LitTemplate {
 		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
 	}
 
-	public Button getVaadinButton2() {
-		return vaadinButton2;
+	public Button getBotonAlbumes() {
+		return botonAlbumes;
 	}
 
-	public void setVaadinButton2(Button vaadinButton2) {
-		this.vaadinButton2 = vaadinButton2;
+	public void setBotonAlbumes(Button botonAlbumes) {
+		this.botonAlbumes = botonAlbumes;
 	}
 
 	public HorizontalLayout getVaadinHorizontalLayout3() {
@@ -139,12 +139,14 @@ public class VistaMenu_dar_alta extends LitTemplate {
 		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
 	}
 
-	public Button getVaadinButton3() {
-		return vaadinButton3;
+	public Button getBotonArtistas() {
+		return botonArtistas;
 	}
 
-	public void setVaadinButton3(Button vaadinButton3) {
-		this.vaadinButton3 = vaadinButton3;
+	public void setBotonArtistas(Button botonArtistas) {
+		this.botonArtistas = botonArtistas;
 	}
+
+	
 
 }

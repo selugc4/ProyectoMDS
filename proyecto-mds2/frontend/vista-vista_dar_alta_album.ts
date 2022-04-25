@@ -44,31 +44,31 @@ export class VistaVista_dar_alta_album extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 60%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout5">
     <label style="width: 100%;" id="label4">Lista de canciones</label>
-    <vaadin-button style="width: 40%;" id="vaadinButton">
+    <vaadin-button style="width: 40%;" id="botonLista">
       Añadir Canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 75%;" id="vaadinHorizontalLayout6">
-    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;" id="vaadinVerticalLayout4"></vaadin-vertical-layout>
+    <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;" id="verticalListado"></vaadin-vertical-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinVerticalLayout5">
    <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%; height: 50%;" id="vaadinHorizontalLayout7">
     <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout6">
-     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha" id="fechaDeEdición"></vaadin-date-picker>
-     <vaadin-button id="vaadinButton1">
+     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha" id="fechaDeEdición" opened></vaadin-date-picker>
+     <vaadin-button id="botonFecha">
        Asignar fecha 
      </vaadin-button>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout7">
     <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout8">
-     <vaadin-button id="vaadinButton2">
+     <vaadin-button id="botonAdd">
        Añadir Álbum 
      </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout9">
-     <vaadin-button id="vaadinButton3">
+     <vaadin-button id="botonVolver">
        Volver atrás 
      </vaadin-button>
     </vaadin-horizontal-layout>

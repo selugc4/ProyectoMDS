@@ -38,14 +38,12 @@ public class VistaVista_dar_alta_estilo extends LitTemplate {
 	private TextField vaadinTextField;
 	@Id("vaadinHorizontalLayout3")
 	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinButton")
-	private Button vaadinButton;
 	@Id("vaadinHorizontalLayout4")
 	private HorizontalLayout vaadinHorizontalLayout4;
+	@Id("vaadinButton")
+	private Button vaadinButton;
 	@Id("vaadinButton1")
 	private Button vaadinButton1;
-	@Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
 
 	/**
      * Creates a new VistaVista_dar_alta_estilo.
@@ -148,14 +146,6 @@ public class VistaVista_dar_alta_estilo extends LitTemplate {
 
 	public void setVaadinButton1(Button vaadinButton1) {
 		this.vaadinButton1 = vaadinButton1;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout5() {
-		return vaadinHorizontalLayout5;
-	}
-
-	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
-		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
 	}
 
 }

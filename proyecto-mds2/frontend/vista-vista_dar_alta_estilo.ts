@@ -39,7 +39,6 @@ export class VistaVista_dar_alta_estilo extends LitElement {
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout5"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

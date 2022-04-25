@@ -17,7 +17,7 @@ export class VistaBuscador_cancion_para_album extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="border: 1px solid black; width: 100%;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="margin-bottom: var(--lumo-space-xl); width: 100%; height: 100%;" id="vaadinHorizontalLayout">
   <vaadin-text-field placeholder="Nombre canción" style="width: 100%;" id="vaadinTextField">
    <iron-icon icon="lumo:search" slot="prefix" id="ironIcon"></iron-icon>

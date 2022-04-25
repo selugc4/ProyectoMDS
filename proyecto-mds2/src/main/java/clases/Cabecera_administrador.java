@@ -23,6 +23,7 @@ public class Cabecera_administrador extends Cabecera_comun {
 	}
 
 	public Vista_administracion getVadmin() {
+		vadmin = new Vista_administracion();
 		return vadmin;
 	}
 

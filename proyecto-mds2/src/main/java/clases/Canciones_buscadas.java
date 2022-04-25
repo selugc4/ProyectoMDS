@@ -45,4 +45,7 @@ public class Canciones_buscadas extends vistas.VistaCanciones_buscadas {
 		buscarCanciones(value);
 		mostrarResultados();
 	}
+	public ArrayList<Cancion_encontrada> getLista() {
+		return lista;
+	}
 }
