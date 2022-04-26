@@ -13,6 +13,7 @@ export class VistaVista_dar_alta_album extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
@@ -22,8 +23,8 @@ export class VistaVista_dar_alta_album extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
   <vaadin-vertical-layout theme="spacing-xl" style="width: 100%; margin-left: var(--lumo-space-xl);" id="vaadinVerticalLayout1">
-   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
-    <label style="font-size: 30px; font-weight: bolder" id="label">Añadir Álbum</label>
+   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="width: 100%;">
+    <label style="font-size: 30px; font-weight: bolder; width: 100%;" id="label">Añadir Álbum</label>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout2">
     <label style="flex-shrink: 1; width: 100%;" id="label1">Título</label>
@@ -33,22 +34,22 @@ export class VistaVista_dar_alta_album extends LitElement {
     <label style="flex-shrink: 1; width: 100%;" id="label2">Nombre del artista</label>
     <vaadin-text-field required invalid="" style="width: 100%;" id="vaadinTextField1"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout style="width: 60%; flex-direction: row; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout4">
-    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
+   <vaadin-horizontal-layout style="width: 100%; flex-direction: row; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout4">
+    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2" style="width: 100%; flex-shrink: 1;">
      <label style="flex-shrink: 1; width: 100%;" id="label3">Imagen</label>
-     <vaadin-upload id="vaadinUpload"></vaadin-upload>
+     <vaadin-upload id="vaadinUpload" style="width: 90%; flex-shrink: 1;"></vaadin-upload>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout3">
      <img style="width: 125px; height: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 60%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout5">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout5">
     <label style="width: 100%;" id="label4">Lista de canciones</label>
-    <vaadin-button style="width: 40%;" id="botonLista">
+    <vaadin-button style="width: 100%;" id="botonLista">
       Añadir Canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="width: 75%;" id="vaadinHorizontalLayout6">
+   <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout6">
     <vaadin-vertical-layout style="margin-left: var(--lumo-space-xl); width: 100%; border: 1px solid black;" id="verticalListado"></vaadin-vertical-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
@@ -63,7 +64,7 @@ export class VistaVista_dar_alta_album extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout7">
     <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout8">
-     <vaadin-button id="botonAdd">
+     <vaadin-button id="botonAdd" style="width: 100%;">
        Añadir Álbum 
      </vaadin-button>
     </vaadin-horizontal-layout>

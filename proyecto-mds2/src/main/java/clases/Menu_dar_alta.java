@@ -3,6 +3,7 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Menu_dar_alta extends vistas.VistaMenu_dar_alta {
@@ -37,8 +38,7 @@ public class Menu_dar_alta extends vistas.VistaMenu_dar_alta {
 	public Vista_dar_alta_cancion vdac = new Vista_dar_alta_cancion();
 	public Vista_dar_alta_estilo vdae = new Vista_dar_alta_estilo();
 	public Menu_dar_alta() {
-		this.getVaadinVerticalLayout().getStyle().set("width", "1000px");
-		
+		this.getStyle().set("width", "100%");
 		this.getBotonCanciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -122,8 +122,5 @@ public class Menu_dar_alta extends vistas.VistaMenu_dar_alta {
 			vl.add(new Menu_dar_alta());
 		}
 	});
-	
-
 	}
-//	}
 }

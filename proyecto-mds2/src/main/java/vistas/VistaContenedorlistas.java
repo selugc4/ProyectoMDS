@@ -7,6 +7,7 @@ import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-contenedorlistas template.
@@ -26,6 +27,8 @@ public class VistaContenedorlistas extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout11;
 	@Id("vaadinButton")
 	private Button vaadinButton;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 
 	public VistaContenedorlistas() {
         // You can initialise any data required for the connected UI components here.
@@ -62,5 +65,15 @@ public class VistaContenedorlistas extends LitTemplate {
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
 	}
+
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+	
 
 }

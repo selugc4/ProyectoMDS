@@ -38,18 +38,15 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 //	}
 	
 	public Vista_dar_alta_cancion() {
-
+		this.getStyle().set("width", "100%");
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				anadirCancion();
 				
 			}
-
 			private void anadirCancion() {
 				//COGER TEXT FIELDS Y ARCHIVO Y GUARDARLOS EN BASE DE DATOS
-				
 			}
 		});
 	}

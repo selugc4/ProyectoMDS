@@ -53,7 +53,7 @@ public class Usuario_registrado extends Actor_comun {
 				v1.add(cur.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
 				v2.replace(getVaadinButton(), rc);			}
 		});
-		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+/*		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
 				v1.add(cc);
@@ -101,6 +101,7 @@ public class Usuario_registrado extends Actor_comun {
 				v2.add(rc);
 			}
 		});
+		*/
 		new Ver_estadisticas().getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

@@ -11,19 +11,18 @@ public class Estilos_buscados extends vistas.VistaEstilos_buscados {
 	public ArrayList<Estilo> _estilo = new ArrayList<Estilo>();
 	
 	public Estilos_buscados() {
-		
 	}
 	
 	public Estilos_buscados(String estilo) {
+		this.getStyle().set("width", "100%");
 		_estilo.clear();
 		_estilo.add(new Estilo(estilo));
 		mostrarLista();
-		
-		
 	}
 
 	private void mostrarLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.getStyle().set("width", "100%");
 		for(Estilo estilo : _estilo) {
 			vl.add(estilo);
 		}

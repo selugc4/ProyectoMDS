@@ -11,6 +11,7 @@ export class VistaCancion_con_imagen extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

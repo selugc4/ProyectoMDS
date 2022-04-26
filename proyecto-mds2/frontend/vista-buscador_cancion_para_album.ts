@@ -11,6 +11,7 @@ export class VistaBuscador_cancion_para_album extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

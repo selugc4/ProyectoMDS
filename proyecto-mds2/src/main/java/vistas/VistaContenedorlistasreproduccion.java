@@ -6,6 +6,8 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.orderedlayout.Scroller;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-contenedorlistasreproduccion template.
@@ -19,8 +21,8 @@ public class VistaContenedorlistasreproduccion extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vaadinScroller")
-	private Scroller vaadinScroller;
+	@Id("vaadinVerticalLayout1")
+	private Element vaadinVerticalLayout1;
 
 	/**
      * Creates a new VistaContenedorlistasreproduccion.
@@ -37,12 +39,13 @@ public class VistaContenedorlistasreproduccion extends LitTemplate {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
 
-	public Scroller getVaadinScroller() {
-		return vaadinScroller;
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
 	}
 
-	public void setVaadinScroller(Scroller vaadinScroller) {
-		this.vaadinScroller = vaadinScroller;
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
 
+	
 }

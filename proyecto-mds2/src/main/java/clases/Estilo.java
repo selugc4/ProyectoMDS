@@ -27,6 +27,8 @@ public class Estilo extends vistas.VistaEstilo{
 //	}
 
 	public Estilo(String estilo) {
+		this.getStyle().set("width", "100%");
+		
 		this.getLabel().setText(estilo);
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -67,5 +69,4 @@ public class Estilo extends vistas.VistaEstilo{
 		});
 	}
 
-	
 }

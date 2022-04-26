@@ -17,12 +17,14 @@ export class VistaContenedorlistas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; flex-direction: row;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout11" style="align-self: center;">
-  <vaadin-button id="vaadinButton">
-    Ver más 
-  </vaadin-button>
+<vaadin-vertical-layout style="width: 100%; height: 100%; flex-direction: column;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="align-items: center;"></vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout11" style="align-self: center;">
+   <vaadin-button id="vaadinButton" style="align-self: flex-start;">
+     Ver más 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

@@ -10,6 +10,7 @@ export class VistaIniciar_sesion extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

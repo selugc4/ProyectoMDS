@@ -49,6 +49,10 @@ public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 	
 	public Bloqueo_inicio_sesion bis = new Bloqueo_inicio_sesion();
 	public Recuperar_contrasena rc = new Recuperar_contrasena();
+	
+	public Iniciar_sesion() {
+		this.getStyle().set("width", "100%");
+	}
 	public boolean comprobarUsuario(String usuario, String pass) {
 		if(!usuario.isEmpty())
 			return true;

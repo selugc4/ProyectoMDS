@@ -18,6 +18,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public Ultimos_exitos ue= new Ultimos_exitos();
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
 	public Cibernauta() {
+		this.getStyle().set("width", "100%");
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		v1.add(cc);
@@ -57,10 +58,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getReg().validarRegistro()) {
-					v1.removeAll();
-					v1.add(cc);
-					v1.add(cc.getReg().getVr());
-					v1.add(rcs);
+					v1.replace(cc.getReg(),cc.getReg().getVr());
+				
 					
 			}else {
 				Notification.show("Error: Revise algun campo");
@@ -73,12 +72,11 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(cc.getReg().validarRegistro()) {
 					v1.removeAll();
 					v1.add(cc);
-					v1.add(ue);
+					v1.replace(cc.getReg(), ue);
 					v1.add(rcs);
-				}
+				
 			}
 				
 		});

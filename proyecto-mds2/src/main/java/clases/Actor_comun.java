@@ -15,7 +15,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 //	public ContenedorCanciones_favoritas _contenedorCanciones_favoritas;
 	
 	public Cabecera_comun cc = new Cabecera_comun();
-	public Reproductor_completo rc = new Reproductor_completo();
+	public static Reproductor_completo rc = new Reproductor_completo();
 	public ContenedorUltimas_canciones_reproducidas cucr = new ContenedorUltimas_canciones_reproducidas();
 	public ContenedorCanciones_favoritas ccf = new ContenedorCanciones_favoritas();
 	public ContenedorRecomendaciones cr = new ContenedorRecomendaciones();
@@ -35,8 +35,8 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public Cabecera_comun getCc() {
 		return cc;
 	}
-	public Reproductor_completo getRc() {
-		return rc;
+	public static Reproductor_completo getRc() {
+		return Actor_comun.rc;
 	}
 	public ContenedorUltimas_canciones_reproducidas getCucr() {
 		return cucr;
@@ -50,7 +50,5 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public ContenedorListasReproduccion getClr() {
 		return clr;
 	}
-	
-	
 	
 }

@@ -13,7 +13,7 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 //	public Ultimos_exitos _ultimos_exitos;
 //	public Reproductor_canciones_simple _reproductor_canciones_simple;
 	
-	public Reproductor_canciones_simple rcs  = Cibernauta.rcs;
+	public Reproductor_completo rc = Actor_comun.rc;
 	public Cancion__Vista_Cibernauta_() {
 		inicializar();
 		
@@ -21,7 +21,7 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {				
-				rcs.setSource("http://www.groovydomain.com/gallery/music/ORIGINAL/Queen/Greatest%20Hits%20(Parlophone)/16%20We%20Will%20Rock%20You.mp3");			
+				rc.setSource("http://www.groovydomain.com/gallery/music/ORIGINAL/Queen/Greatest%20Hits%20(Parlophone)/16%20We%20Will%20Rock%20You.mp3");			
 			}});
 		
 	}

@@ -62,6 +62,12 @@ public class VistaVista_administracion extends LitTemplate {
 	private Button botonUsuarios;
 	@Id("botonDarAlta")
 	private Button botonDarAlta;
+	@Id("horizontalVentanas")
+	private HorizontalLayout horizontalVentanas;
+	@Id("verticallUE")
+	private Element verticallUE;
+	@Id("verticalEstilos")
+	private Element verticalEstilos;
 
 	/**
      * Creates a new VistaVista_administracion.
@@ -241,6 +247,33 @@ public class VistaVista_administracion extends LitTemplate {
 		this.botonDarAlta = botonDarAlta;
 	}
 
+	public HorizontalLayout getHorizontalVentanas() {
+		return horizontalVentanas;
+	}
+
+	public void setHorizontalVentanas(HorizontalLayout horizontalVentanas) {
+		this.horizontalVentanas = horizontalVentanas;
+	}
+
+	public Element getVerticallUE() {
+		return verticallUE;
+	}
+
+	public void setVerticallUE(Element verticallUE) {
+		this.verticallUE = verticallUE;
+	}
+
+	public Element getVerticalEstilos() {
+		return verticalEstilos;
+	}
+
+	public void setVerticalEstilos(Element verticalEstilos) {
+		this.verticalEstilos = verticalEstilos;
+	}
+
+
+
+	
 	
 
 }

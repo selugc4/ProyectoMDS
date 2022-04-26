@@ -8,22 +8,17 @@ public class ContenedorListasReproduccion extends vistas.VistaContenedorlistasre
 //	private ScrollBar _barra_Scroll;
 //	public Actor_comun _actor_comun;
 //	public Listas_de_reproduccion _listas_de_reproduccion;
+	public Listas_de_reproduccion ldr = new Listas_de_reproduccion();
 	public ContenedorListasReproduccion() {
 		inicializar();
+		
 	}
 	private void inicializar() {
-	Cargar_ListasReproduccion();
-	this.getStyle().set("width", "100%");
-}
-	public void Cargar_ListasReproduccion() {
-		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		//v1.removeAll();
-		for(int i = 0; i < 5; i++) {		
-			v1.add(new Lista_de_reproduccion());
+		this.getStyle().set("width", "100%");
+		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		vl.add(ldr);
 		}
-		//v1.add(getVaadinButton());	
-	}
-	public void verMas() {
-		throw new UnsupportedOperationException();
-	}
+	
+
+
 }

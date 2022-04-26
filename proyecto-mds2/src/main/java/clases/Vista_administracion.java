@@ -9,6 +9,7 @@ import com.vaadin.flow.component.BlurNotifier.BlurEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
@@ -142,9 +143,9 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 			@Override
 			public void onComponentEvent(BlurEvent<TextField> event) {
 				eb = new Estilos_buscados(getTfBuscador().getValue());
-				Dialog diag2 = new Dialog(eb);
-				diag2.setWidth("100%");
-				diag2.open();
+				VerticalLayout vl2 = getVerticalEstilos().as(VerticalLayout.class);
+				vl2.removeAll();
+				vl2.add(eb);
 				
 				
 			}
@@ -155,6 +156,7 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.setAlignItems(Alignment.START);
 				vl.removeAll();
 				vl.add(mda);
 				
@@ -174,9 +176,9 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 	}
 	
 	private void inicializar() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		VerticalLayout vl = this.getVerticallUE().as(VerticalLayout.class);
+		
 		vl.add(cue);
-		vl.add(eb);
 		
 	}
 	

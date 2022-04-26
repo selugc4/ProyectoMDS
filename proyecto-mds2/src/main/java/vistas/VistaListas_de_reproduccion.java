@@ -20,11 +20,12 @@ public class VistaListas_de_reproduccion extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("label")
 	private Label label;
-
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("vaadinVerticalLayout1")
+	private Element vaadinVerticalLayout1;
 	/**
      * Creates a new VistaListas_de_reproduccion.
      */
@@ -55,5 +56,15 @@ public class VistaListas_de_reproduccion extends LitTemplate {
 	public void setLabel(Label label) {
 		this.label = label;
 	}
+
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+	
+	
 
 }

@@ -10,6 +10,7 @@ export class VistaEstilo extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
@@ -17,9 +18,9 @@ export class VistaEstilo extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout">
   <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;" id="vaadinHorizontalLayout1">
-   <label style="width: 100%;" id="label">Estilo </label>
+   <label id="label">Estilo </label>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout2">
     <vaadin-button style="width: 100%;" id="vaadinButton">
       Modificar 

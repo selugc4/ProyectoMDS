@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -47,11 +49,12 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public Canciones_modificar_y_crear canciones = new Canciones_modificar_y_crear();
+	public static Canciones_modificar_y_crear canciones = new Canciones_modificar_y_crear();
 	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album();
 	
+	
 	public Vista_dar_alta_album() {
-		
+		this.getStyle().set("width", "100%");		
 		
 		this.getBotonAdd().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -79,6 +82,20 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 				Dialog diag = new Dialog(bcpa);
 				diag.setWidth("100%");
 				diag.open();
+				
+				Button boton = bcpa.cpa.canciones.get(0).getVaadinButton();
+				boton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						diag.close();
+						
+					}
+				});
+				
+			
+				
+			
 				
 			}
 		});

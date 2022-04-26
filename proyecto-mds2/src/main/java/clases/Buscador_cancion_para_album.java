@@ -1,8 +1,11 @@
 package clases;
 
 import com.vaadin.flow.component.BlurNotifier;
+import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.BlurNotifier.BlurEvent;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
@@ -29,9 +32,8 @@ public class Buscador_cancion_para_album extends vistas.VistaBuscador_cancion_pa
 			public void onComponentEvent(BlurEvent<TextField> event) {
 				cpa.actualizar(getVaadinTextField().getValue());
 	
-				
 			}
 		});
-		
+			
 	}
 }

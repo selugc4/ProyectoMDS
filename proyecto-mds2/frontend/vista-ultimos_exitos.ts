@@ -8,14 +8,15 @@ export class VistaUltimos_exitos extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <label style="margin: var(--lumo-space-xl); padding: var(--lumo-space-s);" id="label">Últimos Éxitos</label>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: flex-start; margin: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+ <label style="margin: var(--lumo-space-xl); align-self: flex-start; padding: var(--lumo-space-s);" id="label">Últimos Éxitos</label>
 </vaadin-vertical-layout>
 `;
   }

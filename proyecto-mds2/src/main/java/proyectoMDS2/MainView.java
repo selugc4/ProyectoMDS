@@ -52,10 +52,9 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	this.getStyle().set("width", "100%");
-   /* 	Cibernauta ciber = new Cibernauta();
+    /*	Cibernauta ciber = new Cibernauta();
     	add(ciber);
     	
-    	this.getStyle().set("width", "100%");
     
     	Iniciar_sesion is = ciber.getCc().getIs();
     	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -84,7 +83,7 @@ public class MainView extends VerticalLayout {
 				
 			}
 		});
-    }
+    }*/
     	Administrador admin = new Administrador();
     	add(admin);
 		
@@ -97,12 +96,13 @@ public class MainView extends VerticalLayout {
 				
 			}
 			
-		});*/
+		});
+    }
 		
 
-    	Usuario_registrado usuario = new Usuario_registrado();
+    /*	Usuario_registrado usuario = new Usuario_registrado();
     	add(usuario);
+    	*/
     	
-    	
-}
+
 }

@@ -34,11 +34,11 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 	public void Cargar_Ultimos_Exitos() {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		HorizontalLayout h1 = new HorizontalLayout();
+		h1.getStyle().set("justify-content","space-between");
 		for(int i = 0; i < 5; i++) {		
 			h1.add(new Cancion__Vista_Cibernauta_());
 		}
-		v1.add(h1);
-				
+		v1.add(h1);	
 	}
 
 	

@@ -3,12 +3,13 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 
 public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 //	public Canciones _canciones;
 //	public Reproductor_completo _reproductor_completo;
 	
-	public Reproductor_canciones_simple rcs  = Cibernauta.rcs;
+	public Reproductor_canciones_simple rcs  = Actor_comun.rc;
 	public Cancion__Vista_actor_comun_() {
 		inicializar();
 		 

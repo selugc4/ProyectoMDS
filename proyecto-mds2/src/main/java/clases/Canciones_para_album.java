@@ -11,11 +11,14 @@ public class Canciones_para_album extends vistas.VistaCanciones_para_album {
 	public ArrayList<Cancion_para_album> canciones = new ArrayList<Cancion_para_album>();
 	
 	public Canciones_para_album() {
+		this.getStyle().set("width", "100%");
 		
 	}
 	
 	public Canciones_para_album(String texto) {
+		this.getStyle().set("width", "100%");
 		buscarCanciones(texto);
+		
 	}
 
 	private void buscarCanciones(String texto) {

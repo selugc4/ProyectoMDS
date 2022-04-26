@@ -8,7 +8,10 @@ public class Cancion_con_imagen extends vistas.VistaCancion_con_imagen{
 //	private Image _imagen_Cancion;
 //	private Label _titulo_Cancion;
 //	private Label _artistaL;
+	
+	public Cancion_con_imagen() {
+		this.getStyle().set("width", "100%");
+	}
 
-	void reproducirCancion() {
-}
+
 }

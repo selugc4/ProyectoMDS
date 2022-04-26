@@ -85,7 +85,7 @@ public class Registro extends vistas.VistaRegistro {
 
 
 	public boolean validarContrasena(String pass) {
-		String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
+	/*	String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
 		if(pass.isEmpty() || pass.length() < 10) {
 			return false;
 		}else if (!esMalsonante()){
@@ -94,9 +94,9 @@ public class Registro extends vistas.VistaRegistro {
 				if(!Character.isLowerCase(pass.charAt(i)) && !Character.isLowerCase(pass.charAt(i)) && !Character.isDigit(pass.charAt(i))) {
 					correcta = false;
 				}
-			}*/
+			}
 			return correcta;
-		}
+		} */
 		return true;
 	}
 	

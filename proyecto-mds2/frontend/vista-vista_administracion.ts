@@ -1,9 +1,9 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-vista_administracion')
 export class VistaVista_administracion extends LitElement {
@@ -37,7 +37,7 @@ export class VistaVista_administracion extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing-xl" style="align-items: center; justify-content: flex-start; align-self: center; width: 100%; margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout2">
-   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl); width: 30%;"id="label1">Número de canciones reproducibles por usuarios no registrados</label>
+   <label style="flex-grow: 0; margin-right: var(--lumo-space-xl); width: 30%;" id="label1">Número de canciones reproducibles por usuarios no registrados</label>
    <vaadin-text-field required invalid="" style="width: 30%;" placeholder="Número actual" id="tfReproducibles"></vaadin-text-field>
    <vaadin-button style="width: 30%; flex-shrink: 0; flex-grow: 0;" id="botonReproducibles">
      Modificar 
@@ -58,6 +58,10 @@ export class VistaVista_administracion extends LitElement {
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
+ <vaadin-horizontal-layout theme="spacing" id="horizontalVentanas" style="width: 100%; height: 100%;">
+  <vaadin-vertical-layout theme="spacing" id="verticallUE" style="height: 100%; width: 100%; align-items: flex-start; align-self: flex-start;"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 100%; align-items: flex-start; align-self: flex-start;" id="verticalEstilos"></vaadin-vertical-layout>
+ </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

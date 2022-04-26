@@ -23,7 +23,7 @@ public class Administrador extends Actor_comun {
     	this.getStyle().set("width", "100%");
 
 
-		Reproductor_completo rc = this.getRc();
+		Reproductor_completo rc = Actor_comun.getRc();
 		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		VerticalLayout v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		vl.replace(this.getCc(), cabadmin);
@@ -39,7 +39,7 @@ public class Administrador extends Actor_comun {
 				v2.replace(getVaadinButton(), rc);
 			}
 		});
-		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+	/*	cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				vl.removeAll();
 				vl.add(cabadmin);
@@ -66,7 +66,7 @@ public class Administrador extends Actor_comun {
 				v2.add(rc);
 			}
 		});
-	
+	*/
 	
 		this.cabadmin.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
