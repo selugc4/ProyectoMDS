@@ -3,6 +3,9 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Actor_comun extends vistas.VistaActor_comun {
@@ -20,18 +23,74 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public ContenedorCanciones_favoritas ccf = new ContenedorCanciones_favoritas();
 	public ContenedorRecomendaciones cr = new ContenedorRecomendaciones();
 	public ContenedorListasReproduccion clr = new ContenedorListasReproduccion();
+	public Ver_estadisticas ve = new Ver_estadisticas();
+	public static VerticalLayout v1;
+	public static VerticalLayout v2;
 	public Actor_comun() {
-		VerticalLayout v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
-		VerticalLayout v2 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		v1.add(cc);
-		v1.add(cucr);
-		v1.add(ccf);
-		v1.add(cr);
-		v1.add(clr);
-		v2.add(rc);
+		this.v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		this.v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
+		this.v1.add(cucr,ccf, cr,clr);
+		VerticalLayout vl = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
+		vl.add(rc);
+			
+		//ULTIMAS CANCIONES
+		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();				
+				v1.add(cucr.verLista(cucr.ucr._ver_lista_de_Reproduccion, cucr.ucr.getLabel().getText()));
+				v2.setVisible(false);	
+			}
+		});
+		
+		
+		//RECOMENDADAS
+		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();				
+				v1.add(cr.verLista(cr.r._ver_lista_de_Reproduccion, cr.r.getLabel().getText()));
+				v2.setVisible(false);	
+				
+			}
+	});
+		
+		//FAVORITAS
+		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();				
+				v1.add(ccf.verLista(ccf.cf._ver_lista_de_Reproduccion, ccf.cf.getLabel().getText()));
+				v2.setVisible(false);	
+			}
+	});
+		
+		//ESTADISTICAS
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(ve);
+				v2.setVisible(false);
+			}
+		});
+		
+		//volver atrás ESTADISTICAS
+		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+				v2.setVisible(true);	
+				
+			}
+		});
 		
 	}
-	
+
 	public Cabecera_comun getCc() {
 		return cc;
 	}

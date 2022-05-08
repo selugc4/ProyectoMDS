@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-albumes_buscador')
 export class VistaAlbumes_buscador extends LitElement {
@@ -15,7 +16,8 @@ export class VistaAlbumes_buscador extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl);" id="vaadinVerticalLayout">
- <label id="label">Álbumes buscador</label>
+ <label id="label">Álbumes</label>
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }

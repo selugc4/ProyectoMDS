@@ -1,7 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-ver_perfil_ajeno')
 export class VistaVer_perfil_ajeno extends LitElement {
@@ -35,6 +35,18 @@ export class VistaVer_perfil_ajeno extends LitElement {
    <label id="label2">Seguidos: XXXX</label>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" id="verticalContenedores" style="width: 100%; height: 100%; padding: var(--lumo-space-l);">
+  <vaadin-horizontal-layout theme="spacing" id="horizontalListas" style="width: 100%; height: 100%;">
+   <vaadin-vertical-layout theme="spacing" id="verticalSusListas" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+   <vaadin-vertical-layout theme="spacing" id="verticalListasSusCanciones" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalAlbumes" style="width: 100%; height: 100%; align-self: center; justify-content: center; align-items: center;"></vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalCanciones" style="width: 100%; height: 100%;">
+   <vaadin-vertical-layout theme="spacing" id="verticalExitosas" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+   <vaadin-vertical-layout theme="spacing" id="verticalConciertos" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalArtistas" style="width: 100%; height: 100%; flex-direction: row; align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

@@ -84,7 +84,7 @@ public class MainView extends VerticalLayout {
 			}
 		});
     }*/
-    	Administrador admin = new Administrador();
+    /*	Administrador admin = new Administrador();
     	add(admin);
 		
 		admin.getCc().getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -97,12 +97,11 @@ public class MainView extends VerticalLayout {
 			}
 			
 		});
+		*/
+     	Usuario_registrado usuario = new Usuario_registrado();
+    	add(usuario);    	
     }
-		
-
-    /*	Usuario_registrado usuario = new Usuario_registrado();
-    	add(usuario);
-    	*/
-    	
+		    	
 
 }
+

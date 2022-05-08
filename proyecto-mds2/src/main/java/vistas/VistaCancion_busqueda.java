@@ -35,6 +35,8 @@ public class VistaCancion_busqueda extends LitTemplate {
 	private Button vaadinButton1;
 	@Id("ironIcon1")
 	private Element ironIcon1;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 	/**
      * Creates a new VistaCancion_busqueda.
      */
@@ -89,5 +91,12 @@ public class VistaCancion_busqueda extends LitTemplate {
 	public void setIronIcon1(Element ironIcon1) {
 		this.ironIcon1 = ironIcon1;
 	}
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
 
+	
 }

@@ -25,8 +25,11 @@ public class ContenedorListas extends vistas.VistaContenedorlistas {
 //			h1.add(cancion);
 //		}
 //	}
-//
 //		public Ver_lista_de_Reproduccion getListaDeReproduccion() {
 //		return new Ver_lista_de_Reproduccion();
 //	}
+	
+	public Ver_lista_de_Reproduccion verLista(ArrayList<Cancion__Vista_actor_comun_> lista, String nombre) {
+		return new Ver_lista_de_Reproduccion(lista, nombre);
+	}
 }

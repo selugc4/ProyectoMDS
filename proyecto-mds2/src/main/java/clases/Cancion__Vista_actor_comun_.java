@@ -27,9 +27,11 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 	
 	void inicializar() {
 	this.getStyle().set("width", "100%");
-
-	this.getLabel2().setVisible(false);
-	this.getLabel3().setVisible(false);
+	this.getLabelAlbum().setVisible(false);
+	this.getLabelDchaArtista().setVisible(false);
+	this.getLabelDchaTitulo().setVisible(false);
+	this.getLabelDuracion().setVisible(false);
 	this.getVaadinButton().setVisible(false);
+
 	}
 }

@@ -10,5 +10,6 @@ public class ContenedorCanciones_favoritas extends ContenedorListas {
 	public ContenedorCanciones_favoritas() {
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		hl.add(cf);
+		
 	}
 }

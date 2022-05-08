@@ -1,41 +1,45 @@
 package clases;
 
-import com.vaadin.flow.component.BlurNotifier;
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
-import com.vaadin.flow.component.BlurNotifier.BlurEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.dom.DomEventListener;
 
-import vistas.VistaActor_comun;
 
 public class Usuario_registrado extends Actor_comun {
 	
-	public Cabecera_usuario_registrado cur = new Cabecera_usuario_registrado();
+	public static Cabecera_usuario_registrado cur = new Cabecera_usuario_registrado();
+	public static Ver_perfil_propio_usuario_registrado vpp = new Ver_perfil_propio_usuario_registrado("Nombre");
+	
+
 	public Usuario_registrado() {	
-		VerticalLayout v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
-		VerticalLayout v2 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		this.getStyle().set("width", "100%");
+		this.getVaadinHorizontalLayout().add(cur);
 		
-		v1.replace(cc, cur);
+
+		//INICIO
 		cur.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				v1.removeAll();
-				v1.add(cur); 
 				v1.add(cucr);
 				v1.add(ccf);
 				v1.add(cr);
 				v1.add(clr);
-				//v2.add(rc);
-				//v1.add(getVaadinButton());
+				v2.setVisible(true);	
 			}
 		}); 
 		
+		
+		//NOTIFICACIONES
 		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -44,74 +48,49 @@ public class Usuario_registrado extends Actor_comun {
 				diag.open();
 			}
 		});
+		
+		//PERFIL PROPIO
 		cur.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cur);	
-				v1.add(cur.getVer_perfil_propio());
-				v1.add(cur.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
-				v2.replace(getVaadinButton(), rc);			}
+				v1.removeAll();	
+				v1.add(vpp);
+///				v1.add(cur.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
+				v2.setVisible(false);		
+				}
 		});
-/*		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(cucr.getListaDeReproduccion());
-				v1.add(new Canciones_lista());
-				v2.add(rc);
-			}
-	});
-		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(cr.getListaDeReproduccion());
-				v1.add(new Canciones_lista());
-				v2.add(rc);
-			}
-	});
-		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(ccf.getListaDeReproduccion());
-				v1.add(new Canciones_lista());
-				v2.add(rc);
-			}
-	});
-		cc.getTfBusqueda().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>(){
-			@Override
-			public void onComponentEvent(BlurEvent<TextField> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(new Canciones_busqueda());
-				v1.add(new Lista_de_reproduccion_buscador());
-				v1.add(new Artista());
-				v1.add(new Albumes_buscador());
-				v2.add(rc);
-			}
+
+	
+		cur.getIconoBusqueda().addEventListener("click", e -> {
+			v1.removeAll();			
+			cur.buscar(cur.getTfBusqueda().getValue());
+			v1.add(cur.be);
+			v2.setVisible(false);
+			
 		});
-		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(new Ver_estadisticas());
-				v2.add(rc);
+		
+		//CREAR LISTA
+				this.vpp.capp.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						v1.removeAll();
+						v1.add(vpp.capp.cl);
+						
+					}
+				});
+				
+				//FAVORITOS
+				this.vpp.getVaadinButton5().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						v1.removeAll();
+						v1.add(vpp.vlpp);
+						
+					}
+				});
+			
 			}
-		});
-		*/
-		new Ver_estadisticas().getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc); 
-				v1.add(cucr);
-				v1.add(ccf);
-				v1.add(cr);
-				v1.add(clr);
-			}
-		});
-	}
+	
 }

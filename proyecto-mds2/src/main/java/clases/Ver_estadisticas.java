@@ -11,8 +11,12 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 //	private Label _valor_HorasL;
 //	private Button _volver_AtrasB;
 //	public Actor_comun _actor_comun;
+//	public void volverAtras() {
+//		throw new UnsupportedOperationException();
+//	}
+	
+	public Ver_estadisticas() {
 
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
 	}
+	
 }

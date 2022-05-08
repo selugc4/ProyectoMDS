@@ -19,8 +19,7 @@ public class VistaSus_listas_de_reproduccion extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("label")
-	private Label label;
+
 
 	/**
      * Creates a new VistaSus_listas_de_reproduccion.
@@ -36,13 +35,4 @@ public class VistaSus_listas_de_reproduccion extends LitTemplate {
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
-
-	public Label getLabel() {
-		return label;
-	}
-
-	public void setLabel(Label label) {
-		this.label = label;
-	}
-
 }

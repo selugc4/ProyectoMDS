@@ -22,14 +22,14 @@ export class VistaCabecera_comun extends LitElement {
 <vaadin-vertical-layout style="width: 100%; border-bottom: 1px solid black;" id="vertical">
  <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;" id="horizontalContenedor">
   <vaadin-horizontal-layout id="horizontalFoto">
-   <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
+   <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://extension.ual.es/assets/logo-ual.png" id="img">
    <vaadin-vertical-layout style="width: 100%; margin-top: var(--lumo-space-s); padding: var(--lumo-space-m); margin-left: var(--lumo-space-s);" id="vaadinVerticalLayout1">
     <label style="width: 100%; flex-grow: 0;" id="label">Contacto</label>
     <label style="width: 115pt; flex-grow: 0;" id="label1">Teléfono: XXXXXXXXX</label>
     <label style="width: 150pt; flex-grow: 0;" id="label2">Correo: correo@xxxxx.xxx</label>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout style="margin-top: var(--lumo-space-l); width: 100%;" id="horizontalExplorador">
+  <vaadin-horizontal-layout style="margin-top: var(--lumo-space-l); width: 100%; justify-content: space-between;" id="horizontalExplorador">
    <vaadin-horizontal-layout style="margin: var(--lumo-space-m);" id="horizontalBusqueda">
     <vaadin-text-field placeholder="Search" style="width: 100%;" id="tfBusqueda">
      <iron-icon icon="lumo:search" slot="prefix" id="iconoBusqueda"></iron-icon>

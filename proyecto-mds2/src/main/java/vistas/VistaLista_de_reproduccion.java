@@ -33,6 +33,8 @@ public class VistaLista_de_reproduccion extends LitTemplate {
 	private Button vaadinButton1;
 	@Id("vaadinButton2")
 	private Button vaadinButton2;
+	@Id("vaadinHorizontalLayout2")
+	private HorizontalLayout vaadinHorizontalLayout2;
 
 	/**
      * Creates a new VistaLista_de_reproduccion.
@@ -96,5 +98,14 @@ public class VistaLista_de_reproduccion extends LitTemplate {
 	public void setVaadinButton2(Button vaadinButton2) {
 		this.vaadinButton2 = vaadinButton2;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout2() {
+		return vaadinHorizontalLayout2;
+	}
+
+	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
+		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
+	}
+	
 
 }

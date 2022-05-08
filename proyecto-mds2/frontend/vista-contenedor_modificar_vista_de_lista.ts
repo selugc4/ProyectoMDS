@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-contenedor_modificar_vista_de_lista')
 export class VistaContenedor_modificar_vista_de_lista extends LitElement {
@@ -11,26 +11,35 @@ export class VistaContenedor_modificar_vista_de_lista extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width:100%;
       }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; width: 100%;" id="vaadinHorizontalLayout">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center; margin-right: var(--lumo-space-xl); margin-top: var(--lumo-space-xl);" id="vaadinVerticalLayout">
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout1">
+ <label id="labelContenedor" style="align-self: flex-start; margin: var(--lumo-space-xl);">Contenedor</label>
+ <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; align-self: flex-end; align-items: center; width: 22%;" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;" id="vaadinVerticalLayout">
    <label id="label">Número de listas por página</label>
    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
-    <label id="label2">5</label>
-    <label id="label1">10</label>
-    <label id="label3">15</label>
+    <vaadin-horizontal-layout theme="spacing" id="horizontal5">
+     <label id="label2">5</label>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout theme="spacing" id="horizontal10">
+     <label id="label1">10</label>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout theme="spacing" id="horizontal15">
+     <label id="label3">15</label>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
-  <vaadin-button theme="icon" aria-label="Add new" style="margin-right: var(--lumo-space-xl); margin-top: var(--lumo-space-xl); width: 4%;" id="vaadinButton">
+  <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton">
    <iron-icon src="https://img2.freepng.es/20180427/bfe/kisspng-plus-and-minus-signs-font-awesome-plus-minus-sign-simple-blue-graphics-box-5ae309cde75d97.3939703215248286219477.jpg" id="ironIcon"></iron-icon>
   </vaadin-button>
  </vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: center; margin-top: var(--lumo-space-xl); justify-content: center;" id="vaadinHorizontalLayout2">
   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton1">
    <iron-icon src="https://cdn.pixabay.com/photo/2020/03/22/15/19/arrow-4957487_960_720.png" id="ironIcon1"></iron-icon>

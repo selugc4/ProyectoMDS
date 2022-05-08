@@ -20,83 +20,143 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./vista-cancion_con_imagen.ts")
 public class VistaCancion_con_imagen extends LitTemplate {
 
-    @Id("label")
-	private Label label;
-	@Id("label1")
-	private Label label1;
-	@Id("vaadinHorizontalLayout")
+    @Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("img")
 	private Image img;
-	@Id("label3")
-	private Label label3;
-	@Id("label2")
-	private Label label2;
+	@Id("vaadinVerticalLayout1")
+	private Element vaadinVerticalLayout1;
+	@Id("labelDchaTitulo")
+	private Label labelDchaTitulo;
+	@Id("labelDchaArtista")
+	private Label labelDchaArtista;
+	@Id("labelAlbum")
+	private Label labelAlbum;
+	@Id("labelDuracion")
+	private Label labelDuracion;
 	@Id("vaadinButton")
 	private Button vaadinButton;
 	@Id("ironIcon")
 	private Element ironIcon;
+	@Id("labelDebajoTitulo")
+	private Label labelDebajoTitulo;
+	@Id("labelDebajoArtista")
+	private Label labelDebajoArtista;
+
 	/**
      * Creates a new VistaCancion_con_imagen.
      */
     public VistaCancion_con_imagen() {
         // You can initialise any data required for the connected UI components here.
     }
-	public Label getLabel() {
-		return label;
-	}
-	public void setLabel(Label label) {
-		this.label = label;
-	}
-	public Label getLabel1() {
-		return label1;
-	}
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}
+
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
+
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;
 	}
+
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+
 	public Image getImg() {
 		return img;
 	}
+
 	public void setImg(Image img) {
 		this.img = img;
 	}
-	public Label getLabel3() {
-		return label3;
+
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
 	}
-	public void setLabel3(Label label3) {
-		this.label3 = label3;
+
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
-	public Label getLabel2() {
-		return label2;
+
+	public Label getLabelDchaTitulo() {
+		return labelDchaTitulo;
 	}
-	public void setLabel2(Label label2) {
-		this.label2 = label2;
+
+	public void setLabelDchaTitulo(Label labelDchaTitulo) {
+		this.labelDchaTitulo = labelDchaTitulo;
 	}
+
+	public Label getLabelDchaArtista() {
+		return labelDchaArtista;
+	}
+
+	public void setLabelDchaArtista(Label labelDchaArtista) {
+		this.labelDchaArtista = labelDchaArtista;
+	}
+
+	public Label getLabelAlbum() {
+		return labelAlbum;
+	}
+
+	public void setLabelAlbum(Label labelAlbum) {
+		this.labelAlbum = labelAlbum;
+	}
+
+	public Label getLabelDuracion() {
+		return labelDuracion;
+	}
+
+	public void setLabelDuracion(Label labelDuracion) {
+		this.labelDuracion = labelDuracion;
+	}
+
 	public Button getVaadinButton() {
 		return vaadinButton;
 	}
+
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
 	}
+
 	public Element getIronIcon() {
 		return ironIcon;
 	}
+
 	public void setIronIcon(Element ironIcon) {
 		this.ironIcon = ironIcon;
 	}
+
+	public Label getLabelDebajoTitulo() {
+		return labelDebajoTitulo;
+	}
+
+	public void setLabelDebajoTitulo(Label labelDebajoTitulo) {
+		this.labelDebajoTitulo = labelDebajoTitulo;
+	}
+
+	public Label getLabelDebajoArtista() {
+		return labelDebajoArtista;
+	}
+
+	public void setLabelDebajoArtista(Label labelDebajoArtista) {
+		this.labelDebajoArtista = labelDebajoArtista;
+	}
+	
 
 }

@@ -8,6 +8,7 @@ export class VistaListas_de_reproduccion_perfil_propio extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }

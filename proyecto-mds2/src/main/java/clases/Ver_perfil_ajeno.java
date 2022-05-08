@@ -1,4 +1,7 @@
 package clases;
+
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class Ver_perfil_ajeno extends  vistas.VistaVer_perfil_ajeno {
 //	private Image _foto;
 //	private Label _nombreL;
@@ -8,8 +11,23 @@ public class Ver_perfil_ajeno extends  vistas.VistaVer_perfil_ajeno {
 //	private Label _numero_SeguidosL;
 //	private Button _seguirB;
 //	public Lista_de_reproduccion_buscador _lista_de_reproduccion_buscador;
+//
+//	public void seguirPerfil() {
+//		throw new UnsupportedOperationException();
+//	}
+	public ContenedorSus_Listas csl = new ContenedorSus_Listas();
 
-	public void seguirPerfil() {
-		throw new UnsupportedOperationException();
+	
+	public Ver_perfil_ajeno() {
+		inicializar();
+	}
+
+
+	
+	private void inicializar() {
+		this.getStyle().set("width", "100%");
+		VerticalLayout vl = this.getVerticalSusListas().as(VerticalLayout.class);
+		vl.add(csl);
+		
 	}
 }

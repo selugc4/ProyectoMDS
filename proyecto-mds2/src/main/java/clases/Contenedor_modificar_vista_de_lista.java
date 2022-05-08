@@ -7,11 +7,14 @@ public class Contenedor_modificar_vista_de_lista extends vistas.VistaContenedor_
 //	private Button _anterior_Pagina;
 //	private Label _numero_ListasL;
 
-	public void Cambiar_paginado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Cambiar_pagina() {
-		throw new UnsupportedOperationException();
+//	public void Cambiar_paginado() {
+//		throw new UnsupportedOperationException();
+//	}
+//	public void Cambiar_pagina() {
+//		throw new UnsupportedOperationException();
+//	}
+	
+	public Contenedor_modificar_vista_de_lista() {
+		this.getStyle().set("width", "100%");
 	}
 }

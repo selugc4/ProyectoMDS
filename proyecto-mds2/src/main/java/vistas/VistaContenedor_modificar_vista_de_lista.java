@@ -54,6 +54,18 @@ public class VistaContenedor_modificar_vista_de_lista extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout3;
 	@Id("img")
 	private Image img;
+	@Id("vaadinVerticalLayout1")
+	private Element vaadinVerticalLayout1;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
+	@Id("horizontal15")
+	private HorizontalLayout horizontal15;
+	@Id("horizontal10")
+	private HorizontalLayout horizontal10;
+	@Id("horizontal5")
+	private HorizontalLayout horizontal5;
+	@Id("labelContenedor")
+	private Label labelContenedor;
 	/**
      * Creates a new VistaContenedor_modificar_vista_de_lista.
      */
@@ -162,5 +174,43 @@ public class VistaContenedor_modificar_vista_de_lista extends LitTemplate {
 	public void setImg(Image img) {
 		this.img = img;
 	}
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
+		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
+	}
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	}
+	public HorizontalLayout getHorizontal15() {
+		return horizontal15;
+	}
+	public void setHorizontal15(HorizontalLayout horizontal15) {
+		this.horizontal15 = horizontal15;
+	}
+	public HorizontalLayout getHorizontal10() {
+		return horizontal10;
+	}
+	public void setHorizontal10(HorizontalLayout horizontal10) {
+		this.horizontal10 = horizontal10;
+	}
+	public HorizontalLayout getHorizontal5() {
+		return horizontal5;
+	}
+	public void setHorizontal5(HorizontalLayout horizontal5) {
+		this.horizontal5 = horizontal5;
+	}
+	public Label getLabelContenedor() {
+		return labelContenedor;
+	}
+	public void setLabelContenedor(Label labelContenedor) {
+		this.labelContenedor = labelContenedor;
+	}
+	
+	
 
 }

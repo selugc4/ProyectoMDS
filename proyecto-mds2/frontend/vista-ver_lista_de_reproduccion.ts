@@ -10,15 +10,16 @@ export class VistaVer_lista_de_reproduccion extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; height: 100%; margin-left: var(--lumo-space-xl);" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
-  <label style="align-self: center;" id="label">Nombre de la lista de reproducción</label>
+  <label style="align-self: center; font-size: 30px; font-weight:bolder;" id="label">Nombre de la lista de reproducción</label>
   <vaadin-button style="margin-left: var(--lumo-space-xl);" id="vaadinButton">
     Editar 
   </vaadin-button>

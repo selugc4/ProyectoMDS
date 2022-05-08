@@ -16,10 +16,12 @@ export class VistaArtistabuscador extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
- <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-l); width: 15%; align-items: center;" id="vaadinVerticalLayout">
-  <img style="width: 100%;" src="https://media.revistagq.com/photos/5fc0cb787e8773c13e83a61e/3:4/w_2088,h_2784,c_limit/GettyImages-1280266077.jpg" id="img">
-  <label style="align-self: center;" id="label">Artista</label>
+<vaadin-horizontal-layout class="content" style="height: 100%; width: 100%;" id="vaadinHorizontalLayout">
+ <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-l); align-items: center; width: 100%;" id="vaadinVerticalLayout">
+  <img style="width: 200px;" src="https://media.revistagq.com/photos/5fc0cb787e8773c13e83a61e/3:4/w_2088,h_2784,c_limit/GettyImages-1280266077.jpg" id="img">
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
+   <label style="align-self: center;" id="label">Artista</label>
+  </vaadin-horizontal-layout>
   <vaadin-button id="vaadinButton">
     Editar 
   </vaadin-button>

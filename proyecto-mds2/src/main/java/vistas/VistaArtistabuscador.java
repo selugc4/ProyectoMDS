@@ -32,6 +32,8 @@ public class VistaArtistabuscador extends LitTemplate {
 	private Button vaadinButton;
 	@Id("vaadinButton1")
 	private Button vaadinButton1;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 
 	/**
      * Creates a new VistaArtistabuscador.
@@ -87,5 +89,14 @@ public class VistaArtistabuscador extends LitTemplate {
 	public void setVaadinButton1(Button vaadinButton1) {
 		this.vaadinButton1 = vaadinButton1;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+	
 
 }

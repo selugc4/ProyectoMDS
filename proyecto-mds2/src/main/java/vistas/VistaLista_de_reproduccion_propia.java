@@ -24,6 +24,8 @@ public class VistaLista_de_reproduccion_propia extends LitTemplate {
 	private Label label;
 	@Id("vaadinButton")
 	private Button vaadinButton;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
 
 	/**
      * Creates a new VistaLista_de_reproduccion_propia.
@@ -56,4 +58,13 @@ public class VistaLista_de_reproduccion_propia extends LitTemplate {
 		this.vaadinButton = vaadinButton;
 	}
 
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+
+	
 }

@@ -33,6 +33,8 @@ public class VistaContenedoralbumes extends LitTemplate {
 	private Button vaadinButton1;
 	@Id("ironIcon1")
 	private Element ironIcon1;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaContenedoralbumes.
@@ -96,5 +98,15 @@ public class VistaContenedoralbumes extends LitTemplate {
 	public void setIronIcon1(Element ironIcon1) {
 		this.ironIcon1 = ironIcon1;
 	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	
+	
 
 }

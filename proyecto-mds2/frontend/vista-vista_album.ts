@@ -9,16 +9,17 @@ export class VistaVista_album extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
-  <img style="width: 30%;" src="https://i0.wp.com/masdecibelios.es/wp-content/uploads/2020/11/mago-de-oz-bandera-negra.jpg?resize=620%2C620&amp;ssl=1" id="img">
-  <vaadin-vertical-layout style="align-self: center;" id="vaadinVerticalLayout1">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: flex-start;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-xl); width: 100%; flex-direction: row; align-items: center;" id="vaadinHorizontalLayout">
+  <img style="width: 20%;" src="https://i0.wp.com/masdecibelios.es/wp-content/uploads/2020/11/mago-de-oz-bandera-negra.jpg?resize=620%2C620&amp;ssl=1" id="img">
+  <vaadin-vertical-layout id="vaadinVerticalLayout1" style="width: 100%;">
    <label style="font-weight:bold; font-size: 60px" id="label">Álbum</label>
    <label style="margin-bottom: var(--lumo-space-l); font-size:25px;" id="label1">Artista/s</label>
    <label style="font-size: 25px;" id="label2">Fecha de edición</label>

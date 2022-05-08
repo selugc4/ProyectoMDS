@@ -67,6 +67,8 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Element ironIcon3;
 	@Id("vaadinHorizontalLayout5")
 	private HorizontalLayout vaadinHorizontalLayout5;
+	@Id("verticalLista")
+	private Element verticalLista;
 	@Id("vaadinButton5")
 	private Button vaadinButton5;
 
@@ -268,5 +270,14 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	public void setVaadinButton5(Button vaadinButton5) {
 		this.vaadinButton5 = vaadinButton5;
 	}
+
+	public Element getVerticalLista() {
+		return verticalLista;
+	}
+
+	public void setVerticalLista(Element verticalLista) {
+		this.verticalLista = verticalLista;
+	}
+	
 
 }

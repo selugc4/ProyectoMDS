@@ -21,8 +21,8 @@ export class VistaVer_estadisticas extends LitElement {
  <vaadin-vertical-layout theme="spacing" style="margin-top: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); margin: var(--lumo-space-xl);" id="vaadinVerticalLayout1">
   <label style="font-size:50px; font-weight:bolder;" id="label">Tus estadísticas</label>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 94%; margin: var(--lumo-space-xl); align-self: flex-end;" id="vaadinHorizontalLayout">
-  <vaadin-vertical-layout theme="spacing" style="width: 75%; align-self: center;" id="vaadinVerticalLayout2">
+ <vaadin-horizontal-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl); align-self: flex-end;" id="vaadinHorizontalLayout">
+  <vaadin-vertical-layout theme="spacing" style="width: 100%; align-self: center; margin-right: var(--lumo-space-xl);" id="vaadinVerticalLayout2">
    <vaadin-split-layout theme="minimal" style="width: 100%;" id="vaadinSplitLayout">
     <label style="font-size: 25px;" id="label1">Estilo más escuchado:</label>
     <label style="font-size: 25px; font-weight:bold;" id="label2">Estilo más escuchado</label>
@@ -40,7 +40,7 @@ export class VistaVer_estadisticas extends LitElement {
     <label style="font-size: 25px; font-weight:bold;" id="label8">Horas escuchadas</label>
    </vaadin-split-layout>
   </vaadin-vertical-layout>
-  <vaadin-button style="align-self: center;" id="vaadinButton">
+  <vaadin-button style="align-self: center; margin: var(--lumo-space-xl); width: 25%;" id="vaadinButton">
     Volver atrás 
   </vaadin-button>
  </vaadin-horizontal-layout>

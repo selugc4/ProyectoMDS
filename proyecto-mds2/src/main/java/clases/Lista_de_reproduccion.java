@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.DomEventListener;
 
 public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
@@ -21,14 +22,30 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 	public Lista_de_reproduccion() {
 		inicializar();
 		
-		//CLICKER VER LISTA		
+		
 	}
 		
+	public Lista_de_reproduccion(String valueOf) {
+		inicializar();
+		this.getLabel().setText(valueOf);
+	}
 
 	private void inicializar() {
 		this.getVaadinButton().setVisible(false);
 		this.getVaadinButton1().setVisible(false);
 		this.getVaadinButton2().setVisible(false);
 		this.getStyle().set("width", "100%");
+		
+		//CLICKER VER LISTA		
+				this.getVaadinHorizontalLayout2().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+						VerticalLayout aux = Usuario_registrado.v1;
+						aux.removeAll();
+						aux.add(vldr);
+						Usuario_registrado.v2.setVisible(false);
+					}
+				});
 	}
 }

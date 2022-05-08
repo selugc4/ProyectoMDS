@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-ver_perfil_propio')
@@ -53,11 +53,12 @@ export class VistaVer_perfil_propio extends LitElement {
   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton4">
    <iron-icon src="https://img2.freepng.es/20180509/tue/kisspng-computer-icons-tick-tick-clip-art-5af2d059174288.6894910715258624890953.jpg" id="ironIcon3"></iron-icon>
   </vaadin-button>
-  <vaadin-horizontal-layout theme="spacing" style="width: 54%; justify-content: flex-end;" id="vaadinHorizontalLayout5">
-   <vaadin-button id="vaadinButton5">
-     Ver lista de favoritos 
-   </vaadin-button>
-  </vaadin-horizontal-layout>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; align-items: center; width: 100%;" id="vaadinHorizontalLayout5">
+  <vaadin-vertical-layout theme="spacing" id="verticalLista" style="width: 100%;"></vaadin-vertical-layout>
+  <vaadin-button id="vaadinButton5" style="width: 40%;">
+    Ver lista de favoritos 
+  </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
