@@ -7,7 +7,9 @@ public class Agregar_evento extends vistas.VistaAgregar_evento{
 //	private Button _volverAtrasB;
 //	public ContenedorBotonAgregar _contenedorBotonAgregar;
 
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
+	public Dropdown_concierto_o_festival drop = new Dropdown_concierto_o_festival();
+	
+	public Agregar_evento() {
+//		this.getVaadinSelect().s
 	}
 }

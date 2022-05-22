@@ -67,11 +67,28 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Element ironIcon3;
 	@Id("vaadinHorizontalLayout5")
 	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("verticalLista")
-	private Element verticalLista;
 	@Id("vaadinButton5")
 	private Button vaadinButton5;
+	@Id("verticalContenedores")
+	private Element verticalContenedores;
+	@Id("horizontalListas")
+	private HorizontalLayout horizontalListas;
+	@Id("verticalSusListas")
+	private Element verticalSusListas;
+	@Id("verticalListasSusCanciones")
+	private Element verticalListasSusCanciones;
+	@Id("horizontalAlbumes")
+	private HorizontalLayout horizontalAlbumes;
+	@Id("horizontalCanciones")
+	private HorizontalLayout horizontalCanciones;
+	@Id("horizontalArtistas")
+	private HorizontalLayout horizontalArtistas;
+	@Id("verticalExitosas")
+	private Element verticalExitosas;
+	@Id("verticalConciertos")
+	private Element verticalConciertos;
 
+	
 	/**
      * Creates a new VistaVer_perfil_propio.
      */
@@ -271,13 +288,79 @@ public class VistaVer_perfil_propio extends LitTemplate {
 		this.vaadinButton5 = vaadinButton5;
 	}
 
-	public Element getVerticalLista() {
-		return verticalLista;
+	public Element getVerticalContenedores() {
+		return verticalContenedores;
 	}
 
-	public void setVerticalLista(Element verticalLista) {
-		this.verticalLista = verticalLista;
+	public void setVerticalContenedores(Element verticalContenedores) {
+		this.verticalContenedores = verticalContenedores;
 	}
+
+	public HorizontalLayout getHorizontalListas() {
+		return horizontalListas;
+	}
+
+	public void setHorizontalListas(HorizontalLayout horizontalListas) {
+		this.horizontalListas = horizontalListas;
+	}
+
+	public Element getVerticalSusListas() {
+		return verticalSusListas;
+	}
+
+	public void setVerticalSusListas(Element verticalSusListas) {
+		this.verticalSusListas = verticalSusListas;
+	}
+
+	public Element getVerticalListasSusCanciones() {
+		return verticalListasSusCanciones;
+	}
+
+	public void setVerticalListasSusCanciones(Element verticalListasSusCanciones) {
+		this.verticalListasSusCanciones = verticalListasSusCanciones;
+	}
+
+	public HorizontalLayout getHorizontalAlbumes() {
+		return horizontalAlbumes;
+	}
+
+	public void setHorizontalAlbumes(HorizontalLayout horizontalAlbumes) {
+		this.horizontalAlbumes = horizontalAlbumes;
+	}
+
+	public HorizontalLayout getHorizontalCanciones() {
+		return horizontalCanciones;
+	}
+
+	public void setHorizontalCanciones(HorizontalLayout horizontalCanciones) {
+		this.horizontalCanciones = horizontalCanciones;
+	}
+
+	public HorizontalLayout getHorizontalArtistas() {
+		return horizontalArtistas;
+	}
+
+	public void setHorizontalArtistas(HorizontalLayout horizontalArtistas) {
+		this.horizontalArtistas = horizontalArtistas;
+	}
+
+	public Element getVerticalExitosas() {
+		return verticalExitosas;
+	}
+
+	public void setVerticalExitosas(Element verticalExitosas) {
+		this.verticalExitosas = verticalExitosas;
+	}
+
+	public Element getVerticalConciertos() {
+		return verticalConciertos;
+	}
+
+	public void setVerticalConciertos(Element verticalConciertos) {
+		this.verticalConciertos = verticalConciertos;
+	}
+	
+	
 	
 
 }

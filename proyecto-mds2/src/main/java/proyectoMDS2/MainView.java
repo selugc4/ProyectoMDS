@@ -98,8 +98,11 @@ public class MainView extends VerticalLayout {
 			
 		});
 		*/
-     	Usuario_registrado usuario = new Usuario_registrado();
-    	add(usuario);    	
+//     	Usuario_registrado usuario = new Usuario_registrado();
+//    	add(usuario);    
+    	
+    	Artista artista = new Artista();
+    	add(artista);
     }
 		    	
 

@@ -15,8 +15,6 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 //	private Dialog _darse_De_Baja;
 //	public Cabecera_usuario_registrado _cabecera_usuario_registrado;
 	
-	Ver_lista_de_reproduccion_propia vlpp = new Ver_lista_de_reproduccion_propia("Favoritos");
-	ContenedorAgregar_perfil_propio capp = new ContenedorAgregar_perfil_propio();
 
 	
 	public Ver_perfil_propio_usuario_registrado() {
@@ -36,8 +34,11 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		this.getVaadinButton4().setVisible(false);
 		this.getVaadinTextField().setReadOnly(true);
 		
-		VerticalLayout vl = this.getVerticalLista().as(VerticalLayout.class);
-		vl.add(capp);
+		VerticalLayout vl = this.getVerticalSusListas().as(VerticalLayout.class);
+		vl.add(ca);
+		
+		
+		
 
 		
 		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

@@ -1,7 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
@@ -46,7 +46,7 @@ export class VistaVer_perfil_propio extends LitElement {
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); width: 100%;" id="vaadinHorizontalLayout4">
+ <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); width: 100%; flex-shrink: 1;" id="vaadinHorizontalLayout4">
   <vaadin-button theme="icon" aria-label="Add new" id="vaadinButton3">
    <iron-icon src="https://e7.pngegg.com/pngimages/557/991/png-clipart-computer-icons-setting-icon-desktop-wallpaper-android.png" id="ironIcon2"></iron-icon>
   </vaadin-button>
@@ -54,12 +54,23 @@ export class VistaVer_perfil_propio extends LitElement {
    <iron-icon src="https://img2.freepng.es/20180509/tue/kisspng-computer-icons-tick-tick-clip-art-5af2d059174288.6894910715258624890953.jpg" id="ironIcon3"></iron-icon>
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; align-items: center; width: 100%;" id="vaadinHorizontalLayout5">
-  <vaadin-vertical-layout theme="spacing" id="verticalLista" style="width: 100%;"></vaadin-vertical-layout>
-  <vaadin-button id="vaadinButton5" style="width: 40%;">
+ <vaadin-horizontal-layout id="vaadinHorizontalLayout5" style="width: 100%; justify-content: flex-end;">
+  <vaadin-button id="vaadinButton5" style="flex-shrink: 1; margin-right: var(--lumo-space-xl);">
     Ver lista de favoritos 
   </vaadin-button>
  </vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" id="verticalContenedores" style="width: 100%; height: 100%; padding: var(--lumo-space-l);">
+  <vaadin-horizontal-layout theme="spacing" id="horizontalListas" style="width: 100%; height: 100%;">
+   <vaadin-vertical-layout theme="spacing" id="verticalSusListas" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+   <vaadin-vertical-layout theme="spacing" id="verticalListasSusCanciones" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalAlbumes" style="width: 100%; height: 100%; align-self: center; justify-content: center; align-items: center;"></vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalCanciones" style="width: 100%; height: 100%;">
+   <vaadin-vertical-layout theme="spacing" id="verticalExitosas" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+   <vaadin-vertical-layout theme="spacing" id="verticalConciertos" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="horizontalArtistas" style="width: 100%; height: 100%; flex-direction: row; align-self: center; align-items: center; justify-content: center;"></vaadin-horizontal-layout>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

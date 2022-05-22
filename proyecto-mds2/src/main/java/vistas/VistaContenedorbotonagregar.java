@@ -24,6 +24,8 @@ public class VistaContenedorbotonagregar extends LitTemplate {
 	private Button vaadinButton;
 	@Id("ironIcon")
 	private Element ironIcon;
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
 
 	/**
      * Creates a new VistaContenedorbotonagregar.
@@ -55,5 +57,15 @@ public class VistaContenedorbotonagregar extends LitTemplate {
 	public void setIronIcon(Element ironIcon) {
 		this.ironIcon = ironIcon;
 	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+	
+	
 
 }

@@ -70,12 +70,12 @@ public class Usuario_registrado extends Actor_comun {
 		});
 		
 		//CREAR LISTA
-				this.vpp.capp.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				this.vpp.ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
 						v1.removeAll();
-						v1.add(vpp.capp.cl);
+						v1.add(vpp.ca.cl);
 						
 					}
 				});

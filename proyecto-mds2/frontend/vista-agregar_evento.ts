@@ -18,14 +18,14 @@ export class VistaAgregar_evento extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: flex-start;" id="vaadinVerticalLayout">
  <label style="margin: var(--lumo-space-xl); font-size:35px; font-weight: bold;" id="label">Añadir festival/concierto</label>
  <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); margin-top: var(--lumo-space-xl); align-items: center;" id="vaadinHorizontalLayout">
   <label id="label1">¿Es un festival o un concierto?</label>
   <vaadin-select value="Item one" id="vaadinSelect">
    <template>
     <vaadin-list-box selected="0" id="vaadinListBox">
-     <vaadin-item selected id="vaadinItem">
+     <vaadin-item id="vaadinItem">
        Concierto 
      </vaadin-item>
      <vaadin-item id="vaadinItem1">

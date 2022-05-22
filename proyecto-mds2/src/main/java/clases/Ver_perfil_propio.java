@@ -14,7 +14,8 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 //	public Cabecera_administrador _cabecera_administrador;
 //	public Usuario _usuario;
 //	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
-	public ContenedorAgregar_perfil_propio _contenedor_agregar;
+	public ContenedorAgregar_perfil_propio ca = new ContenedorAgregar_perfil_propio();
+	Ver_lista_de_reproduccion_propia vlpp = new Ver_lista_de_reproduccion_propia("Favoritos");
 
 	public Ver_perfil_propio(String name) {
 		this.getLabel().setText(name);
@@ -36,6 +37,6 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 		throw new UnsupportedOperationException();
 	}
 	public ContenedorAgregar_perfil_propio getContenedorAgregar_perfil_propio() {
-		return _contenedor_agregar;
+		return ca;
 	}
 }
