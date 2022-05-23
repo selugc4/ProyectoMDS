@@ -7,7 +7,5 @@ public class Canciones_favoritas extends Canciones {
 		
 	}
 	
-	public Ver_lista_de_reproduccion_propia getListaDeReproduccion() {
-		return new Ver_lista_de_reproduccion_propia();
-	}
+	
 }

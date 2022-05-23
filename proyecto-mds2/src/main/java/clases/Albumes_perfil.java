@@ -4,7 +4,7 @@ public class Albumes_perfil extends Albumes_buscador {
 //	public ContenedorAlbumes _contenedorAlbumes;
 	
 	public Albumes_perfil() {
-		
+		inicializar();
 	}
 
 	public void inicializar() {

@@ -11,5 +11,6 @@ public class Agregar_evento extends vistas.VistaAgregar_evento{
 	
 	public Agregar_evento() {
 //		this.getVaadinSelect().s
+//		this.getVaadinSelect().addValueChangeListener(null); PARA LAS ELECCIONES
 	}
 }

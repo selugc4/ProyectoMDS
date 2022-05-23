@@ -32,7 +32,7 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 	public Canciones_modificar_y_crear cmc = new Canciones_modificar_y_crear();
 	public Buscador_cancion bc = new Buscador_cancion();
 	
-	int admin = 0;
+	int usuario = 0; //UR = 0, ART = 1, ADMIN = 2
 	
 	public Modificar_y_crear_lista() {
 		inicializar();

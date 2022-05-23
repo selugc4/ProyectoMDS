@@ -8,9 +8,11 @@ public class ContenedorListasReproduccion extends vistas.VistaContenedorlistasre
 //	private ScrollBar _barra_Scroll;
 //	public Actor_comun _actor_comun;
 //	public Listas_de_reproduccion _listas_de_reproduccion;
-	public Listas_de_reproduccion ldr = new Listas_de_reproduccion();
-	public ContenedorListasReproduccion() {
+	public Listas_de_reproduccion ldr;
+	public ContenedorListasReproduccion(int usuario) {
+		ldr = new Listas_de_reproduccion(usuario);
 		inicializar();
+		
 		
 	}
 	private void inicializar() {

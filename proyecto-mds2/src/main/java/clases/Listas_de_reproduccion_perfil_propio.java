@@ -11,8 +11,11 @@ public class Listas_de_reproduccion_perfil_propio extends vistas.VistaListas_de_
 	public ArrayList<Lista_de_reproduccion_propia> listas = new ArrayList<Lista_de_reproduccion_propia>();
 	
 	public Listas_de_reproduccion_perfil_propio() {
+		
+	}
+	public Listas_de_reproduccion_perfil_propio(int usuario) {
 		this.getStyle().set("width", "100%");
-		Cargar_Listas();
+		Cargar_Listas(usuario);
 		mostrar(5);
 	}
 	
@@ -36,9 +39,9 @@ public class Listas_de_reproduccion_perfil_propio extends vistas.VistaListas_de_
 	}
 	
 
-	public void Cargar_Listas() {
+	public void Cargar_Listas(int usuario) {
 	for(int i = 0; i < 30; i++) {
-		listas.add(new Lista_de_reproduccion_propia(String.valueOf(i)));
+		listas.add(new Lista_de_reproduccion_propia(String.valueOf(i), usuario));
 	}
 	}
 }

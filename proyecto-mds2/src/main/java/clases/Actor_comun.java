@@ -22,14 +22,14 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public ContenedorUltimas_canciones_reproducidas cucr = new ContenedorUltimas_canciones_reproducidas();
 	public ContenedorCanciones_favoritas ccf = new ContenedorCanciones_favoritas();
 	public ContenedorRecomendaciones cr = new ContenedorRecomendaciones();
-	public ContenedorListasReproduccion clr = new ContenedorListasReproduccion();
+	public ContenedorListasReproduccion clr;
 	public Ver_estadisticas ve = new Ver_estadisticas();
 	public static VerticalLayout v1;
 	public static VerticalLayout v2;
 	public Actor_comun() {
 		this.v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		this.v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
-		this.v1.add(cucr,ccf, cr,clr);
+		this.v1.add(cucr,ccf, cr);
 		VerticalLayout vl = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
 		vl.add(rc);
 			

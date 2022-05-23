@@ -15,11 +15,15 @@ public class Ver_perfil_ajeno extends  vistas.VistaVer_perfil_ajeno {
 //	public void seguirPerfil() {
 //		throw new UnsupportedOperationException();
 //	}
-	public ContenedorSus_Listas csl = new ContenedorSus_Listas();
+	public ContenedorSus_Listas csl; 
 
-	
 	public Ver_perfil_ajeno() {
+		
+	}
+	
+	public Ver_perfil_ajeno(int usuario) {
 		inicializar();
+		csl = new ContenedorSus_Listas(usuario);
 	}
 
 

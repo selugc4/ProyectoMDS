@@ -12,22 +12,34 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 //	public Edicion_de_lista _edicion_de_lista;
 //	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
 
-	public Edicion_de_lista edl = new Edicion_de_lista();
-	public Ver_lista_de_reproduccion_propia vlrp = new Ver_lista_de_reproduccion_propia();
+	public Edicion_de_lista edl;
+	public Ver_lista_de_reproduccion_propia vlrp ;
 //	public void modificarLista() {
 //		throw new UnsupportedOperationException();
 //	}
-	public Lista_de_reproduccion_propia(String string) {
+	public Lista_de_reproduccion_propia(String string, int usuario) {
 		this.getLabel().setText(string);
 		inicializar();
+		edl = new Edicion_de_lista(usuario);
+		vlrp = new Ver_lista_de_reproduccion_propia(usuario);
 		
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout vl = Usuario_registrado.v1;
-				vl.removeAll();
-				vl.add(edl);
+				if(usuario == 0) {
+					VerticalLayout vl = Usuario_registrado.v1;
+					vl.removeAll();
+					vl.add(Usuario_registrado.vpp);
+				}else if(usuario == 1) {
+					VerticalLayout vl = Artista.v1;
+					vl.removeAll();
+					vl.add(Artista.vppa);
+				}else if(usuario == 2) {
+					VerticalLayout vl = Administrador.v1;
+					vl.removeAll();
+					vl.add(Administrador.vpp);
+				}
 			}
 		});
 		
@@ -35,9 +47,19 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 			
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
-				VerticalLayout vl = Usuario_registrado.v1;
-				vl.removeAll();
-				vl.add(vlrp);
+				if(usuario == 0) {
+					VerticalLayout vl = Usuario_registrado.v1;
+					vl.removeAll();
+					vl.add(Usuario_registrado.vpp);
+				}else if(usuario == 1) {
+					VerticalLayout vl = Artista.v1;
+					vl.removeAll();
+					vl.add(Artista.vppa);
+				}else if(usuario == 2) {
+					VerticalLayout vl = Administrador.v1;
+					vl.removeAll();
+					vl.add(Administrador.vpp);
+				}
 				
 			}
 		});

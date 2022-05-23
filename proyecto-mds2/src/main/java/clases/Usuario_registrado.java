@@ -20,6 +20,8 @@ public class Usuario_registrado extends Actor_comun {
 	
 
 	public Usuario_registrado() {	
+		clr = new ContenedorListasReproduccion(0);
+		this.v1.add(clr);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(cur);
 		

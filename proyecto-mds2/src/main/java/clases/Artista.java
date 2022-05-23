@@ -13,6 +13,8 @@ public class Artista extends Actor_comun {
 	public static Ver_perfil_propio_de_artista vppa = new Ver_perfil_propio_de_artista();
 	
 	public Artista() {
+		clr= new ContenedorListasReproduccion(1);
+		this.v1.add(clr);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(ca);
 		

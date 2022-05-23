@@ -12,14 +12,15 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 //	public Sus_listas_de_reproduccion _sus_listas_de_reproduccion;
 	
 	
-	public Sus_listas_de_reproduccion slr = new Sus_listas_de_reproduccion(false);
+	public Sus_listas_de_reproduccion slr;
 	
 	private int tamano = 5;
 	private int pagina = 0;
 	private boolean bloques = false;
 	
-	public ContenedorSus_Listas() {
+	public ContenedorSus_Listas(int usuario) {
 		inicializar();
+		slr = new Sus_listas_de_reproduccion(false,usuario);
 		
 	this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			

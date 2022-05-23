@@ -25,20 +25,6 @@ public class VistaEleccion_evento extends LitTemplate {
 
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
-	@Id("label")
-	private Label label;
-	@Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label1")
-	private Label label1;
-	@Id("vaadinSelect")
-	private Select vaadinSelect;
-	@Id("vaadinListBox")
-	private Element vaadinListBox;
-	@Id("vaadinItem1")
-	private Element vaadinItem1;
-	@Id("vaadinItem")
-	private Element vaadinItem;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("label2")
@@ -75,48 +61,7 @@ public class VistaEleccion_evento extends LitTemplate {
 	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
 		this.vaadinVerticalLayout = vaadinVerticalLayout;
 	}
-	public Label getLabel() {
-		return label;
-	}
-	public void setLabel(Label label) {
-		this.label = label;
-	}
-	public HorizontalLayout getVaadinHorizontalLayout() {
-		return vaadinHorizontalLayout;
-	}
-	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
-		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
-	}
-	public Label getLabel1() {
-		return label1;
-	}
-	public void setLabel1(Label label1) {
-		this.label1 = label1;
-	}
-	public Select getVaadinSelect() {
-		return vaadinSelect;
-	}
-	public void setVaadinSelect(Select vaadinSelect) {
-		this.vaadinSelect = vaadinSelect;
-	}
-	public Element getVaadinListBox() {
-		return vaadinListBox;
-	}
-	public void setVaadinListBox(Element vaadinListBox) {
-		this.vaadinListBox = vaadinListBox;
-	}
-	public Element getVaadinItem1() {
-		return vaadinItem1;
-	}
-	public void setVaadinItem1(Element vaadinItem1) {
-		this.vaadinItem1 = vaadinItem1;
-	}
-	public Element getVaadinItem() {
-		return vaadinItem;
-	}
-	public void setVaadinItem(Element vaadinItem) {
-		this.vaadinItem = vaadinItem;
-	}
+
 	public HorizontalLayout getVaadinHorizontalLayout1() {
 		return vaadinHorizontalLayout1;
 	}

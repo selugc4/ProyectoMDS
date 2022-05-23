@@ -23,6 +23,7 @@ public class Ver_perfil_del_artista_ajeno extends Ver_perfil_ajeno {
 	public Conciertos_y_festivales cyf = new Conciertos_y_festivales();
 	public ContenedorListas_Con_Sus_Canciones clcsc = new ContenedorListas_Con_Sus_Canciones();
 	
+
 	public Ver_perfil_del_artista_ajeno() {
 		inicializar();
 	}

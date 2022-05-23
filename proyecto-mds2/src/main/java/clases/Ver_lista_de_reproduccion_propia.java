@@ -13,10 +13,11 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 //	public Ver_perfil_propio _ver_perfil_propio;
 //	public Edicion_de_lista _edicion_de_lista;
 
-	public Edicion_de_lista el = new Edicion_de_lista();
+	public Edicion_de_lista el;
 	
-	public Ver_lista_de_reproduccion_propia() {
+	public Ver_lista_de_reproduccion_propia(int usuario) {
 	 inicializar();	
+	 el = new Edicion_de_lista(usuario);
 	}
 	
 	public Ver_lista_de_reproduccion_propia(ArrayList<Cancion__Vista_actor_comun_> lista, String nombre) {
