@@ -33,13 +33,14 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	
 	public ContenedorListas_Con_Sus_Canciones clc = new ContenedorListas_Con_Sus_Canciones();
 	public Canciones_mas_exitosas cme = new Canciones_mas_exitosas();
-	public ContenedorSus_Listas_Propio cslp = new ContenedorSus_Listas_Propio();
+	public ContenedorSus_Listas_Propio cslp = new ContenedorSus_Listas_Propio(1);
 	public Artistas artistas = new Artistas();
 	public ContenedorAlbumes calb = new ContenedorAlbumes();
 	public ContenedorBotonAgregar cba = new ContenedorBotonAgregar();
 	
 	public Ver_perfil_propio_de_artista() {
 		inicializar();
+		
 		
 	}
 	

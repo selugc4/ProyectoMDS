@@ -31,8 +31,6 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("label")
-	private Label label;
 	@Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("vaadinButton")
@@ -87,6 +85,8 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Element verticalExitosas;
 	@Id("verticalConciertos")
 	private Element verticalConciertos;
+	@Id("label")
+	private Label label;
 
 	
 	/**

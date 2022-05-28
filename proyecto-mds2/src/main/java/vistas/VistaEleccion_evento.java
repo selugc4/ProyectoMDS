@@ -37,8 +37,6 @@ public class VistaEleccion_evento extends LitTemplate {
 	private Label label3;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
-	@Id("img")
-	private Image img;
 	@Id("vaadinButton")
 	private Button vaadinButton;
 	@Id("vaadinHorizontalLayout3")
@@ -98,12 +96,7 @@ public class VistaEleccion_evento extends LitTemplate {
 	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
 	}
-	public Image getImg() {
-		return img;
-	}
-	public void setImg(Image img) {
-		this.img = img;
-	}
+
 	public Button getVaadinButton() {
 		return vaadinButton;
 	}
@@ -116,6 +109,7 @@ public class VistaEleccion_evento extends LitTemplate {
 	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
 		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
 	}
+	
 	public Button getVaadinButton1() {
 		return vaadinButton1;
 	}

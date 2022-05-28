@@ -8,6 +8,7 @@ import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.combobox.ComboBox;
 
 /**
  * A Designer generated component for the vista-agregar_evento template.
@@ -27,15 +28,8 @@ public class VistaAgregar_evento extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("label1")
 	private Label label1;
-	@Id("vaadinSelect")
-	private Select vaadinSelect;
-	@Id("vaadinListBox")
-	private Element vaadinListBox;
-	@Id("vaadinItem")
-	private Element vaadinItem;
-	@Id("vaadinItem1")
-	private Element vaadinItem1;
-
+	@Id("vaadinComboBox")
+	private ComboBox<String> vaadinComboBox;
 	/**
      * Creates a new VistaAgregar_evento.
      */
@@ -75,36 +69,15 @@ public class VistaAgregar_evento extends LitTemplate {
 		this.label1 = label1;
 	}
 
-	public Select getVaadinSelect() {
-		return vaadinSelect;
+	public ComboBox<String> getVaadinComboBox() {
+		return vaadinComboBox;
 	}
 
-	public void setVaadinSelect(Select vaadinSelect) {
-		this.vaadinSelect = vaadinSelect;
+	public void setVaadinComboBox(ComboBox<String> vaadinComboBox) {
+		this.vaadinComboBox = vaadinComboBox;
 	}
 
-	public Element getVaadinListBox() {
-		return vaadinListBox;
-	}
+	
 
-	public void setVaadinListBox(Element vaadinListBox) {
-		this.vaadinListBox = vaadinListBox;
-	}
-
-	public Element getVaadinItem() {
-		return vaadinItem;
-	}
-
-	public void setVaadinItem(Element vaadinItem) {
-		this.vaadinItem = vaadinItem;
-	}
-
-	public Element getVaadinItem1() {
-		return vaadinItem1;
-	}
-
-	public void setVaadinItem1(Element vaadinItem1) {
-		this.vaadinItem1 = vaadinItem1;
-	}
-
+	
 }

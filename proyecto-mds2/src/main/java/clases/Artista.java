@@ -10,15 +10,14 @@ public class Artista extends Actor_comun {
 //	public Cabecera_artista _cabecera_artista;
 	
 	public static Cabecera_artista ca = new Cabecera_artista();
-	public static Ver_perfil_propio_de_artista vppa = new Ver_perfil_propio_de_artista();
+	public static Ver_perfil_propio_de_artista vppa = new Ver_perfil_propio_de_artista("Artista");
 	
 	public Artista() {
 		clr= new ContenedorListasReproduccion(1);
 		this.v1.add(clr);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(ca);
-		
-		
+				
 		//INICIO
 		ca.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {					
 			@Override

@@ -18,24 +18,24 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 	Ver_lista_de_reproduccion_propia vlpp = new Ver_lista_de_reproduccion_propia("Favoritos");
 
 	public Ver_perfil_propio(String name) {
-		this.getLabel().setText(name);
+		
 	}
 	
 	public Ver_perfil_propio() {
 		
 	};
 
-	public void Modificar_correo() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void ver_lista_favoritos() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void verListaFavoritos() {
-		throw new UnsupportedOperationException();
-	}
+//	public void Modificar_correo() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void ver_lista_favoritos() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void verListaFavoritos() {
+//		throw new UnsupportedOperationException();
+//	}
 	public ContenedorAgregar_perfil_propio getContenedorAgregar_perfil_propio() {
 		return ca;
 	}

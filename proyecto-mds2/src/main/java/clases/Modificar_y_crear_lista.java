@@ -37,6 +37,10 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 	public Modificar_y_crear_lista() {
 		inicializar();
 	}
+	
+	public Modificar_y_crear_lista(int usuario) {
+		this.usuario = usuario;
+	}
 
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
