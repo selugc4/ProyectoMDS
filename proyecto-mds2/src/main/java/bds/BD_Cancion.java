@@ -11,8 +11,15 @@ import org.orm.PersistentTransaction;
 import basededatos.A12PersistentManager;
 import basededatos.Album;
 import basededatos.AlbumDAO;
+import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
+import basededatos.Horas;
+import basededatos.HorasDAO;
+import basededatos.Lista_Reproduccion;
+import basededatos.Lista_ReproduccionDAO;
+import basededatos.Usuario;
+import basededatos.UsuarioDAO;
 
 
 public class BD_Cancion {
@@ -90,19 +97,42 @@ public class BD_Cancion {
 	public void Eliminar_Ultimo_Exito(int aIdCancion) {
 		throw new UnsupportedOperationException();
 	}
-
+	
 	public void Dar_alta_cancion(String aTitulo, String aTitulo_Creditos, String aTitulo_Album, String aCompositores, String aProductores, String aInterpretes, String aArchivoMultimedia) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Cancion cancion = new Cancion();
+			Cancion cancion = CancionDAO.createCancion();
+			Usuario aux = UsuarioDAO.getUsuarioByORMID(2);
 			cancion.setTitulo(aTitulo);
 			cancion.setTituloCreditos(aTitulo_Creditos + "/n" + aTitulo_Album);					
 			cancion.setCompositores(aCompositores);
 			cancion.setIntepretes(aInterpretes);
 			cancion.setProductores(aProductores);
 			cancion.setArchivoMultimedia(aArchivoMultimedia);
+			cancion.es_de.add(ArtistaDAO.getArtistaByORMID(2));
+			cancion.favorita_de.add(aux);
+			cancion.setAdministrado_por(aux);
+			
+			Album album = AlbumDAO.getAlbumByORMID(2);			
+			cancion.setCancion_de(album);
+			
+			Lista_Reproduccion lr = Lista_ReproduccionDAO.getLista_ReproduccionByORMID(2);		
+			cancion.setContendor_cancion(lr);
+			
+			Horas h = HorasDAO.createHoras();
+			cancion.horass.add(h);
+			
 			CancionDAO.save(cancion);
-			int idcancion = cancion.getORMID();
+		
+			h.setUsuario(UsuarioDAO.getUsuarioByORMID(2));		
+			HorasDAO.save(h);		
+			
+			
+		
+		
+		
+			
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

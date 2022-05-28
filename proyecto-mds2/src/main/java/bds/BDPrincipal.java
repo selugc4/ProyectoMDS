@@ -243,9 +243,8 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Dar_alta_cancion(String aTitulo, String aTitulo_Creditos, String aTitulo_Album, String aCompositores, String aProductores, String aInterpretes, String aArchivoMultimedia) {
-		int idcancion;
 		try {
-			_bd_cancion.Dar_alta_cancion(aTitulo, aTitulo_Creditos, aTitulo_Album, aCompositores, aProductores, aInterpretes, aArchivoMultimedia);;
+			 _bd_cancion.Dar_alta_cancion(aTitulo, aTitulo_Creditos, aTitulo_Album, aCompositores, aProductores, aInterpretes, aArchivoMultimedia);;
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block

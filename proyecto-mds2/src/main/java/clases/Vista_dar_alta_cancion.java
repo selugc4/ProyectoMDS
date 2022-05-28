@@ -1,13 +1,16 @@
 package clases;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -19,7 +22,6 @@ import bds.BDPrincipal;
 import bds.iAdministrador;
 
 public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
-private String archivo;
 
 //	private Label _titulo_Anadir_CancionL;
 //	private Label _titulo_CancionL;
@@ -53,6 +55,9 @@ private String archivo;
 //		throw new UnsupportedOperationException();
 //	}
 	
+	private String archivo;
+	private InputStream fileData;
+	private String fileName;
 	public Vista_dar_alta_cancion() {
 		
 		iAdministrador iadmin = new BDPrincipal();
@@ -63,16 +68,10 @@ private String archivo;
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{
 
-			InputStream fileData = mbuf.getInputStream();
-		    String fileName = event.getFileName();
+			
+			fileData = mbuf.getInputStream();
+		    fileName = event.getFileName();		    
 		    
-		    File ruta = new File("/proyecto-mds2/canciones/"+ fileName);
-		    try {
-				FileUtils.copyToFile(fileData, ruta);
-			} catch (IOException e) {				
-				e.printStackTrace();
-			}
-			archivo = "/proyecto-mds2/canciones/"+ fileName; 
 		});
 		
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -88,6 +87,15 @@ private String archivo;
 				String compositores = getVaadinTextArea().getValue();
 				String productores =  getVaadinTextArea1().getValue();
 				String interpretes =  getVaadinTextArea().getValue();
+				File ruta = new File("canciones/" + fileName);
+			    try {
+					FileUtils.copyInputStreamToFile(fileData, ruta);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		  
+			
+				archivo = "/proyecto-mds2/canciones/"+ fileName; 
 				String archivomultimedia = archivo;
 				iadmin.Dar_alta_cancion(titulo, tituloC, tituloAlbum, compositores, productores, interpretes, archivomultimedia);
 				
