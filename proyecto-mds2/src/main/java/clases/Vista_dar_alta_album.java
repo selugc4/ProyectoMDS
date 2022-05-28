@@ -60,18 +60,19 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// AGREGAR DATOS
+				
 				
 			}
 		});
 		
 		this.getBotonFecha().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
+			private String fechaedicion;
+
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// COGER DATO PARA GUARDAR
-				Notification.show(getFechaDeEdición().getValue().toString());
-				
+			 fechaedicion = getFechaDeEdición().getValue().toString();
 			}
 		});
 		

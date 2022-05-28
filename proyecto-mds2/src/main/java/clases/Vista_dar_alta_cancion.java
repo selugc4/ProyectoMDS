@@ -1,10 +1,26 @@
 package clases;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import org.apache.commons.io.FileUtils;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+
+import bds.BDPrincipal;
+import bds.iAdministrador;
 
 public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
+private String archivo;
+
 //	private Label _titulo_Anadir_CancionL;
 //	private Label _titulo_CancionL;
 //	private TextField _titulo_CancionTF;
@@ -38,7 +54,27 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 //	}
 	
 	public Vista_dar_alta_cancion() {
+		
+		iAdministrador iadmin = new BDPrincipal();
+		
 		this.getStyle().set("width", "100%");
+		MemoryBuffer mbuf = new MemoryBuffer();
+		
+		this.getVaadinUpload().setReceiver(mbuf);	
+		this.getVaadinUpload().addSucceededListener(event ->{
+
+			InputStream fileData = mbuf.getInputStream();
+		    String fileName = event.getFileName();
+		    
+		    File ruta = new File("/proyecto-mds2/canciones/"+ fileName);
+		    try {
+				FileUtils.copyToFile(fileData, ruta);
+			} catch (IOException e) {				
+				e.printStackTrace();
+			}
+			archivo = "/proyecto-mds2/canciones/"+ fileName; 
+		});
+		
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -46,8 +82,17 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 				
 			}
 			private void anadirCancion() {
-				//COGER TEXT FIELDS Y ARCHIVO Y GUARDARLOS EN BASE DE DATOS
+				String titulo = getVaadinTextField().getValue();
+				String tituloC = getVaadinTextField1().getValue();
+				String tituloAlbum = getVaadinTextField2().getValue();
+				String compositores = getVaadinTextArea().getValue();
+				String productores =  getVaadinTextArea1().getValue();
+				String interpretes =  getVaadinTextArea().getValue();
+				String archivomultimedia = archivo;
+				iadmin.Dar_alta_cancion(titulo, tituloC, tituloAlbum, compositores, productores, interpretes, archivomultimedia);
+				
 			}
+		
 		});
 	}
 }

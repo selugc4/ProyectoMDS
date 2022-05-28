@@ -78,7 +78,7 @@ export class VistaVista_dar_alta_cancion extends LitElement {
    <vaadin-vertical-layout theme="spacing" style="width: 100%; justify-content: flex-end; height: 100%; align-self: center;" id="vaadinVerticalLayout3">
     <label style="align-self: center; font-size: 25px; font-weight: bolder; flex-grow: 0;" id="label7">Archivo multimedia de la canción</label>
     <vaadin-horizontal-layout theme="spacing" style="align-self: center;" id="vaadinHorizontalLayout20">
-     <vaadin-upload id="vaadinUpload"></vaadin-upload>
+     <vaadin-upload id="vaadinUpload" max-file-size="100000000000000000000000000"></vaadin-upload>
     </vaadin-horizontal-layout>
     <vaadin-vertical-layout style="align-self: center; padding: var(--lumo-space-s);" id="vaadinVerticalLayout4">
      <vaadin-horizontal-layout style="align-self: flex-start;" id="vaadinHorizontalLayout21">
