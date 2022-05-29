@@ -239,7 +239,13 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_artista.Dar_alta_artista(aCorreo, aNombre, aContrasena, aEstilos, aFoto);
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Dar_alta_cancion(String aTitulo, String aTitulo_Creditos, String aTitulo_Album, String aCompositores, String aProductores, String aInterpretes, String aArchivoMultimedia) {
@@ -254,7 +260,13 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Anadir_estilo(String aNombre) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_estilo.Anadir_estilo(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void cargar_Canciones_Album(int aIdAlbum) {

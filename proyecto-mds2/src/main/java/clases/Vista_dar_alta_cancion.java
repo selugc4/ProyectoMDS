@@ -15,6 +15,8 @@ import org.apache.commons.io.IOUtils;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
@@ -79,6 +81,12 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				anadirCancion();
 				
+				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.removeAll();
+				vl.add(new Menu_dar_alta());
+				Notification.show("Cancion agregada con exito");
+				
+				
 			}
 			private void anadirCancion() {
 				String titulo = getVaadinTextField().getValue();
@@ -87,6 +95,12 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 				String compositores = getVaadinTextArea().getValue();
 				String productores =  getVaadinTextArea1().getValue();
 				String interpretes =  getVaadinTextArea().getValue();
+				
+				if(titulo.isEmpty()) {
+					Notification.show("El campo titulo no puede ser vacío. El resto sí.");
+				}else if(fileName == null || fileData == null ) {
+					Notification.show("No se ha agregado el archivo");
+				}else {
 				File ruta = new File("canciones/" + fileName);
 			    try {
 					FileUtils.copyInputStreamToFile(fileData, ruta);
@@ -98,7 +112,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 				archivo = "/proyecto-mds2/canciones/"+ fileName; 
 				String archivomultimedia = archivo;
 				iadmin.Dar_alta_cancion(titulo, tituloC, tituloAlbum, compositores, productores, interpretes, archivomultimedia);
-				
+				}
 			}
 		
 		});

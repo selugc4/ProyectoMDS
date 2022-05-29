@@ -1,9 +1,19 @@
 package bds;
 
 import java.util.Vector;
+
+import org.orm.PersistentException;
+
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
+import basededatos.CancionDAO;
 import basededatos.Estilo;
+import basededatos.EstiloDAO;
+import basededatos.EventoDAO;
+import basededatos.Horas;
+import basededatos.HorasDAO;
+import basededatos.Lista_Reproduccion;
+import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 
 public class BD_Artista {
@@ -50,8 +60,39 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto) {
-		throw new UnsupportedOperationException();
+	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto) throws PersistentException {
+		Artista usuario = ArtistaDAO.createArtista();
+
+		for(int i = 0; i< aEstilos.length; i++) {
+			Estilo aux = EstiloDAO.loadEstiloByQuery(aEstilos[i].getNombre(), null);
+			if(aux == null) {
+				continue;
+			}else
+				usuario.pertenece.add(aux);
+		}
+		usuario.setNombre(aNombre);
+		usuario.setContrasena(aContrasena);
+		usuario.setCorreo(aCorreo);
+		usuario.setFoto(aFoto);
+		usuario.seguidor_usuario.add(usuario);
+		Horas horas = HorasDAO.createHoras();
+		horas.setUsuario(usuario);
+		horas.setCancion(CancionDAO.getCancionByORMID(0));
+		HorasDAO.save(horas);
+		usuario.horass.add(horas);	
+		usuario.ultimo_exito.add(CancionDAO.getCancionByORMID(1));
+		usuario.favorita.add(CancionDAO.getCancionByORMID(1));
+		usuario.recibe_notificacion.add(EventoDAO.getEventoByORMID(2));
+		usuario.seguido.add(usuario);
+		Lista_Reproduccion lr = Lista_ReproduccionDAO.createLista_Reproduccion();
+		
+		lr.seguidor.add(usuario);
+		lr.setAutor(usuario);
+		Lista_ReproduccionDAO.save(lr);
+		
+		usuario.propietario.add(lr);
+		usuario.seguir.add(lr);
+		
 	}
 
 	public Artista[] cargar_Usuarios(String aCorreo) {

@@ -104,7 +104,7 @@ public class BD_Cancion {
 			Cancion cancion = CancionDAO.createCancion();
 			Usuario aux = UsuarioDAO.getUsuarioByORMID(2);
 			cancion.setTitulo(aTitulo);
-			cancion.setTituloCreditos(aTitulo_Creditos + "/n" + aTitulo_Album);					
+			cancion.setTituloCreditos(aTitulo_Creditos + "\n" + aTitulo_Album);					
 			cancion.setCompositores(aCompositores);
 			cancion.setIntepretes(aInterpretes);
 			cancion.setProductores(aProductores);
@@ -121,17 +121,11 @@ public class BD_Cancion {
 			
 			Horas h = HorasDAO.createHoras();
 			cancion.horass.add(h);
-			
-			CancionDAO.save(cancion);
-		
 			h.setUsuario(UsuarioDAO.getUsuarioByORMID(2));		
+			h.setCancion(cancion);
+			CancionDAO.save(cancion);
+			
 			HorasDAO.save(h);		
-			
-			
-		
-		
-		
-			
 			
 			t.commit();
 		} catch (Exception e) {

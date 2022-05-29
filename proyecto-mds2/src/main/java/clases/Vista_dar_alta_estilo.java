@@ -3,6 +3,11 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import bds.BDPrincipal;
+import bds.iAdministrador;
 
 public class Vista_dar_alta_estilo extends vistas.VistaVista_dar_alta_estilo{
 //	private Label _titulo_Anadir_EstilosL;
@@ -17,13 +22,33 @@ public class Vista_dar_alta_estilo extends vistas.VistaVista_dar_alta_estilo{
 //	}
 	
 	public Vista_dar_alta_estilo() {
-		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		this.getStyle().set("width", "100%");
+		iAdministrador iadmin = new BDPrincipal();
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// Agregar Datos
 				
+				String nombre = getVaadinTextField().getValue();			
+				if(nombre.isEmpty()) {
+					Notification.show("El campo de estilo no puede estar vacío");
+				}else {
+					anadirEstilo(nombre);
+					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+					vl.removeAll();
+					vl.add(new Menu_dar_alta());
+					Notification.show("Estilo agregado con exito");
+				
 			}
-		});
+			
+		};
+
+			private void anadirEstilo(String nombre) {
+				// TODO Auto-generated method stub
+			
+				iadmin.Anadir_estilo(nombre);
+				}
+			});
+		}
 	}
-}
