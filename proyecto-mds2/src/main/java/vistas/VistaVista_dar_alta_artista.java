@@ -92,8 +92,6 @@ public class VistaVista_dar_alta_artista extends LitTemplate {
 	private Upload vaadinUpload;
 	@Id("vaadinHorizontalLayout19")
 	private HorizontalLayout vaadinHorizontalLayout19;
-	@Id("img")
-	private Image img;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
 	@Id("vaadinButton")
@@ -386,14 +384,6 @@ public class VistaVista_dar_alta_artista extends LitTemplate {
 
 	public void setVaadinHorizontalLayout19(HorizontalLayout vaadinHorizontalLayout19) {
 		this.vaadinHorizontalLayout19 = vaadinHorizontalLayout19;
-	}
-
-	public Image getImg() {
-		return img;
-	}
-
-	public void setImg(Image img) {
-		this.img = img;
 	}
 
 	public Element getVaadinVerticalLayout2() {

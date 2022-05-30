@@ -69,9 +69,7 @@ export class VistaVista_dar_alta_artista extends LitElement {
     <vaadin-horizontal-layout theme="spacing-l" style="align-items: flex-start; height: 100%; width: 100%;" id="vaadinHorizontalLayout18">
      <vaadin-upload style="flex-shrink: 1; flex-grow: 0;" id="vaadinUpload"></vaadin-upload>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout19">
-     <img id="img" style="height: 100px;">
-    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout19"></vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" style="justify-content: flex-end; flex-grow: 0; flex-shrink: 1; align-items: center; width: 100%; height: 100%;" id="vaadinVerticalLayout2">
     <vaadin-button id="vaadinButton">

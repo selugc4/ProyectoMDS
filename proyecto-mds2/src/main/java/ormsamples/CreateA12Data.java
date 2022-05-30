@@ -7,8 +7,19 @@ package ormsamples;
 import org.orm.*;
 
 import basededatos.A12PersistentManager;
+import basededatos.Artista;
+import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
+import basededatos.Estilo;
+import basededatos.EstiloDAO;
+import basededatos.EventoDAO;
+import basededatos.Horas;
+import basededatos.HorasDAO;
+import basededatos.Imagen;
+import basededatos.ImagenDAO;
+import basededatos.Lista_Reproduccion;
+import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 public class CreateA12Data {
@@ -56,8 +67,34 @@ public class CreateA12Data {
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PersistentException {
+		String[] aEstilos = {"Flamenco", "Pop","Rock"};
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.createArtista();
+			
+			usuario.setNombre("prueba");
+			usuario.setContrasena("prueba");
+			usuario.setCorreo("prueba");
+			Imagen img = ImagenDAO.createImagen();
+			img.setUrl("prueba");
+			ImagenDAO.save(img);
+			usuario.setContiene_imagen(img);
+			
+			for(int i = 0; i< aEstilos.length; i++) {
+				Estilo aux = EstiloDAO.loadEstiloByQuery("Nombre='"+aEstilos[i]+"'", null);
+				System.out.println(aux);
+				if(aux == null) {
+					continue;
+				}else
+					usuario.pertenece.add(aux);
+			}
 		
-		System.out.println(System.getProperty("user.dir")+ "src/main/webapp/imagenes/");
+			UsuarioDAO.save(usuario);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 }

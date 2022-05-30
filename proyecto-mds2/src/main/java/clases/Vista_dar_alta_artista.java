@@ -6,10 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Random;
 
 import org.apache.catalina.webresources.FileResource;
 import org.apache.catalina.webresources.FileResourceSet;
 import org.apache.commons.io.FileUtils;
+import org.hibernate.mapping.IdGenerator;
 
 import com.helger.commons.io.resource.FileSystemResource;
 import com.vaadin.flow.component.ClickEvent;
@@ -17,10 +19,12 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.server.AbstractStreamResource;
 import com.vaadin.flow.server.InputStreamFactory;
 import com.vaadin.flow.server.StreamResource;
+import com.vaadin.flow.server.StreamResourceWriter;
 import com.vaadin.flow.server.VaadinService;
 
 import basededatos.Estilo;
@@ -62,15 +66,32 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 	private InputStream fileData;
 	private String fileName;
 	private File ruta;
-	private String rutaArchivo = System.getProperty("user.dir")+ "src/main/webapp/imagenes/";
+	String separator = System.getProperty("file.separator");
+	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator;
+	String rutaArchivoFinal;
 
 	
 	public Vista_dar_alta_artista() {
 		iAdministrador iadmin = new BDPrincipal();
 		MemoryBuffer mbuf = new MemoryBuffer();
 		
-		Image image = new Image(rutaArchivo+"fotousuario.png", rutaArchivo+"fotousuario.png");
-		this.setImg(image);
+		
+		File imagenDefault = new File(rutaArchivo+"fotousuario.png");
+		InputStream aux ;
+		StreamResource imageResource;
+		try {
+			aux = FileUtils.openInputStream(imagenDefault);
+			imageResource = new StreamResource("fotoDefault.png",() -> aux); 
+			Image image = new Image(imageResource, "");
+			image.getStyle().set("height", "100px");
+			this.getVaadinHorizontalLayout19().add(image);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator +"fotousuario.png";
+		
 		
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{
@@ -78,16 +99,33 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 		
 
 			fileData = mbuf.getInputStream();
+	
 		    fileName = event.getFileName();		  
 		    ruta = new File(rutaArchivo + fileName);
+		    
+		   
 		    try {
 				FileUtils.copyInputStreamToFile(fileData, ruta);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			rutaArchivo = ruta.getPath();
-			getImg().setSrc(rutaArchivo);
+
+			StreamResource imageResource2;
+			try {
+				InputStream aux2 = FileUtils.openInputStream(ruta);
+				imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+				Image image = new Image(imageResource2, "");
+				image.getStyle().set("height", "100px");
+				this.getVaadinHorizontalLayout19().removeAll();
+				this.getVaadinHorizontalLayout19().add(image);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator + fileName;
+		
 		    
 		});
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -96,30 +134,20 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				
 				String email = getVaadinTextField().getValue();
-				String nombre = getVaadinTextField().getValue();				
-				String pass = getVaadinTextField().getValue();				
-				String cpass = getVaadinTextField().getValue();
-				String[] estilos = getVaadinTextField().getValue().split(",");
+				String nombre = getVaadinTextField1().getValue();				
+				String pass = getVaadinTextField2().getValue();				
+				String cpass = getVaadinTextField3().getValue();
+				String[] estilos = getVaadinTextField4().getValue().split(",");
 				
 				
-//				basededatos.Estilo[] estilos1 = new basededatos.Estilo[estilos.length];
-//				
-//				for(int i = 0; i< estilos.length; i++) {
-//					Estilo estilo = new Estilo();
-//					estilo.setNombre(estilos[i]);
-//					estilos1[i] = estilo;
-//				}
-//				
-//				
+
 				
 				if (email.isEmpty() || nombre.isEmpty() || pass.isEmpty() || cpass.isEmpty() || estilos.length == 0) {
 					Notification.show("Debe rellenar todos los campos");
-				} else if(rutaArchivo.isEmpty()) {
-					rutaArchivo = "fotousuarios/fotousuario.png";
 				}else if(!pass.equals(cpass)) {
 					Notification.show("Contraseñas iguales");
 				}else {
-					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivo);
+					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivoFinal);
 				}
 				
 				
