@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class ArtistaDAO {
 	
 	public static Artista loadArtistaByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Artista) session.load(basededatos.Artista.class, new Integer(ID));
+			return (Artista) session.load(basededatos.Artista.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ArtistaDAO {
 	
 	public static Artista getArtistaByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Artista) session.get(basededatos.Artista.class, new Integer(ID));
+			return (Artista) session.get(basededatos.Artista.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ArtistaDAO {
 	
 	public static Artista loadArtistaByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Artista) session.load(basededatos.Artista.class, new Integer(ID), lockMode);
+			return (Artista) session.load(basededatos.Artista.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ArtistaDAO {
 	
 	public static Artista getArtistaByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Artista) session.get(basededatos.Artista.class, new Integer(ID), lockMode);
+			return (Artista) session.get(basededatos.Artista.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

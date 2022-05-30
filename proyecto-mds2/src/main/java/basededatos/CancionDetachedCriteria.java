@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -23,14 +23,13 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression horass;
 	public final IntegerExpression cancion_deId;
 	public final AssociationExpression cancion_de;
-	public final IntegerExpression contendor_cancionId;
-	public final AssociationExpression contendor_cancion;
 	public final StringExpression archivoMultimedia;
 	public final StringExpression intepretes;
 	public final StringExpression productores;
 	public final StringExpression compositores;
 	public final StringExpression titulo;
 	public final StringExpression tituloCreditos;
+	public final CollectionExpression contendor_cancion;
 	public final CollectionExpression es_de;
 	public final CollectionExpression favorita_de;
 	public final IntegerExpression Administrado_porId;
@@ -42,14 +41,13 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		horass = new CollectionExpression("ORM_horass", this.getDetachedCriteria());
 		cancion_deId = new IntegerExpression("cancion_de.idAlbum", this.getDetachedCriteria());
 		cancion_de = new AssociationExpression("cancion_de", this.getDetachedCriteria());
-		contendor_cancionId = new IntegerExpression("contendor_cancion.idLista", this.getDetachedCriteria());
-		contendor_cancion = new AssociationExpression("contendor_cancion", this.getDetachedCriteria());
 		archivoMultimedia = new StringExpression("archivoMultimedia", this.getDetachedCriteria());
 		intepretes = new StringExpression("intepretes", this.getDetachedCriteria());
 		productores = new StringExpression("productores", this.getDetachedCriteria());
 		compositores = new StringExpression("compositores", this.getDetachedCriteria());
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		tituloCreditos = new StringExpression("tituloCreditos", this.getDetachedCriteria());
+		contendor_cancion = new CollectionExpression("ORM_contendor_cancion", this.getDetachedCriteria());
 		es_de = new CollectionExpression("ORM_es_de", this.getDetachedCriteria());
 		favorita_de = new CollectionExpression("ORM_favorita_de", this.getDetachedCriteria());
 		Administrado_porId = new IntegerExpression("Administrado_por.ID", this.getDetachedCriteria());
@@ -62,14 +60,13 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		horass = new CollectionExpression("ORM_horass", this.getDetachedCriteria());
 		cancion_deId = new IntegerExpression("cancion_de.idAlbum", this.getDetachedCriteria());
 		cancion_de = new AssociationExpression("cancion_de", this.getDetachedCriteria());
-		contendor_cancionId = new IntegerExpression("contendor_cancion.idLista", this.getDetachedCriteria());
-		contendor_cancion = new AssociationExpression("contendor_cancion", this.getDetachedCriteria());
 		archivoMultimedia = new StringExpression("archivoMultimedia", this.getDetachedCriteria());
 		intepretes = new StringExpression("intepretes", this.getDetachedCriteria());
 		productores = new StringExpression("productores", this.getDetachedCriteria());
 		compositores = new StringExpression("compositores", this.getDetachedCriteria());
 		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		tituloCreditos = new StringExpression("tituloCreditos", this.getDetachedCriteria());
+		contendor_cancion = new CollectionExpression("ORM_contendor_cancion", this.getDetachedCriteria());
 		es_de = new CollectionExpression("ORM_es_de", this.getDetachedCriteria());
 		favorita_de = new CollectionExpression("ORM_favorita_de", this.getDetachedCriteria());
 		Administrado_porId = new IntegerExpression("Administrado_por.ID", this.getDetachedCriteria());
@@ -84,8 +81,8 @@ public class CancionDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new AlbumDetachedCriteria(createCriteria("cancion_de"));
 	}
 	
-	public Lista_ReproduccionDetachedCriteria createContendor_cancionCriteria() {
-		return new Lista_ReproduccionDetachedCriteria(createCriteria("contendor_cancion"));
+	public basededatos.Lista_ReproduccionDetachedCriteria createContendor_cancionCriteria() {
+		return new basededatos.Lista_ReproduccionDetachedCriteria(createCriteria("ORM_contendor_cancion"));
 	}
 	
 	public basededatos.ArtistaDetachedCriteria createEs_deCriteria() {

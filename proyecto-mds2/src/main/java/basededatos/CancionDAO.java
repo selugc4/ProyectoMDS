@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class CancionDAO {
 	
 	public static Cancion loadCancionByORMID(PersistentSession session, int idCancion) throws PersistentException {
 		try {
-			return (Cancion) session.load(basededatos.Cancion.class, new Integer(idCancion));
+			return (Cancion) session.load(basededatos.Cancion.class, Integer.valueOf(idCancion));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class CancionDAO {
 	
 	public static Cancion getCancionByORMID(PersistentSession session, int idCancion) throws PersistentException {
 		try {
-			return (Cancion) session.get(basededatos.Cancion.class, new Integer(idCancion));
+			return (Cancion) session.get(basededatos.Cancion.class, Integer.valueOf(idCancion));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class CancionDAO {
 	
 	public static Cancion loadCancionByORMID(PersistentSession session, int idCancion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Cancion) session.load(basededatos.Cancion.class, new Integer(idCancion), lockMode);
+			return (Cancion) session.load(basededatos.Cancion.class, Integer.valueOf(idCancion), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class CancionDAO {
 	
 	public static Cancion getCancionByORMID(PersistentSession session, int idCancion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Cancion) session.get(basededatos.Cancion.class, new Integer(idCancion), lockMode);
+			return (Cancion) session.get(basededatos.Cancion.class, Integer.valueOf(idCancion), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -331,10 +331,10 @@ public class CancionDAO {
 				cancion.getCancion_de().contiene_cancion.remove(cancion);
 			}
 			
-			if (cancion.getContendor_cancion() != null) {
-				cancion.getContendor_cancion().contiene_cancion.remove(cancion);
+			basededatos.Lista_Reproduccion[] lContendor_cancions = cancion.contendor_cancion.toArray();
+			for(int i = 0; i < lContendor_cancions.length; i++) {
+				lContendor_cancions[i].contiene_cancion.remove(cancion);
 			}
-			
 			basededatos.Artista[] lEs_des = cancion.es_de.toArray();
 			for(int i = 0; i < lEs_des.length; i++) {
 				lEs_des[i].tiene.remove(cancion);
@@ -365,10 +365,10 @@ public class CancionDAO {
 				cancion.getCancion_de().contiene_cancion.remove(cancion);
 			}
 			
-			if (cancion.getContendor_cancion() != null) {
-				cancion.getContendor_cancion().contiene_cancion.remove(cancion);
+			basededatos.Lista_Reproduccion[] lContendor_cancions = cancion.contendor_cancion.toArray();
+			for(int i = 0; i < lContendor_cancions.length; i++) {
+				lContendor_cancions[i].contiene_cancion.remove(cancion);
 			}
-			
 			basededatos.Artista[] lEs_des = cancion.es_de.toArray();
 			for(int i = 0; i < lEs_des.length; i++) {
 				lEs_des[i].tiene.remove(cancion);

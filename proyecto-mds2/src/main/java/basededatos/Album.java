@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -57,9 +57,9 @@ public class Album implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_ALBUM_IDALBUM_GENERATOR", strategy="native")	
 	private int idAlbum;
 	
-	@OneToOne(targetEntity=basededatos.Imagen.class, fetch=FetchType.LAZY)	
+	@OneToOne(optional=false, targetEntity=basededatos.Imagen.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="ImagenIdImagen", referencedColumnName="IdImagen") }, foreignKey=@ForeignKey(name="FKAlbum551520"))	
+	@JoinColumns(value={ @JoinColumn(name="ImagenIdImagen", referencedColumnName="IdImagen", nullable=false) }, foreignKey=@ForeignKey(name="FKAlbum551520"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Imagen contiene_imagen;
 	

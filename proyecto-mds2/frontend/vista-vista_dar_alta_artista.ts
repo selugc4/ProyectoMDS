@@ -67,10 +67,10 @@ export class VistaVista_dar_alta_artista extends LitElement {
    <vaadin-horizontal-layout theme="spacing-xl" style="flex-direction: row; width: 100%; padding: var(--lumo-space-s); margin-bottom: var(--lumo-space-xl);" id="vaadinHorizontalLayout17">
     <label style="width: 100%; align-self: center; padding: var(--lumo-space-s);" id="label6">Foto</label>
     <vaadin-horizontal-layout theme="spacing-l" style="align-items: flex-start; height: 100%; width: 100%;" id="vaadinHorizontalLayout18">
-     <vaadin-upload style="width: 100%;" id="vaadinUpload"></vaadin-upload>
+     <vaadin-upload style="flex-shrink: 1; flex-grow: 0;" id="vaadinUpload"></vaadin-upload>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout theme="spacing" style="height: 100%; width: 100%; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout19">
-     <img style="height:100px" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
+    <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout19">
+     <img id="img" style="height: 100px;">
     </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout theme="spacing" style="justify-content: flex-end; flex-grow: 0; flex-shrink: 1; align-items: center; width: 100%; height: 100%;" id="vaadinVerticalLayout2">

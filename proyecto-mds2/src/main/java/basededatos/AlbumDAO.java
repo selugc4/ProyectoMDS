@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class AlbumDAO {
 	
 	public static Album loadAlbumByORMID(PersistentSession session, int idAlbum) throws PersistentException {
 		try {
-			return (Album) session.load(basededatos.Album.class, new Integer(idAlbum));
+			return (Album) session.load(basededatos.Album.class, Integer.valueOf(idAlbum));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class AlbumDAO {
 	
 	public static Album getAlbumByORMID(PersistentSession session, int idAlbum) throws PersistentException {
 		try {
-			return (Album) session.get(basededatos.Album.class, new Integer(idAlbum));
+			return (Album) session.get(basededatos.Album.class, Integer.valueOf(idAlbum));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class AlbumDAO {
 	
 	public static Album loadAlbumByORMID(PersistentSession session, int idAlbum, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Album) session.load(basededatos.Album.class, new Integer(idAlbum), lockMode);
+			return (Album) session.load(basededatos.Album.class, Integer.valueOf(idAlbum), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class AlbumDAO {
 	
 	public static Album getAlbumByORMID(PersistentSession session, int idAlbum, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Album) session.get(basededatos.Album.class, new Integer(idAlbum), lockMode);
+			return (Album) session.get(basededatos.Album.class, Integer.valueOf(idAlbum), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

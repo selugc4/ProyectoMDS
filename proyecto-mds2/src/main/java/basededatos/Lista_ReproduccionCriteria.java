@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -25,7 +25,6 @@ public class Lista_ReproduccionCriteria extends AbstractORMCriteria {
 	public final IntegerExpression autorId;
 	public final AssociationExpression autor;
 	public final CollectionExpression contiene_cancion;
-	
 	
 	public Lista_ReproduccionCriteria(Criteria criteria) {
 		super(criteria);

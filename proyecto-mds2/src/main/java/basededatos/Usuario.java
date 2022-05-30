@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -76,9 +76,9 @@ public class Usuario implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="BASEDEDATOS_USUARIO_ID_GENERATOR", strategy="native")	
 	private int ID;
 	
-	@OneToOne(targetEntity=basededatos.Imagen.class, fetch=FetchType.LAZY)	
+	@OneToOne(optional=false, targetEntity=basededatos.Imagen.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="ImagenIdImagen", referencedColumnName="IdImagen") }, foreignKey=@ForeignKey(name="FKUsuario914266"))	
+	@JoinColumns(value={ @JoinColumn(name="ImagenIdImagen", referencedColumnName="IdImagen", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario914266"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Imagen contiene_imagen;
 	

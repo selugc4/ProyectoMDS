@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Usuario) session.load(basededatos.Usuario.class, new Integer(ID));
+			return (Usuario) session.load(basededatos.Usuario.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Usuario) session.get(basededatos.Usuario.class, new Integer(ID));
+			return (Usuario) session.get(basededatos.Usuario.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario) session.load(basededatos.Usuario.class, new Integer(ID), lockMode);
+			return (Usuario) session.load(basededatos.Usuario.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario) session.get(basededatos.Usuario.class, new Integer(ID), lockMode);
+			return (Usuario) session.get(basededatos.Usuario.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

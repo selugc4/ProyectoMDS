@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class Lista_ReproduccionDAO {
 	
 	public static Lista_Reproduccion loadLista_ReproduccionByORMID(PersistentSession session, int idLista) throws PersistentException {
 		try {
-			return (Lista_Reproduccion) session.load(basededatos.Lista_Reproduccion.class, new Integer(idLista));
+			return (Lista_Reproduccion) session.load(basededatos.Lista_Reproduccion.class, Integer.valueOf(idLista));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class Lista_ReproduccionDAO {
 	
 	public static Lista_Reproduccion getLista_ReproduccionByORMID(PersistentSession session, int idLista) throws PersistentException {
 		try {
-			return (Lista_Reproduccion) session.get(basededatos.Lista_Reproduccion.class, new Integer(idLista));
+			return (Lista_Reproduccion) session.get(basededatos.Lista_Reproduccion.class, Integer.valueOf(idLista));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class Lista_ReproduccionDAO {
 	
 	public static Lista_Reproduccion loadLista_ReproduccionByORMID(PersistentSession session, int idLista, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Lista_Reproduccion) session.load(basededatos.Lista_Reproduccion.class, new Integer(idLista), lockMode);
+			return (Lista_Reproduccion) session.load(basededatos.Lista_Reproduccion.class, Integer.valueOf(idLista), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class Lista_ReproduccionDAO {
 	
 	public static Lista_Reproduccion getLista_ReproduccionByORMID(PersistentSession session, int idLista, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Lista_Reproduccion) session.get(basededatos.Lista_Reproduccion.class, new Integer(idLista), lockMode);
+			return (Lista_Reproduccion) session.get(basededatos.Lista_Reproduccion.class, Integer.valueOf(idLista), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -333,7 +333,7 @@ public class Lista_ReproduccionDAO {
 			
 			basededatos.Cancion[] lContiene_cancions = lista_Reproduccion.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
-				lContiene_cancions[i].setContendor_cancion(null);
+				lContiene_cancions[i].contendor_cancion.remove(lista_Reproduccion);
 			}
 			return delete(lista_Reproduccion);
 		}
@@ -355,7 +355,7 @@ public class Lista_ReproduccionDAO {
 			
 			basededatos.Cancion[] lContiene_cancions = lista_Reproduccion.contiene_cancion.toArray();
 			for(int i = 0; i < lContiene_cancions.length; i++) {
-				lContiene_cancions[i].setContendor_cancion(null);
+				lContiene_cancions[i].contendor_cancion.remove(lista_Reproduccion);
 			}
 			try {
 				session.delete(lista_Reproduccion);

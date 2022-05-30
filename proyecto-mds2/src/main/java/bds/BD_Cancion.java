@@ -102,30 +102,15 @@ public class BD_Cancion {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
 			Cancion cancion = CancionDAO.createCancion();
-			Usuario aux = UsuarioDAO.getUsuarioByORMID(2);
+			
 			cancion.setTitulo(aTitulo);
 			cancion.setTituloCreditos(aTitulo_Creditos + "\n" + aTitulo_Album);					
 			cancion.setCompositores(aCompositores);
 			cancion.setIntepretes(aInterpretes);
 			cancion.setProductores(aProductores);
 			cancion.setArchivoMultimedia(aArchivoMultimedia);
-			cancion.es_de.add(ArtistaDAO.getArtistaByORMID(2));
-			cancion.favorita_de.add(aux);
-			cancion.setAdministrado_por(aux);
-			
-			Album album = AlbumDAO.getAlbumByORMID(2);			
-			cancion.setCancion_de(album);
-			
-			Lista_Reproduccion lr = Lista_ReproduccionDAO.getLista_ReproduccionByORMID(2);		
-			cancion.setContendor_cancion(lr);
-			
-			Horas h = HorasDAO.createHoras();
-			cancion.horass.add(h);
-			h.setUsuario(UsuarioDAO.getUsuarioByORMID(2));		
-			h.setCancion(cancion);
 			CancionDAO.save(cancion);
-			
-			HorasDAO.save(h);		
+
 			
 			t.commit();
 		} catch (Exception e) {

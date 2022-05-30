@@ -56,20 +56,20 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha/*, tipoEvento aTipoEvento*/) {
+	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto) throws PersistentException {
+	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, String[] aEstilos, String aFoto) throws PersistentException {
 		Artista usuario = ArtistaDAO.createArtista();
 
-		for(int i = 0; i< aEstilos.length; i++) {
-			Estilo aux = EstiloDAO.loadEstiloByQuery(aEstilos[i].getNombre(), null);
-			if(aux == null) {
-				continue;
-			}else
-				usuario.pertenece.add(aux);
-		}
+//		for(int i = 0; i< aEstilos.length; i++) {
+//			Estilo aux = EstiloDAO.loadEstiloByQuery(aEstilos[i].getNombre(), null);
+//			if(aux == null) {
+//				continue;
+//			}else
+//				usuario.pertenece.add(aux);
+//		}
 		usuario.setNombre(aNombre);
 		usuario.setContrasena(aContrasena);
 		usuario.setCorreo(aCorreo);

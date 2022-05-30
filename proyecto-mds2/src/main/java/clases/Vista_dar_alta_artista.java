@@ -7,14 +7,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
+import org.apache.catalina.webresources.FileResource;
+import org.apache.catalina.webresources.FileResourceSet;
 import org.apache.commons.io.FileUtils;
 
 import com.helger.commons.io.resource.FileSystemResource;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.server.AbstractStreamResource;
 import com.vaadin.flow.server.InputStreamFactory;
 import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.VaadinService;
@@ -58,32 +62,30 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 	private InputStream fileData;
 	private String fileName;
 	private File ruta;
-	private String rutaArchivo;
+	private String rutaArchivo = System.getProperty("user.dir")+ "src/main/webapp/imagenes/";
 
+	
 	public Vista_dar_alta_artista() {
 		iAdministrador iadmin = new BDPrincipal();
 		MemoryBuffer mbuf = new MemoryBuffer();
 		
-		FileSystemResource file = new FileSystemResource(new File("/proyecto-mds2/fotousuarios/fotousuario.png"));	
-	
-
+		Image image = new Image(rutaArchivo+"fotousuario.png", rutaArchivo+"fotousuario.png");
+		this.setImg(image);
 		
-		this.getImg().setSrc(file.getAsURL().toString());
-		this.getImg().setWidth("100%");
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{
 
-			
+		
+
 			fileData = mbuf.getInputStream();
 		    fileName = event.getFileName();		  
-		    ruta = new File("/proyecto-mds2/fotousuarios/" + fileName);
+		    ruta = new File(rutaArchivo + fileName);
 		    try {
 				FileUtils.copyInputStreamToFile(fileData, ruta);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		    
 			rutaArchivo = ruta.getPath();
 			getImg().setSrc(rutaArchivo);
 		    
@@ -100,24 +102,24 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 				String[] estilos = getVaadinTextField().getValue().split(",");
 				
 				
-				basededatos.Estilo[] estilos1 = new basededatos.Estilo[estilos.length];
+//				basededatos.Estilo[] estilos1 = new basededatos.Estilo[estilos.length];
+//				
+//				for(int i = 0; i< estilos.length; i++) {
+//					Estilo estilo = new Estilo();
+//					estilo.setNombre(estilos[i]);
+//					estilos1[i] = estilo;
+//				}
+//				
+//				
 				
-				for(int i = 0; i< estilos.length; i++) {
-					Estilo estilo = new Estilo();
-					estilo.setNombre(estilos[i]);
-					estilos1[i] = estilo;
-				}
-				
-				
-				
-				if (email.isEmpty() || nombre.isEmpty() || pass.isEmpty() || cpass.isEmpty() || estilos1.length == 0) {
+				if (email.isEmpty() || nombre.isEmpty() || pass.isEmpty() || cpass.isEmpty() || estilos.length == 0) {
 					Notification.show("Debe rellenar todos los campos");
 				} else if(rutaArchivo.isEmpty()) {
 					rutaArchivo = "fotousuarios/fotousuario.png";
 				}else if(!pass.equals(cpass)) {
 					Notification.show("Contraseñas iguales");
 				}else {
-					iadmin.Dar_alta_artista(email, nombre, pass, estilos1, rutaArchivo);
+					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivo);
 				}
 				
 				

@@ -102,7 +102,7 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha/*, tipoEvento aTipoEvento*/) {
+	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -238,7 +238,7 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto) {
+	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, String[] aEstilos, String aFoto) {
 		try {
 			_bd_artista.Dar_alta_artista(aCorreo, aNombre, aContrasena, aEstilos, aFoto);
 			

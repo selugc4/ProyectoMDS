@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class Usuario_RegistradoDAO {
 	
 	public static Usuario_Registrado loadUsuario_RegistradoByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Usuario_Registrado) session.load(basededatos.Usuario_Registrado.class, new Integer(ID));
+			return (Usuario_Registrado) session.load(basededatos.Usuario_Registrado.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class Usuario_RegistradoDAO {
 	
 	public static Usuario_Registrado getUsuario_RegistradoByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Usuario_Registrado) session.get(basededatos.Usuario_Registrado.class, new Integer(ID));
+			return (Usuario_Registrado) session.get(basededatos.Usuario_Registrado.class, Integer.valueOf(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class Usuario_RegistradoDAO {
 	
 	public static Usuario_Registrado loadUsuario_RegistradoByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario_Registrado) session.load(basededatos.Usuario_Registrado.class, new Integer(ID), lockMode);
+			return (Usuario_Registrado) session.load(basededatos.Usuario_Registrado.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class Usuario_RegistradoDAO {
 	
 	public static Usuario_Registrado getUsuario_RegistradoByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario_Registrado) session.get(basededatos.Usuario_Registrado.class, new Integer(ID), lockMode);
+			return (Usuario_Registrado) session.get(basededatos.Usuario_Registrado.class, Integer.valueOf(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

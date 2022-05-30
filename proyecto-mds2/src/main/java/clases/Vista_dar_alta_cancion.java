@@ -79,24 +79,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				anadirCancion();
-				
-				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
-				vl.removeAll();
-				vl.add(new Menu_dar_alta());
-				Notification.show("Cancion agregada con exito");
-				
-				
-			}
-			private void anadirCancion() {
-				String titulo = getVaadinTextField().getValue();
-				String tituloC = getVaadinTextField1().getValue();
-				String tituloAlbum = getVaadinTextField2().getValue();
-				String compositores = getVaadinTextArea().getValue();
-				String productores =  getVaadinTextArea1().getValue();
-				String interpretes =  getVaadinTextArea().getValue();
-				
-				if(titulo.isEmpty()) {
+				if(getVaadinTextField().isEmpty()) {
 					Notification.show("El campo titulo no puede ser vacío. El resto sí.");
 				}else if(fileName == null || fileData == null ) {
 					Notification.show("No se ha agregado el archivo");
@@ -110,10 +93,29 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 				}		  
 			
 				archivo = "/proyecto-mds2/canciones/"+ fileName; 
+				anadirCancion();
+				
+				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.removeAll();
+				vl.add(new Menu_dar_alta());
+				Notification.show("Cancion agregada con exito");
+				
+				
+			}
+			}
+			private void anadirCancion() {
+				String titulo = getVaadinTextField().getValue();
+				String tituloC = getVaadinTextField1().getValue();
+				String tituloAlbum = getVaadinTextField2().getValue();
+				String compositores = getVaadinTextArea().getValue();
+				String productores =  getVaadinTextArea1().getValue();
+				String interpretes =  getVaadinTextArea().getValue();
+				
+				
 				String archivomultimedia = archivo;
 				iadmin.Dar_alta_cancion(titulo, tituloC, tituloAlbum, compositores, productores, interpretes, archivomultimedia);
-				}
 			}
+			
 		
 		});
 	}

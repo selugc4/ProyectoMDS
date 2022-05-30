@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class EstiloDAO {
 	
 	public static Estilo loadEstiloByORMID(PersistentSession session, int idEstilo) throws PersistentException {
 		try {
-			return (Estilo) session.load(basededatos.Estilo.class, new Integer(idEstilo));
+			return (Estilo) session.load(basededatos.Estilo.class, Integer.valueOf(idEstilo));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class EstiloDAO {
 	
 	public static Estilo getEstiloByORMID(PersistentSession session, int idEstilo) throws PersistentException {
 		try {
-			return (Estilo) session.get(basededatos.Estilo.class, new Integer(idEstilo));
+			return (Estilo) session.get(basededatos.Estilo.class, Integer.valueOf(idEstilo));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class EstiloDAO {
 	
 	public static Estilo loadEstiloByORMID(PersistentSession session, int idEstilo, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Estilo) session.load(basededatos.Estilo.class, new Integer(idEstilo), lockMode);
+			return (Estilo) session.load(basededatos.Estilo.class, Integer.valueOf(idEstilo), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class EstiloDAO {
 	
 	public static Estilo getEstiloByORMID(PersistentSession session, int idEstilo, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Estilo) session.get(basededatos.Estilo.class, new Integer(idEstilo), lockMode);
+			return (Estilo) session.get(basededatos.Estilo.class, Integer.valueOf(idEstilo), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

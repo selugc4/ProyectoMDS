@@ -19,7 +19,7 @@
       <ReferencedColumn>BaseDeDatos.Imagen.IdImagen</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -94,7 +94,7 @@
       <ReferencedColumn>BaseDeDatos.Usuario.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -106,19 +106,7 @@
       <ReferencedColumn>BaseDeDatos.Album.IdAlbum</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Lista_ReproduccionIdLista">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>BaseDeDatos.Lista_Reproduccion.IdLista</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -245,7 +233,7 @@
       <ReferencedColumn>BaseDeDatos.Imagen.IdImagen</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -475,6 +463,32 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="Lista_Reproduccion_Cancion" Unlogged="false" PKClustered="0">
+    <Column name="Lista_ReproduccionIdLista">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>BaseDeDatos.Lista_Reproduccion.IdLista</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="CancionIdCancion">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>BaseDeDatos.Cancion.IdCancion</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <Entity name="Lista_Reproduccion_Usuario" Unlogged="false" PKClustered="0">
     <Column name="Lista_ReproduccionIdLista">
       <PrimaryKey>true</PrimaryKey>
@@ -697,14 +711,24 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKCancion234330">
-    <ReferenceTable>Cancion</ReferenceTable>
+  <ForeignKey name="FKLista_Repr305986">
+    <ReferenceTable>Lista_Reproduccion_Cancion</ReferenceTable>
     <ReferencedTable>Lista_Reproduccion</ReferencedTable>
     <Columns>
       <Column>Lista_ReproduccionIdLista</Column>
     </Columns>
     <RefColumns>
       <Column>IdLista</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKLista_Repr529970">
+    <ReferenceTable>Lista_Reproduccion_Cancion</ReferenceTable>
+    <ReferencedTable>Cancion</ReferencedTable>
+    <Columns>
+      <Column>CancionIdCancion</Column>
+    </Columns>
+    <RefColumns>
+      <Column>IdCancion</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKCancion48941">

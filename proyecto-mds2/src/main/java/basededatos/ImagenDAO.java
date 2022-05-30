@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -65,7 +65,7 @@ public class ImagenDAO {
 	
 	public static Imagen loadImagenByORMID(PersistentSession session, int idImagen) throws PersistentException {
 		try {
-			return (Imagen) session.load(basededatos.Imagen.class, new Integer(idImagen));
+			return (Imagen) session.load(basededatos.Imagen.class, Integer.valueOf(idImagen));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ImagenDAO {
 	
 	public static Imagen getImagenByORMID(PersistentSession session, int idImagen) throws PersistentException {
 		try {
-			return (Imagen) session.get(basededatos.Imagen.class, new Integer(idImagen));
+			return (Imagen) session.get(basededatos.Imagen.class, Integer.valueOf(idImagen));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ImagenDAO {
 	
 	public static Imagen loadImagenByORMID(PersistentSession session, int idImagen, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Imagen) session.load(basededatos.Imagen.class, new Integer(idImagen), lockMode);
+			return (Imagen) session.load(basededatos.Imagen.class, Integer.valueOf(idImagen), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ImagenDAO {
 	
 	public static Imagen getImagenByORMID(PersistentSession session, int idImagen, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Imagen) session.get(basededatos.Imagen.class, new Integer(idImagen), lockMode);
+			return (Imagen) session.get(basededatos.Imagen.class, Integer.valueOf(idImagen), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

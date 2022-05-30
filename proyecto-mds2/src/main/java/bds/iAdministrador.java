@@ -21,7 +21,7 @@ public interface iAdministrador {
 
 	public void Eliminar_Ultimo_Exito(int aIdCancion);
 
-	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, Estilo[] aEstilos, String aFoto);
+	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, String[] aEstilos, String aFoto);
 
 	public void Dar_alta_cancion(String aTitulo, String aTitulo_Creditos, String aTitulo_Album, String aCompositores, String aProductores, String aInterpretes, String aArchivoMultimedia);
 

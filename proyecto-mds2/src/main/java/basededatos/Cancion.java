@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -23,7 +23,10 @@ public class Cancion implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == basededatos.ORMConstants.KEY_CANCION_HORASS) {
+		if (key == basededatos.ORMConstants.KEY_CANCION_CONTENDOR_CANCION) {
+			return ORM_contendor_cancion;
+		}
+		else if (key == basededatos.ORMConstants.KEY_CANCION_HORASS) {
 			return ORM_horass;
 		}
 		else if (key == basededatos.ORMConstants.KEY_CANCION_ES_DE) {
@@ -39,10 +42,6 @@ public class Cancion implements Serializable {
 	private void this_setOwner(Object owner, int key) {
 		if (key == basededatos.ORMConstants.KEY_CANCION_CANCION_DE) {
 			this.cancion_de = (basededatos.Album) owner;
-		}
-		
-		else if (key == basededatos.ORMConstants.KEY_CANCION_CONTENDOR_CANCION) {
-			this.contendor_cancion = (basededatos.Lista_Reproduccion) owner;
 		}
 		
 		else if (key == basededatos.ORMConstants.KEY_CANCION_ADMINISTRADO_POR) {
@@ -75,15 +74,9 @@ public class Cancion implements Serializable {
 	
 	@ManyToOne(targetEntity=basededatos.Album.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AlbumIdAlbum", referencedColumnName="IdAlbum", nullable=false) }, foreignKey=@ForeignKey(name="FKCancion48941"))	
+	@JoinColumns(value={ @JoinColumn(name="AlbumIdAlbum", referencedColumnName="IdAlbum") }, foreignKey=@ForeignKey(name="FKCancion48941"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Album cancion_de;
-	
-	@ManyToOne(targetEntity=basededatos.Lista_Reproduccion.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="Lista_ReproduccionIdLista", referencedColumnName="IdLista", nullable=false) }, foreignKey=@ForeignKey(name="FKCancion234330"))	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private basededatos.Lista_Reproduccion contendor_cancion;
 	
 	@Column(name="ArchivoMultimedia", nullable=true, length=255)	
 	private String archivoMultimedia;
@@ -103,6 +96,12 @@ public class Cancion implements Serializable {
 	@Column(name="TituloCreditos", nullable=true, length=255)	
 	private String tituloCreditos;
 	
+	@ManyToMany(targetEntity=basededatos.Lista_Reproduccion.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Lista_Reproduccion_Cancion", joinColumns={ @JoinColumn(name="CancionIdCancion") }, inverseJoinColumns={ @JoinColumn(name="Lista_ReproduccionIdLista") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_contendor_cancion = new java.util.HashSet();
+	
 	@ManyToMany(mappedBy="ORM_tiene", targetEntity=basededatos.Artista.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -115,7 +114,7 @@ public class Cancion implements Serializable {
 	
 	@ManyToOne(targetEntity=basededatos.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="UsuarioID", referencedColumnName="ID", nullable=false) }, foreignKey=@ForeignKey(name="FKCancion71599"))	
+	@JoinColumns(value={ @JoinColumn(name="UsuarioID", referencedColumnName="ID") }, foreignKey=@ForeignKey(name="FKCancion71599"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Usuario Administrado_por;
 	
@@ -203,29 +202,16 @@ public class Cancion implements Serializable {
 		return cancion_de;
 	}
 	
-	public void setContendor_cancion(basededatos.Lista_Reproduccion value) {
-		if (contendor_cancion != null) {
-			contendor_cancion.contiene_cancion.remove(this);
-		}
-		if (value != null) {
-			value.contiene_cancion.add(this);
-		}
+	private void setORM_Contendor_cancion(java.util.Set value) {
+		this.ORM_contendor_cancion = value;
 	}
 	
-	public basededatos.Lista_Reproduccion getContendor_cancion() {
-		return contendor_cancion;
+	private java.util.Set getORM_Contendor_cancion() {
+		return ORM_contendor_cancion;
 	}
 	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Contendor_cancion(basededatos.Lista_Reproduccion value) {
-		this.contendor_cancion = value;
-	}
-	
-	private basededatos.Lista_Reproduccion getORM_Contendor_cancion() {
-		return contendor_cancion;
-	}
+	@Transient	
+	public final basededatos.Lista_ReproduccionSetCollection contendor_cancion = new basededatos.Lista_ReproduccionSetCollection(this, _ormAdapter, basededatos.ORMConstants.KEY_CANCION_CONTENDOR_CANCION, basededatos.ORMConstants.KEY_LISTA_REPRODUCCION_CONTIENE_CANCION, basededatos.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public basededatos.Usuario[] getUsuarios() {
 		java.util.ArrayList lValues = new java.util.ArrayList(5);

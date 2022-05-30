@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: jesus(University of Almeria)
+ * Licensee: Administrator(University of Almeria)
  * License Type: Academic
  */
 package basededatos;
@@ -71,7 +71,7 @@ public class Lista_Reproduccion implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private basededatos.Usuario autor;
 	
-	@OneToMany(mappedBy="contendor_cancion", targetEntity=basededatos.Cancion.class)	
+	@ManyToMany(mappedBy="ORM_contendor_cancion", targetEntity=basededatos.Cancion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_contiene_cancion = new java.util.HashSet();
@@ -140,7 +140,7 @@ public class Lista_Reproduccion implements Serializable {
 	}
 	
 	@Transient	
-	public final basededatos.CancionSetCollection contiene_cancion = new basededatos.CancionSetCollection(this, _ormAdapter, basededatos.ORMConstants.KEY_LISTA_REPRODUCCION_CONTIENE_CANCION, basededatos.ORMConstants.KEY_CANCION_CONTENDOR_CANCION, basededatos.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final basededatos.CancionSetCollection contiene_cancion = new basededatos.CancionSetCollection(this, _ormAdapter, basededatos.ORMConstants.KEY_LISTA_REPRODUCCION_CONTIENE_CANCION, basededatos.ORMConstants.KEY_CANCION_CONTENDOR_CANCION, basededatos.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdLista());
