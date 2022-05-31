@@ -36,6 +36,7 @@ public class BD_Artista {
 	public boolean consultar_Correo(String aCorreo) {
 		throw new UnsupportedOperationException();
 	}
+	
 
 	public void guardar_Contrasena(String aContrasena, String aCorreo) {
 		throw new UnsupportedOperationException();
