@@ -61,6 +61,8 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 	private InputStream fileData;
 	private String fileName;
 	public Vista_dar_alta_cancion() {
+		String separator = System.getProperty("file.separator");
+		String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "canciones" + separator;
 		
 		iAdministrador iadmin = new BDPrincipal();
 		
@@ -84,7 +86,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 				}else if(fileName == null || fileData == null ) {
 					Notification.show("No se ha agregado el archivo");
 				}else {
-				File ruta = new File("canciones/" + fileName);
+				File ruta = new File(rutaArchivo + fileName);
 			    try {
 					FileUtils.copyInputStreamToFile(fileData, ruta);
 				} catch (IOException e) {
@@ -92,7 +94,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 					e.printStackTrace();
 				}		  
 			
-				archivo = "/proyecto-mds2/canciones/"+ fileName; 
+				archivo = rutaArchivo+ fileName; 
 				anadirCancion();
 				
 				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);

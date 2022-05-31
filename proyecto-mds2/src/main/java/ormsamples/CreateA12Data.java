@@ -66,35 +66,5 @@ public class CreateA12Data {
 		}
 		
 	}
-	
-	public static void main(String[] args) throws PersistentException {
-		String[] aEstilos = {"Flamenco", "Pop","Rock"};
-		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
-		try {
-			Artista usuario = ArtistaDAO.createArtista();
-			
-			usuario.setNombre("prueba");
-			usuario.setContrasena("prueba");
-			usuario.setCorreo("prueba");
-			Imagen img = ImagenDAO.createImagen();
-			img.setUrl("prueba");
-			ImagenDAO.save(img);
-			usuario.setContiene_imagen(img);
-			
-			for(int i = 0; i< aEstilos.length; i++) {
-				Estilo aux = EstiloDAO.loadEstiloByQuery("Nombre='"+aEstilos[i]+"'", null);
-				System.out.println(aux);
-				if(aux == null) {
-					continue;
-				}else
-					usuario.pertenece.add(aux);
-			}
-		
-			UsuarioDAO.save(usuario);
-			
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}
-	}
+
 }

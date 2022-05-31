@@ -52,10 +52,11 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	this.getStyle().set("width", "100%");
-    /*	Cibernauta ciber = new Cibernauta();
+    	Cibernauta ciber = new Cibernauta();
     	add(ciber);
-    	
-    
+//    	Administrador admin = new Administrador();
+//    	add(admin);
+    /*
     	Iniciar_sesion is = ciber.getCc().getIs();
     	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -84,8 +85,8 @@ public class MainView extends VerticalLayout {
 			}
 		});
     }*/
-    	Administrador admin = new Administrador();
-    	add(admin);
+//    	Administrador admin = new Administrador();
+//    	add(admin);
 		
 //		admin.getCc().getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 //			

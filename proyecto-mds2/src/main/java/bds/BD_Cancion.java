@@ -9,6 +9,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
+import basededatos.AdministradorDAO;
 import basededatos.Album;
 import basededatos.AlbumDAO;
 import basededatos.ArtistaDAO;
@@ -26,8 +27,26 @@ public class BD_Cancion {
 	public BDPrincipal _bd_principal_cancion;
 	public Vector<CancionDAO> _contiene_cancion = new Vector<CancionDAO>();
 
-	public Cancion[] cargar_Ultimos_Exitos() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Ultimos_Exitos() throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		Cancion[] canciones;
+		try {
+			Usuario admin = UsuarioDAO.loadUsuarioByQuery("Nombre='Administrador'",null);
+			canciones = admin.ultimo_exito.toArray();
+			t.commit();
+		
+			
+	
+		} catch (Exception e) {
+			t.rollback();
+			canciones = null;
+		}
+	
+		return canciones;
+				
+		
+		
+		
 	}
 
 	public Cancion cargar_Creditos(int aIdCancion) {

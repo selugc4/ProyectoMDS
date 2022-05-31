@@ -19,9 +19,7 @@ export class VistaCabecera_cibernauta extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; flex-direction: row;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%; flex-grow: 1; justify-content: space-between; align-self: center;" id="vaadinHorizontalLayout">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
-   <img style="flex-grow: 0; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
-  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1"></vaadin-horizontal-layout>
   <vaadin-horizontal-layout id="vaadinHorizontalLayout2" style="width: 100%;">
    <vaadin-vertical-layout style="width: 100%; margin-top: var(--lumo-space-s); padding: var(--lumo-space-m); margin-left: var(--lumo-space-s); flex-grow: 1;" id="vaadinVerticalLayout1">
     <label style="flex-grow: 0;" id="label">Contacto</label>

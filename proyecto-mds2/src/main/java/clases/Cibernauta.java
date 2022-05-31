@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -26,17 +27,18 @@ public class Cibernauta extends vistas.VistaCibernauta {
 		v1.add(rcs);
 		
 		
-		cc.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		cc.getVaadinHorizontalLayout1().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
 			@Override
-			public void onComponentEvent(ClickEvent<Image> event) {
+			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				v1.removeAll();
 				v1.add(cc);
 				v1.add(ue);
 				v1.add(rcs);
 				
 			}
-		});
+		}); 
+			
 		
 		//REGISTRO
 		cc.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

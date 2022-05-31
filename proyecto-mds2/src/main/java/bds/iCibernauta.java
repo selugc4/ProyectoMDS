@@ -1,8 +1,10 @@
 package bds;
 
+import basededatos.Cancion;
+
 public interface iCibernauta {
 
-	public void cargar_Ultimos_Exitos();
+	public Cancion[] cargar_Ultimos_Exitos();
 
 	public void consultar_Datos(String aNombre, String aContrasena);
 
