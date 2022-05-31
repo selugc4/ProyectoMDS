@@ -39,9 +39,7 @@ export class VistaVista_dar_alta_album extends LitElement {
      <label style="flex-shrink: 1; width: 100%;" id="label3">Imagen</label>
      <vaadin-upload id="vaadinUpload" style="width: 90%; flex-shrink: 1;"></vaadin-upload>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout3">
-     <img style="width: 125px; height: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
-    </vaadin-vertical-layout>
+    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout3"></vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout5">
     <label style="width: 100%;" id="label4">Lista de canciones</label>
