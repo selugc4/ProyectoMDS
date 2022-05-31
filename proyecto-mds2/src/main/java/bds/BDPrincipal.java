@@ -277,8 +277,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void Dar_alta_album(String aNombre, Cancion[] aCanciones, Artista[] aArtistas, String aImagen) {
-		throw new UnsupportedOperationException();
+	public void Dar_alta_album(String aNombre, Cancion[] aCanciones, Artista[] aArtistas, String aImagen, String fechaedicion) {
+		try {
+			_bd_album.Dar_alta_album(aNombre, aCanciones, aArtistas, aImagen, fechaedicion);
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {

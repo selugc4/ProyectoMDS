@@ -55,8 +55,6 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	private Upload vaadinUpload;
 	@Id("vaadinVerticalLayout3")
 	private Element vaadinVerticalLayout3;
-	@Id("img")
-	private Image img;
 	@Id("label4")
 	private Label label4;
 	@Id("vaadinHorizontalLayout5")
@@ -188,12 +186,6 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	}
 	public void setVaadinVerticalLayout3(Element vaadinVerticalLayout3) {
 		this.vaadinVerticalLayout3 = vaadinVerticalLayout3;
-	}
-	public Image getImg() {
-		return img;
-	}
-	public void setImg(Image img) {
-		this.img = img;
 	}
 	public Label getLabel4() {
 		return label4;

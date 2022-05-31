@@ -148,13 +148,7 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 					Notification.show("Contraseñas iguales");
 				}else {
 					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivoFinal);
-				}
-				
-				
-				
-
-				
-				
+				}	
 			}
 		});
 	}

@@ -1,5 +1,7 @@
 package clases;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.BlurNotifier;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -30,7 +32,12 @@ public class Buscador_cancion_para_album extends vistas.VistaBuscador_cancion_pa
 			
 			@Override
 			public void onComponentEvent(BlurEvent<TextField> event) {
-				cpa.actualizar(getVaadinTextField().getValue());
+				try {
+					cpa.actualizar(getVaadinTextField().getValue());
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 	
 			}
 		});

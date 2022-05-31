@@ -31,7 +31,7 @@ public interface iAdministrador {
 
 	public void Anadir_cancion_a_album(int aIdCancion, int aIdAlbum);
 
-	public void Dar_alta_album(String aNombre, Cancion[] aCanciones, Artista[] aArtistas, String aImagen);
+	public void Dar_alta_album(String aNombre, Cancion[] aCanciones, Artista[] aArtistas, String aImagen, String fechaEdicion);
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo);
 
