@@ -58,11 +58,25 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void guardar_Datos(String aEmail, String aNombre, String aContrasena, String aFoto) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_usuario_registrado.guardar_Datos(aEmail, aNombre, aContrasena, aFoto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void validar_Datos(String aNombre, String aEmail) {
-		throw new UnsupportedOperationException();
+	public boolean validar_Datos(String aNombre, String aEmail) {
+		
+		try {
+			if(_bd_usuario_registrado.validar_Datos(aNombre, aEmail) && _bd_artista.validar_Datos(aNombre, aEmail) && _bd_administrador.validar_Datos(aNombre, aEmail)){
+				return true;
+			} else
+				return false;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			return false;
+		}
 	}
 
 	public void consultar_Correo(String aCorreo) {

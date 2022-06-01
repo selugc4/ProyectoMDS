@@ -29,8 +29,22 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean validar_Datos(String aNombre, String aEmail) {
-		throw new UnsupportedOperationException();
+	public boolean validar_Datos(String aNombre, String aEmail) throws PersistentException {
+		
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
+		try {
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aEmail+"'", null);
+			Artista usuario2 = ArtistaDAO.loadArtistaByQuery("Nombre='" +aNombre+"'", null);
+			t.commit();
+			if(usuario == null && usuario2 == null) {
+				return true;
+			}else
+				return false;
+		
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
 	}
 
 	public boolean consultar_Correo(String aCorreo) {

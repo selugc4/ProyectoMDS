@@ -53,10 +53,10 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	this.getStyle().set("width", "100%");
-//    	Cibernauta ciber = new Cibernauta();
-//    	add(ciber);
-    	Administrador admin = new Administrador();
-    	add(admin);
+    	Cibernauta ciber = new Cibernauta();
+    	add(ciber);
+//    	Administrador admin = new Administrador();
+//    	add(admin);
     /*
     	Iniciar_sesion is = ciber.getCc().getIs();
     	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

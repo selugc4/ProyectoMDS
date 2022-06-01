@@ -18,6 +18,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public Cabecera_cibernauta cc = new Cabecera_cibernauta();
 	public Ultimos_exitos ue= new Ultimos_exitos();
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
+	
 	public Cibernauta() {
 		this.getStyle().set("width", "100%");
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
@@ -59,8 +60,13 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(cc.getReg().validarRegistro()) {
+				if(cc.getReg().validarDatosInternos()) {
+					if(cc.getReg().validarDatos()) {
+					cc.getReg().registrarse();
 					v1.replace(cc.getReg(),cc.getReg().getVr());
+					Notification.show("Revise su correo");
+					}else
+						Notification.show("El nombre de usuario o el correo están siendo utilizados");
 				
 					
 			}else {

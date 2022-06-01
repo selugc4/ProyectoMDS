@@ -96,8 +96,6 @@ public class VistaRegistro extends LitTemplate {
 	private Upload vaadinUpload;
 	@Id("horizontalimg")
 	private HorizontalLayout horizontalimg;
-	@Id("img")
-	private Image img;
 	@Id("horizontalRegistrarse")
 	private HorizontalLayout horizontalRegistrarse;
 	@Id("botonRegistro")
@@ -393,15 +391,6 @@ public class VistaRegistro extends LitTemplate {
 		this.horizontalimg = horizontalimg;
 	}
 
-	public Image getImg() {
-		return img;
-	}
-
-	public void setImg(Image img) {
-		this.img = img;
-	}
-
-	
 
 	public HorizontalLayout getHorizontalRegistrarse() {
 		return horizontalRegistrarse;

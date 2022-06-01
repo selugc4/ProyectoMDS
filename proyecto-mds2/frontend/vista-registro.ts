@@ -69,9 +69,7 @@ export class VistaRegistro extends LitElement {
    <vaadin-horizontal-layout theme="spacing-l" style="align-items: flex-start; height: 100%;" id="horizontalUpload">
     <vaadin-upload style="width: 100%; height: 100%;" id="vaadinUpload"></vaadin-upload>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" id="horizontalimg">
-    <img style="height:100px" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
-   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing" id="horizontalimg"></vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout style="align-self: center; margin-top: var(--lumo-space-xl);" id="horizontalRegistrarse">
    <vaadin-button id="botonRegistro">

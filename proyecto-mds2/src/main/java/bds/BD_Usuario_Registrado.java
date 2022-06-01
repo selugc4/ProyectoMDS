@@ -2,7 +2,16 @@ package bds;
 
 import java.util.Vector;
 
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
+import basededatos.A12PersistentManager;
+import basededatos.Imagen;
+import basededatos.ImagenDAO;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoDAO;
 import basededatos.Usuario;
+import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
 
@@ -18,12 +27,42 @@ public class BD_Usuario_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void guardar_Datos(String aEmail, String aNombre, String aContrasena, String aFoto) {
-		throw new UnsupportedOperationException();
+	public void guardar_Datos(String aEmail, String aNombre, String aContrasena, String aFoto) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.createUsuario_Registrado();
+			usuario.setCorreo(aEmail);
+			usuario.setNombre(aNombre);
+			usuario.setContrasena(aContrasena);
+			Imagen img = ImagenDAO.createImagen();
+			img.setUrl(aFoto);
+			ImagenDAO.save(img);
+			usuario.setContiene_imagen(img);
+			UsuarioDAO.save(usuario);
+			t.commit();
+			
+		
+		} catch (PersistentException e) {
+			t.rollback();
+		}
 	}
+	
 
-	public boolean validar_Datos(String aNombre, String aEmail) {
-		throw new UnsupportedOperationException();
+	public boolean validar_Datos(String aNombre, String aEmail) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aEmail+"'", null);
+			Usuario_Registrado usuario2 = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Nombre='" +aNombre+"'", null);
+			t.commit();
+			if(usuario == null && usuario2 == null) {
+				return true;
+			}else
+				return false;
+		
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
 	}
 
 	public boolean consultar_Correo(String aCorreo) {

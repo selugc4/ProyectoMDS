@@ -1,11 +1,30 @@
 package clases;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.codec.digest.Sha2Crypt;
+import org.apache.commons.io.FileUtils;
+
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DetachEvent;
+import com.vaadin.flow.component.InputEvent;
+import com.vaadin.flow.component.BlurNotifier;
+import com.vaadin.flow.component.BlurNotifier.BlurEvent;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.upload.SucceededEvent;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.server.StreamResource;
+
+import bds.BDPrincipal;
+import bds.iCibernauta;
 
 public class Registro extends vistas.VistaRegistro {
 //	private Label _titulo_Registro;
@@ -56,53 +75,173 @@ public class Registro extends vistas.VistaRegistro {
 	
 	public Verificacion_registro vr = new Verificacion_registro();
 	
+	iCibernauta iciber = new BDPrincipal();
+	
+	private InputStream fileData;
+	private String fileName;
+	private File ruta;
+	String separator = System.getProperty("file.separator");
+	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator;
+	String rutaArchivoFinal;
 	
 	public Verificacion_registro getVr() {
 		return vr;
 	}
 	
 	public Registro() {
+		
+		HorizontalLayout hl = this.getHorizontalimg();
+		
 		this.getStyle().set("width", "100%" );
+		File imagenDefault = new File(rutaArchivo+"fotousuario.png");
+		InputStream aux ;
+		StreamResource imageResource;
+		try {
+			aux = FileUtils.openInputStream(imagenDefault);
+			imageResource = new StreamResource("fotoDefaultAlbum.png",() -> aux); 
+			Image image = new Image(imageResource, "");
+			image.getStyle().set("height", "125px");
+			image.getStyle().set("width", "125px");
+			hl.add(image);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator +"fotoalbum.png";
+		
+		MemoryBuffer mbuf = new MemoryBuffer();
+		this.getVaadinUpload().setReceiver(mbuf);	
+		this.getVaadinUpload().addSucceededListener(event ->{
+
+		
+
+			fileData = mbuf.getInputStream();
+	
+		    fileName = event.getFileName();		  
+		    ruta = new File(rutaArchivo + fileName);
+		    
+		   
+		    try {
+				FileUtils.copyInputStreamToFile(fileData, ruta);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			StreamResource imageResource2;
+			try {
+				InputStream aux2 = FileUtils.openInputStream(ruta);
+				imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+				Image image = new Image(imageResource2, "");
+				image.getStyle().set("height", "125px");
+				image.getStyle().set("width", "125px");
+				hl.removeAll();
+				hl.add(image);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator + fileName;
+		
+		    
+		});
+		
+		
+		this.getTfcontrasena1().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<PasswordField>>() {
+			
+			@Override
+			public void onComponentEvent(BlurEvent<PasswordField> event) {
+				validarContrasena(getTfcontrasena1().getValue());
+				
+			}
+		});
+			
+		
+		
 	
 	}
-	public boolean validarRegistro() {
-		if(validarCorreo(this.getTfemail().getValue()) && validarNombre(this.getTfusuario().getValue()) && validarContrasena(this.getTfcontrasena1().getValue()) && this.getTfccontrasena().getValue().equals(this.getTfcontrasena1().getValue()))
-			return true;
-		else
-			return false;
 	
-	}
 	
 	
 
-	private boolean validarNombre(String value) {
-		return true;
-	}
-
-	private boolean validarCorreo(String value) {
-		return true;
-	}
+	
 
 
 	public boolean validarContrasena(String pass) {
-	/*	String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
+		String regExSpecialChars = "<([{\\^-=$!|]})?*+.>";
+		int mayusculas =0;
+		int minusculas = 0;
+		int especiales = 0;
 		if(pass.isEmpty() || pass.length() < 10) {
+			this.getVaadinProgressBar().getStyle().set("background-color", "red");
 			return false;
 		}else if (!esMalsonante()){
-			boolean correcta = true;
-			/*for(int i = 0; i < pass.length(); i++) {
-				if(!Character.isLowerCase(pass.charAt(i)) && !Character.isLowerCase(pass.charAt(i)) && !Character.isDigit(pass.charAt(i))) {
-					correcta = false;
+			
+			for(int i = 0; i < pass.length(); i++) {
+				if(Character.isUpperCase(pass.charAt(i))){
+					mayusculas++;
+				}else if(Character.isLowerCase(pass.charAt(i))) {
+					minusculas++;
+				}else if(regExSpecialChars.contains(Character.toString(pass.charAt(i)))) {
+					especiales++;
+				}else if(Character.isDigit(pass.charAt(i))) {
+					minusculas++;
 				}
+			
 			}
-			return correcta;
-		} */
-		return true;
+		}
+		
+		if(mayusculas >= 1 && minusculas >= 1 && especiales >= 3 ) {
+			this.getVaadinProgressBar().getStyle().set("background-color", "green");
+			return true;
+		}else {
+			this.getVaadinProgressBar().getStyle().set("background-color", "red");
+			return false;
+		}
+		
+	
+		
 	}
 	
 	private boolean esMalsonante() {
 		return false;
 		}
+
+	public void registrarse() {
+		iciber.guardar_Datos(this.getTfemail().getValue(), this.getTfusuario().getValue(), getTfcontrasena1().getValue(), rutaArchivoFinal);
+		
+	}
+	
+	private boolean validarCorreoInterno(String value) {
+		String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		Pattern pattern = Pattern.compile(regex);
+		 
+		  Matcher matcher = pattern.matcher(value);
+		  return matcher.matches();
+		 
+	}
+
+	public boolean validarDatosInternos() {
+		if(validarContrasena(this.getTfcontrasena1().getValue()) && this.getTfccontrasena().getValue().equals(this.getTfcontrasena1().getValue()) && validarCorreoInterno(getTfemail().getValue()) && !getTfusuario().isEmpty())
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean validarDatos() {
+		if(iciber.validar_Datos(this.getTfemail().getValue(),this.getTfusuario().getValue())){
+			return true;
+		
+		}else
+			return false;
+	}
+
+	
+
+
+	
 	
 
 
