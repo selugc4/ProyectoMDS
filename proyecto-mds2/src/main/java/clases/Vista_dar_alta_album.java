@@ -9,11 +9,15 @@ import org.apache.commons.io.FileUtils;
 import org.orm.PersistentException;
 
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.server.StreamResource;
@@ -73,11 +77,16 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 	String separator = System.getProperty("file.separator");
 	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator;
 	String rutaArchivoFinal;
+	private String fechaedicion;
+
+	
 	
 	public Vista_dar_alta_album() {
 		iAdministrador iadmin = new BDPrincipal();
 		MemoryBuffer mbuf = new MemoryBuffer();
 		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
+		VerticalLayout vl = getVerticalListado().as(VerticalLayout.class);	
+		vl.add(canciones);
 		
 		File imagenDefault = new File(rutaArchivo+"fotoalbum.png");
 		InputStream aux ;
@@ -134,23 +143,25 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 		    
 		});
 		this.getStyle().set("width", "100%");		
+	
 		
 		this.getBotonAdd().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(getVaadinTextField().getValue().isEmpty()||getFechaDeEdición().getValue() == null||getVaadinTextField1().getValue() == null||canciones._canciones.size()==0) {
+				if(getVaadinTextField().getValue().isEmpty()||getFechaDeEdición().getValue() == null||getVaadinTextField1().getValue() == null|| canciones._canciones.size()==0) {
 					Notification.show("Debe rellenar todos los campos");
 				}
 				else {
 				String titulo = getVaadinTextField().getValue();
-				String fechaEdicion = getFechaDeEdición().getValue().toString();
+				String fechaEdicion = fechaedicion;
 				String[] NombreArtistas = getVaadinTextField1().getValue().split(",");
 				basededatos.Cancion[] cancionesAlbum = new basededatos.Cancion[canciones._canciones.size()];
-				for(Cancion cancion: canciones._canciones) {
 				int i = 0;
+				for(Cancion cancion: canciones._canciones) {
+				
 				try {
-					basededatos.Cancion cancion1= CancionDAO.loadCancionByQuery("Titulo='"+cancion.getLabel().toString()+"'", null);
+					basededatos.Cancion cancion1= CancionDAO.loadCancionByQuery("Titulo='"+cancion.getLabel().getText()+"'", null);
 					cancionesAlbum[i] = cancion1;
 				} catch (PersistentException e) {
 					// TODO Auto-generated catch block
@@ -177,12 +188,13 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 		
 		this.getBotonFecha().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
-			private String fechaedicion;
+			
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// COGER DATO PARA GUARDAR
 			 fechaedicion = getFechaDeEdición().getValue().toString();
+			 Notification.show("Fecha guardada " + fechaedicion);
 			}
 		});
 		
@@ -194,16 +206,6 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 				diag.setWidth("100%");
 				diag.open();
 				
-				Button boton = bcpa.cpa.canciones.get(0).getVaadinButton();
-				boton.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						diag.close();
-						
-					}
-				});
-	
 			}
 		});
 	}

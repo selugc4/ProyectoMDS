@@ -11,6 +11,7 @@ import basededatos.AlbumDAO;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
+import basededatos.CancionDAO;
 import basededatos.Imagen;
 import basededatos.ImagenDAO;
 
@@ -39,19 +40,19 @@ public class BD_Album {
 		try {
 			Album album = AlbumDAO.createAlbum();
 			album.setTitutloAlbum(aNombre);
+			album.setFechaEdicion(fechaedicion);
 			Imagen img = ImagenDAO.createImagen();
 			img.setUrl(aImagen);
 			ImagenDAO.save(img);
-			album.setContiene_imagen(img);
-			album.setFechaEdicion(fechaedicion);
+			album.setContiene_imagen(img);	
 			for (int i = 0; i < aArtistas.length;i++) {
-				Artista aux = ArtistaDAO.loadArtistaByQuery("Nombre='"+aArtistas[i]+"'", aImagen);
-				if(aux == null) {
-					continue;
-				}else {
-					album.autor.add(aux);
-				}
+				album.autor.add(aArtistas[i]);
 			}
+			
+			for(int i = 0; i< aCanciones.length; i++) {
+				album.contiene_cancion.add(aCanciones[i]);
+			}
+			
 				AlbumDAO.save(album);
 				t.commit();
 		}

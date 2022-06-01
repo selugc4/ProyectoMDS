@@ -12,6 +12,7 @@ import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.spring.annotation.EnableVaadin;
 
 import clases.Administrador;
 import clases.Artista;
@@ -52,10 +53,10 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	this.getStyle().set("width", "100%");
-    	Cibernauta ciber = new Cibernauta();
-    	add(ciber);
-//    	Administrador admin = new Administrador();
-//    	add(admin);
+//    	Cibernauta ciber = new Cibernauta();
+//    	add(ciber);
+    	Administrador admin = new Administrador();
+    	add(admin);
     /*
     	Iniciar_sesion is = ciber.getCc().getIs();
     	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

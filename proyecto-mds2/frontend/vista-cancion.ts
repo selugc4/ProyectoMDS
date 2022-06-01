@@ -17,9 +17,9 @@ export class VistaCancion extends LitElement {
   render() {
     return html`
 <vaadin-horizontal-layout class="content" style="width: 100%;" id="vaadinHorizontalLayout">
- <vaadin-horizontal-layout theme="spacing" style="align-items: center;" id="vaadinHorizontalLayout1">
-  <label style="margin-right: var(--lumo-space-xl);" id="label">Cancion</label>
-  <vaadin-button theme="icon" aria-label="Add new" style="border: none; background-color: none; margin-left: var(--lumo-space-xl);" id="vaadinButton">
+ <vaadin-horizontal-layout theme="spacing" style="align-items: center; width: 100%;" id="vaadinHorizontalLayout1">
+  <label style="margin-right: var(--lumo-space-xl); width: 100%;" id="label">Cancion</label>
+  <vaadin-button theme="icon" aria-label="Add new" style="border: none; background-color: none; margin-left: var(--lumo-space-xl); width: 100%;" id="vaadinButton">
    <iron-icon src="https://cdn-icons-png.flaticon.com/512/18/18297.png" id="ironIcon"></iron-icon>
   </vaadin-button>
  </vaadin-horizontal-layout>

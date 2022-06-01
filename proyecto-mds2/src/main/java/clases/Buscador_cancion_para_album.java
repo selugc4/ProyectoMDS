@@ -28,19 +28,29 @@ public class Buscador_cancion_para_album extends vistas.VistaBuscador_cancion_pa
 		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(cpa);
 		this.getStyle().set("width", "100%");
-		this.getVaadinTextField().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>() {
+		this.getIronIcon().addEventListener("click", e -> {
+			try {
+				cpa.actualizar(getVaadinTextField().getValue());
+			} catch (PersistentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}	
 			
-			@Override
-			public void onComponentEvent(BlurEvent<TextField> event) {
-				try {
-					cpa.actualizar(getVaadinTextField().getValue());
-				} catch (PersistentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	
-			}
+					
 		});
+//		this.getVaadinTextField().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>() {
+//			
+//			@Override
+//			public void onComponentEvent(BlurEvent<TextField> event) {
+//				try {
+//					cpa.actualizar(getVaadinTextField().getValue());
+//				} catch (PersistentException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//	
+//			}
+//		});
 			
 	}
 }

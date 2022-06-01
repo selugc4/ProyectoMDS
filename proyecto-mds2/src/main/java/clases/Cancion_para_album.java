@@ -3,7 +3,11 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.CancionDAO;
 import bds.iAdministrador;
@@ -23,19 +27,17 @@ public class Cancion_para_album extends vistas.VistaCancion_para_album{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				boolean contiene = true;
-				for(Cancion cancion: Vista_dar_alta_album.canciones._canciones) {
-					if(cancion.getLabel().toString().equals(texto)) {
-						contiene = false;
-					}
-				}
-				if(contiene == true) {
+//				boolean nocontiene = true;
+//				for(Cancion cancion: Vista_dar_alta_album.canciones._canciones) {
+//					if(cancion.getLabel().toString().equals(texto)) {
+//						nocontiene = false;
+//					}
+//				}
+//				if(nocontiene == true) {
 					Vista_dar_alta_album.canciones.agregarCancion(getLabel().getText());
-				}
+//				}
 			}});
-	}
-
-//	public void Anadir_cancion_a_album() {
-//		throw new UnsupportedOperationException();
-//	}
+		
+		
+		}
 }

@@ -16,5 +16,22 @@ public class Cancion extends vistas.VistaCancion{
 	public Cancion(String nombre) {
 		this.getLabel().setText(nombre);
 		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				for(Cancion cancion: Canciones_modificar_y_crear._canciones) {
+					if(cancion.getLabel().getText().equals(getLabel().getText())) {
+						Notification.show("Eliminada");
+						Canciones_modificar_y_crear._canciones.remove(cancion);
+						Vista_dar_alta_album.canciones.actualizar();
+					}
+					
+				}
+				
+			}
+
+		});
+		
 	}
 }

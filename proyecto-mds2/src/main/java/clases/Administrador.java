@@ -28,14 +28,13 @@ public class Administrador extends Actor_comun {
 		Reproductor_completo rc = Actor_comun.getRc();
 		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		VerticalLayout v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
-		vl.replace(this.getCc(), cabadmin);
+		this.getVaadinHorizontalLayout().add(cabadmin);
 
 		
 		cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				vl.removeAll();
-				vl.add(cabadmin);	
 				vl.add(cabadmin.getVer_perfil_propio());
 				vl.add(cabadmin.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
 				v2.replace(getVaadinButton(), rc);
