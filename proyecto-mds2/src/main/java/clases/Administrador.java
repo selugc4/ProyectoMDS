@@ -19,8 +19,10 @@ public class Administrador extends Actor_comun {
 	
 	public Cabecera_administrador cabadmin = new Cabecera_administrador();
 	public static Ver_perfil_propio vpp = new Ver_perfil_propio();
-	public Administrador() {
+	public Administrador(int iD) {
 		clr = new ContenedorListasReproduccion(2);
+		this.ID = iD;
+
 		this.v1.add(clr);
     	this.getStyle().set("width", "100%");
 

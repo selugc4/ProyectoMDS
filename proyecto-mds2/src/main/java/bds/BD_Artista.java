@@ -8,6 +8,8 @@ import org.orm.PersistentTransaction;
 import basededatos.A12PersistentManager;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
+import basededatos.Artista;
+import basededatos.ArtistaDAO;
 import basededatos.CancionDAO;
 import basededatos.Estilo;
 import basededatos.EstiloDAO;
@@ -20,13 +22,28 @@ import basededatos.Lista_Reproduccion;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import clases.Cibernauta;
+import proyectoMDS2.MainView;
+import basededatos.Artista;
+import basededatos.ArtistaDAO;
 
 public class BD_Artista {
 	public BDPrincipal _bd_principal_artista;
 	public Vector<ArtistaDAO> _contiene_artista = new Vector<ArtistaDAO>();
 
-	public boolean consultar_Datos(String aNombre, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public boolean consultar_Datos(String aNombre, String aContrasena) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
+		try {
+			Artista user = ArtistaDAO.loadArtistaByQuery("Nombre='"+aNombre+"' AND Contrasena='" + aContrasena+"'", null);
+			if(user != null) {
+				MainView.ID = user.getID();
+				return true;
+			}else
+				return false;
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
 	}
 
 	public boolean validar_Datos(String aNombre, String aEmail) throws PersistentException {
@@ -47,13 +64,38 @@ public class BD_Artista {
 		}
 	}
 
-	public boolean consultar_Correo(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public boolean consultar_Correo(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+			t.commit();
+			
+			if(usuario != null) {
+				Cibernauta.correo = usuario.getCorreo();
+				return true;
+			}else
+				return false;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
 	}
 	
 
-	public void guardar_Contrasena(String aContrasena, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void guardar_Contrasena(String aContrasena, String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+			
+			usuario.setContrasena(aContrasena);
+			ArtistaDAO.save(usuario);
+			t.commit();
+			
+		} catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 	public Artista[] cargar_Artistas_Buscador(String aNombre) {

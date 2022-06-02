@@ -162,11 +162,6 @@ public class Registro extends vistas.VistaRegistro {
 		
 	
 	}
-	
-	
-	
-
-	
 
 
 	public boolean validarContrasena(String pass) {
@@ -176,6 +171,7 @@ public class Registro extends vistas.VistaRegistro {
 		int especiales = 0;
 		if(pass.isEmpty() || pass.length() < 10) {
 			this.getVaadinProgressBar().getStyle().set("background-color", "red");
+			this.getNivelSec().setText("Nivel de Seguridad Débil");
 			return false;
 		}else if (!esMalsonante()){
 			
@@ -195,9 +191,11 @@ public class Registro extends vistas.VistaRegistro {
 		
 		if(mayusculas >= 1 && minusculas >= 1 && especiales >= 3 ) {
 			this.getVaadinProgressBar().getStyle().set("background-color", "green");
+			this.getNivelSec().setText("Nivel de Seguridad Fuerte");
 			return true;
 		}else {
 			this.getVaadinProgressBar().getStyle().set("background-color", "red");
+			this.getNivelSec().setText("Nivel de Seguridad Débil");
 			return false;
 		}
 		
@@ -238,7 +236,6 @@ public class Registro extends vistas.VistaRegistro {
 			return false;
 	}
 
-	
 
 
 	

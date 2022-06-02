@@ -12,8 +12,10 @@ public class Artista extends Actor_comun {
 	public static Cabecera_artista ca = new Cabecera_artista();
 	public static Ver_perfil_propio_de_artista vppa = new Ver_perfil_propio_de_artista("Artista");
 	
-	public Artista() {
+	public Artista(int iD) {
 		clr= new ContenedorListasReproduccion(1);
+		this.ID = iD;
+
 		this.v1.add(clr);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(ca);

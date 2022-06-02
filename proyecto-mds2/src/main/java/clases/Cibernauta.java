@@ -8,6 +8,10 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.page.Viewport;
+
+import bds.BDPrincipal;
+import bds.iCibernauta;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Cibernauta extends vistas.VistaCibernauta {
@@ -19,7 +23,10 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public Ultimos_exitos ue= new Ultimos_exitos();
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
 	
+	public static String correo;
+	
 	public Cibernauta() {
+		iCibernauta iciber = new BDPrincipal();
 		this.getStyle().set("width", "100%");
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
@@ -191,7 +198,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(cc.getIs().getRc().existeCorreo()) {
+				if(cc.getIs().getRc().validar_correo()) {
 					v1.replace(cc.getIs().getRc(), cc.getIs().getRc().getVr());
 				}else {
 					Notification.show("Correo no existente");
@@ -250,7 +257,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(cc.getIs().getRc().getVr().getNc().passValida() && cc.getIs().getRc().getVr().getNc().passIguales()) {
+				if(cc.getIs().getRc().getVr().getNc().validarContrasena() && cc.getIs().getRc().getVr().getNc().passIguales()) {
+					cc.getIs().getRc().getVr().getNc().confirmar_contrasena();
 					v1.replace(cc.getIs().getRc().getVr().getNc(), ue);
 					Notification.show("Contraseña cambiada");
 				}else
@@ -272,5 +280,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	}
 	
 	
+	public void iniciarSesion() {
+		cc.getIs().iniciarSesion();
+	}
 	
 	}

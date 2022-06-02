@@ -2,10 +2,15 @@ package bds;
 
 import org.orm.PersistentException;
 
+import com.vaadin.flow.component.notification.Notification;
+
 import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
 import basededatos.Imagen;
+import basededatos.Usuario;
+import basededatos.UsuarioDAO;
+import proyectoMDS2.MainView;
 
 public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, iActor_comun, iAdministrador {
 	public BD_Administrador _bd_administrador = new BD_Administrador();
@@ -46,7 +51,21 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void consultar_Datos(String aNombre, String aContrasena) {
-		throw new UnsupportedOperationException();
+		try {
+			if(_bd_usuario_registrado.consultar_Datos(aNombre, aContrasena)){
+				MainView.usuario = 0;
+			}else if(_bd_artista.consultar_Datos(aNombre, aContrasena)) {
+				MainView.usuario = 1;
+			}else if(_bd_administrador.consultar_Datos(aNombre, aContrasena)) {
+				MainView.usuario = 2;
+			}else
+				MainView.usuario = -1;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
 	}
 
 	public void guardar_Datos(String aNombre, String aEmail, String aContrasena) {
@@ -79,12 +98,37 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void consultar_Correo(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public boolean consultar_Correo(String aCorreo) {
+		try {
+			if(_bd_administrador.consultar_Correo(aCorreo) || _bd_artista.consultar_Correo(aCorreo) || _bd_usuario_registrado.consultar_Correo(aCorreo)) {
+				return true;
+			}else
+				return false;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public void guardar_Contrasena(String aContrasena, String aCorreo) {
-		throw new UnsupportedOperationException();
+	
+		try {
+			Usuario user = UsuarioDAO.loadUsuarioByQuery("Correo='" +aCorreo+"'",null);
+			if(user.getTipoUsuario() == 0) {
+				_bd_usuario_registrado.guardar_Contrasena(aContrasena, aCorreo);
+			}else if(user.getTipoUsuario() == 1) {
+				_bd_artista.guardar_Contrasena(aContrasena, aCorreo);
+			}else if(user.getTipoUsuario() == 2) {
+				_bd_administrador.guardar_Contrasena(aContrasena, aCorreo);
+			}
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 	public void cargar_Creditos(int aIdCancion) {
@@ -127,8 +171,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Ultimas_Canciones_Reproducidas() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Ultimas_Canciones_Reproducidas() {
+		try {
+			return _bd_cancion.cargar_Ultimas_Canciones_Reproducidas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void cargar_Recomendaciones() {

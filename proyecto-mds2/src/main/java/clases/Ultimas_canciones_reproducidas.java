@@ -4,5 +4,11 @@ public class Ultimas_canciones_reproducidas extends Canciones {
 	
 	public Ultimas_canciones_reproducidas() {
 		this.getLabel().setText("Últimas canciones");
+		this.cargar_Ultimas_Canciones_Reproducidas();
+		
+	
+	
+		
+		
 	}
 }

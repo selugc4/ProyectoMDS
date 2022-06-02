@@ -1,4 +1,8 @@
 package clases;
+
+import bds.BDPrincipal;
+import bds.iCibernauta;
+
 public class Recuperar_contrasena extends vistas.VistaRecuperar_contrasena{
 //	private Label _recuperar_CuentaL;
 //	private Label _correoL;
@@ -26,9 +30,9 @@ public class Recuperar_contrasena extends vistas.VistaRecuperar_contrasena{
 	
 	public Verifcacion_de_recuperacion vr = new Verifcacion_de_recuperacion();
 	
+	private iCibernauta iciber = new BDPrincipal();
 	public Recuperar_contrasena() {
-		
-		
+			
 		
 	}
 
@@ -37,11 +41,9 @@ public class Recuperar_contrasena extends vistas.VistaRecuperar_contrasena{
 	}
 	
 	
-	public boolean existeCorreo() {
-		if(this.getTfCorreo().getValue().equals("prueba"))
-			return true;
-		else
-			return false;
+
+	public boolean validar_correo() {
+		return iciber.consultar_Correo(getTfCorreo().getValue());		
 	}
 	
 }

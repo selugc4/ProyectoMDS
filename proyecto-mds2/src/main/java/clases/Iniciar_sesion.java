@@ -1,4 +1,8 @@
 package clases;
+
+import bds.BDPrincipal;
+import bds.iCibernauta;
+
 public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 //	private Label _iniciar_SesionL;
 //	private Label _nombre_UsuarioL;
@@ -50,11 +54,13 @@ public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 	public Bloqueo_inicio_sesion bis = new Bloqueo_inicio_sesion();
 	public Recuperar_contrasena rc = new Recuperar_contrasena();
 	
+	iCibernauta iciber = new BDPrincipal();
 	public Iniciar_sesion() {
+	
 		this.getStyle().set("width", "100%");
 	}
 	public boolean comprobarUsuario(String usuario, String pass) {
-		if(!usuario.isEmpty())
+		if(!usuario.isEmpty() && !pass.isEmpty() && pass.length() >=10)
 			return true;
 		else
 			return false;
@@ -67,6 +73,10 @@ public class Iniciar_sesion extends vistas.VistaIniciar_sesion {
 	}
 	public Recuperar_contrasena getRc() {
 		return rc;
+	}
+	public void iniciarSesion() {
+		iciber.consultar_Datos(this.getTfUsuario().getValue(),this.getTfPass().getValue()); 
+		
 	}
 	
 	

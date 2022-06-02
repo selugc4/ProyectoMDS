@@ -62,14 +62,7 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {					
 					
-				try {
-					FileInputStream aux = new FileInputStream(new File(cancion.getArchivoMultimedia()));
-					AbstractStreamResource resource = new StreamResource("cambioCancion.png", () -> aux);
-					rc.getElement().setAttribute("src", resource);
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				rc.reproducir(cancion.getArchivoMultimedia());
 
 			
 			}

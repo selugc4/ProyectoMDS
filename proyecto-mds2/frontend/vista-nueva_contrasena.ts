@@ -30,7 +30,7 @@ export class VistaNueva_contrasena extends LitElement {
    <vaadin-progress-bar id="vaadinProgressBar"></vaadin-progress-bar>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="align-self: flex-end; width: 50%;" id="horizontalSec">
-   <label id="labelSec1">Su contraseña tiene un nivel X<label id="labelSec2">de seguridad</label></label>
+   <label id="labelSec1">Su contraseña tiene un nivel de seguridad</label>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;" id="horizontalCC">
    <label style="flex-shrink: 1; flex-grow: 0; padding-top: var(--lumo-space-s);" id="labelCC">Confirmar nueva contraseña</label>

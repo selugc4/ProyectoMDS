@@ -16,7 +16,7 @@ public interface iCibernauta {
 
 	public boolean validar_Datos(String aNombre, String aEmail);
 
-	public void consultar_Correo(String aCorreo);
+	public boolean consultar_Correo(String aCorreo);
 
 	public void guardar_Contrasena(String aContrasena, String aCorreo);
 

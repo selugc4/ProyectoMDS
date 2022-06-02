@@ -19,11 +19,17 @@ public class Usuario_registrado extends Actor_comun {
 	public static Ver_perfil_propio_usuario_registrado vpp = new Ver_perfil_propio_usuario_registrado("Nombre");
 	
 
-	public Usuario_registrado() {	
+	public Usuario_registrado(int iD) {	
+		this.ID = iD;
+		
+		cucr = new ContenedorUltimas_canciones_reproducidas();
+		
 		clr = new ContenedorListasReproduccion(0);
-		this.v1.add(clr);
+		
+		this.v1.add(cucr,ccf, clr);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(cur);
+		
 		
 
 		//INICIO

@@ -44,8 +44,6 @@ public class VistaNueva_contrasena extends LitTemplate {
 	private HorizontalLayout horizontalSec;
 	@Id("labelSec1")
 	private Label labelSec1;
-	@Id("labelSec2")
-	private Label labelSec2;
 	@Id("labelCC")
 	private Label labelCC;
 	@Id("horizontalCC")
@@ -155,12 +153,6 @@ public class VistaNueva_contrasena extends LitTemplate {
 	}
 	public void setLabelSec1(Label labelSec1) {
 		this.labelSec1 = labelSec1;
-	}
-	public Label getLabelSec2() {
-		return labelSec2;
-	}
-	public void setLabelSec2(Label labelSec2) {
-		this.labelSec2 = labelSec2;
 	}
 	public Label getLabelCC() {
 		return labelCC;

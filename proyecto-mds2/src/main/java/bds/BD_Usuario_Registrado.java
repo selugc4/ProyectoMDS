@@ -6,10 +6,16 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
+import basededatos.Administrador;
+import basededatos.AdministradorDAO;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoDAO;
+import clases.Cibernauta;
 import basededatos.Imagen;
 import basededatos.ImagenDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import proyectoMDS2.MainView;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
@@ -23,8 +29,20 @@ public class BD_Usuario_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean consultar_Datos(String aNombre, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public boolean consultar_Datos(String aNombre, String aContrasena) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
+		try {
+			Usuario_Registrado user = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Nombre='"+aNombre+"' AND Contrasena='" + aContrasena+"'", null);
+			if(user != null) {
+				MainView.ID = user.getID();
+				return true;
+			}else
+				return false;
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
+	
 	}
 
 	public void guardar_Datos(String aEmail, String aNombre, String aContrasena, String aFoto) throws PersistentException {
@@ -65,12 +83,37 @@ public class BD_Usuario_Registrado {
 		}
 	}
 
-	public boolean consultar_Correo(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public boolean consultar_Correo(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreo+"'", null);
+			t.commit();			
+			if(usuario != null) {
+				Cibernauta.correo = usuario.getCorreo();
+
+				return true;
+			}else
+				return false;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
 	}
 
-	public void guardar_Contrasena(String aContrasena, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void guardar_Contrasena(String aContrasena, String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreo+"'", null);
+			
+			usuario.setContrasena(aContrasena);
+			Usuario_RegistradoDAO.save(usuario);
+			t.commit();
+			
+		} catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 	public Usuario_Registrado cargar_Perfil(String aCorreo) {

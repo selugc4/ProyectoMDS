@@ -22,6 +22,8 @@ import basededatos.Lista_Reproduccion;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoDAO;
 public class CreateA12Data {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = basededatos.A12PersistentManager.instance().getSession().beginTransaction();
@@ -65,22 +67,11 @@ public class CreateA12Data {
 			t.rollback();
 		}
 		
-	
-	}
-	public static void main(String[] args) throws PersistentException {
-		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();	
-		String aEmail = "prueba@prueba";
-		String aNombre = "Jesus";
-		try {
-			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aEmail+"' AND Nombre='" +aNombre+"'", null);
-			System.out.println(usuario.getContrasena());
-			t.commit();
-			
 		
-		} catch (PersistentException e) {
-			t.rollback();
 	
-		}
+	
 	}
+
+
 
 }

@@ -4,7 +4,7 @@ import basededatos.Cancion;
 
 public interface iActor_comun {
 
-	public void cargar_Ultimas_Canciones_Reproducidas();
+	public Cancion[] cargar_Ultimas_Canciones_Reproducidas();
 
 	public void cargar_Recomendaciones();
 

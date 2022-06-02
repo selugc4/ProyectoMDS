@@ -51,41 +51,44 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
+	public static int usuario;
+	public static int ID;
     public MainView() {
     	this.getStyle().set("width", "100%");
     	Cibernauta ciber = new Cibernauta();
     	add(ciber);
 //    	Administrador admin = new Administrador();
 //    	add(admin);
-    /*
+    
     	Iniciar_sesion is = ciber.getCc().getIs();
     	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
-					if(is.getTfUsuario().getValue().equals("usuario")) {
-						Usuario_registrado user = new Usuario_registrado();
+					ciber.iniciarSesion();
+					if(usuario == 0) {
+						Usuario_registrado user = new Usuario_registrado(ID);
 						remove(ciber);
 						add(user);
-					}else if(is.getTfUsuario().getValue().equals("artista")) {
-						Artista artista = new Artista();
+					}else if(usuario == 1) {
+						Artista artista = new Artista(ID);
 						remove(ciber);
 						add(artista);
-					}else if(is.getTfUsuario().getValue().equals("admin")) {
-						Administrador admin = new Administrador();
+					}else if(usuario == 2) {
+						Administrador admin = new Administrador(ID);
 						remove(ciber);
 						add(admin);
 					}else
-						Notification.show("Se ha producido un error");
+						Notification.show("Usuario o contraseña incorrectos");
 				
 					
 				}else
-					Notification.show("Se ha producido un error");
+					Notification.show("Usuario o contraseña incorrectos");
 				
 			}
 		});
-    }*/
+    }
 //    	Administrador admin = new Administrador();
 //    	add(admin);
 		
@@ -105,7 +108,7 @@ public class MainView extends VerticalLayout {
 //    	
 //    	Artista artista = new Artista();
 //    	add(artista);
-    }
+    
 		    	
 
 }

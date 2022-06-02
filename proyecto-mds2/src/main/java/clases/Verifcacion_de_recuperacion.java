@@ -19,8 +19,10 @@ public class Verifcacion_de_recuperacion extends Verificacion {
 		inicializar();
 	}
 	
+
 	void inicializar() {
 		this.getBotonAceptar().setVisible(false);
+		this.getStyle().set("width", "100%");
 		this.getLabelTitulo().setText("Recuperar cuenta");
 		this.getLabelDesc1().setText("Se ha enviado un correo a su email");
 		this.getLabelDesc2().setText("código para poder modificar su contraseña");

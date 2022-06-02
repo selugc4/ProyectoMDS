@@ -17,10 +17,13 @@ import basededatos.Cancion;
 import basededatos.CancionDAO;
 import basededatos.Horas;
 import basededatos.HorasDAO;
+import basededatos.HorasSetCollection;
 import basededatos.Lista_Reproduccion;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import clases.Actor_comun;
+import clases.Usuario_registrado;
 
 
 public class BD_Cancion {
@@ -53,8 +56,27 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion[] cargar_Ultimas_Canciones_Reproducidas() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Ultimas_Canciones_Reproducidas() throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		
+		
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+			Horas[] aux = usuario.horass.toArray();
+			Cancion[] canciones = new Cancion[aux.length];
+			for(int i = 0; i < aux.length; i++) {
+				canciones[i]= aux[i].getCancion();
+			}
+			
+			t.commit();
+			return canciones;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}		
+		
 	}
 
 	public Cancion[] cargar_Recomendaciones() {
