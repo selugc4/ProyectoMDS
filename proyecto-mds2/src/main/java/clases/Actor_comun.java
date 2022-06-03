@@ -33,62 +33,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	
 		VerticalLayout vl = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
 		vl.add(rc);
-			
-//		//ULTIMAS CANCIONES
-//		cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();				
-//				v1.add(cucr.verLista(cucr.ucr._ver_lista_de_Reproduccion, cucr.ucr.getLabel().getText()));
-//				v2.setVisible(false);	
-//			}
-//		});
-//		
-//		
-//		//RECOMENDADAS
-//		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();				
-//				v1.add(cr.verLista(cr.r._ver_lista_de_Reproduccion, cr.r.getLabel().getText()));
-//				v2.setVisible(false);	
-//				
-//			}
-//	});
-//		
-//		//FAVORITAS
-//		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();				
-//				v1.add(ccf.verLista(ccf.cf._ver_lista_de_Reproduccion, ccf.cf.getLabel().getText()));
-//				v2.setVisible(false);	
-//			}
-//	});
-//		
-//		//ESTADISTICAS
-//		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>(){
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();
-//				v1.add(ve);
-//				v2.setVisible(false);
-//			}
-//		});
-//		
-//		//volver atrás ESTADISTICAS
-//		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();
-//				v1.add(cucr);
-//				v1.add(ccf);
-//				v1.add(cr);
-//				v1.add(clr);
-//				v2.setVisible(true);	
-//				
-//			}
-//		});
+		
 		
 	}
 

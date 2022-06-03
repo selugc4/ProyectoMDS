@@ -22,6 +22,7 @@ public class Administrador extends Actor_comun {
 	public Administrador(int iD) {
 		clr = new ContenedorListasReproduccion(2);
 		this.ID = iD;
+		
 
 		this.v1.add(clr);
     	this.getStyle().set("width", "100%");
@@ -42,38 +43,11 @@ public class Administrador extends Actor_comun {
 				v2.replace(getVaadinButton(), rc);
 			}
 		});
-	/*	cucr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				vl.removeAll();
-				vl.add(cabadmin);
-				vl.add(cucr.getListaDeReproduccion());
-				vl.add(cucr.getListaDeReproduccion().getCancionesLista());
-				v2.replace(getVaadinButton(), rc);
-			}
-	});
-		cr.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v2.removeAll();
-				vl.add(cabadmin);
-				vl.add(cr.getListaDeReproduccion());
-				vl.add(cr.getListaDeReproduccion().getCancionesLista());
-				v2.add(rc);
-			}
-	});
-		ccf.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v2.removeAll();
-				vl.add(cabadmin);
-				vl.add(ccf.getListaDeReproduccion());
-				vl.add(ccf.getListaDeReproduccion().getCancionesLista());
-				v2.add(rc);
-			}
-		});
-	*/
+
 		cabadmin.getIconoBusqueda().addEventListener("click", e -> {
 			v1.removeAll();			
-//			cabadmin.buscar(cabadmin.getTfBusqueda().getValue());
-//			v1.add(cabadmin.be);
+			cabadmin.buscar(cabadmin.getTfBusqueda().getValue());
+			v1.add(cabadmin.badmin);
 			v2.setVisible(false);
 			
 		});
