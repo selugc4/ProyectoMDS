@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-cancion_con_imagen')
 export class VistaCancion_con_imagen extends LitElement {
@@ -21,7 +21,9 @@ export class VistaCancion_con_imagen extends LitElement {
 <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-items: center; flex-direction: row;" id="vaadinHorizontalLayout">
  <vaadin-vertical-layout theme="spacing" style="margin-right: var(--lumo-space-xl); width: 100%;" id="vaadinVerticalLayout">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="align-items: center; width: 100%;">
-   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU" id="img">
+   <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU" id="img">
+   </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1">
     <label id="labelDchaTitulo" style="width: 100%;">Título canción</label>
     <label id="labelDchaArtista">Nombre artista</label>

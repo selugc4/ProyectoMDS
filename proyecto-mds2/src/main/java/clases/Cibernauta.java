@@ -26,23 +26,35 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public static String correo;
 	
 	public Cibernauta() {
-		iCibernauta iciber = new BDPrincipal();
 		this.getStyle().set("width", "100%");
-		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		HorizontalLayout h1 = this.getVaadinHorizontalLayout();
+		VerticalLayout v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		HorizontalLayout h2 = this.getVaadinHorizontalLayout1();
 		
-		v1.add(cc);
+		h1.add(cc);
 		v1.add(ue);
-		v1.add(rcs);
+		h2.add(rcs);
+		Button button = new Button("Ver créditos");
+		button.getStyle().set("width", "10%");
+		button.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(rcs.vcre);
+				
+			}
+		});
+		h2.add(button);
 		
 		
 		cc.getVaadinHorizontalLayout1().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
-				v1.removeAll();
-				v1.add(cc);
+				v1.removeAll();				
 				v1.add(ue);
-				v1.add(rcs);
+		
 				
 			}
 		}); 
@@ -87,10 +99,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-					v1.removeAll();
-					v1.add(cc);
 					v1.replace(cc.getReg(), ue);
-					v1.add(rcs);
 				
 			}
 				
@@ -103,10 +112,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
+				v1.removeAll();			
 				v1.add(cc.getIs());
-				v1.add(rcs);
 				
 			}
 		});
@@ -119,10 +126,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
 				v1.add(cc.getReg());
-				v1.add(rcs);
 				
 			}
 		});
@@ -134,9 +138,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getReg().getVr().comprobarCodigo()) {
 					v1.removeAll();
-					v1.add(cc);
 					v1.add(ue);
-					v1.add(rcs);
 					Notification.show("Registro completado. Ya puede iniciar sesión");
 					
 			}else {
@@ -151,10 +153,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cc);
-				v1.add(cc.getReg());
-				v1.add(rcs);				
+				v1.removeAll();				
+				v1.add(cc.getReg());			
 			}
 		});
 
@@ -164,9 +164,9 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
-				v1.add(cc);
+				
 				v1.add(ue);
-				v1.add(rcs);
+		
 				
 			}
 		});

@@ -46,6 +46,8 @@ public class VistaCancion_con_imagen extends LitTemplate {
 	private Label labelDebajoTitulo;
 	@Id("labelDebajoArtista")
 	private Label labelDebajoArtista;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
 
 	/**
      * Creates a new VistaCancion_con_imagen.
@@ -157,6 +159,16 @@ public class VistaCancion_con_imagen extends LitTemplate {
 	public void setLabelDebajoArtista(Label labelDebajoArtista) {
 		this.labelDebajoArtista = labelDebajoArtista;
 	}
+
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	}
+	
+	
 	
 
 }

@@ -40,24 +40,6 @@ public class VistaVer_creditos extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout3;
 	@Id("label3")
 	private Label label3;
-	@Id("vaadinVerticalLayout3")
-	private Element vaadinVerticalLayout3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("label4")
-	private Label label4;
-	@Id("label5")
-	private Label label5;
-	@Id("label6")
-	private Label label6;
-	@Id("vaadinHorizontalLayout6")
-	private HorizontalLayout vaadinHorizontalLayout6;
-	@Id("vaadinHorizontalLayout7")
-	private HorizontalLayout vaadinHorizontalLayout7;
-	@Id("label7")
-	private Label label7;
 	@Id("vaadinVerticalLayout5")
 	private Element vaadinVerticalLayout5;
 	@Id("vaadinHorizontalLayout8")
@@ -68,7 +50,24 @@ public class VistaVer_creditos extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout9;
 	@Id("label9")
 	private Label label9;
-
+	@Id("vaadinVerticalLayout3")
+	private Element vaadinVerticalLayout3;
+	@Id("vaadinHorizontalLayout4")
+	private HorizontalLayout vaadinHorizontalLayout4;
+	@Id("label6")
+	private Label label6;
+	@Id("vaadinHorizontalLayout5")
+	private HorizontalLayout vaadinHorizontalLayout5;
+	@Id("vaadinHorizontalLayout6")
+	private HorizontalLayout vaadinHorizontalLayout6;
+	@Id("vaadinHorizontalLayout7")
+	private HorizontalLayout vaadinHorizontalLayout7;
+	@Id("label7")
+	private Label label7;
+	@Id("label4")
+	private Label label4;
+	@Id("label5")
+	private Label label5;
 	/**
      * Creates a new VistaVer_creditos.
      */

@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-cibernauta')
 export class VistaCibernauta extends LitElement {
@@ -15,7 +16,11 @@ export class VistaCibernauta extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="height: 100%; width: 100%;"></vaadin-horizontal-layout>
+</vaadin-vertical-layout>
 `;
   }
 

@@ -117,6 +117,7 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 				imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
 				Image image = new Image(imageResource2, "");
 				image.getStyle().set("height", "100px");
+				image.getStyle().set("width", "100px");
 				this.getVaadinHorizontalLayout19().removeAll();
 				this.getVaadinHorizontalLayout19().add(image);
 			} catch (IOException e) {
