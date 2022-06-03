@@ -294,7 +294,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_Canciones_Mostradas(int aNumero_Canciones) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_cancion.Modificar_Canciones_Mostradas(aNumero_Canciones);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_estilo(int aIdEstilo) {

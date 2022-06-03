@@ -1,5 +1,7 @@
 package bds;
 
+import org.orm.PersistentException;
+
 import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;

@@ -23,6 +23,7 @@ import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import clases.Actor_comun;
+import clases.Ultimos_exitos;
 import clases.Usuario_registrado;
 
 
@@ -46,10 +47,6 @@ public class BD_Cancion {
 		}
 	
 		return canciones;
-				
-		
-		
-		
 	}
 
 	public Cancion cargar_Creditos(int aIdCancion) {
@@ -127,8 +124,10 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Modificar_Canciones_Mostradas(int aNumero_Canciones) {
-		throw new UnsupportedOperationException();
+	public void Modificar_Canciones_Mostradas(int aNumero_Canciones) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		Ultimos_exitos.numeroUltimosExitos = aNumero_Canciones;
+		t.commit();
 	}
 
 	public void Anadir_a_la_vista_de_cibernauta(int aIdCancion) {

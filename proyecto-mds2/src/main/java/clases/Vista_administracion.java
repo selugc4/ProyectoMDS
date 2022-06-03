@@ -13,6 +13,8 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
+import bds.BDPrincipal;
+import bds.iAdministrador;
 import proyectoMDS2.MainView;
 
 public class Vista_administracion extends vistas.VistaVista_administracion{
@@ -78,7 +80,7 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 	
 	public Vista_administracion() {
 		inicializar();
-		
+		iAdministrador iadmin = new BDPrincipal();
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -86,13 +88,10 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 				if(getTfMostrar().getValue().isEmpty() || Integer.valueOf(getTfMostrar().getValue()) < 0) {
 					Notification.show("Este valor no es correcto para mostrar canciones");
 				}else {
+					iadmin.Modificar_Canciones_Mostradas(Integer.valueOf(getTfMostrar().getValue()));
 					Notification.show("Número de canciones mostradas cambiadas a " + getTfMostrar().getValue());
 					getTfMostrar().clear();
 //					Cibernauta.mostradas = Integer.valueOf(getTfMostrar().getValue());		
-							
-										
-					
-					
 				}
 				
 			}

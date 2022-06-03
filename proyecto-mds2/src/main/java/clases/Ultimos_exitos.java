@@ -20,13 +20,12 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 //	public Cibernauta _cibernauta;
 //	public Vector<Cancion__Vista_Cibernauta_> _cancion__Vista_Cibernauta_ = new Vector<Cancion__Vista_Cibernauta_>();
 	iCibernauta iCiber = new BDPrincipal();
-	
+	public static int numeroUltimosExitos;
 	
 	public static ArrayList<Cancion__Vista_Cibernauta_> canciones = new ArrayList<Cancion__Vista_Cibernauta_>();
 	
 	public Ultimos_exitos() {
 		inicializar();
-		
 	}
 
 	void inicializar() {
@@ -37,17 +36,12 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 
 	public void Cargar_Ultimos_Exitos() {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		HorizontalLayout h1 = new HorizontalLayout();
+		HorizontalLayout h1 = this.getVaadinHorizontalLayout();
 		h1.getStyle().set("justify-content","space-between");
-		
 		Cancion[] ue = iCiber.cargar_Ultimos_Exitos();
-		for(int i = 0; i < ue.length; i++) {		
+		h1.removeAll();
+		for(int i = 0; i < ue.length && i < numeroUltimosExitos; i++) {		
 			h1.add(new Cancion__Vista_Cibernauta_(ue[i]));
 		}
-		v1.add(h1);	
 	}
-
-	
-
-	
 }

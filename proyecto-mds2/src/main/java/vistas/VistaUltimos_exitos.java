@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 /**
  * A Designer generated component for the vista-ultimos_exitos template.
@@ -21,6 +22,8 @@ public class VistaUltimos_exitos extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("label")
 	private Label label;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 
 	/**
      * Creates a new VistaUltimos_exitos.
@@ -43,6 +46,14 @@ public class VistaUltimos_exitos extends LitTemplate {
 
 	public void setLabel(Label label) {
 		this.label = label;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
 
 }

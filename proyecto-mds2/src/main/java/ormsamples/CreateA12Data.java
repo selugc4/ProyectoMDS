@@ -7,6 +7,8 @@ package ormsamples;
 import org.orm.*;
 
 import basededatos.A12PersistentManager;
+import basededatos.Administrador;
+import basededatos.AdministradorDAO;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
@@ -66,12 +68,19 @@ public class CreateA12Data {
 		catch (Exception e) {
 			t.rollback();
 		}
-		
-		
-	
-	
+	}
+	public static void main(String[] args) {
+		try {
+            Administrador admin = AdministradorDAO.getAdministradorByORMID(4);
+            Cancion cancion = CancionDAO.loadCancionByORMID(1);
+            admin.ultimo_exito.add(cancion);
+            AdministradorDAO.save(admin);
+        } catch (PersistentException e) {
+            // TODO: handle exception
+            e.printStackTrace();
 	}
 
 
 
+}
 }
