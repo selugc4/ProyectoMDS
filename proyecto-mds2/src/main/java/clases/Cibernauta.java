@@ -19,6 +19,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 //	public Reproductor_canciones_simple _reproductor_canciones_simple;
 //	public Ultimos_exitos _ultimos_exitos;
 	
+	private static Button button;
 	public Cabecera_cibernauta cc = new Cabecera_cibernauta();
 	public Ultimos_exitos ue= new Ultimos_exitos();
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
@@ -34,10 +35,9 @@ public class Cibernauta extends vistas.VistaCibernauta {
 		h1.add(cc);
 		v1.add(ue);
 		h2.add(rcs);
-		Button button = new Button("Ver créditos");
+		button = new Button("Ver créditos");
 		button.getStyle().set("width", "10%");
-		button.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
+		button.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {	
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
@@ -46,8 +46,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			}
 		});
 		h2.add(button);
-		
-		
+		this.verCreditos();
 		cc.getVaadinHorizontalLayout1().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
 			@Override
@@ -283,5 +282,12 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public void iniciarSesion() {
 		cc.getIs().iniciarSesion();
 	}
-	
+	public static void verCreditos() {
+		
+		if(rcs.getSource() == null) {
+			button.setVisible(false);
+		}else {
+			button.setVisible(true);
+		}
+	}
 	}

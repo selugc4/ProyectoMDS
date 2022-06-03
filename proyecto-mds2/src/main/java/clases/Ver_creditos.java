@@ -19,7 +19,9 @@ public class Ver_creditos extends vistas.VistaVer_creditos {
 	public Ver_creditos(Cancion cancion) {
 		this.getStyle().set("width", "100%");
 		this.getLabel1().setText(cancion.getTitulo() + " -  " +cancion.getTituloCreditos());
+		if(cancion.getCancion_de() != null) {
 		this.getLabel3().setText(cancion.getCancion_de().getTitutloAlbum());
+		}
 		this.getLabel5().setText(cancion.getCompositores());
 		this.getLabel7().setText(cancion.getProductores());
 		this.getLabel9().setText(cancion.getIntepretes());

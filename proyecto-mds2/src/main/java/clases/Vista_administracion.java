@@ -105,10 +105,10 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 				if(getTfReproducibles().getValue().isEmpty() || Integer.valueOf(getTfReproducibles().getValue()) < 0) {
 					Notification.show("Este valor no es correcto para seleccionar las canciones reproducibles máximas");
 				}else {
+					Reproductor_canciones_simple.reproducibles = Integer.valueOf(getTfReproducibles().getValue());
 					Notification.show("Número de canciones reproducibles cambiadas a " + getTfReproducibles().getValue());
 					getTfReproducibles().clear();
-//					Cibernauta.reproducibles= Integer.valueOf(getTfReproducibles().getValue());				
-					
+//					Cibernauta.reproducibles= Integer.valueOf(getTfReproducibles().getValue());						
 				}
 				
 			}

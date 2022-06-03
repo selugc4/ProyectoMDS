@@ -70,7 +70,13 @@ public class Administrador extends Actor_comun {
 			}
 		});
 	*/
-	
+		cabadmin.getIconoBusqueda().addEventListener("click", e -> {
+			v1.removeAll();			
+//			cabadmin.buscar(cabadmin.getTfBusqueda().getValue());
+//			v1.add(cabadmin.be);
+			v2.setVisible(false);
+			
+		});
 		this.cabadmin.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override

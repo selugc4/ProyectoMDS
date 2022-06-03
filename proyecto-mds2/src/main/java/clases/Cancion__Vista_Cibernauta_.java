@@ -59,6 +59,7 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			this.getLabelDebajoArtista().setText(cancion.es_de.toString());
 		}
 		StreamResource imageResource2;
+		if(cancion.getCancion_de() != null) {
 		try {
 			InputStream aux2 = FileUtils.openInputStream(new File(cancion.getCancion_de().getContiene_imagen().getUrl()));
 			imageResource2 = new StreamResource("ultimo-exito",() -> aux2); 
@@ -92,8 +93,16 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
+		}else {
+				this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Image> event) {
+					rc.vcre = new Ver_creditos(cancion);
+					rc.reproducir(cancion.getArchivoMultimedia());
+				}
+			});
+		}
 	}
 
 	void inicializar() {

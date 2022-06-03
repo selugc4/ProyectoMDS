@@ -31,7 +31,9 @@ public class Cabecera_administrador extends Cabecera_comun {
 	public Buscador_administrador getBadmin() {
 		return badmin;
 	}
-	
+	public void buscar(String value) {
+		badmin = new Buscador_administrador(value);
+	}
 	
 	
 
