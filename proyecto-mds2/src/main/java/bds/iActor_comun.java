@@ -1,18 +1,19 @@
 package bds;
 
 import basededatos.Cancion;
+import basededatos.Lista_Reproduccion;
 
 public interface iActor_comun {
 
 	public Cancion[] cargar_Ultimas_Canciones_Reproducidas();
 
-	public void cargar_Recomendaciones();
+	public Cancion[] cargar_Recomendaciones();
 
-	public void cargar_Canciones_Favoritas(String aCorreo);
+	public Cancion[] cargar_Canciones_Favoritas();
 
 	public void obtener_Estadisticas(String aCorreo);
 
-	public void cargar_Listas_Reproduccion(String aCorreo);
+	public Lista_Reproduccion[] cargar_Listas_Reproduccion();
 
 	public void cargar_Canciones_Busqueda(String aNombre);
 

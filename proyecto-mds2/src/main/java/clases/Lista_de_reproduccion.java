@@ -7,6 +7,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.DomEventListener;
 
+import basededatos.Lista_Reproduccion;
+
 public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 //	private Label _texto_ListaL;
 //	public Listas_de_reproduccion _listas_de_reproduccion;
@@ -25,9 +27,15 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 		
 	}
 		
-	public Lista_de_reproduccion(String valueOf) {
+	public Lista_de_reproduccion(String aux) {
 		inicializar();
-		this.getLabel().setText(valueOf);
+		this.getLabel().setText(aux);
+	}
+
+
+	public Lista_de_reproduccion(Lista_Reproduccion lista) {
+		inicializar();
+		this.getLabel().setText(lista.getNombreLista());
 	}
 
 	private void inicializar() {

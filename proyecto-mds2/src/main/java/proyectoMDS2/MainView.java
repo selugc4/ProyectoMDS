@@ -54,54 +54,56 @@ public class MainView extends VerticalLayout {
 	public static int usuario;
 	public static int ID;
     public MainView() {
-    	this.getStyle().set("width", "100%");
-    	Cibernauta ciber = new Cibernauta();
-    	add(ciber);
+//    	this.getStyle().set("width", "100%");
+//    	Cibernauta ciber = new Cibernauta();
+//    	add(ciber);
 //    	Administrador admin = new Administrador();
 //    	add(admin);
-    
-    	Iniciar_sesion is = ciber.getCc().getIs();
-    	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
-					ciber.iniciarSesion();
-					if(usuario == 0) {
-						Usuario_registrado user = new Usuario_registrado(ID);
-						remove(ciber);
-						add(user);
-					}else if(usuario == 1) {
-						Artista artista = new Artista(ID);
-						remove(ciber);
-						add(artista);
-					}else if(usuario == 2) {
-						Administrador admin = new Administrador(ID);
-						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-								public void onComponentEvent(ClickEvent<Button> event) {
-								remove(admin);
-								ciber.ue.Cargar_Ultimos_Exitos();
-								add(ciber);
-								}		
-							});
-						remove(ciber);
-						add(admin);
-					}else
-						Notification.show("Usuario o contraseña incorrectos");
-				
-					
-				}else
-					Notification.show("Usuario o contraseña incorrectos");
-				
-			}
-		});
-    }
+//    
+//    	Iniciar_sesion is = ciber.getCc().getIs();
+//    	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
+//					ciber.iniciarSesion();
+//					if(usuario == 0) {
+//						Usuario_registrado user = new Usuario_registrado(ID);
+//						remove(ciber);
+//						add(user);
+//					}else if(usuario == 1) {
+//						Artista artista = new Artista(ID);
+//						remove(ciber);
+//						add(artista);
+//					}else if(usuario == 2) {
+//						Administrador admin = new Administrador(ID);
+//						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//							@Override
+//								public void onComponentEvent(ClickEvent<Button> event) {
+//								remove(admin);
+//								ciber.ue.Cargar_Ultimos_Exitos();
+//								add(ciber);
+//								}		
+//							});
+//						remove(ciber);
+//						add(admin);
+//					}else
+//						Notification.show("Usuario o contraseña incorrectos");
+//				
+//					
+//				}else
+//					Notification.show("Usuario o contraseña incorrectos");
+//				
+//			}
+//		});
+//    }
+    	
 //    	Administrador admin = new Administrador();
 //    	add(admin);
 		
-////     	Usuario_registrado usuario = new Usuario_registrado();
-////    	add(usuario);    
+     	Usuario_registrado usuario = new Usuario_registrado(8);
+    	add(usuario);    
+    }
 //    	
 //    	Artista artista = new Artista();
 //    	add(artista);

@@ -3,18 +3,25 @@ package bds;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.mysql.cj.jdbc.jmx.LoadBalanceConnectionGroupManager;
+
 import basededatos.A12PersistentManager;
 import basededatos.AdministradorDAO;
 import basededatos.Album;
 import basededatos.AlbumDAO;
+import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
+import basededatos.Estilo;
+import basededatos.EstiloDAO;
 import basededatos.Horas;
 import basededatos.HorasDAO;
 import basededatos.HorasSetCollection;
@@ -76,12 +83,53 @@ public class BD_Cancion {
 		
 	}
 
-	public Cancion[] cargar_Recomendaciones() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Recomendaciones() throws PersistentException {
+//		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+//
+//		try {
+//			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+//			Usuario[] seguidos = usuario.seguido.toArray();
+//			Artista[] artistas;
+//			for(int i = 0 ; i < seguidos.length; i++) {
+//				if(seguidos[i].getTipoUsuario() == 2) {
+//					artistas[i] = (Artista) seguidos[i];
+//				}
+//				
+//			}
+//			TreeMap<Estilo, Integer> aux = new TreeMap<Estilo, Integer>();
+//			for(Artista artista : artistas) {
+//				aux.put(artista.est, null)
+//				
+//			}
+//			
+//			
+//
+//			t.commit();
+//			return canciones;
+//			
+//		} catch (PersistentException e) {
+//			t.rollback();
+//			return null;
+//			
+//		}		
+		return null;
 	}
 
-	public Cancion[] cargar_Canciones_Favoritas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Favoritas() throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+			Cancion[] canciones = 	usuario.favorita.toArray();
+
+			t.commit();
+			return canciones;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}		
 	}
 
 	public Cancion[] cargar_Canciones_Busqueda(String aNombre) {

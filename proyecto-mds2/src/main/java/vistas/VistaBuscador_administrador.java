@@ -35,14 +35,6 @@ public class VistaBuscador_administrador extends LitTemplate {
 	private Label label3;
 	@Id("vaadinButton")
 	private Button vaadinButton;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("vaadinHorizontalLayout5")
-	private HorizontalLayout vaadinHorizontalLayout5;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
 	@Id("horizontalCanciones")
 	private HorizontalLayout horizontalCanciones;
 	@Id("horizontalArtistas")
@@ -123,38 +115,6 @@ public class VistaBuscador_administrador extends LitTemplate {
 
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout3() {
-		return vaadinHorizontalLayout3;
-	}
-
-	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
-		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
-	}
-
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout5() {
-		return vaadinHorizontalLayout5;
-	}
-
-	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
-		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
-	}
-
-	public HorizontalLayout getVaadinHorizontalLayout1() {
-		return vaadinHorizontalLayout1;
-	}
-
-	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
-		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
 	}
 
 	public HorizontalLayout getHorizontalCanciones() {

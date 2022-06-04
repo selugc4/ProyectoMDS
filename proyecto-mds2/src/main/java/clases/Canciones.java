@@ -22,12 +22,11 @@ public class Canciones extends vistas.VistaCanciones {
 }
 	
 	public void cargar_Ultimas_Canciones_Reproducidas() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		HorizontalLayout h1 = new HorizontalLayout();
 		ArrayList<Cancion__Vista_actor_comun_> vlrp = new ArrayList<Cancion__Vista_actor_comun_>();
 		Cancion[] canciones = iac.cargar_Ultimas_Canciones_Reproducidas();
 		for(int i = 0; i < canciones.length; i++) {	
-			Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i].getTitulo(), canciones[i].es_de.toArray(), canciones[i].getCancion_de().getContiene_imagen().getUrl());
+			Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i]);
+			//canciones[i].getTitulo(), canciones[i].es_de.toArray(), canciones[i].getCancion_de().getContiene_imagen().getUrl()
 			vlrp.add(aux);
 
 		}
@@ -36,7 +35,7 @@ public class Canciones extends vistas.VistaCanciones {
 		mostrarLista();
 	}
 	
-	private void mostrarLista() {
+	protected void mostrarLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		HorizontalLayout h1 = new HorizontalLayout();
 		for(int i =0; i< _ver_lista_de_Reproduccion.size() && i < 5; i++ ) {

@@ -23,6 +23,9 @@ public class Usuario_registrado extends Actor_comun {
 		this.ID = iD;
 		
 		cucr = new ContenedorUltimas_canciones_reproducidas();
+		ccf = new ContenedorCanciones_favoritas();
+//		cr = new ContenedorRecomendaciones();
+		ve = new Ver_estadisticas();
 		
 		clr = new ContenedorListasReproduccion(0);
 		
@@ -40,7 +43,7 @@ public class Usuario_registrado extends Actor_comun {
 				v1.removeAll();
 				v1.add(cucr);
 				v1.add(ccf);
-				v1.add(cr);
+//				v1.add(cr);
 				v1.add(clr);
 				v2.setVisible(true);	
 			}

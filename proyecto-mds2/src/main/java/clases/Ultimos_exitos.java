@@ -20,7 +20,7 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 //	public Cibernauta _cibernauta;
 //	public Vector<Cancion__Vista_Cibernauta_> _cancion__Vista_Cibernauta_ = new Vector<Cancion__Vista_Cibernauta_>();
 	iCibernauta iCiber = new BDPrincipal();
-	public static int numeroUltimosExitos;
+	public static int numeroUltimosExitos = 5;
 	
 	public static ArrayList<Cancion__Vista_Cibernauta_> canciones = new ArrayList<Cancion__Vista_Cibernauta_>();
 	

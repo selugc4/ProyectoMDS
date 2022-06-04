@@ -8,6 +8,7 @@ import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
 import basededatos.Imagen;
+import basededatos.Lista_Reproduccion;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import proyectoMDS2.MainView;
@@ -181,20 +182,39 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void cargar_Recomendaciones() {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Recomendaciones() {
+		try {
+			return _bd_cancion.cargar_Recomendaciones();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public void cargar_Canciones_Favoritas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Favoritas() {
+		try {
+			return _bd_cancion.cargar_Canciones_Favoritas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void obtener_Estadisticas(String aCorreo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Listas_Reproduccion(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Reproduccion() {
+		try {
+			return _bd_lista_reproduccion.cargar_Listas_Reproduccion();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	public void cargar_Canciones_Busqueda(String aNombre) {

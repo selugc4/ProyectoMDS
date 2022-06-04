@@ -11,6 +11,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.server.AbstractStreamResource;
 import com.vaadin.flow.server.StreamResource;
 
@@ -35,11 +36,11 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 		
 	}
 	
-	public Cancion__Vista_actor_comun_(String titulo, Artista[] artistas, String url) {
+	public Cancion__Vista_actor_comun_(basededatos.Cancion  cancion) {
 		inicializar();
 		
 		String cadena = "";
-		for(Artista artista : artistas) {
+		for(Artista artista : cancion.es_de.toArray()) {
 			cadena += artista.getNombre() + ", ";
 		}
 			if(cadena.equals("")) {
@@ -47,14 +48,29 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 			}else
 			this.getLabelDebajoArtista().setText(cadena);
 			
-		this.getLabelDebajoTitulo().setText(titulo);
+		this.getLabelDebajoTitulo().setText(cancion.getTitulo());
 		
-		File file = new File(url);
+		File file = new File(cancion.getCancion_de().getContiene_imagen().getUrl());
 		StreamResource imageResource2;
 		try {
 			InputStream aux2 = FileUtils.openInputStream(file);
 			imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
-			this.getImg().setSrc(imageResource2);
+			Image image = new Image(imageResource2, "");
+			image.setWidth("100px");
+			image.setHeight("100px");
+
+			image.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Image> event) {
+					rcs.vcre = new Ver_creditos(cancion);
+					rcs.reproducir(cancion.getArchivoMultimedia());
+					
+				}
+			});
+			VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
+			vl.removeAll();
+			vl.add(image);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

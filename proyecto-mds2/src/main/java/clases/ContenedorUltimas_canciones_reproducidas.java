@@ -10,6 +10,8 @@ public class ContenedorUltimas_canciones_reproducidas extends ContenedorListas {
 	
 	public Ultimas_canciones_reproducidas ucr = new Ultimas_canciones_reproducidas();
 	public ContenedorUltimas_canciones_reproducidas() {
+		this.getStyle().set("width", "100%");
+
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		hl.add(ucr);
 	}

@@ -71,10 +71,15 @@ public class CreateA12Data {
 	}
 	public static void main(String[] args) {
 		try {
-            Administrador admin = AdministradorDAO.getAdministradorByORMID(4);
-            Cancion cancion = CancionDAO.loadCancionByORMID(1);
-            admin.ultimo_exito.add(cancion);
-            AdministradorDAO.save(admin);
+            Usuario usuario = UsuarioDAO.getUsuarioByORMID(8);
+            Lista_Reproduccion aux = Lista_ReproduccionDAO.createLista_Reproduccion();
+            aux.setNombreLista("Prueba");
+            aux.setAutor(usuario);
+            Lista_ReproduccionDAO.save(aux);
+            usuario.propietario.add(aux);;
+            UsuarioDAO.save(usuario);
+           
+            UsuarioDAO.save(usuario);
         } catch (PersistentException e) {
             // TODO: handle exception
             e.printStackTrace();

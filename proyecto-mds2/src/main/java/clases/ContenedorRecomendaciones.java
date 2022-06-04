@@ -9,6 +9,7 @@ public class ContenedorRecomendaciones extends ContenedorListas {
 	
 	public Recomendaciones r = new Recomendaciones();
 	public ContenedorRecomendaciones() {
+		this.getStyle().set("width", "100%");
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		hl.add(r);
 	}

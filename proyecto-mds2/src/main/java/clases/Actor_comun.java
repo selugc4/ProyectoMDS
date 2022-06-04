@@ -20,10 +20,10 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public Cabecera_comun cc = new Cabecera_comun();
 	public static Reproductor_completo rc = new Reproductor_completo();
 	public ContenedorUltimas_canciones_reproducidas cucr;
-	public ContenedorCanciones_favoritas ccf = new ContenedorCanciones_favoritas();
-	public ContenedorRecomendaciones cr = new ContenedorRecomendaciones();
+	public ContenedorCanciones_favoritas ccf;
+	public ContenedorRecomendaciones cr;
 	public ContenedorListasReproduccion clr;
-	public Ver_estadisticas ve = new Ver_estadisticas();
+	public Ver_estadisticas ve;
 	public static VerticalLayout v1;
 	public static VerticalLayout v2;
 	public static int ID;

@@ -66,9 +66,6 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			Image image = new Image(imageResource2, "");
 			image.setWidth("100px");
 			image.setHeight("100px");
-			
-			rc.vcre = new Ver_creditos(cancion);
-			rc.reproducir(cancion.getArchivoMultimedia());
 
 			image.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 				
