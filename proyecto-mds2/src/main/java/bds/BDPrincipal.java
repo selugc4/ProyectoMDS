@@ -221,8 +221,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Artistas_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Artista[] cargar_Artistas_Buscador(String aNombre) {
+		try {
+			return _bd_artista.cargar_Artistas_Buscador(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void cargar_Albumes_Buscador(String aNombre) {

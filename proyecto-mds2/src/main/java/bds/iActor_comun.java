@@ -1,5 +1,6 @@
 package bds;
 
+import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Lista_Reproduccion;
 
@@ -17,7 +18,7 @@ public interface iActor_comun {
 
 	public void cargar_Canciones_Busqueda(String aNombre);
 
-	public void cargar_Artistas_Buscador(String aNombre);
+	public Artista[] cargar_Artistas_Buscador(String aNombre);
 
 	public void cargar_Albumes_Buscador(String aNombre);
 

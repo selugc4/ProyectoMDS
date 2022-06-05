@@ -98,9 +98,18 @@ public class BD_Artista {
 		}
 	}
 
-	public Artista[] cargar_Artistas_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
-	}
+	public Artista[] cargar_Artistas_Buscador(String aNombre) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Artista []usuario = ArtistaDAO.listArtistaByQuery("Nombre='"+aNombre+"'", null);
+		t.commit();
+		return usuario;
+		}
+		catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
+		}
 
 	public Artista[] cargar_Artistas_Perfil(String aEstilo) {
 		throw new UnsupportedOperationException();
