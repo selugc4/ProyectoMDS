@@ -22,7 +22,7 @@ export class VistaCabecera_comun extends LitElement {
 <vaadin-vertical-layout style="width: 100%; border-bottom: 1px solid black;" id="vertical">
  <vaadin-horizontal-layout theme="spacing-xl" style="width: 100%;" id="horizontalContenedor">
   <vaadin-horizontal-layout id="horizontalFoto">
-   <img style="flex-grow: 1; flex-shrink: 1; align-self: center; height: 125px; width: 125px;" src="https://extension.ual.es/assets/logo-ual.png" id="img">
+   <img id="img" style="width: 125px; height: 125px; align-self: center;">
    <vaadin-vertical-layout style="width: 100%; margin-top: var(--lumo-space-s); padding: var(--lumo-space-m); margin-left: var(--lumo-space-s);" id="vaadinVerticalLayout1">
     <label style="width: 100%; flex-grow: 0;" id="label">Contacto</label>
     <label style="width: 115pt; flex-grow: 0;" id="label1">Teléfono: XXXXXXXXX</label>

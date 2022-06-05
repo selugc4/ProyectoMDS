@@ -40,22 +40,10 @@ public class Cabecera_cibernauta extends vistas.VistaCabecera_cibernauta {
 	
 	public Cabecera_cibernauta() {
 		this.getStyle().set("width", "100%");
-		String separator = System.getProperty("file.separator");
-		File imagenDefault = new File(System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator+"logo-ual.png");
-		InputStream aux ;
-		StreamResource imageResource;
-		try {
-			aux = FileUtils.openInputStream(imagenDefault);
-			imageResource = new StreamResource("logo-ual.png",() -> aux); 
-			Image image = new Image(imageResource, "");
-			image.getStyle().set("height", "125px");
-			image.getStyle().set("width", "125px");
-			this.getVaadinHorizontalLayout1().add(image);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}	
-		}
+		this.getImg().setSrc("imagenes/logo-ual.png");
+		
+	}
+		
 	
 //	void registrarse() {
 //		

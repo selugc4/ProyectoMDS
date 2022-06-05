@@ -3,6 +3,8 @@ package clases;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -28,6 +30,10 @@ public class ContenedorListas extends vistas.VistaContenedorlistas {
 //		public Ver_lista_de_Reproduccion getListaDeReproduccion() {
 //		return new Ver_lista_de_Reproduccion();
 //	}
+	
+	public ContenedorListas() {
+	
+	}
 	
 	public Ver_lista_de_Reproduccion verLista(ArrayList<Cancion__Vista_actor_comun_> lista, String nombre) {
 		return new Ver_lista_de_Reproduccion(lista, nombre);

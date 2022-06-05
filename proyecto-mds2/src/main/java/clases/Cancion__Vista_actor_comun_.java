@@ -20,7 +20,7 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 //	public Canciones _canciones;
 //	public Reproductor_completo _reproductor_completo;
 	
-	public Reproductor_canciones_simple rcs  = Actor_comun.rc;
+	public Reproductor_completo rcs  = Actor_comun.rc;
 	public Cancion__Vista_actor_comun_() {
 		inicializar();
 		 
@@ -50,32 +50,23 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 			
 		this.getLabelDebajoTitulo().setText(cancion.getTitulo());
 		
-		File file = new File(cancion.getCancion_de().getContiene_imagen().getUrl());
-		StreamResource imageResource2;
-		try {
-			InputStream aux2 = FileUtils.openInputStream(file);
-			imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
-			Image image = new Image(imageResource2, "");
-			image.setWidth("100px");
-			image.setHeight("100px");
-
-			image.addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
+		this.getImg().setWidth("125px");
+		this.getImg().setHeight("125px");
+		
+			this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 				
 				@Override
 				public void onComponentEvent(ClickEvent<Image> event) {
 					rcs.vcre = new Ver_creditos(cancion);
+					rcs._ir_a_cancion = new Ir_a_cancion(cancion);
+			
 					rcs.reproducir(cancion.getArchivoMultimedia());
 					
 				}
 			});
-			VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
-			vl.removeAll();
-			vl.add(image);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-	
-	}
+			
+
 	}
 		
 	

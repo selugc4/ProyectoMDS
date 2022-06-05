@@ -7,10 +7,17 @@ public class Reproductor_completo extends Reproductor_canciones_simple {
 //	private Button _retroceder_10_SegundosB;
 //	public Actor_comun _actor_comun;
 //	public Cancion__Vista_actor_comun_ _cancion__Vista_actor_comun_;
-	public Ir_a_cancion _ir_a_cancion;
+	public Ir_a_cancion _ir_a_cancion = new Ir_a_cancion();
 
 	public Reproductor_completo() {
-		this.reproducibles = Integer.MAX_VALUE;
+		
+	}
+	
+	@Override
+	public void reproducir(String ruta) {
+		this.getElement().setAttribute("src", "canciones/"+ruta);
+		Actor_comun.botonIrCancion.setVisible(true);
+		
 	}
 
 //	public void Anterior_cancion() {

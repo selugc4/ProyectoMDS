@@ -19,6 +19,8 @@ public class Canciones extends vistas.VistaCanciones {
 	}
 	private void inicializar() {
 	this.getStyle().set("width", "100%");
+	
+
 }
 	
 	public void cargar_Ultimas_Canciones_Reproducidas() {

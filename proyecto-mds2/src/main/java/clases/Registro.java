@@ -81,7 +81,7 @@ public class Registro extends vistas.VistaRegistro {
 	private String fileName;
 	private File ruta;
 	String separator = System.getProperty("file.separator");
-	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator;
+	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator+ "META-INF" +separator+ "resources"+ separator+ "imagenes" + separator;
 	String rutaArchivoFinal;
 	
 	public Verificacion_registro getVr() {
@@ -93,23 +93,10 @@ public class Registro extends vistas.VistaRegistro {
 		HorizontalLayout hl = this.getHorizontalimg();
 		
 		this.getStyle().set("width", "100%" );
-		File imagenDefault = new File(rutaArchivo+"fotousuario.png");
-		InputStream aux ;
-		StreamResource imageResource;
-		try {
-			aux = FileUtils.openInputStream(imagenDefault);
-			imageResource = new StreamResource("fotoDefaultAlbum.png",() -> aux); 
-			Image image = new Image(imageResource, "");
-			image.getStyle().set("height", "125px");
-			image.getStyle().set("width", "125px");
-			hl.add(image);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}	
+		this.getImg().setSrc("imagenes/fotousuario.png");
 		
-		rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator +"fotoalbum.png";
-		
+		fileName = "fotousuario.png";
+				
 		MemoryBuffer mbuf = new MemoryBuffer();
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{
@@ -143,8 +130,6 @@ public class Registro extends vistas.VistaRegistro {
 				e.printStackTrace();
 			}
 			
-			rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator + fileName;
-		
 		    
 		});
 		
@@ -208,7 +193,7 @@ public class Registro extends vistas.VistaRegistro {
 		}
 
 	public void registrarse() {
-		iciber.guardar_Datos(this.getTfemail().getValue(), this.getTfusuario().getValue(), getTfcontrasena1().getValue(), rutaArchivoFinal);
+		iciber.guardar_Datos(this.getTfemail().getValue(), this.getTfusuario().getValue(), getTfcontrasena1().getValue(), fileName);
 		
 	}
 	

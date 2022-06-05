@@ -26,8 +26,6 @@ public class VistaCancion_con_imagen extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("img")
-	private Image img;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
 	@Id("labelDchaTitulo")
@@ -48,6 +46,8 @@ public class VistaCancion_con_imagen extends LitTemplate {
 	private Label labelDebajoArtista;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
+	@Id("img")
+	private Image img;
 
 	/**
      * Creates a new VistaCancion_con_imagen.

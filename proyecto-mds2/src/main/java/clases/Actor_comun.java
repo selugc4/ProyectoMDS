@@ -27,12 +27,30 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public static VerticalLayout v1;
 	public static VerticalLayout v2;
 	public static int ID;
+	public static Button botonIrCancion = new Button("Ver canción");
 	public Actor_comun() {
 		this.v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		this.v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
+		
+		botonIrCancion.getStyle().set("width", "10%");
+		botonIrCancion.setVisible(false);
+		botonIrCancion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(rc._ir_a_cancion);
+				
+			}
+		});
 	
+		HorizontalLayout aux = new HorizontalLayout();
+		aux.getStyle().set("width", "100%");
+		aux.add(rc);
+		aux.add(botonIrCancion);;
 		VerticalLayout vl = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
-		vl.add(rc);
+		vl.add(aux);
+		
 		
 		
 	}

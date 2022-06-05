@@ -18,11 +18,10 @@ public class Reproductor_canciones_simple  extends Component {
 
     public Reproductor_canciones_simple() {
    
-    	this.getElement().getStyle().set("width", "100%");
+    	this.getElement().getStyle().set("width", "100em");
         getElement().setAttribute("controls",true);
         getElement().setAttribute("type", "audio/mpeg");
         getElement().setProperty("src", "");
-        
        
     }
 
@@ -37,17 +36,10 @@ public class Reproductor_canciones_simple  extends Component {
     
     public void reproducir(String ruta) {
     	if(reproducibles > 0) {
-    	try {
-			FileInputStream aux = new FileInputStream(new File(ruta));
-			AbstractStreamResource resource = new StreamResource("cambioCancion.png", () -> aux);
-			this.getElement().setAttribute("src", resource);
+    		this.getElement().setAttribute("src", "canciones/"+ruta);
 			reproducibles--;
 			Cibernauta.button.setVisible(true);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-    	}else {
+      	}else {
     		Notification.show("Límite de canciones reproducibles alcanzado. Si quiere escuchar más regístrese o inicie sesión");
     		this.setSource(null);
     		Cibernauta.button.setVisible(false);

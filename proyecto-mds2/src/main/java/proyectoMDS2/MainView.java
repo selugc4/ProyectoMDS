@@ -69,12 +69,14 @@ public class MainView extends VerticalLayout {
 //					ciber.iniciarSesion();
 //					if(usuario == 0) {
 //						Usuario_registrado user = new Usuario_registrado(ID);
-//						remove(ciber);
+//						remove(ciber);				
 //						add(user);
+//						is = new Iniciar_sesion();
 //					}else if(usuario == 1) {
 //						Artista artista = new Artista(ID);
 //						remove(ciber);
 //						add(artista);
+//						is = new Iniciar_sesion();
 //					}else if(usuario == 2) {
 //						Administrador admin = new Administrador(ID);
 //						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -85,8 +87,10 @@ public class MainView extends VerticalLayout {
 //								add(ciber);
 //								}		
 //							});
+//						
 //						remove(ciber);
 //						add(admin);
+//						is = new Iniciar_sesion();
 //					}else
 //						Notification.show("Usuario o contraseña incorrectos");
 //				
@@ -98,11 +102,11 @@ public class MainView extends VerticalLayout {
 //		});
 //    }
     	
-//    	Administrador admin = new Administrador();
-//    	add(admin);
-		
-     	Usuario_registrado usuario = new Usuario_registrado(8);
-    	add(usuario);    
+    	Administrador admin = new Administrador(6);
+    	add(admin);
+//		
+//     	Usuario_registrado usuario = new Usuario_registrado(8);
+//    	add(usuario);    
     }
 //    	
 //    	Artista artista = new Artista();

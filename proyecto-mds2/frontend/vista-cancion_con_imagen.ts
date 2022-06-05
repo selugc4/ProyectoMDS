@@ -22,7 +22,7 @@ export class VistaCancion_con_imagen extends LitElement {
  <vaadin-vertical-layout theme="spacing" style="margin-right: var(--lumo-space-xl); width: 100%;" id="vaadinVerticalLayout">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1" style="align-items: center; width: 100%;">
    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY6iSVMisBNU5lYWkySKasOApcLdR2CVaAoA&amp;usqp=CAU" id="img">
+    <img id="img">
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout1">
     <label id="labelDchaTitulo" style="width: 100%;">Título canción</label>

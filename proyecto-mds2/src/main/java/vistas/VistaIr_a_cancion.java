@@ -21,11 +21,7 @@ import com.vaadin.flow.component.select.Select;
 @JsModule("./vista-ir_a_cancion.ts")
 public class VistaIr_a_cancion extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("img")
-	private Image img;
-	@Id("vaadinVerticalLayout")
+    @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
@@ -37,8 +33,6 @@ public class VistaIr_a_cancion extends LitTemplate {
 	private Label label1;
 	@Id("vaadinButton")
 	private Button vaadinButton;
-	@Id("label2")
-	private Label label2;
 	@Id("ironIcon")
 	private Element ironIcon;
 	@Id("vaadinHorizontalLayout2")
@@ -61,6 +55,10 @@ public class VistaIr_a_cancion extends LitTemplate {
 	private Button vaadinButton2;
 	@Id("vaadinButton3")
 	private Button vaadinButton3;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("img")
+	private Image img;
 	/**
      * Creates a new VistaIr_a_cancion.
      */
@@ -115,12 +113,7 @@ public class VistaIr_a_cancion extends LitTemplate {
 	public void setVaadinButton(Button vaadinButton) {
 		this.vaadinButton = vaadinButton;
 	}
-	public Label getLabel2() {
-		return label2;
-	}
-	public void setLabel2(Label label2) {
-		this.label2 = label2;
-	}
+
 	public Element getIronIcon() {
 		return ironIcon;
 	}

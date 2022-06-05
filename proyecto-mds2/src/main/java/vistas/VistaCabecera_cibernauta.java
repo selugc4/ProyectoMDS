@@ -46,6 +46,8 @@ public class VistaCabecera_cibernauta extends LitTemplate {
 	private Button vaadinButton;
 	@Id("vaadinButton1")
 	private Button vaadinButton1;
+	@Id("img")
+	private Image img;
 	/**
      * Creates a new VistaCabecera_cibernauta.
      */
@@ -156,5 +158,14 @@ public class VistaCabecera_cibernauta extends LitTemplate {
 	public void setVaadinButton1(Button vaadinButton1) {
 		this.vaadinButton1 = vaadinButton1;
 	}
+
+	public Image getImg() {
+		return img;
+	}
+
+	public void setImg(Image img) {
+		this.img = img;
+	}
+	
 
 }

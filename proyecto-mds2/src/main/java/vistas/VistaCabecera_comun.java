@@ -27,8 +27,6 @@ public class VistaCabecera_comun extends LitTemplate {
 	private HorizontalLayout horizontalContenedor;
 	@Id("horizontalFoto")
 	private HorizontalLayout horizontalFoto;
-	@Id("img")
-	private Image img;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
 	@Id("label1")
@@ -59,6 +57,8 @@ public class VistaCabecera_comun extends LitTemplate {
 	private Element ironIcon2;
 	@Id("botonLogout")
 	private Button botonLogout;
+	@Id("img")
+	private Image img;
 	/**
      * Creates a new VistaCabecera_comun.
      */

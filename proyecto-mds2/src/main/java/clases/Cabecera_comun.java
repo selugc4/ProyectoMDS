@@ -34,6 +34,10 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 		throw new UnsupportedOperationException();
 	}
 	*/
+	
+	public Cabecera_comun() {
+		this.getImg().setSrc("imagenes/logo-ual.png");
+	}
 	public Ver_perfil_propio getVer_perfil_propio() {
 		return perfil;
 	}

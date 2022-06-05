@@ -104,12 +104,25 @@ public class VistaRegistro extends LitTemplate {
 	private HorizontalLayout horizontalAtras;
 	@Id("botonVolver")
 	private Button botonVolver;
+	@Id("img")
+	private Image img;
 	/**
      * Creates a new VistaRegistro.
      */
     public VistaRegistro() {
         // You can initialise any data required for the connected UI components here.
     }
+
+    
+	public Image getImg() {
+		return img;
+	}
+
+
+	public void setImg(Image img) {
+		this.img = img;
+	}
+
 
 	public Element getVerticalPrincipal() {
 		return verticalPrincipal;

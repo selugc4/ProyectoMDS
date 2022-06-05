@@ -53,7 +53,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
-				v1.removeAll();				
+				v1.removeAll();	
 				v1.add(ue);
 		
 				
@@ -67,10 +67,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
-				v1.add(cc);
 				v1.add(cc.getReg());
-				v1.addAndExpand(cc, cc.getReg());
-				v1.add(rcs);
 				
 			}
 		});
@@ -138,6 +135,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getReg().getVr().comprobarCodigo()) {
+					cc.reg = new Registro();
 					v1.removeAll();
 					v1.add(ue);
 					Notification.show("Registro completado. Ya puede iniciar sesión");
