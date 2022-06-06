@@ -16,7 +16,7 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 	
 	
 	
-	public Artistas_administrador aa = new Artistas_administrador();
+	
 	public Albumes_administrador alba= new Albumes_administrador();
 	public Canciones_administrador ca = new Canciones_administrador();
 	
@@ -37,6 +37,11 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 		artistas.removeAll();
 		albumes.removeAll();
 		if(!value.isEmpty()) {
+			Artistas_administrador.artista = value;
+			Artistas_administrador aa = new Artistas_administrador();
+			aa.mostrarAdmin();
+			artistas.add(aa);
+			ca.actualizar(value);
 			canciones.add(ca);
 			artistas.add(aa);
 			listas.add(ldra);
@@ -47,10 +52,6 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 		sinresultados.setVisible(true);
 		}
 		
-	}
-
-	public Buscador_administrador() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	

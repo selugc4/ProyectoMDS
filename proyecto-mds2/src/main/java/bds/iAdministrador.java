@@ -13,7 +13,7 @@ public interface iAdministrador {
 
 	public void cargar_Estilos(String aNombre);
 
-	public void cargar_Canciones_Buscadas(String aNombre);
+	public Cancion[] cargar_Canciones_Buscadas(String aNombre);
 
 	public void Modificar_Canciones_Mostradas(int aNumero_Canciones);
 

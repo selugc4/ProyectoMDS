@@ -15,7 +15,7 @@ public class Artistas extends vistas.VistaArtistas {
 //	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
 
 	public ArrayList<ArtistaBuscador> _artistaBuscador = new ArrayList<ArtistaBuscador>();
-	public String artista;
+	public static String artista;
 	public Artistas() {
 		inicializar();
 	}
@@ -23,13 +23,21 @@ public class Artistas extends vistas.VistaArtistas {
 		Cargar_Listas();
 	}
 		public void Cargar_Listas() {
-			VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-			HorizontalLayout hl = new HorizontalLayout();
 			iActor_comun actor = new BDPrincipal();
 			Artista[]artistas = actor.cargar_Artistas_Buscador(artista);
-			for(int i = 0; i < 4 && i < artistas.length; i++) {		
-				hl.add(new ArtistaBuscador());
+			if(artistas != null) {
+			for(int i = 0; i < 4 && i < artistas.length; i++) {	
+				ArtistaBuscador artistaB = new ArtistaBuscador(artistas[i]);
+				_artistaBuscador.add(artistaB);
 			}
-			v1.add(hl);
+			}
+		}
+		public void mostrar() {
+			VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+			HorizontalLayout h1 = new HorizontalLayout();
+			for(ArtistaBuscador artista: _artistaBuscador) {
+				h1.add(artista);
+			}
+			v1.add(h1);
 		}
 }

@@ -170,12 +170,20 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo) throws PersistentException {
+		
 	}
 
-	public void Eliminar_artista(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void Eliminar_artista(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'",null);
+			UsuarioDAO.delete(usuario);
+			t.commit();
+		}
+		catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar_Artista(String aCorreo) {

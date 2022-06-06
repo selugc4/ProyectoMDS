@@ -127,7 +127,7 @@ public class BD_Cancion {
 		}		
 	}
 
-	public Cancion[] cargar_Canciones_Busqueda(String aNombre) {
+	public Cancion[] cargar_Canciones_Busqueda(String aNombre)throws PersistentException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -175,7 +175,7 @@ public class BD_Cancion {
 		}	
 	}
 
-	public Cancion[] cargar_Canciones_Buscador(String aNombre) {
+	public Cancion[] cargar_Canciones_Buscador(String aNombre) throws PersistentException{
 		throw new UnsupportedOperationException();
 	}
 
@@ -187,8 +187,17 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion[] cargar_Canciones_Buscadas(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Buscadas(String aNombre) throws PersistentException{
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='"+aNombre+"'", null);
+		t.commit();
+		return canciones;
+		}catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}	
 	}
 
 	public void Modificar_Canciones_Mostradas(int aNumero_Canciones) throws PersistentException {
