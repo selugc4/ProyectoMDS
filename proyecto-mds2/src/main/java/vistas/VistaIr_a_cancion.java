@@ -39,14 +39,6 @@ public class VistaIr_a_cancion extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("vaadinSelect")
 	private Select vaadinSelect;
-	@Id("vaadinItem")
-	private Element vaadinItem;
-	@Id("vaadinListBox")
-	private Element vaadinListBox;
-	@Id("vaadinItem2")
-	private Element vaadinItem2;
-	@Id("vaadinItem1")
-	private Element vaadinItem1;
 	@Id("vaadinButton1")
 	private Button vaadinButton1;
 	@Id("vaadinHorizontalLayout3")
@@ -132,30 +124,30 @@ public class VistaIr_a_cancion extends LitTemplate {
 	public void setVaadinSelect(Select vaadinSelect) {
 		this.vaadinSelect = vaadinSelect;
 	}
-	public Element getVaadinItem() {
-		return vaadinItem;
-	}
-	public void setVaadinItem(Element vaadinItem) {
-		this.vaadinItem = vaadinItem;
-	}
-	public Element getVaadinListBox() {
-		return vaadinListBox;
-	}
-	public void setVaadinListBox(Element vaadinListBox) {
-		this.vaadinListBox = vaadinListBox;
-	}
-	public Element getVaadinItem2() {
-		return vaadinItem2;
-	}
-	public void setVaadinItem2(Element vaadinItem2) {
-		this.vaadinItem2 = vaadinItem2;
-	}
-	public Element getVaadinItem1() {
-		return vaadinItem1;
-	}
-	public void setVaadinItem1(Element vaadinItem1) {
-		this.vaadinItem1 = vaadinItem1;
-	}
+//	public Element getVaadinItem() {
+//		return vaadinItem;
+//	}
+//	public void setVaadinItem(Element vaadinItem) {
+//		this.vaadinItem = vaadinItem;
+//	}
+//	public Element getVaadinListBox() {
+//		return vaadinListBox;
+//	}
+//	public void setVaadinListBox(Element vaadinListBox) {
+//		this.vaadinListBox = vaadinListBox;
+//	}
+//	public Element getVaadinItem2() {
+//		return vaadinItem2;
+//	}
+//	public void setVaadinItem2(Element vaadinItem2) {
+//		this.vaadinItem2 = vaadinItem2;
+//	}
+//	public Element getVaadinItem1() {
+//		return vaadinItem1;
+//	}
+//	public void setVaadinItem1(Element vaadinItem1) {
+//		this.vaadinItem1 = vaadinItem1;
+//	}
 	public Button getVaadinButton1() {
 		return vaadinButton1;
 	}

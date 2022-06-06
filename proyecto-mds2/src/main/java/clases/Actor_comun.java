@@ -17,7 +17,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 //	public ContenedorRecomendaciones _contenedorRecomendaciones;
 //	public ContenedorCanciones_favoritas _contenedorCanciones_favoritas;
 	
-	public Cabecera_comun cc = new Cabecera_comun();
+	public Cabecera_comun cc;
 	public static Reproductor_completo rc = new Reproductor_completo();
 	public ContenedorUltimas_canciones_reproducidas cucr;
 	public ContenedorCanciones_favoritas ccf;
@@ -28,9 +28,13 @@ public class Actor_comun extends vistas.VistaActor_comun {
 	public static VerticalLayout v2;
 	public static int ID;
 	public static Button botonIrCancion = new Button("Ver canción");
+	
 	public Actor_comun() {
+	};
+	public Actor_comun(int iD) {
 		this.v1 = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		this.v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
+		this.ID = iD;
 		
 		botonIrCancion.getStyle().set("width", "10%");
 		botonIrCancion.setVisible(false);
@@ -40,6 +44,8 @@ public class Actor_comun extends vistas.VistaActor_comun {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
 				v1.add(rc._ir_a_cancion);
+				v2.setVisible(false);	
+
 				
 			}
 		});
@@ -52,6 +58,43 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		vl.add(aux);
 		
 		
+	
+		
+		cucr = new ContenedorUltimas_canciones_reproducidas();
+		ccf = new ContenedorCanciones_favoritas();
+		cr = new ContenedorRecomendaciones();
+		ve = new Ver_estadisticas();
+		
+		clr = new ContenedorListasReproduccion(0);
+		
+		this.v1.add(cucr,ccf,cr,clr);
+		this.getStyle().set("width", "100%");
+		
+	
+		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+				v2.setVisible(true);	
+				
+			}
+		});
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		
+		@Override
+		public void onComponentEvent(ClickEvent<Button> event) {
+			v1.removeAll();
+			v1.add(ve);
+			v2.setVisible(false);	
+			
+		}
+	});
+	
 		
 	}
 

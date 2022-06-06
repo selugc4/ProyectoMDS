@@ -21,6 +21,8 @@ public class ContenedorUltimas_canciones_reproducidas extends ContenedorListas {
 				vldr = new Ver_lista_de_Reproduccion(ucr._ver_lista_de_Reproduccion,ucr.getLabel().getText());
 				Actor_comun.v1.removeAll();
 				Actor_comun.v1.add(vldr);
+				Actor_comun.v2.setVisible(false);	
+
 				
 			}
 		});

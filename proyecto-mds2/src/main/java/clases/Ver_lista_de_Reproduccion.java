@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduccion {
 //	private Label _nombre_ListaL;
 //	private Button _compartirB;
@@ -46,6 +49,16 @@ public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduc
 		inicializar();
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		v1.add(cancionesLista);	}
+
+	public Ver_lista_de_Reproduccion(int idLista, String nombre) {
+		inicializar();		
+		this.getLabel().setText(nombre);
+		cancionesLista = new Canciones_lista(idLista);
+		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		v1.add(cancionesLista);
+		
+		
+	}
 
 	//	public void Compartir() {
 //		throw new UnsupportedOperationException();

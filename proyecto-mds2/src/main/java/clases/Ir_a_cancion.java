@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -8,6 +10,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Cancion;
 import basededatos.Lista_Reproduccion;
+import bds.BDPrincipal;
+import bds.iActor_comun;
 
 public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 //	private Image _imagen;
@@ -26,10 +30,30 @@ public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 	
 	public Ver_creditos vc = new Ver_creditos();
 
+	private iActor_comun iac = new BDPrincipal();
+	private String listaaux;
 	public Ir_a_cancion() {
 		
 	}
+	@SuppressWarnings("unchecked")
 	public Ir_a_cancion(Cancion cancion) {
+		this.getStyle().set("width", "100%");
+//		MOSTRAR LISTAS EN EL SELECT
+		Lista_Reproduccion[] lista = iac.cargar_Listas_Reproduccion();
+		ArrayList<String> arraylist = new ArrayList<String>();
+		arraylist.add("Seleccione una lista de reproducción");
+		for(Lista_Reproduccion l : lista) {
+			arraylist.add(l.getNombreLista());
+		}
+
+		this.getVaadinSelect().setItems(arraylist);	
+		this.getVaadinSelect().setPlaceholder("Seleccione una lista de reproducción");
+		this.getVaadinButton1().setEnabled(false);
+		getVaadinSelect().addValueChangeListener(listaux -> {
+			listaaux = listaux.getValue().toString();
+			getVaadinButton1().setEnabled(true);
+			
+		});
 		this.vc = new Ver_creditos(cancion);
 		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
 		this.getLabel().setText(cancion.getTitulo());
@@ -71,7 +95,7 @@ public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Notification.show("Añadido a favoritos");
-				//AÑADIR A FAVORITOS
+				iac.anadir_Cancion_Favorita(cancion.getIdCancion(), Actor_comun.ID);
 				
 			}
 		});
@@ -86,19 +110,14 @@ public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 		});
 		
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			private String listaaux;
-
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				getVaadinSelect().addValueChangeListener(lista -> {
-					listaaux = lista.getValue().toString();
-				});
-				if(listaaux.isEmpty()) {
+				if(listaaux.equals("Seleccione una lista de reproducción")) {
 					Notification.show("Seleccione una lista");
-				}else
+				}else {
 				Notification.show("Añadido a la lista: " + listaaux);
-				//AÑADIR CANCIÓN A LISTA
+				iac.anadir_Lista(cancion.getIdCancion(), listaaux);
+				}
 				
 			}
 		});

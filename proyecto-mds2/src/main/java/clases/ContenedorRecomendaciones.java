@@ -14,14 +14,18 @@ public class ContenedorRecomendaciones extends ContenedorListas {
 	public ContenedorRecomendaciones() {
 		this.getStyle().set("width", "100%");
 		
-//		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				vldr = new Ver_lista_de_Reproduccion(r.getLabel(), r.getr)
-//				
-//			}
-//		});
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				vldr = new Ver_lista_de_Reproduccion(r._ver_lista_de_Reproduccion, r.getLabel().getText());
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(vldr);
+				Actor_comun.v2.setVisible(false);	
+
+				
+			}
+		});
 		
 		HorizontalLayout hl = this.getVaadinHorizontalLayout();
 		hl.add(r);

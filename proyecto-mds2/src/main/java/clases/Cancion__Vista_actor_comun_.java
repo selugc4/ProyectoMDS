@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -21,6 +22,8 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 //	public Reproductor_completo _reproductor_completo;
 	
 	public Reproductor_completo rcs  = Actor_comun.rc;
+	
+	private basededatos.Cancion cancion;
 	public Cancion__Vista_actor_comun_() {
 		inicializar();
 		 
@@ -38,21 +41,31 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 	
 	public Cancion__Vista_actor_comun_(basededatos.Cancion  cancion) {
 		inicializar();
+		this.cancion = cancion;
 		
 		String cadena = "";
 		for(Artista artista : cancion.es_de.toArray()) {
 			cadena += artista.getNombre() + ", ";
 		}
 			if(cadena.equals("")) {
-				this.getLabelDebajoArtista().setText("No Asignado");
-			}else
+				this.getLabelDebajoArtista().setText("Artista no Asignado");
+				this.getLabelDchaArtista().setText("Artista no Asignado");
+			}else {
 			this.getLabelDebajoArtista().setText(cadena);
-			
-		this.getLabelDebajoTitulo().setText(cancion.getTitulo());
+			this.getLabelDchaArtista().setText(cadena);
+			}
+		
+			this.getLabelDebajoTitulo().setText(cancion.getTitulo());
+			this.getLabelDchaTitulo().setText(cancion.getTitulo());
+			if(cancion.getCancion_de() != null) {
+			this.getLabelAlbum().setText(cancion.getCancion_de().getTitutloAlbum());
+			}else
+				this.getLabelAlbum().setText("Album no asignado");
 		
 		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
 		this.getImg().setWidth("125px");
 		this.getImg().setHeight("125px");
+		
 		
 			this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 				
@@ -66,10 +79,16 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 				}
 			});
 			
+		
 
 	}
 		
 	
+	
+	public basededatos.Cancion getCancion() {
+		return cancion;
+	}
+
 	void inicializar() {
 	this.getStyle().set("width", "100%");
 	this.getLabelAlbum().setVisible(false);

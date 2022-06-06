@@ -7,6 +7,7 @@ import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
 import basededatos.Cancion;
+import basededatos.CancionDAO;
 import basededatos.Lista_Reproduccion;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
@@ -46,8 +47,21 @@ public class BD_Lista_Reproduccion {
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadir_Cancion_Favorita(int aIdCancion) {
-		throw new UnsupportedOperationException();
+	public void anadir_Cancion_Favorita(int aIdCancion, int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			usuario.favorita.add(cancion);
+			UsuarioDAO.save(usuario);			
+
+			t.commit();
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			
+		}		
 	}
 
 	public void anadir_Cancion_Lista(int aIdCancion, int aIdLista) {

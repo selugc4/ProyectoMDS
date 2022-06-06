@@ -20,6 +20,7 @@ public class ContenedorCanciones_favoritas extends ContenedorListas {
 				vldr = new Ver_lista_de_Reproduccion(cf._ver_lista_de_Reproduccion,cf.getLabel().getText());
 				Actor_comun.v1.removeAll();
 				Actor_comun.v1.add(vldr);
+				Actor_comun.v2.setVisible(false);	
 				
 			}
 		});

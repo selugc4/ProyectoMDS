@@ -9,14 +9,23 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario;
+import basededatos.UsuarioDAO;
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Notificaciones extends vistas.VistaNotificaciones {
 //	public Cabecera_comun _cabecera_comun;
 //	public Vector<Notificacion> _notificacion = new Vector<Notificacion>();
 	
+	private iActor_comun iac = new BDPrincipal();
+	private String artistaevento;
+	private String nombreevento;
+	
 	public ArrayList<Notificacion> _notificacion = new ArrayList<Notificacion>();
 	public Notificaciones() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		ObtenerNotificaciones();
+		obtener_Notificaciones();
 		inicializar();
 		
 		_notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -34,9 +43,16 @@ public class Notificaciones extends vistas.VistaNotificaciones {
 		
 	
 	//OBTENER NOTIFICACIOENS BASE DE DATOS
-	private void ObtenerNotificaciones() {
-		for(int i = 0; i< 5; i++) {
-			this._notificacion.add(new Notificacion("Hola"));
+	private void obtener_Notificaciones() {
+		basededatos.Evento[] eventos = iac.obtener_Notificaciones(Actor_comun.ID);
+		for(basededatos.Evento evento: eventos) {
+			artistaevento = evento.getCreado_por().getNombre();
+			nombreevento = evento.getNombre();
+			if(evento.getTipoEvento() == "Festival") {
+				this._notificacion.add(new Notificacion("El artista " +artistaevento+" participará en el festival: " + nombreevento));
+			}else
+				this._notificacion.add(new Notificacion("El artista " +artistaevento+" realizará un concierto " +nombreevento+ " el día " +evento.getFecha()));
+	
 		}
 		
 	}
@@ -50,6 +66,14 @@ public class Notificaciones extends vistas.VistaNotificaciones {
 
 		
 		
+		
+		
+	}
+
+
+
+	public void eliminarNotificacion() {
+		iac.eliminar_Notificacion(Actor_comun.ID, artistaevento, nombreevento);
 		
 		
 	}
