@@ -62,7 +62,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 	private String fileName;
 	public Vista_dar_alta_cancion() {
 		String separator = System.getProperty("file.separator");
-		String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "canciones" + separator;
+		String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"canciones"+separator;
 		
 		iAdministrador iadmin = new BDPrincipal();
 		
@@ -94,7 +94,7 @@ public class Vista_dar_alta_cancion extends vistas.VistaVista_dar_alta_cancion {
 					e.printStackTrace();
 				}		  
 			
-				archivo = rutaArchivo+ fileName; 
+				archivo = fileName; 
 				anadirCancion();
 				
 				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);

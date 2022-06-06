@@ -75,7 +75,7 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 	private String fileName;
 	private File ruta;
 	String separator = System.getProperty("file.separator");
-	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator;
+	String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"imagenes"+separator;
 	String rutaArchivoFinal;
 	private String fechaedicion;
 
@@ -103,8 +103,6 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 			e1.printStackTrace();
 		}	
 		
-		rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator +"fotoalbum.png";
-		
 		
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{
@@ -114,7 +112,7 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 			fileData = mbuf.getInputStream();
 	
 		    fileName = event.getFileName();		  
-		    ruta = new File(rutaArchivo + fileName);
+		    ruta = new File(rutaArchivo+fileName);
 		    
 		   
 		    try {
@@ -137,8 +135,7 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			rutaArchivoFinal = System.getProperty("user.dir")+ separator+ "src" + separator+ "webapp" +separator+ "imagenes" + separator + fileName;
+			rutaArchivoFinal =fileName;
 		
 		    
 		});

@@ -3,6 +3,7 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import basededatos.Cancion;
 
 public class Cancion_administrador extends vistas.VistaCancion_administrador {
 //	private Label _titulo_CancionL;
@@ -20,10 +21,9 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 		this.getStyle().set("width", "100%");
 	}
 
-	public Cancion_administrador(String value) {
+	public Cancion_administrador(Cancion cancion) {
 		this.getStyle().set("width", "100%");
-		this.getLabel().setText(value);
-		
+		this.getLabel().setText(cancion.getTitulo());
 		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

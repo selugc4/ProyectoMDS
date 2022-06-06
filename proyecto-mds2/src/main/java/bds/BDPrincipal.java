@@ -295,8 +295,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Canciones_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Buscador(String aNombre) {
+		try {
+			return _bd_cancion.cargar_Canciones_Buscador(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void eliminar_Lista_Reproduccion(int aIdLista) {
@@ -315,8 +321,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Canciones_Buscadas(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Buscadas(String aNombre) {
+		try {
+			return _bd_cancion.cargar_Canciones_Buscadas(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void Modificar_Canciones_Mostradas(int aNumero_Canciones) {
@@ -410,7 +422,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void eliminar_Artista(String aCorreo) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_artista.Eliminar_artista(aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar_Cancion(int aIdCancion) {

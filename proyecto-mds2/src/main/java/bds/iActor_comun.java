@@ -52,7 +52,7 @@ public interface iActor_comun {
 
 	public void anadir_Lista(int aIdCancion, int aIdLista);
 
-	public void cargar_Canciones_Buscador(String aNombre);
+	public Cancion[] cargar_Canciones_Buscador(String aNombre);
 
 	public void eliminar_Lista_Reproduccion(int aIdLista);
 

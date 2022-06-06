@@ -26,6 +26,7 @@ import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import clases.Cancion_administrador;
 public class CreateA12Data {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = basededatos.A12PersistentManager.instance().getSession().beginTransaction();
@@ -69,23 +70,11 @@ public class CreateA12Data {
 			t.rollback();
 		}
 	}
-	public static void main(String[] args) {
-		try {
-            Usuario usuario = UsuarioDAO.getUsuarioByORMID(8);
-            Lista_Reproduccion aux = Lista_ReproduccionDAO.createLista_Reproduccion();
-            aux.setNombreLista("Prueba");
-            aux.setAutor(usuario);
-            Lista_ReproduccionDAO.save(aux);
-            usuario.propietario.add(aux);;
-            UsuarioDAO.save(usuario);
-           
-            UsuarioDAO.save(usuario);
-        } catch (PersistentException e) {
-            // TODO: handle exception
-            e.printStackTrace();
+	public static void main(String[] args) throws PersistentException {
+		Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='himno uda'", null);
+		System.out.println(canciones[0].getTitulo());
 	}
 
 
 
-}
 }

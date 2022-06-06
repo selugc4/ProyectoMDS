@@ -13,7 +13,7 @@ public class Cabecera_administrador extends Cabecera_comun {
 //	public Vista_administracion _vista_administracion;
 
 	public Vista_administracion vadmin = new Vista_administracion();
-	public Buscador_administrador badmin = new Buscador_administrador();
+	public Buscador_administrador badmin = new Buscador_administrador(this.getTfBusqueda().getValue());
 //	public void ventanaAdministracion() {
 //		throw new UnsupportedOperationException();
 	
