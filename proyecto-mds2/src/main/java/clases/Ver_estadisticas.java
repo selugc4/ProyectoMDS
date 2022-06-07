@@ -24,14 +24,19 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 	private iActor_comun iac = new BDPrincipal();
 	
 	public Ver_estadisticas() {
-		basededatos.Cancion cancion = iac.obtener_Estadisticas(Actor_comun.ID);		
+		basededatos.Cancion cancion = iac.obtener_Estadisticas(Actor_comun.ID);
+		if(cancion != null) {
+		
 		basededatos.Artista[] artista = cancion.getCancion_de().autor.toArray();
 		basededatos.Estilo[] estilos = artista[0].pertenece.toArray();
 //		this.getLabel2().setText(estilos[0].getNombre());
 		this.getLabel4().setText(artista[0].getNombre());
 		this.getLabel6().setText(cancion.getTitulo());
 		this.getLabel8().setText(Integer.toString(horas));
-
+			
+		}
+	
+		
 	}
 	
 

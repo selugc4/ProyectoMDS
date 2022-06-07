@@ -24,6 +24,9 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 				tamano = 5;
 				pagina = 0;
 				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				} else
 				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 				
 			}
@@ -35,6 +38,9 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 				tamano = 10;
 				pagina = 0;
 				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				} else
 				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 				
 			}
@@ -46,6 +52,9 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 				tamano = 15;
 				pagina = 0;
 				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				} else
 				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 			
 			}
@@ -58,6 +67,9 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 				if(pagina < _listas_de_reproduccion_perfil_propio.listas.size()/tamano-1) {
 				++pagina;
 				_listas_de_reproduccion_perfil_propio.mostrar(tamano, pagina);
+				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				} else
 				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 			}
 		}});
@@ -68,6 +80,9 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 				if(pagina > 0) {
 					--pagina;
 					_listas_de_reproduccion_perfil_propio.mostrar(tamano, pagina);
+					if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					} else
 					getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 				}
 			}});
@@ -75,14 +90,97 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 	
 	}
 	
-	
+//	
+//	public ContenedorAgregar_perfil_propio(int id) {
+//		inicializar();
+//		
+//		this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+//				tamano = 5;
+//				pagina = 0;
+//				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+//				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+//					getLabel4().setText("Página 1 de 1");
+//				} else
+//				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+//				
+//			}
+//		});
+//		this.getHorizontal10().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+//				tamano = 10;
+//				pagina = 0;
+//				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+//				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+//					getLabel4().setText("Página 1 de 1");
+//				} else
+//				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+//				
+//			}
+//		});
+//		this.getHorizontal15().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+//		
+//			@Override
+//			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+//				tamano = 15;
+//				pagina = 0;
+//				_listas_de_reproduccion_perfil_propio.mostrar(tamano);
+//				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+//					getLabel4().setText("Página 1 de 1");
+//				} else
+//				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+//			
+//			}
+//		});
+//		
+//		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				if(pagina < _listas_de_reproduccion_perfil_propio.listas.size()/tamano-1) {
+//				++pagina;
+//				_listas_de_reproduccion_perfil_propio.mostrar(tamano, pagina);
+//				if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+//					getLabel4().setText("Página 1 de 1");
+//				} else
+//				getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+//			}
+//		}});
+//		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				if(pagina > 0) {
+//					--pagina;
+//					_listas_de_reproduccion_perfil_propio.mostrar(tamano, pagina);
+//					if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+//						getLabel4().setText("Página 1 de 1");
+//					} else
+//					getLabel4().setText("Página " +(pagina+1)+" de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+//				}
+//			}});
+//	
+//	
+//	}
+
+
 	private void inicializar() {
 		this.getImg().setVisible(false);
 		VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		this.getLabelContenedor().setText("Tus listas de reproducción");
+//		this.getLabelContenedor().setVisible(false);
+		
+		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(Actor_comun.ID);
 		vl.add(_listas_de_reproduccion_perfil_propio);
 		
-		this.getLabel4().setText("Página 1 de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
+		if(_listas_de_reproduccion_perfil_propio.listas.size()/tamano == 0) {
+			this.getLabel4().setText("Página 1 de 1");
+		} else
+			this.getLabel4().setText("Página 1 de " + _listas_de_reproduccion_perfil_propio.listas.size()/tamano);
 }
 
 	

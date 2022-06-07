@@ -27,7 +27,7 @@ public class Canciones_para_album extends vistas.VistaCanciones_para_album {
 
 	private void buscarCanciones(String texto) throws PersistentException {
 		for(basededatos.Cancion cancion: CancionDAO.listCancionByQuery("Titulo='"+texto+"'", null)) {
-			canciones.add(new Cancion_para_album(cancion.getTitulo()));
+			canciones.add(new Cancion_para_album(cancion.getTitulo(), cancion.getIdCancion()));
 		}
 	}
 

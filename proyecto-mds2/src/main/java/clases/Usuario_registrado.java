@@ -25,28 +25,17 @@ public class Usuario_registrado extends Actor_comun {
 
 	public Usuario_registrado(int iD) {	
 		super(iD);
-//		
-//		cucr = new ContenedorUltimas_canciones_reproducidas();
-//		ccf = new ContenedorCanciones_favoritas();
-//		cr = new ContenedorRecomendaciones();
-//		ve = new Ver_estadisticas();
-//		
-//		clr = new ContenedorListasReproduccion(0);
-//		
-//		this.v1.add(cucr,ccf,cr,clr);
-//		this.getStyle().set("width", "100%");
-		cur = new Cabecera_usuario_registrado();
+
+		crearElementos();
 		this.getVaadinHorizontalLayout().add(cur);
 		
-		vpp = new Ver_perfil_propio_usuario_registrado("Nombre");
-//		
-//
-//
-//		//INICIO
+
 		cur.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
+				crearElementos();
+				
 				v1.removeAll();
 				v1.add(cucr);
 				v1.add(ccf);
@@ -87,6 +76,7 @@ public class Usuario_registrado extends Actor_comun {
 		cur.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
 				v1.removeAll();	
 				v1.add(vpp);
 ///				v1.add(cur.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
@@ -109,6 +99,7 @@ public class Usuario_registrado extends Actor_comun {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
 						v1.removeAll();
+						vpp.ca.cl = new Creacion_lista(ID, 0);
 						v1.add(vpp.ca.cl);
 						
 					}
@@ -151,5 +142,15 @@ public class Usuario_registrado extends Actor_comun {
 //	});
 //	}
 	
+	}
+
+	private void crearElementos() {
+		cur = new Cabecera_usuario_registrado();
+		cucr = new ContenedorUltimas_canciones_reproducidas();
+		ccf = new ContenedorCanciones_favoritas();
+		cr = new ContenedorRecomendaciones();
+		clr = new ContenedorListasReproduccion(0);
+		vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+		
 	}
 }

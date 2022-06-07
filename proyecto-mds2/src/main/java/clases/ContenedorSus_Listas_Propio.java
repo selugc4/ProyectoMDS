@@ -4,7 +4,7 @@ public class ContenedorSus_Listas_Propio extends Contenedor_agregar {
 //	public Sus_listas_de_reproduccion _sus_listas_de_reproduccion;
 	
 	public ContenedorSus_Listas_Propio(int usuario) {
-		this.cl= new Creacion_lista(usuario);
+		this.cl= new Creacion_lista(usuario,0);
 		
 		
 	}

@@ -8,11 +8,8 @@ public class Contenedor_agregar extends Contenedor_modificar_vista_de_lista {
 
 
 	public Contenedor_agregar() {
-		cl = new Creacion_lista(0);
+		cl = new Creacion_lista(Ver_perfil_propio.tipoUsuario, 0);
 	}
-	public Contenedor_agregar(int usuario){
-		cl = new Creacion_lista(usuario);
-		
-	}
+
 	
 }

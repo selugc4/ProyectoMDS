@@ -6,6 +6,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Creacion_lista extends Modificar_y_crear_lista {
 //	private Label _titulo_CrearL;
 //	private Button _crear_Lista;
@@ -15,22 +18,31 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public Creacion_lista(int usuario) {
-		inicializar();
+	private iActor_comun iac = new BDPrincipal();
+	public Creacion_lista() {
+		
+	}
+	public Creacion_lista(int usuario, int tipo) {
+		super(usuario,tipo);
+		
+		this.getLabel().setText("Crear listas");
+		this.getVaadinButton().setVisible(false);
+		this.getVaadinButton2().setText("Crear lista");
+		
 		
 		this.getVaadinButton3().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(usuario == 0) {
+				if(Ver_perfil_propio.tipoUsuario == 0) {
 					VerticalLayout vl = Usuario_registrado.v1;
 					vl.removeAll();
 					vl.add(Usuario_registrado.vpp);
-				}else if(usuario == 1) {
+				}else if(Ver_perfil_propio.tipoUsuario == 1) {
 					VerticalLayout vl = Artista.v1;
 					vl.removeAll();
 					vl.add(Artista.vppa);
-				}else if(usuario == 2) {
+				}else if(Ver_perfil_propio.tipoUsuario == 2) {
 					VerticalLayout vl = Administrador.v1;
 					vl.removeAll();
 					vl.add(Administrador.vpp);
@@ -45,18 +57,18 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				// GUARDAR LISTA
-				Notification.show("Lista creada");
-				
+				if(getVaadinTextField().getValue().isEmpty()) {
+					Notification.show("Por favor, inserte un nombre de lista");
+				} else {
+					// GUARDAR LISTA
+					iac.crear_Lista(getVaadinTextField().getValue(), cmc.get_canciones());
+					
+					Notification.show("Lista creada");
+				}
+						
 			}
 		});
 	}
 
-	private void inicializar() {
-		this.getLabel().setText("Crear lista");
-		this.getVaadinButton().setVisible(false);
-		this.getVaadinButton2().setText("Crear lista");
-		this.getStyle().set("width", "100%");
-		
-	}
+
 }

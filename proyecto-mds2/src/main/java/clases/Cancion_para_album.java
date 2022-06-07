@@ -20,7 +20,7 @@ public class Cancion_para_album extends vistas.VistaCancion_para_album{
 	public Cancion_para_album() {
 		
 	}
-	public Cancion_para_album(String texto) {
+	public Cancion_para_album(String texto, int iD) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(texto);
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -34,7 +34,7 @@ public class Cancion_para_album extends vistas.VistaCancion_para_album{
 //					}
 //				}
 //				if(nocontiene == true) {
-					Vista_dar_alta_album.canciones.agregarCancion(getLabel().getText());
+					Vista_dar_alta_album.canciones.agregarCancion(getLabel().getText(), iD);
 //				}
 			}});
 		

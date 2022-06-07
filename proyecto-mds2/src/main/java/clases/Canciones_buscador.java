@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Canciones_buscador extends vistas.VistaCanciones_buscador {
 //	public Buscador_cancion _buscador_cancion;
 //	public Vector<Cancion_buscada> _cancion_buscada = new Vector<Cancion_buscada>();
 	
 	public ArrayList<Cancion_buscada> lista = new ArrayList<Cancion_buscada>();
+	private iActor_comun iac = new BDPrincipal();
+	private int tipo;
 	
-	public Canciones_buscador() {
+	public Canciones_buscador(int tipo) {
 		inicializar();
+		this.tipo = tipo;
 //		buscarCanciones(value);
 //		mostrarResultados();
 	}
@@ -27,14 +33,13 @@ public class Canciones_buscador extends vistas.VistaCanciones_buscador {
 		}
 		
 	}
-	private void buscarCanciones(String value) {
+	private void cargar_Canciones_Buscador(String nombre) {
 		lista.clear();
-		if(value != "") {
-		Cancion_buscada cancion = new Cancion_buscada(value);		
-		Cancion_buscada cancion2 = new Cancion_buscada(value);
-		
-		lista.add(cancion);
-		lista.add(cancion2);
+		if(!nombre.isEmpty()) {		
+			basededatos.Cancion[] canciones = iac.cargar_Canciones_Buscador(nombre);
+			for(basededatos.Cancion cancion : canciones) {
+				lista.add(new Cancion_buscada(cancion.getTitulo(), cancion.getIdCancion(),tipo));
+			}
 		}
 		
 		
@@ -42,7 +47,7 @@ public class Canciones_buscador extends vistas.VistaCanciones_buscador {
 	
 	public void actualizar(String value) {
 		lista.clear();
-		buscarCanciones(value);
+		cargar_Canciones_Buscador(value);
 		mostrarResultados();
 	}
 	public ArrayList<Cancion_buscada> getLista() {

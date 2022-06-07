@@ -1,5 +1,8 @@
 package clases;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -8,6 +11,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_Registrado;
+import bds.BDPrincipal;
+import bds.iUsuario_registrado;
 import proyectoMDS2.MainView;
 
 public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
@@ -15,6 +21,9 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 //	private Dialog _darse_De_Baja;
 //	public Cabecera_usuario_registrado _cabecera_usuario_registrado;
 	
+	private iUsuario_registrado iur = new BDPrincipal();
+
+	private String correoantiguo;
 
 	
 	public Ver_perfil_propio_usuario_registrado() {
@@ -26,6 +35,22 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		inicializar();
 		this.getLabel().setText(nombre);
 	}
+	public Ver_perfil_propio_usuario_registrado(int id) {
+		super(id);
+		
+		inicializar();
+		Usuario_Registrado usuario = iur.cargar_Perfil(id);
+		this.tipoUsuario = usuario.getTipoUsuario();
+		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
+		this.getLabel().setText(usuario.getNombre());
+		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
+		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
+		this.getVaadinTextField().setValue(usuario.getCorreo());
+		correoantiguo = usuario.getCorreo();
+		
+		
+	}
+
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
 		this.getVaadinButton().setVisible(true);
@@ -33,6 +58,7 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		this.getVaadinButton3().setVisible(false);
 		this.getVaadinButton4().setVisible(false);
 		this.getVaadinTextField().setReadOnly(true);
+		
 		
 		VerticalLayout vl = this.getVerticalSusListas().as(VerticalLayout.class);
 		vl.add(ca);
@@ -55,15 +81,29 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		@Override
 		public void onComponentEvent(ClickEvent<Button> event) {
 			if(comprobarCorreo(getVaadinTextField().getValue())) {
+				iur.modificar_Correo(correoantiguo, getVaadinTextField().getValue());
+				if(correoexistente) {
+					Notification.show("Correo ya existente. Utilice otro");
+				}else {
 				Notification.show("Correo cambiado");
-				getVaadinTextField().setPlaceholder(getVaadinTextField().getValue());
 				getVaadinTextField().setReadOnly(true);
-			}	
+				getVaadinButton1().setVisible(false);
+				}
+				
+			}else {
+				Notification.show("Escriba un correo válido");
+			}
 			
 		}
 
 		private boolean comprobarCorreo(String value) {
-			return true;
+			String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+			Pattern pattern = Pattern.compile(regex);
+			 
+			  Matcher matcher = pattern.matcher(value);
+			  return matcher.matches();
+			  
+			
 		}
 	});
 	  

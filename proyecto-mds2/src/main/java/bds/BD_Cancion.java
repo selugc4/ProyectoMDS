@@ -176,7 +176,20 @@ public class BD_Cancion {
 	}
 
 	public Cancion[] cargar_Canciones_Buscador(String aNombre) throws PersistentException{
-		throw new UnsupportedOperationException();
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='"+aNombre+"'", null);		
+			
+			t.commit();		
+			return canciones;
+		
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}	
 	}
 
 	public Cancion[] cargar_Exitosas(String aCorreo) {

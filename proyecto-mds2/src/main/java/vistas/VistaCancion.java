@@ -19,10 +19,10 @@ import com.vaadin.flow.dom.Element;
 @JsModule("./vista-cancion.ts")
 public class VistaCancion extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinHorizontalLayout1")
+    @Id("vaadinHorizontalLayout1")
 	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("label")
 	private Label label;
 	@Id("vaadinButton")

@@ -8,6 +8,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista{
 //	private Dialog _anadir_Cancion;
 //	private Button _anadir_CancionB;
@@ -29,20 +32,32 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 //	public void volverAtras() {
 //		throw new UnsupportedOperationException();
 //	}
-	public Canciones_modificar_y_crear cmc = new Canciones_modificar_y_crear();
-	public Buscador_cancion bc = new Buscador_cancion();
+	public static Canciones_modificar_y_crear cmc;
+	public Buscador_cancion bc;
 	
-	int usuario = 0; //UR = 0, ART = 1, ADMIN = 2
+	public int idLista;
+	
+	private iActor_comun iac = new BDPrincipal();
 	
 	public Modificar_y_crear_lista() {
 		inicializar();
 	}
 	
-	public Modificar_y_crear_lista(int usuario) {
-		this.usuario = usuario;
+	public Modificar_y_crear_lista(int usuario, int tipo) {
+		cmc = new Canciones_modificar_y_crear(tipo);		
+		bc = new Buscador_cancion(tipo);
+		inicializar();
+	}
+	
+	public Modificar_y_crear_lista(int usuario,int tipo, int iDlista) {
+		cmc = new Canciones_modificar_y_crear(tipo);
+		idLista = iDlista;
+		
+		bc = new Buscador_cancion(tipo);
+		inicializar();
 	}
 
-	private void inicializar() {
+	protected void inicializar() {
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout5().add(cmc);
 		
@@ -66,8 +81,10 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 					
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
+						iac.eliminar_Lista_Reproduccion(idLista);
 						diag.close();
 						Notification.show("Lista eliminada");
+						
 						
 					}
 				});
@@ -85,12 +102,16 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 			}				
 		});
 		
+
+
+		
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Dialog diag = new Dialog(bc);
 				diag.open();
+	
 			}
 		});
 		

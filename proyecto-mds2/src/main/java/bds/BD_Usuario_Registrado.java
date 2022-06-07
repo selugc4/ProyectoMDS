@@ -5,6 +5,8 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.vaadin.flow.component.notification.Notification;
+
 import basededatos.A12PersistentManager;
 import basededatos.Administrador;
 import basededatos.AdministradorDAO;
@@ -124,12 +126,31 @@ public class BD_Usuario_Registrado {
 		}
 	}
 
-	public Usuario_Registrado cargar_Perfil(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Usuario_Registrado cargar_Perfil(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(iD);
+			t.commit();
+			return usuario;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}		
 	}
 
-	public void modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
+	public void modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreoAntiguo+"'", null);	
+			usuario.setCorreo(aCorreoNuevo);
+			Usuario_RegistradoDAO.save(usuario);
+			t.commit();
+			
+			
+		} catch (PersistentException e) {
+			t.rollback();
+		}		
 	}
 
 	public void Eliminar_usuario(String aCorreo) {
@@ -167,10 +188,14 @@ public class BD_Usuario_Registrado {
 			}
 			Ver_estadisticas.horas = horas;
 			Horas hora = HorasDAO.getHorasByORMID(horasId);
-			Cancion cancion = hora.getCancion();
+			Cancion cancion = null;
+			if(hora != null) {
+			 cancion = hora.getCancion();
+			}
 			t.commit();
 			return cancion;
 			
+		
 		} catch (PersistentException e) {
 			t.rollback();
 			return null;

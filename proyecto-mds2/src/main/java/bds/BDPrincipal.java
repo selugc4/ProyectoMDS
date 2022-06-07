@@ -1,5 +1,7 @@
 package bds;
 
+import java.util.ArrayList;
+
 import org.orm.PersistentException;
 
 import com.vaadin.flow.component.notification.Notification;
@@ -12,6 +14,10 @@ import basededatos.Imagen;
 import basededatos.Lista_Reproduccion;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoDAO;
+import clases.Actor_comun;
+import clases.Ver_perfil_propio;
 import proyectoMDS2.MainView;
 
 public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, iActor_comun, iAdministrador {
@@ -25,12 +31,29 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	public BD_Evento _bd_evento = new BD_Evento();
 	public BD_Estilo _bd_estilo = new BD_Estilo();
 
-	public void cargar_Perfil(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Usuario_Registrado cargar_Perfil(int iD) {
+		try {
+			return _bd_usuario_registrado.cargar_Perfil(iD);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
+		try {
+			if(consultar_Correo(aCorreoNuevo)) {
+				Ver_perfil_propio.correoexistente = true;
+			}else {
+				Ver_perfil_propio.correoexistente = false;
+				_bd_usuario_registrado.modificar_Correo(aCorreoAntiguo, aCorreoNuevo);
+			}
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Darse_de_baja(String aCorreo) {
@@ -304,16 +327,28 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void cargar_Listas_Propias() {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Propias(int id) {
+		try {
+			return _bd_lista_reproduccion.cargar_Listas_Propias(id);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void cargar_Listas_Reproduccion_Ajenas(String aCorreo) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Canciones_Modificar(int aIdLista) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Modificar(int aIdLista) {
+		try {
+			return _bd_lista_reproduccion.cargar_Canciones_Modificar(aIdLista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void eliminar_Cancion_Lista(int aIdLista, int aIdCancion) {
@@ -338,13 +373,15 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void eliminar_Lista_Reproduccion(int aIdLista) {
-		throw new UnsupportedOperationException();
+	public void eliminar_Lista_Reproduccion(int idLista) {
+		try {
+			_bd_lista_reproduccion.eliminar_Lista_Reproduccion(idLista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void crear_Lista(String aNombre_Lista, Cancion[] aCanciones) {
-		throw new UnsupportedOperationException();
-	}
 
 	public void cargar_Ultimos_Exitos_Admin() {
 		throw new UnsupportedOperationException();
@@ -515,6 +552,28 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
+		}
+		
+	}
+
+	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList) {
+		try {
+			_bd_lista_reproduccion.crear_Lista(aNombre_Lista, arrayList);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	@Override
+	public void guardar_Modificacion_lista(int iD, String value, ArrayList<clases.Cancion> get_canciones) {
+		try {
+			_bd_lista_reproduccion.guardar_Modificacion_lista(iD,value,get_canciones);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

@@ -1,8 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-modificar_y_crear_lista')
 export class VistaModificar_y_crear_lista extends LitElement {
@@ -36,17 +36,15 @@ export class VistaModificar_y_crear_lista extends LitElement {
     Añadir canción 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout4" style="width: 100%; height: 100%;">
-  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout5" style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
-  <vaadin-vertical-layout theme="spacing" style="align-self: flex-end; margin-top: var(--lumo-space-xl); margin-right: var(--lumo-space-xl); align-items: center; width: 50%;" id="vaadinVerticalLayout1">
-   <vaadin-button id="vaadinButton2">
-     Crear o modificar lista 
-   </vaadin-button>
-   <vaadin-button id="vaadinButton3">
-     Volver atrás 
-   </vaadin-button>
-  </vaadin-vertical-layout>
- </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout5" style="height: 100%; width: 50%;"></vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" style="align-self: flex-end; margin-top: var(--lumo-space-xl); margin-right: var(--lumo-space-xl); align-items: center; width: 50%;" id="vaadinVerticalLayout1">
+  <vaadin-button id="vaadinButton2">
+    Crear o modificar lista 
+  </vaadin-button>
+  <vaadin-button id="vaadinButton3">
+    Volver atrás 
+  </vaadin-button>
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

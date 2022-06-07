@@ -4,6 +4,8 @@
  */
 package ormsamples;
 
+import java.util.ArrayList;
+
 import org.orm.*;
 
 import basededatos.A12PersistentManager;
@@ -26,7 +28,12 @@ import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import bds.BDPrincipal;
+import bds.iActor_comun;
+import clases.Actor_comun;
+import clases.Cancion__Vista_actor_comun_;
 import clases.Cancion_administrador;
+import clases.Ver_estadisticas;
 public class CreateA12Data {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = basededatos.A12PersistentManager.instance().getSession().beginTransaction();
@@ -71,8 +78,30 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
-		Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='himno uda'", null);
-		System.out.println(canciones[0].getTitulo());
+		
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		
+			
+			
+			try {
+				Usuario_Registrado usuario = Usuario_RegistradoDAO.createUsuario_Registrado();
+				Imagen imagen = ImagenDAO.createImagen();
+				imagen.setUrl("jesus.png");
+				imagen.setImagen_de(usuario);
+				ImagenDAO.save(imagen);				
+				usuario.setContiene_imagen(imagen);
+				UsuarioDAO.save(usuario);
+				t.commit();
+				
+			
+			} catch (PersistentException e) {
+				t.rollback();
+			}
+			
+		
+
+	
+	
 	}
 
 

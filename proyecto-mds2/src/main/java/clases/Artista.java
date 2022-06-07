@@ -33,15 +33,15 @@ public class Artista extends Actor_comun {
 			}
 		}); 	
 		
-		//NOTIFICACIONES
-		ca.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				@Override
-				public void onComponentEvent(ClickEvent<Button> event) {
-					Dialog diag = new Dialog(ca.getNotif());
-					diag.setDraggable(true);
-					diag.open();
-				}
-			});
+//		//NOTIFICACIONES
+//		ca.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//				@Override
+//				public void onComponentEvent(ClickEvent<Button> event) {
+//					Dialog diag = new Dialog(ca.getNotif());
+//					diag.setDraggable(true);
+//					diag.open();
+//				}
+//			});
 				
 		//PERFIL PROPIO
 		ca.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

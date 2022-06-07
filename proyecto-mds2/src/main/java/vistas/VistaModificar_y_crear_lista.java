@@ -48,8 +48,6 @@ public class VistaModificar_y_crear_lista extends LitTemplate {
 	private Button vaadinButton2;
 	@Id("vaadinButton3")
 	private Button vaadinButton3;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
 	@Id("vaadinHorizontalLayout5")
 	private HorizontalLayout vaadinHorizontalLayout5;
 	/**
@@ -142,18 +140,14 @@ public class VistaModificar_y_crear_lista extends LitTemplate {
 	public void setVaadinButton3(Button vaadinButton3) {
 		this.vaadinButton3 = vaadinButton3;
 	}
-	public HorizontalLayout getVaadinHorizontalLayout4() {
-		return vaadinHorizontalLayout4;
-	}
-	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
-		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
-	}
 	public HorizontalLayout getVaadinHorizontalLayout5() {
 		return vaadinHorizontalLayout5;
 	}
 	public void setVaadinHorizontalLayout5(HorizontalLayout vaadinHorizontalLayout5) {
 		this.vaadinHorizontalLayout5 = vaadinHorizontalLayout5;
 	}
+	
+	
 	
 
 }

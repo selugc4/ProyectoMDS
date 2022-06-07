@@ -14,8 +14,10 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 //	public Cabecera_administrador _cabecera_administrador;
 //	public Usuario _usuario;
 //	public Ver_lista_de_reproduccion_propia _ver_lista_de_reproduccion_propia;
-	public ContenedorAgregar_perfil_propio ca = new ContenedorAgregar_perfil_propio();
-	Ver_lista_de_reproduccion_propia vlpp = new Ver_lista_de_reproduccion_propia("Favoritos");
+	public ContenedorAgregar_perfil_propio ca;
+	public Ver_lista_de_reproduccion_propia vlpp;
+	public static boolean correoexistente;
+	public static int tipoUsuario;
 
 	public Ver_perfil_propio(String name) {
 		
@@ -25,7 +27,12 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 		
 	};
 
-//	public void Modificar_correo() {
+	public Ver_perfil_propio(int id) {
+	this.ca = new ContenedorAgregar_perfil_propio();
+	this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);
+	}
+
+	//	public void Modificar_correo() {
 //		throw new UnsupportedOperationException();
 //	}
 //

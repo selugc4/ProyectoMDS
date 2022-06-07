@@ -20,11 +20,11 @@ public class Administrador extends Actor_comun {
 	public Cabecera_administrador cabadmin = new Cabecera_administrador();
 	public static Ver_perfil_propio vpp = new Ver_perfil_propio();
 	public Administrador(int iD) {
-		clr = new ContenedorListasReproduccion(2);
+//		clr = new ContenedorListasReproduccion(2);
 		this.ID = iD;
 		
 
-		this.v1.add(clr);
+//		this.v1.add(clr);
     	this.getStyle().set("width", "100%");
 
 
@@ -82,16 +82,16 @@ public class Administrador extends Actor_comun {
 			}
 		});
 		
-		this.cabadmin.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Dialog diag = new Dialog(cabadmin.getNotif());
-				diag.setDraggable(true);
-				diag.open();
-				
-			}
-		});
+//		this.cabadmin.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				Dialog diag = new Dialog(cabadmin.getNotif());
+//				diag.setDraggable(true);
+//				diag.open();
+//				
+//			}
+//		});
 	
 		this.cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

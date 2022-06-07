@@ -10,7 +10,7 @@ public class ContenedorListasReproduccion extends vistas.VistaContenedorlistasre
 //	public Listas_de_reproduccion _listas_de_reproduccion;
 	public Listas_de_reproduccion ldr;
 	public ContenedorListasReproduccion(int usuario) {
-//		ldr = new Listas_de_reproduccion(usuario);
+		ldr = new Listas_de_reproduccion(usuario);
 		inicializar();
 		
 		
@@ -18,7 +18,7 @@ public class ContenedorListasReproduccion extends vistas.VistaContenedorlistasre
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
 		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
-//		vl.add(ldr);
+		vl.add(ldr);
 		}
 	
 

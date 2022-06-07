@@ -1,5 +1,7 @@
 package bds;
 
+import java.util.ArrayList;
+
 import basededatos.*;
 
 public interface iActor_comun {
@@ -40,11 +42,11 @@ public interface iActor_comun {
 
 	public Cancion[] cargar_Canciones_Lista(int aIdLista);
 
-	public void cargar_Listas_Propias();
+	public Lista_Reproduccion[] cargar_Listas_Propias(int id);
 
 	public void cargar_Listas_Reproduccion_Ajenas(String aCorreo);
 
-	public void cargar_Canciones_Modificar(int aIdLista);
+	public Cancion[] cargar_Canciones_Modificar(int aIdLista);
 
 	public void eliminar_Cancion_Lista(int aIdLista, int aIdCancion);
 
@@ -52,11 +54,13 @@ public interface iActor_comun {
 
 	public Cancion[] cargar_Canciones_Buscador(String aNombre);
 
-	public void eliminar_Lista_Reproduccion(int aIdLista);
+	public void eliminar_Lista_Reproduccion(int idLista);
 
-	public void crear_Lista(String aNombre_Lista, Cancion[] aCanciones);
+	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList);
 
 	public Evento[] obtener_Notificaciones(int iD);
 
 	public void eliminar_Notificacion(int iD, String artistaevento, String nombreevento);
+
+	public void guardar_Modificacion_lista(int iD, String value, ArrayList<clases.Cancion> get_canciones);
 }
