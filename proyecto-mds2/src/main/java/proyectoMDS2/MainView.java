@@ -101,12 +101,12 @@ public class MainView extends VerticalLayout {
 //			}
 //		});
 //    }
-    	
-    	Administrador admin = new Administrador(6);
-    	add(admin);
+//    	
+//    	Administrador admin = new Administrador(6);
+//    	add(admin);
 //		
-//     	Usuario_registrado usuario = new Usuario_registrado(8);
-//    	add(usuario);    
+     	Usuario_registrado usuario = new Usuario_registrado(8);
+    	add(usuario);    
     }
 //    	
 //    	Artista artista = new Artista();

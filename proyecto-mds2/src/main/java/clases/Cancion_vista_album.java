@@ -27,6 +27,26 @@ public class Cancion_vista_album extends Cancion__Vista_actor_comun_ {
 			}
 		});
 	}
+	public Cancion_vista_album(Cancion__Vista_actor_comun_ cancion__Vista_actor_comun_) {
+		inicializar();
+		this.getLabelDchaTitulo().setText(cancion__Vista_actor_comun_.getLabelDebajoTitulo().getText());
+		this.getLabelDchaArtista().setText(cancion__Vista_actor_comun_.getLabelDebajoArtista().getText());
+		this.getLabelAlbum().setText(cancion__Vista_actor_comun_.getLabelAlbum().getText());
+		this.getLabelDuracion().setVisible(false);
+		this.getImg().setSrc(cancion__Vista_actor_comun_.getImg().getSrc());
+		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				rcs.vcre = new Ver_creditos(cancion__Vista_actor_comun_.getCancion());
+				rcs._ir_a_cancion = new Ir_a_cancion(cancion__Vista_actor_comun_.getCancion());
+		
+				rcs.reproducir(cancion__Vista_actor_comun_.getCancion().getArchivoMultimedia());
+				
+			}
+		});
+	}
 	@Override
 	public void inicializar() {
 		this.getLabelAlbum().setVisible(true);

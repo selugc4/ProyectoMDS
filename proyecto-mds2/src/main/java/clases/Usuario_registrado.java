@@ -15,27 +15,34 @@ import com.vaadin.flow.dom.DomEventListener;
 
 public class Usuario_registrado extends Actor_comun {
 	
-	public static Cabecera_usuario_registrado cur = new Cabecera_usuario_registrado();
-	public static Ver_perfil_propio_usuario_registrado vpp = new Ver_perfil_propio_usuario_registrado("Nombre");
+	public static Cabecera_usuario_registrado cur;
+	public static Ver_perfil_propio_usuario_registrado vpp;
 	
 
+	public Usuario_registrado() {
+		
+	}
+
 	public Usuario_registrado(int iD) {	
-		this.ID = iD;
-		
-		cucr = new ContenedorUltimas_canciones_reproducidas();
-		ccf = new ContenedorCanciones_favoritas();
+		super(iD);
+//		
+//		cucr = new ContenedorUltimas_canciones_reproducidas();
+//		ccf = new ContenedorCanciones_favoritas();
 //		cr = new ContenedorRecomendaciones();
-		ve = new Ver_estadisticas();
-		
-		clr = new ContenedorListasReproduccion(0);
-		
-		this.v1.add(cucr,ccf, clr);
-		this.getStyle().set("width", "100%");
+//		ve = new Ver_estadisticas();
+//		
+//		clr = new ContenedorListasReproduccion(0);
+//		
+//		this.v1.add(cucr,ccf,cr,clr);
+//		this.getStyle().set("width", "100%");
+		cur = new Cabecera_usuario_registrado();
 		this.getVaadinHorizontalLayout().add(cur);
 		
-		
-
-		//INICIO
+		vpp = new Ver_perfil_propio_usuario_registrado("Nombre");
+//		
+//
+//
+//		//INICIO
 		cur.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 			
 			@Override
@@ -43,7 +50,7 @@ public class Usuario_registrado extends Actor_comun {
 				v1.removeAll();
 				v1.add(cucr);
 				v1.add(ccf);
-//				v1.add(cr);
+				v1.add(cr);
 				v1.add(clr);
 				v2.setVisible(true);	
 			}
@@ -57,6 +64,22 @@ public class Usuario_registrado extends Actor_comun {
 				Dialog diag = new Dialog(cur.getNotif());
 				diag.setDraggable(true);
 				diag.open();
+				
+				cur.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						VerticalLayout vl = cur.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
+						cur.getNotif()._notificacion.remove(t);
+						vl.remove(t);
+						cur.getNotif().eliminarNotificacion();
+						if(cur.getNotif()._notificacion.size() == 0) {
+							diag.close();
+						}
+						
+						
+					}
+				}));
 			}
 		});
 		
@@ -101,7 +124,32 @@ public class Usuario_registrado extends Actor_comun {
 						
 					}
 				});
-			
-			}
+				
+//	
+//		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				v1.removeAll();
+//				v1.add(cucr);
+//				v1.add(ccf);
+//				v1.add(cr);
+//				v1.add(clr);
+//				v2.setVisible(true);	
+//				
+//			}
+//		});
+//		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//		
+//		@Override
+//		public void onComponentEvent(ClickEvent<Button> event) {
+//			v1.removeAll();
+//			v1.add(ve);
+//			v2.setVisible(false);	
+//			
+//		}
+//	});
+//	}
 	
+	}
 }

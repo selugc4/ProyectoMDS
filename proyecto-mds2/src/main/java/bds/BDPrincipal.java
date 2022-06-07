@@ -8,6 +8,7 @@ import basededatos.Album;
 import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
+import basededatos.Evento;
 import basededatos.Imagen;
 import basededatos.Lista_Reproduccion;
 import basededatos.Usuario;
@@ -204,8 +205,21 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void obtener_Estadisticas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion obtener_Estadisticas(int iD) {	
+		try {
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			if(usuario.getTipoUsuario() == 0) {
+				return _bd_usuario_registrado.obtener_Estadisticas(iD);
+			}else if(usuario.getTipoUsuario() == 1) {
+				return _bd_artista.obtener_Estadisticas(iD);
+			}else
+				return _bd_administrador.obtener_Estadisticas(iD);
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		
 	}
 
 	public Lista_Reproduccion[] cargar_Listas_Reproduccion() {
@@ -259,8 +273,17 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadir_Cancion_Favorita(int aIdCancion, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void anadir_Cancion_Favorita(int aIdCancion, int iD) {
+			try {
+				_bd_lista_reproduccion.anadir_Cancion_Favorita(aIdCancion, iD);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		
+		
 	}
 
 	public void anadir_Cancion_Lista(int aIdCancion, int aIdLista) {
@@ -279,8 +302,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Canciones_Lista(int aIdLista) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Lista(int aIdLista) {
+		try {
+			return _bd_cancion.cargar_Canciones_Lista(aIdLista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void cargar_Listas_Propias() {
@@ -299,8 +328,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadir_Lista(int aIdCancion, int aIdLista) {
-		throw new UnsupportedOperationException();
+	public void anadir_Lista(int aIdCancion, String nombrelista) {
+		try {
+			_bd_cancion.anadir_Lista(aIdCancion, nombrelista);
+		} catch (PersistentException e) {
+			Notification.show("La lista ya contiene esta canción");
+		}
 	}
 
 	public Cancion[] cargar_Canciones_Buscador(String aNombre) {
@@ -477,5 +510,37 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public Evento[] obtener_Notificaciones(int iD) {
+		try {
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			if(usuario.getTipoUsuario() == 0) {
+				return _bd_usuario_registrado.obtener_Notificaciones(iD);
+			}else if(usuario.getTipoUsuario() == 1) {
+				return _bd_artista.obtener_Notificaciones(iD);
+			}else
+				return _bd_administrador.obtener_Notificaciones(iD);
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+	public void eliminar_Notificacion(int iD, String artistaevento, String nombreevento) {
+		try {
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			if(usuario.getTipoUsuario() == 0) {
+				_bd_usuario_registrado.eliminar_Notificacion(iD, artistaevento, nombreevento);
+			}else if(usuario.getTipoUsuario() == 1) {
+				_bd_artista.eliminar_Notificacion(iD, artistaevento, nombreevento);
+			}else
+				_bd_administrador.eliminar_Notificacion(iD, artistaevento, nombreevento);
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+		}
+		
 	}
 }

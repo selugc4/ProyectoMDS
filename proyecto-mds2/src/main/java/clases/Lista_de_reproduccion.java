@@ -31,6 +31,18 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 	public Lista_de_reproduccion(Lista_Reproduccion lista) {
 		inicializar();
 		this.getLabel().setText(lista.getNombreLista());
+		//CLICKER VER LISTA		
+		this.getVaadinHorizontalLayout2().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+				VerticalLayout aux = Usuario_registrado.v1;
+				vldr = new Ver_lista_de_Reproduccion(lista.getIdLista(), lista.getNombreLista());
+				aux.removeAll();
+				aux.add(vldr);
+				Usuario_registrado.v2.setVisible(false);
+			}
+		});
 	}
 
 	private void inicializar() {
@@ -39,16 +51,6 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 		this.getVaadinButton2().setVisible(false);
 		this.getStyle().set("width", "100%");
 		
-		//CLICKER VER LISTA		
-				this.getVaadinHorizontalLayout2().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
-						VerticalLayout aux = Usuario_registrado.v1;
-						aux.removeAll();
-						aux.add(vldr);
-						Usuario_registrado.v2.setVisible(false);
-					}
-				});
+		
 	}
 }

@@ -1,8 +1,12 @@
 package bds;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
@@ -84,35 +88,26 @@ public class BD_Cancion {
 	}
 
 	public Cancion[] cargar_Recomendaciones() throws PersistentException {
-//		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
-//
-//		try {
-//			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
-//			Usuario[] seguidos = usuario.seguido.toArray();
-//			Artista[] artistas;
-//			for(int i = 0 ; i < seguidos.length; i++) {
-//				if(seguidos[i].getTipoUsuario() == 2) {
-//					artistas[i] = (Artista) seguidos[i];
-//				}
-//				
-//			}
-//			TreeMap<Estilo, Integer> aux = new TreeMap<Estilo, Integer>();
-//			for(Artista artista : artistas) {
-//				aux.put(artista.est, null)
-//				
-//			}
-//			
-//			
-//
-//			t.commit();
-//			return canciones;
-//			
-//		} catch (PersistentException e) {
-//			t.rollback();
-//			return null;
-//			
-//		}		
-		return null;
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Cancion[] canciones = CancionDAO.listCancionByQuery(null, null);			
+			List<Cancion> canc = Arrays.asList(canciones);
+			Collections.shuffle(canc);
+			
+			if(canciones.length > 15) {				
+				canc.subList(0, 14).toArray(canciones);
+			}else
+				canc.subList(0, canciones.length).toArray(canciones);
+					
+			t.commit();
+			return canciones;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}		
 	}
 
 	public Cancion[] cargar_Canciones_Favoritas() throws PersistentException {
@@ -144,16 +139,40 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion[] cargar_Canciones_Lista(int aIdLista) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Canciones_Lista(int aIdLista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Lista_Reproduccion lr = Lista_ReproduccionDAO.getLista_ReproduccionByORMID(aIdLista);			
+			t.commit();		
+			return lr.contiene_cancion.toArray();
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}	
 	}
 
 	public void eliminar_Cancion_Lista(int aIdLista, int aIdCancion) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadir_Lista(int aIdCancion, int aIdLista) {
-		throw new UnsupportedOperationException();
+	public void anadir_Lista(int aIdCancion, String nombrelista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			Lista_Reproduccion lr = Lista_ReproduccionDAO.loadLista_ReproduccionByQuery("NombreLista='"+nombrelista+"'", null);
+			cancion.contendor_cancion.add(lr);
+			CancionDAO.save(cancion);
+			
+			t.commit();			
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			
+		}	
 	}
 
 	public Cancion[] cargar_Canciones_Buscador(String aNombre) throws PersistentException{

@@ -9,11 +9,13 @@ import basededatos.A12PersistentManager;
 import basededatos.Album;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
+import basededatos.Cancion;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.CancionDAO;
 import basededatos.Estilo;
 import basededatos.EstiloDAO;
+import basededatos.Evento;
 import basededatos.EventoDAO;
 import basededatos.Horas;
 import basededatos.HorasDAO;
@@ -23,7 +25,10 @@ import basededatos.Lista_Reproduccion;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
+import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoDAO;
 import clases.Cibernauta;
+import clases.Ver_estadisticas;
 import proyectoMDS2.MainView;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
@@ -208,7 +213,62 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario[] obtener_Estadisticas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion obtener_Estadisticas(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.getArtistaByORMID(iD);
+			Horas[] aux = usuario.horass.toArray();
+			int horasId = 1;
+			int horas = 0;;
+			for(int i = 0; i < aux.length; i++) {
+				if(aux[i].getHoras() > horas) {
+					horasId = aux[i].getID();
+					horas = aux[i].getHoras();
+				}
+			}
+			Ver_estadisticas.horas = horas;
+			Horas hora = HorasDAO.getHorasByORMID(horasId);
+			Cancion cancion = hora.getCancion();
+			t.commit();
+			return cancion;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
+	}
+
+	public Evento[] obtener_Notificaciones(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.getArtistaByORMID(iD);
+			Evento[] eventos = usuario.recibe_notificacion.toArray();
+			
+			t.commit();
+			return eventos;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
+	}
+
+	public void eliminar_Notificacion(int iD, String artistaevento, String nombreevento) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.getArtistaByORMID(iD);
+			Artista artista = ArtistaDAO.loadArtistaByQuery("Nombre='"+artistaevento+"'",null);
+			Evento evento = EventoDAO.loadEventoByQuery("Nombre='"+nombreevento+"' AND ArtistaUsuarioID='"+ Integer.toString(artista.getID())+"'", null);
+			usuario.recibe_notificacion.remove(evento);
+			
+			ArtistaDAO.save(usuario);
+			t.commit();
+		
+			
+		} catch (PersistentException e) {
+			t.rollback();
+	
+		}
+		
 	}
 }

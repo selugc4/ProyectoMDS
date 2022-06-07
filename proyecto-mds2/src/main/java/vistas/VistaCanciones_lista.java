@@ -22,8 +22,6 @@ public class VistaCanciones_lista extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
-	@Id("label")
-	private Label label;
 	@Id("label1")
 	private Label label1;
 	@Id("vaadinButton")
@@ -45,12 +43,6 @@ public class VistaCanciones_lista extends LitTemplate {
 	}
 	public void setVaadinVerticalLayout1(Element vaadinVerticalLayout1) {
 		this.vaadinVerticalLayout1 = vaadinVerticalLayout1;
-	}
-	public Label getLabel() {
-		return label;
-	}
-	public void setLabel(Label label) {
-		this.label = label;
 	}
 	public Label getLabel1() {
 		return label1;
