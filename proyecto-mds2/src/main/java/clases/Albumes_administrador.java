@@ -22,7 +22,6 @@ public class Albumes_administrador extends Albumes_buscador {
 		Mostrar_Lista(buscador);
 	}
 	public void Mostrar_Lista(String buscador) {
-//		v1.removeAll();
 		HorizontalLayout aux = this.getVaadinHorizontalLayout();
 		aux.getStyle().set("width", "100%");
 		aux.removeAll();

@@ -32,9 +32,8 @@ public class Album_administrador extends Album {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				VerticalLayout a = Administrador.v1;
-				a.removeAll();
-				a.add(_vista_album);
+				Administrador.v1.removeAll();
+				Administrador.v1.add(_vista_album);
 				Administrador.v2.setVisible(false);
 			}			
 		});
@@ -44,9 +43,8 @@ public class Album_administrador extends Album {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout a = Administrador.v1;
-				a.removeAll();
-				a.add(vma);
+				Administrador.v1.removeAll();
+				Administrador.v1.add(_vista_album);
 				Administrador.v2.setVisible(false);
 				
 			}

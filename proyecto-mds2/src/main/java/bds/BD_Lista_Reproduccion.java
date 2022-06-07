@@ -92,9 +92,27 @@ public class BD_Lista_Reproduccion {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminar_Lista_Reproduccion(int aIdLista) {
-		throw new UnsupportedOperationException();
-	}
+	public void eliminar_Lista_Reproduccion(int aIdLista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Lista_Reproduccion lista = Lista_ReproduccionDAO.loadLista_ReproduccionByORMID(aIdLista);
+			lista.contiene_cancion.clear();
+			Cancion[]canciones = lista.contiene_cancion.toArray();
+			for(Cancion cancion: canciones) {
+				cancion.contendor_cancion.remove(lista);
+			}
+			lista.seguidor.clear();
+			Usuario[]usuarios = lista.seguidor.toArray();
+			for(Usuario usuario: usuarios) {
+				usuario.seguir.remove(lista);
+			}
+			Lista_ReproduccionDAO.delete(lista);
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+			
+		}	
+		}
 
 	public void crear_Lista(String aNombre_Lista, Cancion[] aCanciones) {
 		throw new UnsupportedOperationException();

@@ -347,7 +347,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void eliminar_Lista_Reproduccion(int aIdLista) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_lista_reproduccion.eliminar_Lista_Reproduccion(aIdLista);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void crear_Lista(String aNombre_Lista, Cancion[] aCanciones) {

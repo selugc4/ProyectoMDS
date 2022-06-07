@@ -57,31 +57,31 @@ public class Usuario_registrado extends Actor_comun {
 		}); 
 		
 		
-		//NOTIFICACIONES
-		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Dialog diag = new Dialog(cur.getNotif());
-				diag.setDraggable(true);
-				diag.open();
-				
-				cur.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						VerticalLayout vl = cur.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
-						cur.getNotif()._notificacion.remove(t);
-						vl.remove(t);
-						cur.getNotif().eliminarNotificacion();
-						if(cur.getNotif()._notificacion.size() == 0) {
-							diag.close();
-						}
-						
-						
-					}
-				}));
-			}
-		});
+//		//NOTIFICACIONES
+//		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				Dialog diag = new Dialog(cur.getNotif());
+//				diag.setDraggable(true);
+//				diag.open();
+//				
+//				cur.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//					
+//					@Override
+//					public void onComponentEvent(ClickEvent<Button> event) {
+//						VerticalLayout vl = cur.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
+//						cur.getNotif()._notificacion.remove(t);
+//						vl.remove(t);
+//						cur.getNotif().eliminarNotificacion();
+//						if(cur.getNotif()._notificacion.size() == 0) {
+//							diag.close();
+//						}
+//						
+//						
+//					}
+//				}));
+//			}
+//		});
 		
 		//PERFIL PROPIO
 		cur.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

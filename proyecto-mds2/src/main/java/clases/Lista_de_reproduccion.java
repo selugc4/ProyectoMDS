@@ -50,7 +50,10 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 		this.getVaadinButton1().setVisible(false);
 		this.getVaadinButton2().setVisible(false);
 		this.getStyle().set("width", "100%");
-		
-		
+	}
+	public void cambiarVisibilidad() {
+		this.getVaadinButton().setVisible(false);
+		this.getVaadinButton1().setVisible(true);
+		this.getVaadinButton2().setVisible(true);
 	}
 }

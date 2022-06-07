@@ -1,6 +1,14 @@
 package clases;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import basededatos.Lista_Reproduccion;
+import bds.BDPrincipal;
+import bds.iActor_comun;
 
 public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 //	private Button _eliminar_ListaB;
@@ -9,12 +17,29 @@ public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 //	public Edicion_de_lista _edicion_de_lista;
 	public Lista_de_reproduccion_administrador(Lista_Reproduccion lista) {
 		super(lista);
-		this.getVaadinButton1().setVisible(true);
-		this.getVaadinButton2().setVisible(true);
+		super.cambiarVisibilidad();
+		super.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				VerticalLayout aux = Usuario_registrado.v1;
+				vldr = new Ver_lista_de_Reproduccion(lista.getIdLista(), lista.getNombreLista());
+				aux.removeAll();
+				aux.add(vldr);
+				Usuario_registrado.v2.setVisible(false);
+			}
+		});
+		super.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Eliminar_lista(lista.getIdLista());
+			}
+		});
 	}
-
-	public void Eliminar_lista() {
-		throw new UnsupportedOperationException();
+	public void Eliminar_lista(int id) {
+		iActor_comun ia = new BDPrincipal();
+		ia.eliminar_Lista_Reproduccion(id);
 	}
 
 	public void modificar_liista() {

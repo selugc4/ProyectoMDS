@@ -37,9 +37,9 @@ public class Artista extends Actor_comun {
 		ca.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 				@Override
 				public void onComponentEvent(ClickEvent<Button> event) {
-					Dialog diag = new Dialog(ca.getNotif());
-					diag.setDraggable(true);
-					diag.open();
+//					Dialog diag = new Dialog(ca.getNotif());
+//					diag.setDraggable(true);
+//					diag.open();
 				}
 			});
 				
