@@ -6,6 +6,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
+import basededatos.Album;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Artista;
@@ -172,8 +173,26 @@ public class BD_Artista {
 	public void Eliminar_artista(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'",null);
-			UsuarioDAO.delete(usuario);
+			Artista artista = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'",null);
+			artista.crea.clear();
+			artista.pertenece.clear();
+			artista.propietario_album.clear();
+			Album[] albumes = artista.propietario_album.toArray();
+			for(Album album: albumes) {
+				album.autor.remove(artista);
+			}
+			artista.favorita.clear();
+			artista.horass.clear();
+			artista.seguir.clear();
+			artista.propietario.clear();
+			Lista_Reproduccion[]listas = artista.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			ArtistaDAO.delete(artista);
+//			Usuario usuario = UsuarioDAO.getUsuarioByORMID(artista.getID());
+//			UsuarioDAO.delete(usuario);
+			ImagenDAO.delete(artista.getContiene_imagen());
 			t.commit();
 		}
 		catch (PersistentException e) {

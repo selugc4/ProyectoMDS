@@ -8,6 +8,8 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_Registrado;
+
 public class Usuario extends vistas.VistaUsuario{
 //	private Button _modificar_UsuarioB;
 //	private Button _eliminar_UsuarioB;
@@ -17,9 +19,10 @@ public class Usuario extends vistas.VistaUsuario{
 //	public Ver_perfil_propio _ver_perfil_propio;
 
 	public Ver_perfil_propio vpp = new Ver_perfil_propio();
-	public Usuario(String name) {
-		this.getLabel().setText(name);
-		vpp = new Ver_perfil_propio(name);
+	public Usuario(Usuario_Registrado usuario) {
+		this.getStyle().set("width", "100%");
+		this.getLabel().setText(usuario.getNombre());
+		vpp = new Ver_perfil_propio(usuario.getNombre());
 		
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

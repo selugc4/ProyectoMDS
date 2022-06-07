@@ -34,8 +34,16 @@ public class BD_Lista_Reproduccion {
 		}		
 	}
 
-	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Lista_Reproduccion[] listas = Lista_ReproduccionDAO.listLista_ReproduccionByQuery("NombreLista='"+aNombre+"'", null);
+		t.commit();
+		return listas;
+		}catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public void anadir_Favorita(int aIdCancion, String aCorreo) {

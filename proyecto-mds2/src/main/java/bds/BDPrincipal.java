@@ -4,12 +4,14 @@ import org.orm.PersistentException;
 
 import com.vaadin.flow.component.notification.Notification;
 
+import basededatos.Album;
 import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
 import basededatos.Imagen;
 import basededatos.Lista_Reproduccion;
 import basededatos.Usuario;
+import basededatos.Usuario_Registrado;
 import basededatos.UsuarioDAO;
 import proyectoMDS2.MainView;
 
@@ -235,8 +237,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Listas_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre) {
+		try {
+			return _bd_lista_reproduccion.cargar_Listas_Buscador(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void anadir_Favorita(int aIdCancion, String aCorreo) {
@@ -405,8 +413,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Usuarios(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Usuario_Registrado[] cargar_Usuarios(String aNombre) {
+		try {
+			return _bd_usuario_registrado.cargar_Usuarios(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo) {
@@ -418,7 +432,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void eliminar_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+			try {
+				_bd_album.eliminar_Album(aIdAlbum);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	public void eliminar_Artista(String aCorreo) {
@@ -450,7 +469,13 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Albumes_Admin(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Admin(String aNombre) {
+		try {
+			return _bd_album.cargar_Albumes_Admin(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

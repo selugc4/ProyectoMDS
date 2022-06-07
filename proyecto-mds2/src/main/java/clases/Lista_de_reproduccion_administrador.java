@@ -1,9 +1,17 @@
 package clases;
+
+import basededatos.Lista_Reproduccion;
+
 public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 //	private Button _eliminar_ListaB;
 //	private Button _modificar_ListaB;
 //	public Listas_de_reproduccion_administrador _listas_de_reproduccion_administrador;
 //	public Edicion_de_lista _edicion_de_lista;
+	public Lista_de_reproduccion_administrador(Lista_Reproduccion lista) {
+		super(lista);
+		this.getVaadinButton1().setVisible(true);
+		this.getVaadinButton2().setVisible(true);
+	}
 
 	public void Eliminar_lista() {
 		throw new UnsupportedOperationException();

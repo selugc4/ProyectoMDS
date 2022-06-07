@@ -22,7 +22,7 @@ public interface iActor_comun {
 
 	public void cargar_Albumes_Buscador(String aNombre);
 
-	public void cargar_Listas_Buscador(String aNombre);
+	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre);
 
 	public void anadir_Favorita(int aIdCancion, String aCorreo);
 

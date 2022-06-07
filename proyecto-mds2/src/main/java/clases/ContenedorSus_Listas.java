@@ -20,7 +20,7 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 	
 	public ContenedorSus_Listas(int usuario) {
 		inicializar();
-		slr = new Sus_listas_de_reproduccion(false,usuario);
+//		slr = new Sus_listas_de_reproduccion(false,usuario);
 		
 	this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			

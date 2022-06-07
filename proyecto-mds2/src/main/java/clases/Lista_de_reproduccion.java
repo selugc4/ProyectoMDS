@@ -21,11 +21,6 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 	}
 	*/
 	public Ver_lista_de_Reproduccion vldr = new Ver_lista_de_Reproduccion();
-	public Lista_de_reproduccion() {
-		inicializar();
-		
-		
-	}
 		
 	public Lista_de_reproduccion(String aux) {
 		inicializar();
@@ -39,7 +34,7 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 	}
 
 	private void inicializar() {
-		this.getVaadinButton().setVisible(false);
+		this.getVaadinButton().setVisible(true);
 		this.getVaadinButton1().setVisible(false);
 		this.getVaadinButton2().setVisible(false);
 		this.getStyle().set("width", "100%");

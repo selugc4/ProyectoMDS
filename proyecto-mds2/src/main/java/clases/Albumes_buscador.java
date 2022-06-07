@@ -20,7 +20,6 @@ public class Albumes_buscador extends vistas.VistaAlbumes_buscador {
 		Mostrar_Lista(0);
 	}
 	public void Mostrar_Lista(int pagina) {
-//		v1.removeAll();
 		HorizontalLayout aux = this.getVaadinHorizontalLayout();
 		aux.getStyle().set("width", "100%");
 		aux.removeAll();

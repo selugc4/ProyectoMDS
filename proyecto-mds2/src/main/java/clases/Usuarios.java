@@ -9,6 +9,10 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Usuario_Registrado;
+import bds.BDPrincipal;
+import bds.iAdministrador;
+
 public class Usuarios extends vistas.VistaUsuarios {
 //	public Buscador_administrador _buscador_administrador;
 //	public Vista_buscador_usuarios _vista_buscador_usuarios;
@@ -19,17 +23,10 @@ public class Usuarios extends vistas.VistaUsuarios {
 	public Usuarios() {
 		
 	}
-	
-	public Usuarios(String name) {
-		buscarUsuarios(name);
-		
-
-	}
 
 	private void mostrarResultados() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		HorizontalLayout hl = new HorizontalLayout();
-		vl.removeAll();
 		for(int i = 0; i < _usuario.size(); i++) {
 			hl.add(_usuario.get(i));
 		}
@@ -37,8 +34,10 @@ public class Usuarios extends vistas.VistaUsuarios {
 		
 	}
 	private void buscarUsuarios(String value) {	
-		for(int i = 0; i< 2; i++) {
-			_usuario.add(new Usuario(value));
+		iAdministrador iAdmin = new BDPrincipal();
+		Usuario_Registrado[] usuarios = iAdmin.cargar_Usuarios(value);
+		for(int i = 0; i< 3 && i < usuarios.length; i++) {
+			_usuario.add(new Usuario(usuarios[i]));
 		}
 	}
 	

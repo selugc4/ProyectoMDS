@@ -24,6 +24,12 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 	public Cancion_administrador(Cancion cancion) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(cancion.getTitulo());
+		if(cancion.es_de.toArray().length>0) {
+		this.getLabel1().setText(cancion.es_de.toArray()[0].getNombre());
+		}
+		else {
+		this.getLabel1().setText("Artista desconocido");
+		}
 		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

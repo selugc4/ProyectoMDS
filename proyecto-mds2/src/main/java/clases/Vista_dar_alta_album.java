@@ -146,13 +146,12 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(getVaadinTextField().getValue().isEmpty()||getFechaDeEdición().getValue() == null||getVaadinTextField1().getValue() == null|| canciones._canciones.size()==0) {
+				if(getVaadinTextField().getValue().isEmpty()||getFechaDeEdición().getValue() == null|| canciones._canciones.size()==0) {
 					Notification.show("Debe rellenar todos los campos");
 				}
 				else {
 				String titulo = getVaadinTextField().getValue();
 				String fechaEdicion = fechaedicion;
-				String[] NombreArtistas = getVaadinTextField1().getValue().split(",");
 				basededatos.Cancion[] cancionesAlbum = new basededatos.Cancion[canciones._canciones.size()];
 				int i = 0;
 				for(Cancion cancion: canciones._canciones) {
@@ -166,18 +165,22 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 				}
 				i++;
 				}
-				basededatos.Artista[] artistas = new basededatos.Artista[NombreArtistas.length];
-				int j = 0;
-				for(String artista: NombreArtistas) {
-					try {
-						basededatos.Artista artistaAlbum = ArtistaDAO.getArtistaByORMID(UsuarioDAO.loadUsuarioByQuery("Nombre='"+artista+"'", null).getID());
-						artistas[j] = artistaAlbum;
-					} catch (PersistentException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				basededatos.Artista[] artistas = new basededatos.Artista[0];
+				if(!getVaadinTextField1().getValue().isEmpty()) {
+					String[] NombreArtistas = getVaadinTextField1().getValue().split(",");
+					artistas = new basededatos.Artista[NombreArtistas.length];
+					int j = 0;
+					for(String artista: NombreArtistas) {
+						try {
+							basededatos.Artista artistaAlbum = ArtistaDAO.getArtistaByORMID(UsuarioDAO.loadUsuarioByQuery("Nombre='"+artista+"'", null).getID());
+							artistas[j] = artistaAlbum;
+						} catch (PersistentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						j++;
 					}
-					j++;
-				}
+					}	
 				iadmin.Dar_alta_album(titulo, cancionesAlbum, artistas, rutaArchivoFinal, fechaEdicion);
 				}
 			}

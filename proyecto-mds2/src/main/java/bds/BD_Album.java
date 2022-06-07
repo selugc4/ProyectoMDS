@@ -62,15 +62,37 @@ public class BD_Album {
 
 	}
 
-	public void eliminar_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+	public void eliminar_Album(int aIdAlbum) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album album = AlbumDAO.getAlbumByORMID(aIdAlbum);
+			album.autor.clear();
+			Artista[]artistas = album.autor.toArray();
+			for(Artista artista: artistas) {
+				artista.propietario_album.remove(album);
+			}
+			AlbumDAO.delete(album);
+			ImagenDAO.delete(album.getContiene_imagen());
+			t.commit();
+		} catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 	public void Modificar_Album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, Imagen aImagen, Artista[] aArtistas) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Album[] cargar_Albumes_Admin(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Admin(String aNombre) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album[]albumes = AlbumDAO.listAlbumByQuery("TitutloAlbum='"+aNombre+"'", null);
+			t.commit();
+			return albumes;
+		}
+		catch (Exception e) {
+			t.rollback();
+			return null;
+		}
 	}
 }

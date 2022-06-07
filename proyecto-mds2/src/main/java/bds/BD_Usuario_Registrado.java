@@ -132,8 +132,16 @@ public class BD_Usuario_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario_Registrado[] cargar_Usuarios(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Usuario_Registrado[] cargar_Usuarios(String aNombre) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado [] usuarios = Usuario_RegistradoDAO.listUsuario_RegistradoByQuery("Nombre='"+aNombre+"'", null);
+			t.commit();
+			return usuarios;
+		}catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo) {

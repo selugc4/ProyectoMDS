@@ -16,7 +16,7 @@ export class VistaAlbum extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; flex-direction: column;" id="vaadinVerticalLayout">
- <img style="width: 250px;" src="https://m.media-amazon.com/images/I/71B-wiFzFkL._SY355_.jpg" id="img">
+ <img id="img" style="width: 250px;">
  <label id="label">Álbum</label>
  <vaadin-button id="vaadinButton">
    Editar 

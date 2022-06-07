@@ -2,10 +2,12 @@ package bds;
 
 import org.orm.PersistentException;
 
+import basededatos.Album;
 import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
 import basededatos.Imagen;
+import basededatos.Usuario_Registrado;
 
 public interface iAdministrador {
 
@@ -37,7 +39,7 @@ public interface iAdministrador {
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo);
 
-	public void cargar_Usuarios(String aNombre);
+	public Usuario_Registrado[] cargar_Usuarios(String aNombre);
 
 	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo);
 
@@ -57,5 +59,5 @@ public interface iAdministrador {
 
 	public void Modificar_Estilo(int aIdEstilo, String aNombre);
 
-	public void cargar_Albumes_Admin(String aNombre);
+	public Album[] cargar_Albumes_Admin(String aNombre);
 }

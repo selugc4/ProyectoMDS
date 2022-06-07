@@ -9,6 +9,7 @@ import org.orm.*;
 import basededatos.A12PersistentManager;
 import basededatos.Administrador;
 import basededatos.AdministradorDAO;
+import basededatos.Album;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
@@ -71,8 +72,33 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
-		Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='himno uda'", null);
-		System.out.println(canciones[0].getTitulo());
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista artista = ArtistaDAO.loadArtistaByQuery("Correo='prueba'",null);
+			artista.crea.clear();
+			artista.pertenece.clear();
+			artista.propietario_album.clear();
+			Album[] albumes = artista.propietario_album.toArray();
+			for(Album album: albumes) {
+				album.autor.remove(artista);
+			}
+			artista.favorita.clear();
+			artista.horass.clear();
+			artista.seguir.clear();
+			artista.propietario.clear();
+			Lista_Reproduccion[]listas = artista.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			ArtistaDAO.delete(artista);
+//			Usuario usuario = UsuarioDAO.getUsuarioByORMID(artista.getID());
+//			UsuarioDAO.delete(usuario);
+			ImagenDAO.delete(artista.getContiene_imagen());
+			t.commit();
+		}
+		catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 

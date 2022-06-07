@@ -14,20 +14,20 @@ public class Sus_listas_de_reproduccion extends vistas.VistaSus_listas_de_reprod
 	
 	private int propio = 0;
 	
-	public Sus_listas_de_reproduccion(int usuario) {
-		this.getStyle().set("width", "100%");
-		Cargar_ListasReproduccion(usuario);
-		mostrar(5);
-	}
-	
-	public Sus_listas_de_reproduccion(Boolean propio,int usuario) {
-		if(propio)
-			this.propio= 1;
-		this.getStyle().set("width", "100%");
-		Cargar_ListasReproduccion(usuario);
-		mostrar(5);
-	}
-	
+//	public Sus_listas_de_reproduccion(int usuario) {
+//		this.getStyle().set("width", "100%");
+//		Cargar_ListasReproduccion(usuario);
+//		mostrar(5);
+//	}
+//	
+//	public Sus_listas_de_reproduccion(Boolean propio,int usuario) {
+//		if(propio)
+//			this.propio= 1;
+//		this.getStyle().set("width", "100%");
+//		Cargar_ListasReproduccion(usuario);
+//		mostrar(5);
+//	}
+//	
 	public void mostrar(int tamano) {
 		VerticalLayout h1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		h1.removeAll();
@@ -82,21 +82,21 @@ public class Sus_listas_de_reproduccion extends vistas.VistaSus_listas_de_reprod
 		h1.add(abajo);
 	}
 	
-	public void Cargar_ListasReproduccion(int usuario) {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		//v1.removeAll();		
-	
-		for(int i = 0; i < 30; i++) {
-			Lista_de_reproduccion lr = new Lista_de_reproduccion();
-			if(propio == 0) {
-			lr.vldr = new Ver_lista_de_reproduccion_ajena();
-			}else {
-				lr.vldr = new Ver_lista_de_reproduccion_propia(usuario);
-			}
-			ldr.add(lr);
-			
-		}
-			
-	}
+//	public void Cargar_ListasReproduccion(int usuario) {
+//		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+//		//v1.removeAll();		
+//	
+//		for(int i = 0; i < 30; i++) {
+//			Lista_de_reproduccion lr = new Lista_de_reproduccion();
+//			if(propio == 0) {
+//			lr.vldr = new Ver_lista_de_reproduccion_ajena();
+//			}else {
+//				lr.vldr = new Ver_lista_de_reproduccion_propia(usuario);
+//			}
+//			ldr.add(lr);
+//			
+//		}
+//			
+//	}
 	
 }
