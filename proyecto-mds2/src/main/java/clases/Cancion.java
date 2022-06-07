@@ -9,29 +9,46 @@ public class Cancion extends vistas.VistaCancion{
 //	private Label _cancionL;
 //	public Canciones_modificar_y_crear _canciones_modificar_y_crear;
 	
+	private int idCancion;
 	public Cancion() {
-		
+	
 	}
 	
-	public Cancion(String nombre) {
+	public Cancion(String nombre, int iD, int tipo) {
+		this.getStyle().set("width", "100%");
 		this.getLabel().setText(nombre);
-		
+		this.idCancion = iD;
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				for(Cancion cancion: Canciones_modificar_y_crear._canciones) {
-					if(cancion.getLabel().getText().equals(getLabel().getText())) {
-						Notification.show("Eliminada");
-						Canciones_modificar_y_crear._canciones.remove(cancion);
-						Vista_dar_alta_album.canciones.actualizar();
-					}
-					
-				}
 				
+				if(tipo == 0) {
+					for(Cancion cancion: Creacion_lista.cmc._canciones) {
+						if(cancion.getLabel().getText().equals(getLabel().getText())) {
+							Notification.show("Eliminada");
+							Creacion_lista.cmc._canciones.remove(cancion);
+							Creacion_lista.cmc.actualizar();
+							}
+					}
+				}else {
+					for(Cancion cancion: Edicion_de_lista.cmc._canciones) {
+						if(cancion.getLabel().getText().equals(getLabel().getText())) {
+							Notification.show("Eliminada");
+							Edicion_de_lista.cmc._canciones.remove(cancion);
+							Edicion_de_lista.cmc.actualizar();
+							}
+					}
+				}
+					
 			}
 
 		});
 		
 	}
+
+	public int getIdCancion() {
+		return idCancion;
+	}
+	
 }

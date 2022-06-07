@@ -6,6 +6,10 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.UsuarioDAO;
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproduccion_propia{
 //	private Label _nombre_Lista;
 //	public Listas_de_reproduccion_perfil_propio _listas_de_reproduccion_perfil_propio;
@@ -14,31 +18,35 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 
 	public Edicion_de_lista edl;
 	public Ver_lista_de_reproduccion_propia vlrp ;
+
 //	public void modificarLista() {
 //		throw new UnsupportedOperationException();
 //	}
-	public Lista_de_reproduccion_propia(String string, int usuario) {
+	public Lista_de_reproduccion_propia(String string, int usuario, int iD) {
 		this.getLabel().setText(string);
 		inicializar();
-		edl = new Edicion_de_lista(usuario);
-		vlrp = new Ver_lista_de_reproduccion_propia(usuario);
+		edl = new Edicion_de_lista(usuario,1, iD);
+		edl.cargarLista(string);
+		vlrp = new Ver_lista_de_reproduccion_propia(string,iD);
+		
 		
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+			
 				if(usuario == 0) {
 					VerticalLayout vl = Usuario_registrado.v1;
 					vl.removeAll();
-					vl.add(Usuario_registrado.vpp);
+					vl.add(edl);
 				}else if(usuario == 1) {
 					VerticalLayout vl = Artista.v1;
 					vl.removeAll();
-					vl.add(Artista.vppa);
+					vl.add(edl);
 				}else if(usuario == 2) {
 					VerticalLayout vl = Administrador.v1;
 					vl.removeAll();
-					vl.add(Administrador.vpp);
+					vl.add(edl);
 				}
 			}
 		});
@@ -50,21 +58,22 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 				if(usuario == 0) {
 					VerticalLayout vl = Usuario_registrado.v1;
 					vl.removeAll();
-					vl.add(Usuario_registrado.vpp);
+					vl.add(vlrp);
 				}else if(usuario == 1) {
 					VerticalLayout vl = Artista.v1;
 					vl.removeAll();
-					vl.add(Artista.vppa);
+					vl.add(vlrp);
 				}else if(usuario == 2) {
 					VerticalLayout vl = Administrador.v1;
 					vl.removeAll();
-					vl.add(Administrador.vpp);
+					vl.add(vlrp);
 				}
 				
 			}
 		});
 		
 	}
+
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
 	}

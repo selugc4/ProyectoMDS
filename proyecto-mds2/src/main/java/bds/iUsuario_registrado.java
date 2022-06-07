@@ -1,8 +1,10 @@
 package bds;
 
+import basededatos.Usuario_Registrado;
+
 public interface iUsuario_registrado {
 
-	public void cargar_Perfil(String aCorreo);
+	public Usuario_Registrado cargar_Perfil(int id);
 
 	public void modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo);
 

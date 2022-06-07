@@ -16,7 +16,7 @@ public class Listas_de_reproduccion extends vistas.VistaListas_de_reproduccion {
 	
 	private iActor_comun iac = new BDPrincipal();
 	public ArrayList<Lista_de_reproduccion> lista = new ArrayList<Lista_de_reproduccion>();
-	
+
 	public Listas_de_reproduccion(String valor) {
 		this.getStyle().set("width", "100%");
 		Cargar_ListasReproduccion(valor);		
@@ -29,7 +29,21 @@ public class Listas_de_reproduccion extends vistas.VistaListas_de_reproduccion {
 			this.lista.add(new Lista_de_reproduccion(lista));
 		}
 		}
-		mostrarLista();
+	}
+	public Listas_de_reproduccion() {
+		
+	}
+	public Listas_de_reproduccion(int usuario) {
+		this.getStyle().set("width", "100%");
+		Cargar_ListasReproduccion(usuario);		
+	}	
+	
+	public void Cargar_ListasReproduccion(int usuario) {
+		ArrayList<Lista_de_reproduccion> aux = new ArrayList<Lista_de_reproduccion>();
+		Lista_Reproduccion[] listas = iac.cargar_Listas_Reproduccion();
+		for(Lista_Reproduccion lista : listas) {
+			this.lista.add(new Lista_de_reproduccion(lista));
+		}
 	}
 
 	private void mostrarLista() {
