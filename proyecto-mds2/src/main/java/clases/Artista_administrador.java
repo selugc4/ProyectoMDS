@@ -24,7 +24,7 @@ public class Artista_administrador extends ArtistaBuscador{
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout v1 = Usuario_registrado.v1;
 				v1.removeAll();
-				_ver_perfil_propio_de_artista = new Ver_perfil_propio_de_artista();
+				_ver_perfil_propio_de_artista = new Ver_perfil_propio_de_artista(artista.getID());
 				v1.add(_ver_perfil_propio_de_artista);
 				Usuario_registrado.v2.setVisible(false);
 			}

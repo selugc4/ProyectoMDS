@@ -53,9 +53,9 @@ public interface iAdministrador {
 
 	public void Eliminar_lista(int aIdLista);
 
-	public void Modificar_Cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos);
+	public void Modificar_Cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos, String aTitulo_Album);
 
-	public void Modificar_album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, Imagen aImagen, Artista[] aArtistas);
+	public void Modificar_album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, String aImagen, Artista[] aArtistas);
 
 	public void Modificar_Estilo(int aIdEstilo, String aNombre);
 

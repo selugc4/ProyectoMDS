@@ -77,6 +77,14 @@ public class VistaVista_modificar_album extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout8;
 	@Id("vaadinHorizontalLayout9")
 	private HorizontalLayout vaadinHorizontalLayout9;
+	@Id("verticalListado")
+	private Element verticalListado;
+	@Id("vaadinButton")
+	private Button vaadinButton;
+	@Id("vaadinButton1")
+	private Button vaadinButton1;
+	@Id("vaadinButton2")
+	private Button vaadinButton2;
 
 
 	/**
@@ -301,6 +309,38 @@ public class VistaVista_modificar_album extends LitTemplate {
 
 	public void setVaadinHorizontalLayout9(HorizontalLayout vaadinHorizontalLayout9) {
 		this.vaadinHorizontalLayout9 = vaadinHorizontalLayout9;
+	}
+
+	public Element getVerticalListado() {
+		return verticalListado;
+	}
+
+	public void setVerticalListado(Element verticalListado) {
+		this.verticalListado = verticalListado;
+	}
+
+	public Button getVaadinButton() {
+		return vaadinButton;
+	}
+
+	public void setVaadinButton(Button vaadinButton) {
+		this.vaadinButton = vaadinButton;
+	}
+
+	public Button getVaadinButton1() {
+		return vaadinButton1;
+	}
+
+	public void setVaadinButton1(Button vaadinButton1) {
+		this.vaadinButton1 = vaadinButton1;
+	}
+
+	public Button getVaadinButton2() {
+		return vaadinButton2;
+	}
+
+	public void setVaadinButton2(Button vaadinButton2) {
+		this.vaadinButton2 = vaadinButton2;
 	}
 
 }

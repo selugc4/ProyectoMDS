@@ -4,6 +4,8 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import basededatos.Cancion;
+import bds.BDPrincipal;
+import bds.iAdministrador;
 
 public class Cancion_administrador extends vistas.VistaCancion_administrador {
 //	private Label _titulo_CancionL;
@@ -15,7 +17,7 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 //	public Canciones_administrador _canciones_administrador;
 //	public Vista_modificar_cancion _vista_modificar_cancion;
 	
-	public Vista_modificar_cancion vmc = new Vista_modificar_cancion();
+	public Vista_modificar_cancion vmc;
 	
 	public Cancion_administrador() {
 		this.getStyle().set("width", "100%");
@@ -35,8 +37,15 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Administrador.v1.removeAll();
+				vmc = new Vista_modificar_cancion(cancion.getIdCancion());
 				Administrador.v1.add(vmc);
 				
+			}
+		});
+		this.getVaadinButton3().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Eliminar_cancion(cancion.getIdCancion());
 			}
 		});
 	}
@@ -49,9 +58,10 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 //		throw new UnsupportedOperationException();
 //	}
 //
-//	public void Eliminar_cancion() {
-//		throw new UnsupportedOperationException();
-//	}
+	public void Eliminar_cancion(int id) {
+		iAdministrador iadmin = new BDPrincipal();
+		iadmin.eliminar_Cancion(id);
+	}
 //
 //	public void Ventana_Modificar_Cancion() {
 //		throw new UnsupportedOperationException();

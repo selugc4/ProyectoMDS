@@ -13,10 +13,7 @@ public class Album_administrador extends Album {
 //	private Button _eliminar_AlbumB;
 //	private Button _modificar_AlbumB;
 //	public Albumes_administrador _albumes_administrador;
-//	public Vista_modificar_album _vista_modificar_album;
-	
-	
-	public Vista_modificar_album vma = new Vista_modificar_album();
+	public Vista_modificar_album _vista_modificar_album;
 	
 	
 	public Album_administrador (basededatos.Album album) {
@@ -44,7 +41,8 @@ public class Album_administrador extends Album {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Administrador.v1.removeAll();
-				Administrador.v1.add(_vista_album);
+				_vista_modificar_album = new Vista_modificar_album(album.getIdAlbum());
+				Administrador.v1.add(_vista_modificar_album);
 				Administrador.v2.setVisible(false);
 				
 			}

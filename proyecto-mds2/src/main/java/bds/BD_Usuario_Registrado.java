@@ -23,6 +23,8 @@ import clases.Cibernauta;
 import clases.Ver_estadisticas;
 import basededatos.Imagen;
 import basededatos.ImagenDAO;
+import basededatos.Lista_Reproduccion;
+import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
 import proyectoMDS2.MainView;
@@ -153,8 +155,42 @@ public class BD_Usuario_Registrado {
 		}		
 	}
 
-	public void Eliminar_usuario(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void Eliminar_usuario(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
+			usuario.favorita.clear();
+//			Cancion[] cancionesf = usuario.favorita.toArray();
+//			for(Cancion cancion: cancionesf) {
+//				cancion.favorita_de.remove(usuario);
+//			}
+			usuario.horass.clear();
+			usuario.propietario.clear();
+			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				lista.seguidor.clear();
+				lista.contiene_cancion.clear();
+				Cancion[] cancionesl = lista.contiene_cancion.toArray();
+				for(Cancion cancionl: cancionesl) {
+					cancionl.contendor_cancion.remove(lista);
+				}
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			usuario.recibe_notificacion.clear();
+//			Evento[]evento = usuario.recibe_notificacion.toArray();
+			usuario.seguido.clear();
+			usuario.seguidor_usuario.clear();
+			usuario.seguir.clear();
+			usuario.ultimo_exito.clear();
+			if(usuario.getTipoUsuario()==0) {
+				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
+			}
+			UsuarioDAO.delete(usuario);
+			ImagenDAO.delete(usuario.getContiene_imagen());
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 	public void Seguir_Usuario(String aCorreoSeguidor, String aCorreoSeguido) {

@@ -1,4 +1,21 @@
 package clases;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.commons.io.FileUtils;
+
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+
+import bds.BDPrincipal;
+import bds.iAdministrador;
+
 public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion {
 //	private Button _modificar_Archivo_MultimediaB;
 //	private Button _modificar_CancionB;
@@ -21,15 +38,68 @@ public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion
 //	private Label _titulo_Modificar_CancionL;
 //	public Cancion_administrador _cancion_administrador;
 
-	public void volverAtras() {
-		throw new UnsupportedOperationException();
-	}
+	private String archivo;
+	private InputStream fileData;
+	private String fileName;
+	public Vista_modificar_cancion(int idCancion) {
+		String separator = System.getProperty("file.separator");
+		String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"canciones"+separator;
+		
+		iAdministrador iadmin = new BDPrincipal();
+		
+		this.getStyle().set("width", "100%");
+		MemoryBuffer mbuf = new MemoryBuffer();
+		
+		this.getVaadinUpload().setReceiver(mbuf);	
+		this.getVaadinUpload().addSucceededListener(event ->{
 
-	public void Modificar_cancion() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Modificar_archivo_multimedia() {
-		throw new UnsupportedOperationException();
+			
+			fileData = mbuf.getInputStream();
+		    fileName = event.getFileName();		    
+		    
+		});
+		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if(getVaadinTextField().isEmpty()) {
+					Notification.show("El campo titulo no puede ser vacío. El resto sí.");
+				}else if(fileName == null || fileData == null ) {
+					Notification.show("No se ha agregado el archivo");
+				}else {
+				File ruta = new File(rutaArchivo + fileName);
+			    try {
+					FileUtils.copyInputStreamToFile(fileData, ruta);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		  
+			
+				archivo = fileName; 
+				anadirCancion();
+				
+				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+				vl.removeAll();
+				vl.add(new Menu_dar_alta());
+				Notification.show("Cancion modificada con exito");
+				
+				
+			}
+			}
+			private void anadirCancion() {
+				String titulo = getVaadinTextField().getValue();
+				String tituloC = getVaadinTextField1().getValue();
+				String tituloAlbum = getVaadinTextField2().getValue();
+				String compositores = getVaadinTextArea().getValue();
+				String productores =  getVaadinTextArea1().getValue();
+				String interpretes =  getVaadinTextArea().getValue();
+				
+				
+				String archivomultimedia = archivo;
+				iadmin.Modificar_Cancion(idCancion, archivomultimedia, interpretes, productores, compositores, titulo, tituloC, tituloAlbum);
+			}
+			
+		
+		});
 	}
 }

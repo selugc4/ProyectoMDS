@@ -18,7 +18,7 @@ export class VistaUsuario extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout1">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
-   <img style="width: 125px; height: 125px;" src="https://electronicssoftware.net/wp-content/uploads/user.png" id="img">
+   <img id="img" style="width: 125px; height: 125px;">
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="align-items: center;" id="vaadinHorizontalLayout1">
    <label id="label">Usuario</label>

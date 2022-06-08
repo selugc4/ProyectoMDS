@@ -79,6 +79,33 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='+usuario'", null);
+			usuario.favorita.clear();
+//			Cancion[] cancionesf = usuario.favorita.toArray();
+//			for(Cancion cancion: cancionesf) {
+//				cancion.favorita_de.remove(usuario);
+//			}
+			usuario.horass.clear();
+			usuario.propietario.clear();
+			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				lista.seguidor.clear();
+				lista.contiene_cancion.clear();
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			usuario.recibe_notificacion.clear();
+//			Evento[]evento = usuario.recibe_notificacion.toArray();
+			usuario.seguido.clear();
+			usuario.seguidor_usuario.clear();
+			usuario.seguir.clear();
+			usuario.ultimo_exito.clear();
+			UsuarioDAO.delete(usuario);
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 }

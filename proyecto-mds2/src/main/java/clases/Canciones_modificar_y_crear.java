@@ -2,12 +2,16 @@ package clases;
 
 import java.util.ArrayList;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import basededatos.Album;
+import basededatos.AlbumDAO;
 
 public class Canciones_modificar_y_crear extends vistas.VistaCanciones_modificar_y_crear{
 //	public Modificar_y_crear_lista _modificar_y_crear_lista;
@@ -21,7 +25,15 @@ public class Canciones_modificar_y_crear extends vistas.VistaCanciones_modificar
 		this.getStyle().set("width", "100%");
 
 	}
-	
+	public Canciones_modificar_y_crear(int id, String string) {
+		this.getStyle().set("width", "100%");
+		try {
+			basededatos.Cancion[]cancion = AlbumDAO.getAlbumByORMID(id).contiene_cancion.toArray();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public Canciones_modificar_y_crear(int tipo) {
 		this.getStyle().set("width", "100%");
 

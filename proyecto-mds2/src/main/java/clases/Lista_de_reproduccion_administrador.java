@@ -14,7 +14,7 @@ public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 //	private Button _eliminar_ListaB;
 //	private Button _modificar_ListaB;
 //	public Listas_de_reproduccion_administrador _listas_de_reproduccion_administrador;
-//	public Edicion_de_lista _edicion_de_lista;
+	public Edicion_de_lista _edicion_de_lista;
 	public Lista_de_reproduccion_administrador(Lista_Reproduccion lista) {
 		super(lista);
 		super.cambiarVisibilidad();
@@ -23,9 +23,9 @@ public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout aux = Usuario_registrado.v1;
-				vldr = new Ver_lista_de_Reproduccion(lista.getIdLista(), lista.getNombreLista());
+				_edicion_de_lista = new Edicion_de_lista(Administrador.ID, 1, lista.getIdLista());
 				aux.removeAll();
-				aux.add(vldr);
+				aux.add(_edicion_de_lista);
 				Usuario_registrado.v2.setVisible(false);
 			}
 		});

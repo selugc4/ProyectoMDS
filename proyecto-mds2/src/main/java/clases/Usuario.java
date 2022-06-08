@@ -9,6 +9,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_Registrado;
+import bds.BDPrincipal;
+import bds.iAdministrador;
 
 public class Usuario extends vistas.VistaUsuario{
 //	private Button _modificar_UsuarioB;
@@ -22,8 +24,8 @@ public class Usuario extends vistas.VistaUsuario{
 	public Usuario(Usuario_Registrado usuario) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(usuario.getNombre());
-		vpp = new Ver_perfil_propio(usuario.getNombre());
-		
+		vpp = new Ver_perfil_propio_usuario_registrado(usuario.getID());
+		this.getImg().setSrc("imagenes/" + usuario.getContiene_imagen().getUrl());
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -45,8 +47,9 @@ public class Usuario extends vistas.VistaUsuario{
 					
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
+						Eliminar_usuario(usuario.getCorreo());
 						diag.close();
-						Notification.show("Estilo eliminado");
+						Notification.show("Usuario eliminado");
 						
 					}
 				});
@@ -68,8 +71,8 @@ public class Usuario extends vistas.VistaUsuario{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				Vista_buscador_usuarios.vl.removeAll();
-				Vista_buscador_usuarios.vl.add(vpp);
+				Administrador.v1.removeAll();
+				Administrador.v1.add(vpp);
 			}
 		});
 
@@ -82,9 +85,8 @@ public class Usuario extends vistas.VistaUsuario{
 //		throw new UnsupportedOperationException();
 //	}
 //
-//	public void Eliminar_usuario() {
-//		throw new UnsupportedOperationException();
-//	}
-	
-	
+	public void Eliminar_usuario(String correo) {
+		iAdministrador iadmin = new BDPrincipal();
+		iadmin.Eliminar_usuario(correo);
+	}
 }

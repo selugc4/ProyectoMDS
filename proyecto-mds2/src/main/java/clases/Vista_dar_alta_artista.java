@@ -146,6 +146,10 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 					Notification.show("Contraseñas iguales");
 				}else {
 					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivoFinal);
+					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+					vl.removeAll();
+					vl.add(new Menu_dar_alta());
+					Notification.show("Artista agregado con exito");
 				}	
 			}
 		});

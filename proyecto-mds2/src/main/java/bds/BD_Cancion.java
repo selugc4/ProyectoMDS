@@ -255,11 +255,37 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminar_Cancion(int aIdCancion) {
-		throw new UnsupportedOperationException();
+	public void eliminar_Cancion(int aIdCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			cancion.contendor_cancion.clear();
+			cancion.favorita_de.clear();
+			cancion.horass.clear();
+			Lista_Reproduccion[]listas = cancion.contendor_cancion.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				lista.contiene_cancion.remove(cancion);
+			}
+			CancionDAO.delete(cancion);
+			t.commit();
+		}catch (Exception e) {
+			t.rollback();
+		}
 	}
 
-	public void Modificar_cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos) {
-		throw new UnsupportedOperationException();
+	public void Modificar_cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCredito, String aTitulo_Album) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion cancion = CancionDAO.loadCancionByORMID(aIdCancion);
+			cancion.setArchivoMultimedia(aArchivoMultimedia);
+			cancion.setCompositores(aCompositores);
+			cancion.setIntepretes(aInterpretes);
+			cancion.setProductores(aProductores);
+			cancion.setTitulo(aTitulo);
+			cancion.setTituloCreditos(aTituloCredito+ "\n" + aTitulo_Album);
+			t.commit();
+		}catch (Exception e) {
+			t.rollback();
+		}
 	}
 }

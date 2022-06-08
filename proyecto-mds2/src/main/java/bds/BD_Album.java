@@ -1,5 +1,6 @@
 package bds;
 
+import java.time.LocalDate;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -79,8 +80,28 @@ public class BD_Album {
 		}
 	}
 
-	public void Modificar_Album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, Imagen aImagen, Artista[] aArtistas) {
-		throw new UnsupportedOperationException();
+	public void Modificar_Album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, String aImagen, Artista[] aArtistas) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album album = AlbumDAO.loadAlbumByORMID(aIdAlbum);
+			album.setTitutloAlbum(aTituloAlbum);
+			Imagen img = ImagenDAO.createImagen();
+			img.setUrl(aImagen);
+			ImagenDAO.save(img);
+			album.setContiene_imagen(img);	
+			for (int i = 0; i < aArtistas.length;i++) {
+				album.autor.add(aArtistas[i]);
+			}
+			
+			for(int i = 0; i< aCanciones.length; i++) {
+				album.contiene_cancion.add(aCanciones[i]);
+			}
+				t.commit();
+		}
+		catch (Exception e) {
+			t.rollback();
+		}
+
 	}
 
 	public Album[] cargar_Albumes_Admin(String aNombre) throws PersistentException {

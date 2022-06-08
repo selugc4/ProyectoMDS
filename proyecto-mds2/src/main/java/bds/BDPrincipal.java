@@ -497,7 +497,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Eliminar_usuario(String aCorreo) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_usuario_registrado.Eliminar_usuario(aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar_Album(int aIdAlbum) {
@@ -519,19 +524,31 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void eliminar_Cancion(int aIdCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_cancion.eliminar_Cancion(aIdCancion);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_lista(int aIdLista) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Modificar_Cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos) {
-		throw new UnsupportedOperationException();
+	public void Modificar_Cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos, String aTitulo_Album) {
+		try {
+			_bd_cancion.Modificar_cancion(aIdCancion, aArchivoMultimedia, aInterpretes, aProductores, aCompositores, aTitulo, aTituloCreditos, aTitulo_Album);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void Modificar_album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, Imagen aImagen, Artista[] aArtistas) {
-		throw new UnsupportedOperationException();
+	public void Modificar_album(int aIdAlbum, String aTituloAlbum, Cancion[] aCanciones, String aImagen, Artista[] aArtistas) {
+		try {
+			_bd_album.Modificar_Album(aIdAlbum, aTituloAlbum, aCanciones, aImagen, aArtistas);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void Modificar_Estilo(int aIdEstilo, String aNombre) {

@@ -1,7 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-vista_modificar_album')
 export class VistaVista_modificar_album extends LitElement {
@@ -39,10 +39,10 @@ export class VistaVista_modificar_album extends LitElement {
    <vaadin-horizontal-layout style="width: 60%; flex-direction: row; align-items: center; justify-content: space-between;" id="vaadinHorizontalLayout6">
     <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout2">
      <label style="flex-shrink: 1; width: 100%;" id="label4">Imagen</label>
-     <vaadin-upload id="vaadinUpload"></vaadin-upload>
+     <vaadin-upload id="vaadinUpload" style="width: 90%;"></vaadin-upload>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout3">
-     <img style="width: 125px; height: 125px;" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_UAL_Transparente.png" id="img">
+     <img id="img" style="width: 125px; height: 125x;">
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 75%; align-items: center; flex-direction: row; justify-content: space-between;" id="vaadinHorizontalLayout7">
@@ -51,6 +51,7 @@ export class VistaVista_modificar_album extends LitElement {
       Añadir Canción 
     </vaadin-button>
    </vaadin-horizontal-layout>
+   <vaadin-vertical-layout theme="spacing" id="verticalListado" style="width: 100%;"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="align-items: center; width: 100%; justify-content: flex-end;" id="vaadinVerticalLayout4">
    <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout5">
