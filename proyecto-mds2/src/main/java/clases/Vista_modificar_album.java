@@ -45,7 +45,7 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 //	public Canciones_anadidas_para_album _canciones_anadidas_contenedor;
 //	public Buscador_cancion_para_album _buscador_cancion_para_album;
 	public static Canciones_modificar_y_crear canciones;
-	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album();
+	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album(2);
 	private InputStream fileData;
 	private String fileName;
 	private File ruta;
@@ -53,12 +53,13 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 	String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"imagenes"+separator;
 	String rutaArchivoFinal;
 	private String fechaedicion;
+	public VerticalLayout vl = getVerticalListado().as(VerticalLayout.class);
 	public Vista_modificar_album(int id) {
-		canciones = new Canciones_modificar_y_crear(id, "");
+		canciones = new Canciones_modificar_y_crear(id, 2);
+		canciones.actualizar();
 		iAdministrador iadmin = new BDPrincipal();
 		MemoryBuffer mbuf = new MemoryBuffer();
-		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);
-		VerticalLayout vl = getVerticalListado().as(VerticalLayout.class);	
+		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);	
 		vl.add(canciones);
 		
 		File imagenDefault = new File(rutaArchivo+"fotoalbum.png");
@@ -72,7 +73,6 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 			image.getStyle().set("width", "125px");
 			vertical.add(image);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
 		

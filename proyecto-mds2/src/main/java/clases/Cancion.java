@@ -31,7 +31,7 @@ public class Cancion extends vistas.VistaCancion{
 							Creacion_lista.cmc.actualizar();
 							}
 					}
-				}else {
+				}else if(tipo == 1){
 					for(Cancion cancion: Edicion_de_lista.cmc._canciones) {
 						if(cancion.getLabel().getText().equals(getLabel().getText())) {
 							Notification.show("Eliminada");
@@ -40,7 +40,26 @@ public class Cancion extends vistas.VistaCancion{
 							}
 					}
 				}
-					
+				else if(tipo == 3) {
+					for(Cancion cancion: Vista_dar_alta_album.canciones._canciones) {
+						if(cancion.getLabel().getText().equals(getLabel().getText())) {
+							Notification.show("Eliminada");
+							Vista_dar_alta_album.canciones._canciones.remove(cancion);
+							break;
+						}
+					}
+					Vista_dar_alta_album.canciones.actualizar();
+				}
+				else {
+					for(Cancion cancion: Vista_modificar_album.canciones._canciones) {
+						if(cancion.getLabel().getText().equals(getLabel().getText())) {
+							Notification.show("Eliminada");
+							Vista_modificar_album.canciones._canciones.remove(cancion);
+							break;
+						}
+					}
+					Vista_modificar_album.canciones.actualizar();
+				}					
 			}
 
 		});

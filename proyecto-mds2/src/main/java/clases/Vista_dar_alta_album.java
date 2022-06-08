@@ -69,8 +69,8 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public static Canciones_modificar_y_crear canciones = new Canciones_modificar_y_crear();
-	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album();
+	public static Canciones_modificar_y_crear canciones;
+	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album(0);
 	private InputStream fileData;
 	private String fileName;
 	private File ruta;
@@ -82,6 +82,7 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 	
 	
 	public Vista_dar_alta_album() {
+		canciones = new Canciones_modificar_y_crear(3);
 		iAdministrador iadmin = new BDPrincipal();
 		MemoryBuffer mbuf = new MemoryBuffer();
 		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);

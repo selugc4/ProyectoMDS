@@ -92,7 +92,11 @@ public class BD_Album {
 			for (int i = 0; i < aArtistas.length;i++) {
 				album.autor.add(aArtistas[i]);
 			}
-			
+			album.contiene_cancion.clear();
+			Cancion[]canciones = album.contiene_cancion.toArray();
+			for(Cancion cancion: canciones) {
+				album.contiene_cancion.remove(cancion);
+			}
 			for(int i = 0; i< aCanciones.length; i++) {
 				album.contiene_cancion.add(aCanciones[i]);
 			}

@@ -16,26 +16,39 @@ public class Cancion_para_album extends vistas.VistaCancion_para_album{
 //	private Label _titulo_CancionL;
 //	private Button _anadir_cancion_a_albumB;
 //	public Canciones_para_album _canciones_para_album;
-
+public int tipo;
 	public Cancion_para_album() {
 		
 	}
-	public Cancion_para_album(String texto, int iD) {
+	public Cancion_para_album(String texto, int iD, int tipo) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(texto);
+		this.tipo = tipo;
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-//				boolean nocontiene = true;
-//				for(Cancion cancion: Vista_dar_alta_album.canciones._canciones) {
-//					if(cancion.getLabel().toString().equals(texto)) {
-//						nocontiene = false;
-//					}
-//				}
-//				if(nocontiene == true) {
+				boolean nocontiene = true;
+				if(tipo == 0) {
+				for(Cancion cancion: Vista_dar_alta_album.canciones._canciones) {
+					if(cancion.getLabel().toString().equals(texto)) {
+						nocontiene = false;
+					}
+				}
+				if(nocontiene == true) {
 					Vista_dar_alta_album.canciones.agregarCancion(getLabel().getText(), iD);
-//				}
+				}
+				}
+				else {
+					for(Cancion cancion: Vista_modificar_album.canciones._canciones) {
+						if(cancion.getLabel().toString().equals(texto)) {
+							nocontiene = false;
+						}
+				}
+					if(nocontiene == true) {
+						Vista_modificar_album.canciones.agregarCancion(getLabel().getText(), iD);
+					}
+				}
 			}});
 		
 		

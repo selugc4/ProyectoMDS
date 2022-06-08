@@ -13,13 +13,13 @@ public class Canciones_para_album extends vistas.VistaCanciones_para_album {
 //	public Vector<Cancion_para_album> _cancion_para_album = new Vector<Cancion_para_album>();
 	
 	public ArrayList<Cancion_para_album> canciones = new ArrayList<Cancion_para_album>();
-	
-	public Canciones_para_album() {
+	public int tipo;
+	public Canciones_para_album(int tipo) {
 		this.getStyle().set("width", "100%");
-		
+		this.tipo = tipo;
 	}
 	
-	public Canciones_para_album(String texto) throws PersistentException {
+	public Canciones_para_album(String texto, int tipo) throws PersistentException {
 		this.getStyle().set("width", "100%");
 		buscarCanciones(texto);
 		
@@ -27,7 +27,7 @@ public class Canciones_para_album extends vistas.VistaCanciones_para_album {
 
 	private void buscarCanciones(String texto) throws PersistentException {
 		for(basededatos.Cancion cancion: CancionDAO.listCancionByQuery("Titulo='"+texto+"'", null)) {
-			canciones.add(new Cancion_para_album(cancion.getTitulo(), cancion.getIdCancion()));
+			canciones.add(new Cancion_para_album(cancion.getTitulo(), cancion.getIdCancion(), tipo));
 		}
 	}
 

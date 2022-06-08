@@ -22,9 +22,10 @@ public class Buscador_cancion_para_album extends vistas.VistaBuscador_cancion_pa
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public Canciones_para_album cpa = new Canciones_para_album();
+	public Canciones_para_album cpa;
 	
-	public Buscador_cancion_para_album() {
+	public Buscador_cancion_para_album(int tipo) {
+		cpa =  new Canciones_para_album(tipo);
 		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(cpa);
 		this.getStyle().set("width", "100%");

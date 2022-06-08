@@ -25,10 +25,14 @@ public class Canciones_modificar_y_crear extends vistas.VistaCanciones_modificar
 		this.getStyle().set("width", "100%");
 
 	}
-	public Canciones_modificar_y_crear(int id, String string) {
+	public Canciones_modificar_y_crear(int id, int tipo) {
 		this.getStyle().set("width", "100%");
+			this.tipo = tipo;
 		try {
-			basededatos.Cancion[]cancion = AlbumDAO.getAlbumByORMID(id).contiene_cancion.toArray();
+			basededatos.Cancion[]canciones = AlbumDAO.getAlbumByORMID(id).contiene_cancion.toArray();
+			for(basededatos.Cancion cancion: canciones) {
+				_canciones.add(new Cancion(cancion.getTitulo(), cancion.getORMID(), tipo));
+			}
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
