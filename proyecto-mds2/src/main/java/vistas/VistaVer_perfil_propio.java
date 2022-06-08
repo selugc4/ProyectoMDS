@@ -87,6 +87,10 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	private Label label;
 	@Id("img")
 	private Image img;
+	@Id("vaadinHorizontalLayout6")
+	private HorizontalLayout vaadinHorizontalLayout6;
+	@Id("vaadinVerticalLayout2")
+	private Element vaadinVerticalLayout2;
 	/**
      * Creates a new VistaVer_perfil_propio.
      */
@@ -357,6 +361,24 @@ public class VistaVer_perfil_propio extends LitTemplate {
 	public void setVerticalConciertos(Element verticalConciertos) {
 		this.verticalConciertos = verticalConciertos;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout6() {
+		return vaadinHorizontalLayout6;
+	}
+
+	public void setVaadinHorizontalLayout6(HorizontalLayout vaadinHorizontalLayout6) {
+		this.vaadinHorizontalLayout6 = vaadinHorizontalLayout6;
+	}
+
+	public Element getVaadinVerticalLayout2() {
+		return vaadinVerticalLayout2;
+	}
+
+	public void setVaadinVerticalLayout2(Element vaadinVerticalLayout2) {
+		this.vaadinVerticalLayout2 = vaadinVerticalLayout2;
+	}
+	
+	
 	
 	
 	

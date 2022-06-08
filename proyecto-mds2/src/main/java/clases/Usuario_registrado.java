@@ -27,6 +27,9 @@ public class Usuario_registrado extends Actor_comun {
 		super(iD);
 
 		crearElementos();
+		cur = new Cabecera_usuario_registrado();
+		vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+		
 		this.getVaadinHorizontalLayout().add(cur);
 		
 
@@ -46,31 +49,31 @@ public class Usuario_registrado extends Actor_comun {
 		}); 
 		
 		
-//		//NOTIFICACIONES
-//		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				Dialog diag = new Dialog(cur.getNotif());
-//				diag.setDraggable(true);
-//				diag.open();
-//				
-//				cur.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//					
-//					@Override
-//					public void onComponentEvent(ClickEvent<Button> event) {
-//						VerticalLayout vl = cur.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
-//						cur.getNotif()._notificacion.remove(t);
-//						vl.remove(t);
-//						cur.getNotif().eliminarNotificacion();
-//						if(cur.getNotif()._notificacion.size() == 0) {
-//							diag.close();
-//						}
-//						
-//						
-//					}
-//				}));
-//			}
-//		});
+		//NOTIFICACIONES
+		cur.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Dialog diag = new Dialog(cur.getNotif());
+				diag.setDraggable(true);
+				diag.open();
+				
+				cur.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						VerticalLayout vl = cur.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
+						cur.getNotif()._notificacion.remove(t);
+						vl.remove(t);
+						cur.getNotif().eliminarNotificacion();
+						if(cur.getNotif()._notificacion.size() == 0) {
+							diag.close();
+						}
+						
+						
+					}
+				}));
+			}
+		});
 		
 		//PERFIL PROPIO
 		cur.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -116,41 +119,31 @@ public class Usuario_registrado extends Actor_comun {
 					}
 				});
 				
-//	
-//		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				v1.removeAll();
-//				v1.add(cucr);
-//				v1.add(ccf);
-//				v1.add(cr);
-//				v1.add(clr);
-//				v2.setVisible(true);	
-//				
-//			}
-//		});
-//		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//		
-//		@Override
-//		public void onComponentEvent(ClickEvent<Button> event) {
-//			v1.removeAll();
-//			v1.add(ve);
-//			v2.setVisible(false);	
-//			
-//		}
-//	});
-//	}
 	
-	}
-
-	private void crearElementos() {
-		cur = new Cabecera_usuario_registrado();
-		cucr = new ContenedorUltimas_canciones_reproducidas();
-		ccf = new ContenedorCanciones_favoritas();
-		cr = new ContenedorRecomendaciones();
-		clr = new ContenedorListasReproduccion(0);
-		vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+				v2.setVisible(true);	
+				
+			}
+		});
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 		
+		@Override
+		public void onComponentEvent(ClickEvent<Button> event) {
+			v1.removeAll();
+			v1.add(ve);
+			v2.setVisible(false);	
+			
+		}
+	});
 	}
+	
+	
 }

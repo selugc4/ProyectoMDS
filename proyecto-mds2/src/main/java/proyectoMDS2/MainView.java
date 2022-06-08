@@ -1,12 +1,15 @@
 package proyectoMDS2;
 
 import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.component.textfield.TextField;
@@ -14,11 +17,14 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.spring.annotation.EnableVaadin;
 
+import bds.BDPrincipal;
+import bds.iUsuario_registrado;
 import clases.Administrador;
 import clases.Artista;
 import clases.Cibernauta;
 import clases.Iniciar_sesion;
 import clases.Usuario_registrado;
+import clases.Ver_perfil_propio_usuario_registrado;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -51,57 +57,114 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
-	public static int usuario;
+	public static int usuario = 0;
 	public static int ID;
+	private iUsuario_registrado iur = new BDPrincipal();
     public MainView() {
-//    	this.getStyle().set("width", "100%");
-//    	Cibernauta ciber = new Cibernauta();
-//    	add(ciber);
-    	Administrador admin = new Administrador(4);
-    	add(admin);
-//    
-//    	Iniciar_sesion is = ciber.getCc().getIs();
-//    	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//			
-//			@Override
-//			public void onComponentEvent(ClickEvent<Button> event) {
-//				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
-//					ciber.iniciarSesion();
-//					if(usuario == 0) {
-//						Usuario_registrado user = new Usuario_registrado(ID);
-//						remove(ciber);				
-//						add(user);
-//						is = new Iniciar_sesion();
-//					}else if(usuario == 1) {
-//						Artista artista = new Artista(ID);
-//						remove(ciber);
-//						add(artista);
-//						is = new Iniciar_sesion();
-//					}else if(usuario == 2) {
-//						Administrador admin = new Administrador(ID);
-//						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//							@Override
-//								public void onComponentEvent(ClickEvent<Button> event) {
-//								remove(admin);
-//								ciber.ue.Cargar_Ultimos_Exitos();
-//								add(ciber);
-//								}		
-//							});
-//						
-//						remove(ciber);
-//						add(admin);
-//						is = new Iniciar_sesion();
-//					}else
-//						Notification.show("Usuario o contraseña incorrectos");
-//				
-//					
-//				}else
-//					Notification.show("Usuario o contraseña incorrectos");
-//				
-//			}
-//		});
-//    }
-//    	
+    	this.getStyle().set("width", "100%");
+    	Cibernauta ciber = new Cibernauta();
+    	add(ciber);
+
+    
+    	Iniciar_sesion is = ciber.getCc().getIs();
+    	is.getButtonLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+    		@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if(is.comprobarUsuario(is.getTfUsuario().getValue(), is.getTfPass().getValue())) {
+					ciber.iniciarSesion();
+					if(usuario == 0) {
+						Usuario_registrado user = new Usuario_registrado(ID);
+						user.cur.vpp.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								Dialog diag = new Dialog();
+				 				VerticalLayout vl = new VerticalLayout();
+				 				HorizontalLayout hl = new HorizontalLayout();
+				 				Button botonsi = new Button("Si");
+				 				Button botonno = new Button("No");
+				 				hl.add(botonsi, botonno);
+				 				vl.add("Está seguro de darse de baja?");
+				 				vl.add(hl);
+				 				
+				 				diag.add(vl);
+				 				diag.open();
+				 				
+				 				botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				 					
+				 					@Override
+				 					public void onComponentEvent(ClickEvent<Button> event) {
+				 						diag.close();
+				 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
+										ciber.ue.Cargar_Ultimos_Exitos();
+										remove(user);
+										add(ciber);
+				 						Notification.show("Dado de baja");
+				 						
+				 						
+				 					}
+				 				});
+				 				
+				 				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				 					
+				 					@Override
+				 					public void onComponentEvent(ClickEvent<Button> event) {
+				 							diag.close();
+				 							
+				 						
+				 					}
+				 				});
+								
+							}
+						});
+						
+						user.cur.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								remove(user);
+								ciber.ue.Cargar_Ultimos_Exitos();
+								add(ciber);
+							}
+						});
+						remove(ciber);				
+						add(user);
+						
+					}else if(usuario == 1) {
+						Artista artista = new Artista(ID);
+						remove(ciber);
+						add(artista);
+					}else if(usuario == 2) {
+						Administrador admin = new Administrador(ID);	
+						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+								public void onComponentEvent(ClickEvent<Button> event) {
+								remove(admin);
+								ciber.ue.Cargar_Ultimos_Exitos();
+								add(ciber);
+								}		
+							});
+						remove(ciber);
+						add(admin);
+					}else
+						Notification.show("Usuario o contraseña incorrectos");
+				
+					is.getTfUsuario().clear();
+					is.getTfPass().clear();
+					
+				}else
+					Notification.show("Usuario o contraseña incorrectos");
+				
+			}
+    	});
+
+			
+	
+    
+    
+
+    	
 //    	Administrador admin = new Administrador(6);
 //    	add(admin);
 //		

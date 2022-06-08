@@ -1,5 +1,7 @@
 package bds;
 
+import clases.Artista;
+
 public interface iArtista {
 
 	public void cargar_Albumes_Artista(String aCorreo);
@@ -21,4 +23,5 @@ public interface iArtista {
 	public void Seguir_artista(String aCorreoSeguidor, String aCorreoSeguido);
 
 	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento);
+
 }

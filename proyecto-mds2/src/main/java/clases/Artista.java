@@ -9,14 +9,15 @@ import com.vaadin.flow.component.html.Image;
 public class Artista extends Actor_comun {
 //	public Cabecera_artista _cabecera_artista;
 	
-	public static Cabecera_artista ca = new Cabecera_artista();
-	public static Ver_perfil_propio_de_artista vppa = new Ver_perfil_propio_de_artista("Artista");
+	public static Cabecera_artista ca;
+	public static Ver_perfil_propio_de_artista vppa;
 	
 	public Artista(int iD) {
-		clr= new ContenedorListasReproduccion(1);
+		super(iD);
 		this.ID = iD;
-
-		this.v1.add(clr);
+	
+		ca = new Cabecera_artista();
+		vppa = new Ver_perfil_propio_de_artista(iD);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout().add(ca);
 				
@@ -24,6 +25,7 @@ public class Artista extends Actor_comun {
 		ca.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {					
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
+				crearElementos();
 				v1.removeAll();
 				v1.add(cucr);
 				v1.add(ccf);
@@ -32,15 +34,15 @@ public class Artista extends Actor_comun {
 				v2.setVisible(true);	
 			}
 		}); 	
-//		//NOTIFICACIONES
-//		ca.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-//				@Override
-//				public void onComponentEvent(ClickEvent<Button> event) {
-//					Dialog diag = new Dialog(ca.getNotif());
-//					diag.setDraggable(true);
-//					diag.open();
-//				}
-//			});
+		//NOTIFICACIONES
+		ca.getBotonNotificaciones().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					Dialog diag = new Dialog(ca.getNotif());
+					diag.setDraggable(true);
+					diag.open();
+				}
+			});
 				
 		//PERFIL PROPIO
 		ca.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -59,6 +61,20 @@ public class Artista extends Actor_comun {
 			v2.setVisible(false);
 					
 		});
+		
+		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+				v2.setVisible(true);	
+				
+			}
+		});
 				
 		//CREAR LISTA
 		this.vppa.ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -66,6 +82,7 @@ public class Artista extends Actor_comun {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								v1.removeAll();
+								vppa.cslp.cl = new Creacion_lista(ID, 0);
 								v1.add(vppa.ca.cl);
 								
 							}

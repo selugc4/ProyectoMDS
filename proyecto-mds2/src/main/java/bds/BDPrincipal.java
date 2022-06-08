@@ -33,15 +33,26 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	public BD_Evento _bd_evento = new BD_Evento();
 	public BD_Estilo _bd_estilo = new BD_Estilo();
 
-	public Usuario_Registrado cargar_Perfil(int iD) {
+	public Usuario cargar_Perfil(int iD) {
 		try {
-			return _bd_usuario_registrado.cargar_Perfil(iD);
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			if(usuario.getTipoUsuario() == 0) {
+				return _bd_usuario_registrado.cargar_Perfil(iD);
+			}else if(usuario.getTipoUsuario() == 1) { 	
+			return _bd_artista.cargar_Perfil(iD);
+			}else if(usuario.getTipoUsuario() == 2) {
+				return _bd_administrador.cargar_Perfil(iD);
+			}else
+				return null;
+			
+		
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 	}
+	
 
 	public void modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {
 		try {
@@ -59,7 +70,18 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Darse_de_baja(String aCorreo) {
-		throw new UnsupportedOperationException();
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
+			if(usuario.getTipoUsuario() == 0) {
+			_bd_usuario_registrado.Eliminar_usuario(aCorreo);
+			}else if(usuario.getTipoUsuario() == 2) {
+				_bd_artista.Darse_de_baja(aCorreo);
+			}
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public void Seguir_Usuario(String aCorreoSeguidor, String aCorreoSeguido) {
@@ -78,11 +100,11 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void consultar_Datos(String aNombre, String aContrasena) {
-		try {
+		try {			
 			if(_bd_usuario_registrado.consultar_Datos(aNombre, aContrasena)){
 				MainView.usuario = 0;
 			}else if(_bd_artista.consultar_Datos(aNombre, aContrasena)) {
-				MainView.usuario = 1;
+				MainView.usuario = 1;			
 			}else if(_bd_administrador.consultar_Datos(aNombre, aContrasena)) {
 				MainView.usuario = 2;
 			}else
@@ -183,7 +205,12 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_foto(String aFoto, String aCorreo) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_artista.Modificar_foto(aFoto, aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) {

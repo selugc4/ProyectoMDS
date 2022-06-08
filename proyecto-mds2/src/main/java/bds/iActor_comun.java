@@ -63,4 +63,5 @@ public interface iActor_comun {
 	public void eliminar_Notificacion(int iD, String artistaevento, String nombreevento);
 
 	public void guardar_Modificacion_lista(int iD, String value, ArrayList<clases.Cancion> get_canciones);
+	public Usuario cargar_Perfil(int id);
 }

@@ -13,6 +13,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Usuario_Registrado;
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iUsuario_registrado;
 import proyectoMDS2.MainView;
 
@@ -21,9 +22,9 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 //	private Dialog _darse_De_Baja;
 //	public Cabecera_usuario_registrado _cabecera_usuario_registrado;
 	
+	private iActor_comun iac = new BDPrincipal();
 	private iUsuario_registrado iur = new BDPrincipal();
 
-	private String correoantiguo;
 
 	
 	public Ver_perfil_propio_usuario_registrado() {
@@ -39,7 +40,7 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		super(id);
 		
 		inicializar();
-		Usuario_Registrado usuario = iur.cargar_Perfil(id);
+		basededatos.Usuario usuario = iac.cargar_Perfil(id);
 		this.tipoUsuario = usuario.getTipoUsuario();
 		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
 		this.getLabel().setText(usuario.getNombre());
@@ -107,45 +108,48 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		}
 	});
 	  
-	  this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-		
-		@Override
-		public void onComponentEvent(ClickEvent<Button> event) {
-			Dialog diag = new Dialog();
-			VerticalLayout vl = new VerticalLayout();
-			HorizontalLayout hl = new HorizontalLayout();
-			Button botonsi = new Button("Si");
-			Button botonno = new Button("No");
-			hl.add(botonsi, botonno);
-			vl.add("Está seguro de darse de baja?");
-			vl.add(hl);
-			
-			diag.add(vl);
-			diag.open();
-			
-			botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				
-				@Override
-				public void onComponentEvent(ClickEvent<Button> event) {
-					diag.close();
-					Notification.show("Dado de baja");
-					
-					
-				}
-			});
-			
-			botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				
-				@Override
-				public void onComponentEvent(ClickEvent<Button> event) {
-						diag.close();
-					
-				}
-			});
-			
-		}				
-		
-	});
+		 this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+ 			
+ 			@Override
+ 			public void onComponentEvent(ClickEvent<Button> event) {
+ 				Dialog diag = new Dialog();
+ 				VerticalLayout vl = new VerticalLayout();
+ 				HorizontalLayout hl = new HorizontalLayout();
+ 				Button botonsi = new Button("Si");
+ 				Button botonno = new Button("No");
+ 				hl.add(botonsi, botonno);
+ 				vl.add("Está seguro de darse de baja?");
+ 				vl.add(hl);
+ 				
+ 				diag.add(vl);
+ 				diag.open();
+ 				
+ 				botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+ 					
+ 					@Override
+ 					public void onComponentEvent(ClickEvent<Button> event) {
+ 						diag.close();
+ 						iur.Darse_de_baja(correoantiguo);
+ 						Notification.show("Dado de baja");
+ 						
+ 						
+ 					}
+ 				});
+ 				
+ 				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+ 					
+ 					@Override
+ 					public void onComponentEvent(ClickEvent<Button> event) {
+ 							diag.close();
+ 							
+ 						
+ 					}
+ 				});
+ 				
+ 			}				
+ 			
+ 		});
+ 	
 	  
 }
 //	public void Darse_de_baja() {
