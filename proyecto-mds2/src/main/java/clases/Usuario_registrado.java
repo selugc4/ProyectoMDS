@@ -16,7 +16,7 @@ import com.vaadin.flow.dom.DomEventListener;
 public class Usuario_registrado extends Actor_comun {
 	
 	public static Cabecera_usuario_registrado cur;
-	public static Ver_perfil_propio_usuario_registrado vpp;
+	public static  Ver_perfil_propio_usuario_registrado vpp;
 	
 
 	public Usuario_registrado() {
@@ -96,29 +96,7 @@ public class Usuario_registrado extends Actor_comun {
 			
 		});
 		
-		//CREAR LISTA
-				this.vpp.ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						v1.removeAll();
-						vpp.ca.cl = new Creacion_lista(ID, 0);
-						v1.add(vpp.ca.cl);
-						
-					}
-				});
-				
-				//FAVORITOS
-				this.vpp.getVaadinButton5().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						v1.removeAll();
-						v1.add(vpp.vlpp);
-						
-					}
-				});
-				
+
 	
 		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

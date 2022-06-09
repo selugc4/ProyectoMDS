@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Lista_Reproduccion;
+import bds.BDPrincipal;
+import bds.iArtista;
+
 public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas_de_reproduccion_con_sus_canciones {
 //	public ContenedorListas_Con_Sus_Canciones _contenedorListas_Con_Sus_Canciones;
 //	public Contenedor_modificar_listados _contenedor_modificar_listados;
@@ -12,17 +16,23 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 	
 
 	public ArrayList<Lista_de_reproduccion> ldr = new ArrayList<Lista_de_reproduccion>();
+	private iArtista ia = new BDPrincipal();
 	
-	public Listas_de_reproduccion_con_sus_canciones() {
+	public Listas_de_reproduccion_con_sus_canciones(String correoantiguo) {
 		this.getStyle().set("width", "100%");
-		Cargar_ListasReproduccion();
+		Lista_Reproduccion[] lr = ia.cargar_Listas_Sus_Canciones(correoantiguo);
+		if(lr != null) {
+		for(Lista_Reproduccion aux : lr) {
+			ldr.add(new Lista_de_reproduccion(aux));
+		}		
 		mostrar(5);
+		}
 	}
 	
 	public void mostrar(int tamano) {
 		VerticalLayout h1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		h1.removeAll();
-		for(int i = 0; i < tamano; i++) {
+		for(int i = 0; i < tamano &&  i < ldr.size(); i++) {
 			h1.add(ldr.get(i));
 			
 			
@@ -35,7 +45,7 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 		HorizontalLayout arriba = new HorizontalLayout();
 		HorizontalLayout abajo = new HorizontalLayout();
 		h1.removeAll();
-		for(int i = 0; i < tamano ; i++) {
+		for(int i = 0; i < tamano &&  i < ldr.size() ; i++) {
 			if(i < 3) {
 				arriba.add(ldr.get(i));
 			}else
@@ -49,7 +59,7 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 	public void mostrar(int tamano, int pagina) {
 		VerticalLayout h1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		h1.removeAll();
-		for(int i = tamano*pagina; i < tamano*pagina+tamano; i++) {
+		for(int i = tamano*pagina; i < tamano*pagina+tamano &&  i < ldr.size(); i++) {
 			h1.add(ldr.get(i));
 			
 			
@@ -60,7 +70,7 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 		HorizontalLayout arriba = new HorizontalLayout();
 		HorizontalLayout abajo = new HorizontalLayout();
 		h1.removeAll();
-		for(int i = tamano*pagina; i < tamano*pagina+tamano ; i++) {
+		for(int i = tamano*pagina; i < tamano*pagina+tamano &&  i < ldr.size() ; i++) {
 			if(i < tamano*pagina + 3) {
 				arriba.add(ldr.get(i));
 			}else
@@ -72,11 +82,4 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 	}
 	
 	
-	public void Cargar_ListasReproduccion() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		//v1.removeAll();
-		for(int i = 0; i < 30; i++) {		
-			ldr.add(new Lista_de_reproduccion(String.valueOf(i)));
-		}
-	}
 }

@@ -14,24 +14,24 @@ public class Albumes_buscador extends vistas.VistaAlbumes_buscador {
 	public Albumes_buscador() {
 		inicializar();
 	}
-	private void inicializar() {
+	protected void inicializar() {
 		this.getStyle().set("width", "100%");
-		Cargar_Listas();
-		Mostrar_Lista(0);
+//		Cargar_Listas();
+//		Mostrar_Lista(0);
 	}
 	public void Mostrar_Lista(int pagina) {
 		HorizontalLayout aux = this.getVaadinHorizontalLayout();
 		aux.getStyle().set("width", "100%");
 		aux.removeAll();
-		for(int i = 3*pagina; i < 3*(pagina+1); i++) {
+		for(int i = 3*pagina; i < 3*(pagina+1) && i<_album.size(); i++) {
 			aux.add(_album.get(i));
 		}
 	
 	}
 	
-	private void Cargar_Listas() {
-		for(int i = 0; i < 10; i++) {		
-				_album.add(new Album("Album " + i));
-			}
-		}
+//	private void Cargar_Listas() {
+//		for(int i = 0; i < 10; i++) {		
+//				_album.add(new Album("Album " + i));
+//			}
+//		}
 }

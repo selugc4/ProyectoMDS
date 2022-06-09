@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import basededatos.Artista;
 import bds.BDPrincipal;
 import bds.iActor_comun;
+import bds.iArtista;
 
 public class Artistas extends vistas.VistaArtistas {
 //	public Buscar_elementos _buscar_elementos;
@@ -19,6 +20,24 @@ public class Artistas extends vistas.VistaArtistas {
 	public Artistas() {
 		inicializar();
 	}
+	
+	public Artistas(int iD) {
+		inicializarPerfil(iD);
+		mostrar();
+	}
+	private void inicializarPerfil(int iD) {
+		iArtista iac = new BDPrincipal();
+		Artista[] artistas = iac.cargar_Artistas_Perfil(iD);
+		if(artistas != null) {
+			for(int i = 0; i < 4 && i < artistas.length; i++) {	
+				ArtistaBuscador artistaB = new ArtistaBuscador(artistas[i]);
+				_artistaBuscador.add(artistaB);
+			}
+		}
+		
+		
+	}
+
 	private void inicializar() {
 		Cargar_Listas();
 	}

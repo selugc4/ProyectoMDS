@@ -20,17 +20,26 @@ public class Cancion_mas_exitosa extends vistas.VistaCancion_mas_exitosa {
 	}
 		
 
-	private void inicializar() {
-		this.getStyle().set("width", "100%");
-		this.getImg().setHeight("100px");;
+	public Cancion_mas_exitosa(basededatos.Cancion cancion) {
+		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
+		this.getLabel().setText(cancion.getTitulo());
+		this.getLabel1().setVisible(false);
+		inicializar();
 		this.getVaadinHorizontalLayout().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
-				Notification.show("REPRODUCIR");
+				Actor_comun.rc.reproducir(cancion.getArchivoMultimedia());
 				
 			}
 		});
+	}
+
+
+	private void inicializar() {
+		this.getStyle().set("width", "100%");
+		this.getImg().setHeight("100px");;
+	
 	
 	
 	}

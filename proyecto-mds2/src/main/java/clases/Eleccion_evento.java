@@ -6,6 +6,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iArtista;
+
 public class Eleccion_evento extends vistas.VistaEleccion_evento {
 //	private Label _nombreEventoL;
 //	private TextField _nombreEventoTF;
@@ -15,6 +18,9 @@ public class Eleccion_evento extends vistas.VistaEleccion_evento {
 //	private Button _volver_AtrasB;
 //	public Tipo_evento _tipo_evento;
 
+	private iArtista ia = new BDPrincipal();
+	private String fechaEdicion;
+	
 	public Eleccion_evento() {
 		inicializar();
 	}
@@ -25,6 +31,7 @@ public class Eleccion_evento extends vistas.VistaEleccion_evento {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				fechaEdicion = getVaadinDatePicker().getValue().toString();
 				Notification.show("La fecha es " +getVaadinDatePicker().getValue());
 				
 			}
@@ -35,9 +42,16 @@ public class Eleccion_evento extends vistas.VistaEleccion_evento {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout vl = Artista.v1;
+				if(getVaadinTextField().getValue().isEmpty() || fechaEdicion.isEmpty()) {
+					Notification.show("Rellene todos los campos");
+				}else {
+				
+				ia.Anadir_Evento(Ver_perfil_propio_de_artista.correoantiguo, getVaadinTextField().getValue(), fechaEdicion, "Festival");
 				vl.removeAll();
 				vl.add(Artista.vppa);
-				Notification.show("Festival creado");
+				
+				Notification.show("Concierto creado");
+				}
 				
 			}
 		});
@@ -57,17 +71,19 @@ public class Eleccion_evento extends vistas.VistaEleccion_evento {
 		if(tipo == 1) {
 			this.getLabel2().setText("Nombre del concierto");
 			this.getLabel3().setText("Fecha del concierto");
+			inicializarConcierto();
 		}
-		inicializarConcierto();
+		
 
 	}
 	private void inicializarConcierto() {
-this.getStyle().set("width", "100%");
+		this.getStyle().set("width", "100%");
 		
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				fechaEdicion = getVaadinDatePicker().getValue().toString();
 				Notification.show("La fecha es " +getVaadinDatePicker().getValue());
 				
 			}
@@ -78,9 +94,17 @@ this.getStyle().set("width", "100%");
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout vl = Artista.v1;
+				if(getVaadinTextField().getValue().isEmpty() || fechaEdicion.isEmpty()) {
+					Notification.show("Rellene todos los campos");
+				}else {
+				
+				ia.Anadir_Evento(Ver_perfil_propio_de_artista.correoantiguo, getVaadinTextField().getValue(), fechaEdicion, "Concierto");
 				vl.removeAll();
+				Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
 				vl.add(Artista.vppa);
+				
 				Notification.show("Concierto creado");
+				}
 				
 				
 			}
@@ -91,6 +115,7 @@ this.getStyle().set("width", "100%");
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				VerticalLayout vl = Artista.v1;
+				Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
 				vl.removeAll();
 				vl.add(Artista.vppa);				
 			}

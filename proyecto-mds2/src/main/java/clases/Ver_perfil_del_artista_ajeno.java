@@ -21,7 +21,7 @@ public class Ver_perfil_del_artista_ajeno extends Ver_perfil_ajeno {
 	public Artistas artistas = new Artistas();
 	public ContenedorAlbumes ca = new ContenedorAlbumes();
 	public Conciertos_y_festivales cyf = new Conciertos_y_festivales();
-	public ContenedorListas_Con_Sus_Canciones clcsc = new ContenedorListas_Con_Sus_Canciones();
+//	public ContenedorListas_Con_Sus_Canciones clcsc = new ContenedorListas_Con_Sus_Canciones();
 	
 
 	public Ver_perfil_del_artista_ajeno() {
@@ -40,7 +40,7 @@ public class Ver_perfil_del_artista_ajeno extends Ver_perfil_ajeno {
 	
 	
 	VerticalLayout vl2 = this.getVerticalListasSusCanciones().as(VerticalLayout.class);
-	vl2.add(clcsc);
+//	vl2.add(clcsc);
 	HorizontalLayout hl = this.getHorizontalAlbumes();
 	hl.add(ca);
 	VerticalLayout vl3 = this.getVerticalExitosas().as(VerticalLayout.class);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.Album;
 import bds.BDPrincipal;
 import bds.iActor_comun;
 
@@ -39,6 +40,16 @@ public class Canciones_lista extends vistas.VistaCanciones_lista {
 	public Canciones_lista(int idLista) {
 		inicializar();
 		basededatos.Cancion[] canciones = iac.cargar_Canciones_Lista(idLista);
+		ArrayList<Cancion__Vista_actor_comun_> lista = new ArrayList<Cancion__Vista_actor_comun_>();
+		for(basededatos.Cancion cancion : canciones) {
+			lista.add(new Cancion__Vista_actor_comun_(cancion));
+		}
+		rellenarLista(lista);
+		Cargar_Listas();
+	}
+	public Canciones_lista(Album album) {
+		inicializar();
+		basededatos.Cancion[] canciones = iac.obtener_Canciones_Album(album.getIdAlbum());
 		ArrayList<Cancion__Vista_actor_comun_> lista = new ArrayList<Cancion__Vista_actor_comun_>();
 		for(basededatos.Cancion cancion : canciones) {
 			lista.add(new Cancion__Vista_actor_comun_(cancion));

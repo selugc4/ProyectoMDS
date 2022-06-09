@@ -54,7 +54,7 @@ export class VistaVista_dar_alta_album extends LitElement {
   <vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center; justify-content: space-between;" id="vaadinVerticalLayout5">
    <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%; height: 50%;" id="vaadinHorizontalLayout7">
     <vaadin-vertical-layout theme="spacing" style="align-items: center;" id="vaadinVerticalLayout6">
-     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha" id="fechaDeEdición" opened></vaadin-date-picker>
+     <vaadin-date-picker label="Fecha de Edición" placeholder="Fecha" id="fechaDeEdicion" opened></vaadin-date-picker>
      <vaadin-button id="botonFecha">
        Asignar fecha 
      </vaadin-button>

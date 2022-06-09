@@ -184,24 +184,54 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Albumes_Artista(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Artista(int iD) {
+		try {
+			return _bd_album.cargar_Albumes_Artista(iD);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public void cargar_Artistas_Perfil(Object aEstilo) {
-		throw new UnsupportedOperationException();
+	public Artista[] cargar_Artistas_Perfil(int idArtista) {
+		try {
+			return _bd_artista.cargar_Artistas_Perfil(idArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public void cargar_Exitosas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Exitosas(String aCorreo) {
+		try {
+			return _bd_cancion.cargar_Exitosas(aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public void cargar_Listas_Sus_Canciones(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Sus_Canciones(String aCorreo) {
+		try {
+			return _bd_lista_reproduccion.cargar_Listas_Sus_Canciones(aCorreo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	public void cargar_Eventos(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Evento[] cargar_Eventos(int idArtista) {
+		try {
+			return _bd_evento.cargar_Eventos(idArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void Modificar_foto(String aFoto, String aCorreo) {
@@ -214,15 +244,30 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
-	}
+		try {
+			if(consultar_Correo(aCorreoNuevo)) {
+				Ver_perfil_propio.correoexistente = true;
+			}else {
+				Ver_perfil_propio.correoexistente = false;
+				_bd_artista.Modificar_correo(aCorreoAntiguo, aCorreoNuevo);
+			}
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	}
 
 	public void Seguir_artista(String aCorreoSeguidor, String aCorreoSeguido) {
 		throw new UnsupportedOperationException();
 	}
 
 	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_artista.Anadir_Evento(aCorreo, aNombre, aFecha, aTipoEvento);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Cancion[] cargar_Ultimas_Canciones_Reproducidas() {
@@ -344,8 +389,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void obtener_Canciones_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+	public Cancion[] obtener_Canciones_Album(int aIdAlbum) {
+		try {
+			return _bd_cancion.obtener_Canciones_Album(aIdAlbum);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void seguir_Lista(int aIdLista, String aCorreo) {
@@ -506,7 +557,11 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
+//		
+//		
+//		
+//		
+//		
 	}
 
 	public Usuario_Registrado[] cargar_Usuarios(String aNombre) {

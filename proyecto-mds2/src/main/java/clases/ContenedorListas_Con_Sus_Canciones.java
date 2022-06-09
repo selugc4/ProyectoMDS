@@ -12,15 +12,17 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 //	public Ver_perfil_del_artista_ajeno _ver_perfil_del_artista_ajeno;
 //	public Listas_de_reproduccion_con_sus_canciones _listas_de_reproduccion_con_sus_canciones;
 	
-	public Listas_de_reproduccion_con_sus_canciones lrsc = new Listas_de_reproduccion_con_sus_canciones();
+	public Listas_de_reproduccion_con_sus_canciones lrsc;
 	
 
 	private int tamano = 5;
 	private int pagina = 0;
 	private boolean bloques = false;
 		
-	public ContenedorListas_Con_Sus_Canciones() {
+	public ContenedorListas_Con_Sus_Canciones(String correoantiguo) {
+		lrsc = new Listas_de_reproduccion_con_sus_canciones(correoantiguo);
 		inicializar();
+		
 		this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 				
 				@Override
@@ -28,8 +30,11 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 					tamano = 5;
 					pagina = 0;
 					lrsc.mostrar(tamano);
-					getLabel4().setText("Página " +(pagina+1)+" de " + lrsc.ldr.size()/tamano);
-					
+					if(lrsc.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((lrsc.ldr.size()/tamano)+1));
+					}
 				}
 			});
 			this.getHorizontal10().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
@@ -39,8 +44,12 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 					tamano = 10;
 					pagina = 0;
 					lrsc.mostrar(tamano);
-					getLabel4().setText("Página " +(pagina+1)+" de " + lrsc.ldr.size()/tamano);
+					if(lrsc.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((lrsc.ldr.size()/tamano)+1));
 					
+				}
 				}
 			});
 			this.getHorizontal15().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
@@ -50,8 +59,12 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 					tamano = 15;
 					pagina = 0;
 					lrsc.mostrar(tamano);
-					getLabel4().setText("Página " +(pagina+1)+" de " +  lrsc.ldr.size()/tamano);
+					if(lrsc.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " +  ((lrsc.ldr.size()/tamano)+1));
 				
+				}
 				}
 			});
 			
@@ -62,18 +75,21 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 				public void onComponentEvent(ClickEvent<Button> event) {
 					
 					if(!bloques) {
-					if(pagina <  lrsc.ldr.size()/tamano-1) {
+					if(pagina <  lrsc.ldr.size()/tamano) {
 					++pagina;
 					lrsc.mostrar(tamano, pagina);
-					getLabel4().setText("Página " +(pagina+1)+" de " +  lrsc.ldr.size()/tamano);
+					if(lrsc.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " +  ((lrsc.ldr.size()/tamano)+1));
 					}}else {
-						if(pagina <  lrsc.ldr.size()/tamano-1) {
+						if(pagina <  lrsc.ldr.size()/tamano) {
 							++pagina;
 							lrsc.mostrarBloques(tamano, pagina);
-							getLabel4().setText("Página " +(pagina+1)+" de " +  lrsc.ldr.size()/tamano);
+							getLabel4().setText("Página " +(pagina+1)+" de " +  ((lrsc.ldr.size()/tamano)+1));
 					}
 					}
-			}});
+					}}});
 			this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 				
 				@Override
@@ -82,11 +98,19 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 					if(pagina > 0) {
 						--pagina;
 						lrsc.mostrar(tamano, pagina);
-						getLabel4().setText("Página " +(pagina+1)+" de " +  lrsc.ldr.size()/tamano);
+						if(lrsc.ldr.size()/tamano == 0) {
+							getLabel4().setText("Página 1 de 1");
+						}else {
+						getLabel4().setText("Página " +(pagina+1)+" de " +  ((lrsc.ldr.size()/tamano)+1));
+						}
 					}}else {
 						--pagina;
 						lrsc.mostrarBloques(tamano, pagina);
-						getLabel4().setText("Página " +(pagina+1)+" de " +  lrsc.ldr.size()/tamano);
+						if(lrsc.ldr.size()/tamano == 0) {
+							getLabel4().setText("Página 1 de 1");
+						}else {
+						getLabel4().setText("Página " +(pagina+1)+" de " + ((lrsc.ldr.size()/tamano)+1));
+						}
 					}
 				}});	
 			
@@ -99,11 +123,23 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 					
 					if(bloques) {		
 						tamano = 5;
+						pagina= 0;
 						lrsc.mostrar(tamano);
+						if(lrsc.ldr.size()/tamano == 0) {
+							getLabel4().setText("Página 1 de 1");
+						}else {
+						getLabel4().setText("Página " +(pagina+1)+" de " + ((lrsc.ldr.size()/tamano)+1));
+						}
 						bloques = false;
 					}else {
 						tamano = 6;
+						pagina= 0;
 						lrsc.mostrarBloques(tamano);
+						if(lrsc.ldr.size()/tamano == 0) {
+							getLabel4().setText("Página 1 de 1");
+						}else {
+						getLabel4().setText("Página " +(pagina+1)+" de " + ((lrsc.ldr.size()/tamano)+1));
+						}
 						bloques = true;
 					
 				}
@@ -112,7 +148,10 @@ public class ContenedorListas_Con_Sus_Canciones extends Contenedor_modificar_lis
 		}
 	
 
-		
+	
+
+
+
 
 
 private void inicializar() {
@@ -122,6 +161,10 @@ private void inicializar() {
 
 	VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 	vl.add(lrsc);
-	this.getLabel4().setText("Página 1 de " +  lrsc.ldr.size()/tamano );
+	if(lrsc.ldr.size()/tamano == 0) {
+		getLabel4().setText("Página 1 de 1");
+	}else {
+	this.getLabel4().setText("Página 1 de " +  ((lrsc.ldr.size()/tamano)+1));
+	}
 }
 }

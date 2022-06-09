@@ -33,6 +33,7 @@ public class Notificaciones extends vistas.VistaNotificaciones {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				_notificacion.remove(t);
+				eliminarNotificacion();
 				vl.remove(t);
 				
 				
@@ -63,10 +64,7 @@ public class Notificaciones extends vistas.VistaNotificaciones {
 		for(int i = 0; i< this._notificacion.size(); i++) {
 			vl.add(this._notificacion.get(i));
 		}
-
-		
-		
-		
+	
 		
 	}
 

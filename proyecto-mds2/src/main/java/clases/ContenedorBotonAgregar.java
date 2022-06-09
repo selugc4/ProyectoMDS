@@ -38,4 +38,26 @@ public class ContenedorBotonAgregar extends vistas.VistaContenedorbotonagregar {
 			}
 		});
 	}
+
+	public ContenedorBotonAgregar(int iD) {
+		this.getStyle().set("width", "100%");
+		
+		cfp = new Conciertos_y_festivales_propios(iD);
+		
+		VerticalLayout vl2 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl2.add(cfp);
+	
+		
+		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				VerticalLayout vl = Artista.v1;
+				ae= new Agregar_evento();
+				vl.removeAll();
+				vl.add(ae);
+			}
+		});
+	}
 }

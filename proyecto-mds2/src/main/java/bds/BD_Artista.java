@@ -1,5 +1,6 @@
 package bds;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -117,8 +118,27 @@ public class BD_Artista {
 		}
 		}
 
-	public Artista[] cargar_Artistas_Perfil(String aEstilo) {
-		throw new UnsupportedOperationException();
+	public Artista[] cargar_Artistas_Perfil(int idArtista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Artista artista = ArtistaDAO.loadArtistaByORMID(idArtista);
+		Estilo[] estilos = artista.pertenece.toArray();
+		ArrayList<Artista> a = new ArrayList<Artista>();
+		for(Estilo estilo : estilos) {
+			Artista[] artistas = estilo.cantado_por.toArray();
+			for(Artista art : artistas) {
+				a.add(art);
+			}
+		}
+		Artista[] fin = new Artista[a.size()];
+		a.toArray(fin);
+		t.commit();
+		return fin;
+		}
+		catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public void Darse_de_baja(String aCorreo) throws PersistentException {
@@ -173,12 +193,37 @@ public class BD_Artista {
 
 	}
 
-	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
+	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreoAntiguo+"'", null);	
+			usuario.setCorreo(aCorreoNuevo);
+			ArtistaDAO.save(usuario);
+			t.commit();
+			
+			
+		} catch (PersistentException e) {
+			t.rollback();
+		}		
 	}
 
-	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) {
-		throw new UnsupportedOperationException();
+	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+			Evento evento = EventoDAO.createEvento();
+			evento.setCreado_por(usuario);
+			evento.setFecha(aFecha);
+			evento.setTipoEvento(aTipoEvento);
+			evento.setNombre(aNombre);			
+			
+			EventoDAO.save(evento);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
 	}
 
 	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, String[] aEstilos, String aFoto) throws PersistentException {

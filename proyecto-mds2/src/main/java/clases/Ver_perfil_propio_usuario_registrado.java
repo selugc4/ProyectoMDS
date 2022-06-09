@@ -49,6 +49,28 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		this.getVaadinTextField().setValue(usuario.getCorreo());
 		correoantiguo = usuario.getCorreo();
 		
+		ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Usuario_registrado.v1.removeAll();
+				ca.cl = new Creacion_lista(id, 0);
+				Usuario_registrado.v1.add(ca.cl);
+				
+			}
+		});
+		
+		//FAVORITOS
+		getVaadinButton5().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Usuario_registrado.v1.removeAll();
+				Usuario_registrado.v1.add(vlpp);
+				
+			}
+		});
+		
 		
 	}
 
@@ -149,6 +171,9 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
  			}				
  			
  		});
+		 
+		
+			
  	
 	  
 }

@@ -68,7 +68,6 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 //	public void anadirCancion() {
 //		throw new UnsupportedOperationException();
 //	}
-	
 	public static Canciones_modificar_y_crear canciones;
 	public Buscador_cancion_para_album bcpa = new Buscador_cancion_para_album(0);
 	private InputStream fileData;
@@ -147,58 +146,54 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(getVaadinTextField().getValue().isEmpty()||getFechaDeEdición().getValue() == null|| canciones._canciones.size()==0) {
+				if(getVaadinTextField().getValue().isEmpty() || getFechaDeEdicion().getValue() == null || canciones._canciones.size()==0) {
 					Notification.show("Debe rellenar todos los campos");
-				}
-				else {
-				String titulo = getVaadinTextField().getValue();
-				String fechaEdicion = fechaedicion;
-				basededatos.Cancion[] cancionesAlbum = new basededatos.Cancion[canciones._canciones.size()];
-				int i = 0;
-				for(Cancion cancion: canciones._canciones) {
-				
-				try {
-					basededatos.Cancion cancion1= CancionDAO.loadCancionByQuery("Titulo='"+cancion.getLabel().getText()+"'", null);
-					cancionesAlbum[i] = cancion1;
-				} catch (PersistentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				i++;
-				}
-				basededatos.Artista[] artistas = new basededatos.Artista[0];
-				if(!getVaadinTextField1().getValue().isEmpty()) {
-					String[] NombreArtistas = getVaadinTextField1().getValue().split(",");
-					artistas = new basededatos.Artista[NombreArtistas.length];
-					int j = 0;
-					for(String artista: NombreArtistas) {
-						try {
-							basededatos.Artista artistaAlbum = ArtistaDAO.getArtistaByORMID(UsuarioDAO.loadUsuarioByQuery("Nombre='"+artista+"'", null).getID());
-							artistas[j] = artistaAlbum;
-						} catch (PersistentException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						j++;
 					}
-					}	
-				iadmin.Dar_alta_album(titulo, cancionesAlbum, artistas, rutaArchivoFinal, fechaEdicion);
-				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
-				vl.removeAll();
-				vl.add(new Menu_dar_alta());
-				Notification.show("Album agregado con exito");
+				else {
+					String titulo = getVaadinTextField().getValue();
+					String fechaEdicion = fechaedicion;
+					basededatos.Cancion[] cancionesAlbum = new basededatos.Cancion[canciones._canciones.size()];
+					int i = 0;
+					for(Cancion cancion: canciones._canciones) {
+						try {
+							basededatos.Cancion cancion1= CancionDAO.loadCancionByQuery("Titulo='"+cancion.getLabel().getText()+"'", null);
+							cancionesAlbum[i] = cancion1;
+							} catch (PersistentException e) {
+								e.printStackTrace();
+								}
+						i++;
+						}
+					basededatos.Artista[] artistas = new basededatos.Artista[0];
+					if(!getVaadinTextField1().getValue().isEmpty()) {
+						String[] NombreArtistas = getVaadinTextField1().getValue().split(",");
+						artistas = new basededatos.Artista[NombreArtistas.length];
+						int j = 0;
+						for(String artista: NombreArtistas) {
+							try {
+								basededatos.Artista artistaAlbum = ArtistaDAO.getArtistaByORMID(UsuarioDAO.loadUsuarioByQuery("Nombre='"+artista+"'", null).getID());
+								artistas[j] = artistaAlbum;
+								} catch (PersistentException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+									}
+							j++;
+							}
+						}	
+					iadmin.Dar_alta_album(titulo, cancionesAlbum, artistas, rutaArchivoFinal, fechaEdicion);
+					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+					vl.removeAll();
+					vl.add(new Menu_dar_alta());
+					Notification.show("Album agregado con exito");
+					}
 				}
-			}
-		});
+			});
 		
-		this.getBotonFecha().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			
+		this.getBotonFecha().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {		
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				// COGER DATO PARA GUARDAR
-			 fechaedicion = getFechaDeEdición().getValue().toString();
+			 fechaedicion = getFechaDeEdicion().getValue().toString();
 			 Notification.show("Fecha guardada " + fechaedicion);
 			}
 		});

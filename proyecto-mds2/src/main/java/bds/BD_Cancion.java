@@ -135,8 +135,20 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion[] obtener_Canciones_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+	public Cancion[] obtener_Canciones_Album(int aIdAlbum) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Album album = AlbumDAO.getAlbumByORMID(aIdAlbum);
+			Cancion[] cancion = album.contiene_cancion.toArray();
+			t.commit();		
+			return cancion;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}	
 	}
 
 	public Cancion[] cargar_Canciones_Lista(int aIdLista) throws PersistentException {
@@ -192,8 +204,29 @@ public class BD_Cancion {
 		}	
 	}
 
-	public Cancion[] cargar_Exitosas(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Cancion[] cargar_Exitosas(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Artista artista = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+		Album[] albumes = artista.propietario_album.toArray();
+		ArrayList<Cancion> canciones = new ArrayList<Cancion>();
+		for(Album album : albumes) {
+			Cancion[] cancion = album.contiene_cancion.toArray();
+				for(Cancion can : cancion) {
+					canciones.add(can);
+				}
+		}
+		Collections.shuffle(canciones);
+		Cancion[] masexitosas = new Cancion[canciones.size()];
+		canciones.toArray(masexitosas);
+		t.commit();
+		
+		return masexitosas;
+		}catch (PersistentException e) {
+			t.rollback();
+			return null;
+			
+		}	
 	}
 
 	public Cancion[] cargar_Ultimos_Exitos_Admin() {

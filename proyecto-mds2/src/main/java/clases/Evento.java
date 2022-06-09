@@ -7,4 +7,10 @@ public class Evento extends vistas.VistaEvento {
 	public Evento() {
 		this.getStyle().set("width", "100%");
 	}
+
+	public Evento(basededatos.Evento evento) {
+		this.getStyle().set("width", "100%");
+		this.getLabel().setText(evento.getNombre());
+		this.getLabel1().setText(evento.getFecha());
+	}
 }

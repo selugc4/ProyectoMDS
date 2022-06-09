@@ -7,6 +7,9 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
+import basededatos.Album;
+import basededatos.Artista;
+import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
 import basededatos.Lista_Reproduccion;
@@ -163,8 +166,44 @@ public class BD_Lista_Reproduccion {
 		}	
 	}
 
-	public Lista_Reproduccion[] cargar_Listas_Sus_Canciones(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Lista_Reproduccion[] cargar_Listas_Sus_Canciones(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+
+		try {
+			Artista artista = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+			ArrayList<Cancion> canciones = new ArrayList<Cancion>();
+			Album[] album = artista.propietario_album.toArray();
+			for(Album alb: album) {
+				for(Cancion can : alb.contiene_cancion.toArray()) {
+					canciones.add(can);
+				}
+			}
+			ArrayList<Lista_Reproduccion> listas = new ArrayList<Lista_Reproduccion>();
+			for(Cancion c : canciones) {
+				Lista_Reproduccion[] lr = c.contendor_cancion.toArray();
+				if(lr != null) {
+					for(Lista_Reproduccion lista : lr) {
+						listas.add(lista);
+					}
+				}
+			}
+			
+			Lista_Reproduccion[] definitiva = new Lista_Reproduccion[listas.size()];
+			listas.toArray(definitiva);
+			t.commit();			
+			if(definitiva != null) {
+			return definitiva;
+			}else
+				return null;
+			
+
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+	
+			
+		}	
 	}
 
 	public void guardar_Modificacion_lista(int iD, String value, ArrayList<clases.Cancion> get_canciones) throws PersistentException {

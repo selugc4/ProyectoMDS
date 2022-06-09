@@ -28,8 +28,19 @@ public class BD_Album {
 		throw new UnsupportedOperationException();
 	}
 
-	public Album[] cargar_Albumes_Artista(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Artista(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista artista = ArtistaDAO.loadArtistaByORMID(iD);
+			Album[] albumes = artista.propietario_album.toArray();
+				t.commit();
+				return albumes;
+		}
+		catch (Exception e) {
+			t.rollback();
+			return null;
+		}
+
 	}
 
 	public Album[] cargar_Albumes_Perfil(String aCorreo) {

@@ -7,10 +7,18 @@ public class Albumes_perfil extends Albumes_buscador {
 		inicializar();
 	}
 
-	public void inicializar() {
-		this.getStyle().set("width", "100%");
+	public Albumes_perfil(basededatos.Album[] albumes) {
+		inicializarPerfil();
+		for(basededatos.Album album : albumes) {
+			_album.add(new Album(album));
+		}
+		Mostrar_Lista(0);
 	}
-	
+
+	private void inicializarPerfil() {
+		this.getStyle().set("width", "100%");
+		
+	}	
 	
 
 }

@@ -53,12 +53,12 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	
 	
 	
-	public ContenedorListas_Con_Sus_Canciones clc = new ContenedorListas_Con_Sus_Canciones();
-	public Canciones_mas_exitosas cme = new Canciones_mas_exitosas();
-	public ContenedorSus_Listas_Propio cslp = new ContenedorSus_Listas_Propio(1);
-	public Artistas artistas = new Artistas();
-	public ContenedorAlbumes calb = new ContenedorAlbumes();
-	public ContenedorBotonAgregar cba = new ContenedorBotonAgregar();
+	public ContenedorListas_Con_Sus_Canciones clc; 
+	public Canciones_mas_exitosas cme;
+	public ContenedorSus_Listas_Propio cslp;
+	public Artistas artistas;
+	public ContenedorAlbumes calb;
+	public ContenedorBotonAgregar cba;
 	
 
 	private String rutaArchivoFinal;
@@ -72,11 +72,19 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	public Ver_perfil_propio_de_artista(String nombre) {
 		inicializar();
 		this.getLabel().setText(nombre);
+		
 	}
 	
 	public Ver_perfil_propio_de_artista(int iD) {
-		super(iD);
-		inicializar();
+		super(iD);	
+		
+		artistas = new Artistas(iD);
+		calb = new ContenedorAlbumes(iD);
+		cba = new ContenedorBotonAgregar(iD);
+		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);
+		this.ca = new ContenedorAgregar_perfil_propio();
+		
+
 		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
 		this.tipoUsuario = usuario.getTipoUsuario();
 		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
@@ -85,6 +93,29 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
 		this.getVaadinTextField().setValue(usuario.getCorreo());
 		correoantiguo = usuario.getCorreo();
+		inicializar();
+		
+		//CREAR LISTA
+		ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										Artista.v1.removeAll();
+										cslp.cl = new Creacion_lista(iD, 0);
+										Artista.v1.add(ca.cl);
+										
+									}
+								});
+								
+		//FAVORITOS
+		getVaadinButton5().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Artista.v1.removeAll();
+				Artista.v1.add(vlpp);		
+				}
+			});
+	
 		
 	}
 
@@ -92,7 +123,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		this.getStyle().set("width", "100%");
 		this.getVaadinButton().setVisible(true);
 		this.getVaadinButton4().setVisible(false);
-		this.getVaadinTextField().setValue(this.getLabel().getText());
+		
 		this.getVaadinTextField().setReadOnly(true);
 
 		VerticalLayout vl = this.getVerticalSusListas().as(VerticalLayout.class);
@@ -101,6 +132,12 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		VerticalLayout vl3 = this.getVerticalExitosas().as(VerticalLayout.class);
 		VerticalLayout vl4 = this.getVerticalConciertos().as(VerticalLayout.class);
 		HorizontalLayout hl2 = this.getHorizontalArtistas();
+		
+		
+		clc = new ContenedorListas_Con_Sus_Canciones(correoantiguo);
+		cme = new Canciones_mas_exitosas(correoantiguo);
+		cslp = new ContenedorSus_Listas_Propio(1);
+		
 		
 		vl.add(ca);
 		vl2.add(clc);

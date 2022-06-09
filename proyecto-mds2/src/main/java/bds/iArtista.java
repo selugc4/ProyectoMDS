@@ -1,18 +1,22 @@
 package bds;
 
-import clases.Artista;
+import basededatos.Album;
+import basededatos.Artista;
+import basededatos.Cancion;
+import basededatos.Evento;
+import basededatos.Lista_Reproduccion;
 
 public interface iArtista {
 
-	public void cargar_Albumes_Artista(String aCorreo);
+	public Album[] cargar_Albumes_Artista(int iD);
 
-	public void cargar_Artistas_Perfil(Object aEstilo);
+	public Artista[] cargar_Artistas_Perfil(int idArtista);
 
-	public void cargar_Exitosas(String aCorreo);
+	public Cancion[] cargar_Exitosas(String aCorreo);
 
-	public void cargar_Listas_Sus_Canciones(String aCorreo);
+	public Lista_Reproduccion[] cargar_Listas_Sus_Canciones(String aCorreo);
 
-	public void cargar_Eventos(String aCorreo);
+	public Evento[] cargar_Eventos(int idArtista);
 
 	public void Darse_de_baja(String aCorreo);
 

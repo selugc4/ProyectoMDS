@@ -124,23 +124,23 @@ public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 		
 	}
 
-	public void Anadir_a_lista() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Anadir_a_favoritos() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void verCreditos() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void irArtista() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void reproducir() {
-		throw new UnsupportedOperationException();
-	}
+//	public void Anadir_a_lista() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void Anadir_a_favoritos() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void verCreditos() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void irArtista() {
+//		throw new UnsupportedOperationException();
+//	}
+//
+//	public void reproducir() {
+//		throw new UnsupportedOperationException();
+//	}
 }

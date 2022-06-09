@@ -36,7 +36,7 @@ public interface iActor_comun {
 
 	public void cargar_Album(int aIdAlbum);
 
-	public void obtener_Canciones_Album(int aIdAlbum);
+	public Cancion[] obtener_Canciones_Album(int aIdAlbum);
 
 	public void seguir_Lista(int aIdLista, String aCorreo);
 

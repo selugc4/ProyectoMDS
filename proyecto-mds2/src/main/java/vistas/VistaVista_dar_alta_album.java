@@ -67,8 +67,6 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	private HorizontalLayout vaadinHorizontalLayout7;
 	@Id("vaadinVerticalLayout6")
 	private Element vaadinVerticalLayout6;
-	@Id("fechaDeEdición")
-	private DatePicker fechaDeEdición;
 	@Id("vaadinVerticalLayout7")
 	private Element vaadinVerticalLayout7;
 	@Id("vaadinHorizontalLayout8")
@@ -85,6 +83,8 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	private Button botonVolver;
 	@Id("botonLista")
 	private Button botonLista;
+	@Id("fechaDeEdicion")
+	private DatePicker fechaDeEdicion;
 	/**
      * Creates a new VistaVista_dar_alta_album.
      */
@@ -224,11 +224,11 @@ public class VistaVista_dar_alta_album extends LitTemplate {
 	public void setVaadinVerticalLayout6(Element vaadinVerticalLayout6) {
 		this.vaadinVerticalLayout6 = vaadinVerticalLayout6;
 	}
-	public DatePicker getFechaDeEdición() {
-		return fechaDeEdición;
+	public DatePicker getFechaDeEdicion() {
+		return fechaDeEdicion;
 	}
-	public void setFechaDeEdición(DatePicker fechaDeEdición) {
-		this.fechaDeEdición = fechaDeEdición;
+	public void setFechaDeEdicion(DatePicker fechaDeEdicion) {
+		this.fechaDeEdicion = fechaDeEdicion;
 	}
 
 	public Element getVaadinVerticalLayout7() {
