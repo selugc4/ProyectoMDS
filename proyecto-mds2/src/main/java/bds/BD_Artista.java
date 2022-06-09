@@ -148,83 +148,88 @@ public class BD_Artista {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
 			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
-//			
-//			if(!usuario.favorita.isEmpty()) {
-//				Cancion[] cancionesf = usuario.favorita.toArray();
-//				for(Cancion cancion: cancionesf) {
-//					cancion.favorita_de.remove(usuario);
-//			}
-//			}
-//			
-//			if(!usuario.crea.isEmpty()) {
-//				for(Evento ev : usuario.crea.toArray()) {
-//					usuario.crea.remove(ev);
-//				}
-//			}
-//			if(!usuario.pertenece.isEmpty()) {
-//				for(Estilo estilo : usuario.pertenece.toArray()) {
-//					usuario.pertenece.remove(estilo);
-//				}
-//			}
-//			if(!usuario.propietario_album.isEmpty()) {
-//				for(Album album : usuario.propietario_album.toArray()) {
-//					usuario.propietario_album.remove(album);
-//				}
-//			}
-//			if(!usuario.tiene.isEmpty()){
-//				for(Cancion can : usuario.tiene.toArray()) {
-//					usuario.tiene.remove(can);
-//				}
-//			}
-//			
-//			if(!usuario.horass.isEmpty());{
-//				for(Horas hora : usuario.horass.toArray()) {
-//					usuario.horass.remove(hora);
-//				}
-//			}
-//		
-//			if(!usuario.propietario.isEmpty()) {
-//			Lista_Reproduccion[]listas = usuario.propietario.toArray();
-//			for(Lista_Reproduccion lista: listas) {
-//				lista.seguidor.clear();
-//				lista.contiene_cancion.clear();
-//				Cancion[] cancionesl = lista.contiene_cancion.toArray();
-//				for(Cancion cancionl: cancionesl) {
-//					cancionl.contendor_cancion.remove(lista);
-//				}
-//				Lista_ReproduccionDAO.delete(lista);
-//			}
-//			}
-//			
-//			if(!usuario.recibe_notificacion.isEmpty()) {
-//				for(Evento evento : usuario.recibe_notificacion.toArray()) {
-//					usuario.recibe_notificacion.remove(evento);
-//				}
-//			}
-//			if(!usuario.seguido.isEmpty()) {
-//				for(Usuario user: usuario.seguido.toArray()) {
-//					usuario.seguido.remove(user);
-//				}
-//			}
-//
-//			if(!usuario.seguidor_usuario.isEmpty()) {
-//				for(Usuario user2 : usuario.seguidor_usuario.toArray()) {
-//					usuario.seguidor_usuario.remove(user2);
-//				}
-//			}
-//			if(!usuario.seguir.isEmpty()) {
-//				for(Lista_Reproduccion list : usuario.seguir.toArray()) {
-//					usuario.seguir.remove(list);
-//				}
-//			}
-//			usuario.
 			
+			if(!usuario.favorita.isEmpty()) {
+				Cancion[] cancionesf = usuario.favorita.toArray();
+				for(Cancion cancion: cancionesf) {
+					cancion.favorita_de.remove(usuario);
+			}
+			}		
+			
+			if(!usuario.crea.isEmpty()) {
+				for(Evento ev : usuario.crea.toArray()) {
+					usuario.crea.remove(ev);
+				}
+			}
+			if(!usuario.pertenece.isEmpty()) {
+				for(Estilo estilo : usuario.pertenece.toArray()) {
+					usuario.pertenece.remove(estilo);
+				}
+			}
+			if(!usuario.propietario_album.isEmpty()) {
+				for(Album album : usuario.propietario_album.toArray()) {
+					usuario.propietario_album.remove(album);
+				}
+			}
+			if(!usuario.tiene.isEmpty()){
+				for(Cancion can : usuario.tiene.toArray()) {
+					usuario.tiene.remove(can);
+				}
+			}
+			
+			if(!usuario.horass.isEmpty());{
+				for(Horas hora : usuario.horass.toArray()) {
+					usuario.horass.remove(hora);
+				}
+			}
+		
+			if(!usuario.propietario.isEmpty()) {
+			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				lista.seguidor.clear();
+				lista.contiene_cancion.clear();
+				Cancion[] cancionesl = lista.contiene_cancion.toArray();
+				for(Cancion cancionl: cancionesl) {
+					cancionl.contendor_cancion.remove(lista);
+				}
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			}
+			
+			if(!usuario.recibe_notificacion.isEmpty()) {
+				for(Evento evento : usuario.recibe_notificacion.toArray()) {
+					usuario.recibe_notificacion.remove(evento);
+				}
+			}
+			if(!usuario.seguido.isEmpty()) {
+				for(Usuario user: usuario.seguido.toArray()) {
+					usuario.seguido.remove(user);
+				}
+			}
+
+			if(!usuario.seguidor_usuario.isEmpty()) {
+				for(Usuario user2 : usuario.seguidor_usuario.toArray()) {
+					usuario.seguidor_usuario.remove(user2);
+				}
+			}
+			if(!usuario.seguir.isEmpty()) {
+				for(Lista_Reproduccion list : usuario.seguir.toArray()) {
+					usuario.seguir.remove(list);
+				}
+			}
+
+			if(!usuario.ultimo_exito.isEmpty()) {
+				for(Cancion c : usuario.ultimo_exito.toArray()) {
+					usuario.ultimo_exito.remove(c);
+				}
+			}
 			ArtistaDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
 
 			t.commit();
 			}catch (PersistentException e) {
 			t.rollback();
+			
 		}
 	}
 

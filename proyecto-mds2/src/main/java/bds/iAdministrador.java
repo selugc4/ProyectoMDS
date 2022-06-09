@@ -60,4 +60,5 @@ public interface iAdministrador {
 	public void Modificar_Estilo(int aIdEstilo, String aNombre);
 
 	public Album[] cargar_Albumes_Admin(String aNombre);
+
 }

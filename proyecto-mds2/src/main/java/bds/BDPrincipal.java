@@ -251,6 +251,8 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 				Ver_perfil_propio.correoexistente = false;
 				_bd_artista.Modificar_correo(aCorreoAntiguo, aCorreoNuevo);
 			}
+
+	
 			
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
@@ -583,11 +585,20 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo) {
-//		
-//		
-//		
-//		
-//		
+		try {
+		if(consultar_Correo(aCorreoNuevo)) {
+			Ver_perfil_propio.correoexistente = true;
+		}else {
+			Ver_perfil_propio.correoexistente = false;
+			
+			_bd_administrador.Modificar_correo(aCorreoAntiguo, aCorreoNuevo);
+		}
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+		}
+		
 	}
 
 	public Usuario_Registrado[] cargar_Usuarios(String aNombre) {
