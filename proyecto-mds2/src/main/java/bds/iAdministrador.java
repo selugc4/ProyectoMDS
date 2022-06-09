@@ -10,9 +10,6 @@ import basededatos.Imagen;
 import basededatos.Usuario_Registrado;
 
 public interface iAdministrador {
-
-	public void cargar_Ultimos_Exitos_Admin();
-
 	public Estilo[] cargar_Estilos(String aNombre);
 
 	public Cancion[] cargar_Canciones_Buscadas(String aNombre);
@@ -31,17 +28,11 @@ public interface iAdministrador {
 
 	public void Anadir_estilo(String aNombre);
 
-	public void cargar_Canciones_Album(int aIdAlbum);
-
-	public void Anadir_cancion_a_album(int aIdCancion, int aIdAlbum);
-
 	public void Dar_alta_album(String aNombre, Cancion[] aCanciones, Artista[] aArtistas, String aImagen, String fechaEdicion);
 
 	public void Modificar_Correo(String aCorreoAntiguo, String aCorreoNuevo);
 
 	public Usuario_Registrado[] cargar_Usuarios(String aNombre);
-
-	public void Modificar_usuario(String aNombre, String aFoto, String aCorreo);
 
 	public void Eliminar_usuario(String aCorreo);
 
@@ -50,8 +41,6 @@ public interface iAdministrador {
 	public void eliminar_Artista(String aCorreo);
 
 	public void eliminar_Cancion(int aIdCancion);
-
-	public void Eliminar_lista(int aIdLista);
 
 	public void Modificar_Cancion(int aIdCancion, String aArchivoMultimedia, String aInterpretes, String aProductores, String aCompositores, String aTitulo, String aTituloCreditos, String aTitulo_Album);
 
