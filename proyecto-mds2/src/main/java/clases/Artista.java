@@ -15,6 +15,8 @@ public class Artista extends Actor_comun {
 	
 	public Artista(int iD) {
 		super(iD);
+		
+		crearElementos();
 	
 		ca = new Cabecera_artista();
 		vppa = new Ver_perfil_propio_de_artista(iD);
@@ -79,19 +81,7 @@ public class Artista extends Actor_comun {
 					
 		});
 		
-		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cucr);
-				v1.add(ccf);
-				v1.add(cr);
-				v1.add(clr);
-				v2.setVisible(true);	
-				
-			}
-		});
+
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

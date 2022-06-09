@@ -115,6 +115,7 @@ public class Usuario_registrado extends Actor_comun {
 		
 		@Override
 		public void onComponentEvent(ClickEvent<Button> event) {
+			ve = new Ver_estadisticas();
 			v1.removeAll();
 			v1.add(ve);
 			v2.setVisible(false);	

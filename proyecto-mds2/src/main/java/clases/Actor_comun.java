@@ -69,8 +69,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		cucr = new ContenedorUltimas_canciones_reproducidas();
 		ccf = new ContenedorCanciones_favoritas();
 		cr = new ContenedorRecomendaciones();
-		clr = new ContenedorListasReproduccion(0);
-	
+		clr = new ContenedorListasReproduccion(0);	
 		ve = new Ver_estadisticas();
 		
 	}
