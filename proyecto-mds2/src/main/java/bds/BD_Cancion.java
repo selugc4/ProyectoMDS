@@ -60,7 +60,22 @@ public class BD_Cancion {
 	
 		return canciones;
 	}
+	public void anadir_Cancion_Favorita(int aIdCancion, int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 
+		try {
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			usuario.favorita.add(cancion);
+			UsuarioDAO.save(usuario);			
+
+			t.commit();
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			
+		}		
+	}
 	public Cancion cargar_Creditos(int aIdCancion) {
 		throw new UnsupportedOperationException();
 	}

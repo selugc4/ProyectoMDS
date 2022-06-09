@@ -4,7 +4,7 @@ public class Albumes_perfil extends Albumes_buscador {
 //	public ContenedorAlbumes _contenedorAlbumes;
 	
 	public Albumes_perfil() {
-		inicializar();
+		actualizar();
 	}
 
 	public Albumes_perfil(basededatos.Album[] albumes) {
@@ -12,7 +12,7 @@ public class Albumes_perfil extends Albumes_buscador {
 		for(basededatos.Album album : albumes) {
 			_album.add(new Album(album));
 		}
-		Mostrar_Lista(0);
+		Mostrar_Lista();
 	}
 
 	private void inicializarPerfil() {

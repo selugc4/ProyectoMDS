@@ -20,11 +20,9 @@ public interface iActor_comun {
 
 	public Artista[] cargar_Artistas_Buscador(String aNombre);
 
-	public void cargar_Albumes_Buscador(String aNombre);
+	public Album[] cargar_Albumes_Buscador(String aNombre);
 
 	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre);
-
-	public void anadir_Favorita(int aIdCancion, String aCorreo);
 
 	public void anadir_Seguidor(int aIdLista);
 
@@ -38,7 +36,7 @@ public interface iActor_comun {
 
 	public Cancion[] obtener_Canciones_Album(int aIdAlbum);
 
-	public void seguir_Lista(int aIdLista, String aCorreo);
+	public void seguir_Lista(int aIdLista, int iD);
 
 	public Cancion[] cargar_Canciones_Lista(int aIdLista);
 

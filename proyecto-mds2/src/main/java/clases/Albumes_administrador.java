@@ -17,7 +17,7 @@ public class Albumes_administrador extends Albumes_buscador {
 	public Albumes_administrador(String buscador) {
 		inicializar(buscador);
 	}
-	private void inicializar(String buscador) {
+	protected void inicializar(String buscador) {
 		this.getStyle().set("width", "100%");
 		Mostrar_Lista(buscador);
 	}

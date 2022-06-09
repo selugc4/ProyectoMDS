@@ -8,10 +8,10 @@ public class Buscar_elementos extends vistas.VistaBuscar_elementos {
 //	private Label _titulo_BusquedaL;
 //	public Cabecera_artista _cabecera_artista;
 //	public Cabecera_usuario_registrado _cabecera_usuario_registrado;
-	public Albumes_buscador _albumes = new Albumes_buscador();
-	public Canciones_busqueda _canciones_busqueda = new Canciones_busqueda();
-	public Listas_de_reproduccion_buscador _listas_de_reproduccion_buscador = new Listas_de_reproduccion_buscador(); 
-	public Artistas _artistas = new Artistas();
+	Albumes_buscador _albumes;
+	public Canciones_busqueda _canciones_busqueda;
+	public Listas_de_reproduccion_buscador _listas_de_reproduccion_buscador; 
+	public Artistas _artistas;
 	
 	public Buscar_elementos(String value) {
 		inicializar();
@@ -25,9 +25,15 @@ public class Buscar_elementos extends vistas.VistaBuscar_elementos {
 		artistas.removeAll();
 		albumes.removeAll();
 		if(!value.isEmpty()) {
+			_canciones_busqueda = new Canciones_busqueda(value);
 			canciones.add(_canciones_busqueda);
+			_artistas.artista = value;
+			_artistas = new Artistas();
+			_artistas.mostrar();
 			artistas.add(_artistas);
+			_listas_de_reproduccion_buscador = new Listas_de_reproduccion_buscador(value);
 			listas.add(_listas_de_reproduccion_buscador);
+			_albumes = new Albumes_buscador(value);
 			albumes.add(_albumes);
 			sinresultados.setVisible(false);
 		}else {	

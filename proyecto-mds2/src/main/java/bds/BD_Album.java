@@ -20,8 +20,17 @@ public class BD_Album {
 	public BDPrincipal _bd_principal_album;
 	public Vector<AlbumDAO> _contiene_album = new Vector<AlbumDAO>();
 
-	public Album[] cargar_Albumes_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Buscador(String aNombre) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album[]albumes = AlbumDAO.listAlbumByQuery("TitutloAlbum='"+aNombre+"'", null);
+			t.commit();
+			return albumes;
+		}
+		catch (Exception e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public Album cargar_Album(int aIdAlbum) {

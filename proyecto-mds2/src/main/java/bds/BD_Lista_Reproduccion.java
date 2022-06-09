@@ -51,37 +51,27 @@ public class BD_Lista_Reproduccion {
 		}
 	}
 
-	public void anadir_Favorita(int aIdCancion, String aCorreo) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void anadir_Seguidor(int aIdLista) {
 		throw new UnsupportedOperationException();
-	}
-
-	public void anadir_Cancion_Favorita(int aIdCancion, int iD) throws PersistentException {
-		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
-
-		try {
-			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
-			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
-			usuario.favorita.add(cancion);
-			UsuarioDAO.save(usuario);			
-
-			t.commit();
-			
-		} catch (PersistentException e) {
-			t.rollback();
-			
-		}		
 	}
 
 	public void anadir_Cancion_Lista(int aIdCancion, int aIdLista) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void seguir_Lista(int aIdLista, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void seguir_Lista(int aIdLista, int id) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Lista_Reproduccion lista = Lista_ReproduccionDAO.loadLista_ReproduccionByORMID(aIdLista);
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(id);
+			lista.seguidor.add(usuario);
+			
+			Lista_ReproduccionDAO.save(lista);
+			t.commit();
+			
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public Lista_Reproduccion[] cargar_Listas_Propias(int iD) throws PersistentException {
