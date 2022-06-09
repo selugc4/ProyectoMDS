@@ -26,6 +26,7 @@ public class Canciones extends vistas.VistaCanciones {
 	public void cargar_Ultimas_Canciones_Reproducidas() {
 		ArrayList<Cancion__Vista_actor_comun_> vlrp = new ArrayList<Cancion__Vista_actor_comun_>();
 		Cancion[] canciones = iac.cargar_Ultimas_Canciones_Reproducidas();
+		if(canciones != null) {
 		for(int i = 0; i < canciones.length; i++) {	
 			Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i]);
 			//canciones[i].getTitulo(), canciones[i].es_de.toArray(), canciones[i].getCancion_de().getContiene_imagen().getUrl()
@@ -35,6 +36,7 @@ public class Canciones extends vistas.VistaCanciones {
 		_ver_lista_de_Reproduccion = vlrp;
 		
 		mostrarLista();
+		}
 	}
 	
 	protected void mostrarLista() {

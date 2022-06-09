@@ -41,8 +41,10 @@ public class Listas_de_reproduccion extends vistas.VistaListas_de_reproduccion {
 	public void Cargar_ListasReproduccion(int usuario) {
 		ArrayList<Lista_de_reproduccion> aux = new ArrayList<Lista_de_reproduccion>();
 		Lista_Reproduccion[] listas = iac.cargar_Listas_Reproduccion();
+		if(listas != null) {
 		for(Lista_Reproduccion lista : listas) {
 			this.lista.add(new Lista_de_reproduccion(lista));
+		}
 		}
 	}
 

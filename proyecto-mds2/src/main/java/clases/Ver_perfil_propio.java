@@ -18,6 +18,7 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 	public Ver_lista_de_reproduccion_propia vlpp;
 	public static boolean correoexistente;
 	public static int tipoUsuario;
+	public static String correoantiguo;
 
 	public Ver_perfil_propio(String name) {
 		

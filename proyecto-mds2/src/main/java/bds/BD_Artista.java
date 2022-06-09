@@ -121,12 +121,56 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Darse_de_baja(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void Darse_de_baja(String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
+			usuario.favorita.clear();
+//			Cancion[] cancionesf = usuario.favorita.toArray();
+//			for(Cancion cancion: cancionesf) {
+//				cancion.favorita_de.remove(usuario);
+//			}
+			usuario.horass.clear();
+			usuario.propietario.clear();
+			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				lista.seguidor.clear();
+				lista.contiene_cancion.clear();
+				Cancion[] cancionesl = lista.contiene_cancion.toArray();
+				for(Cancion cancionl: cancionesl) {
+					cancionl.contendor_cancion.remove(lista);
+				}
+				Lista_ReproduccionDAO.delete(lista);
+			}
+			usuario.recibe_notificacion.clear();
+//			Evento[]evento = usuario.recibe_notificacion.toArray();
+			usuario.seguido.clear();
+			usuario.seguidor_usuario.clear();
+			usuario.seguir.clear();
+			usuario.ultimo_exito.clear();
+			if(usuario.getTipoUsuario()==0) {
+				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
+			}
+			UsuarioDAO.delete(usuario);
+			ImagenDAO.delete(usuario.getContiene_imagen());
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
-	public void Modificar_foto(String aFoto, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void Modificar_foto(String aFoto, String aCorreo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+		Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+		usuario.getContiene_imagen().setUrl(aFoto);
+		t.commit();
+		}
+		catch (PersistentException e) {
+			t.rollback();
+		}
+		
+
 	}
 
 	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) {
@@ -228,8 +272,11 @@ public class BD_Artista {
 			}
 			Ver_estadisticas.horas = horas;
 			Horas hora = HorasDAO.getHorasByORMID(horasId);
-			Cancion cancion = hora.getCancion();
+			Cancion cancion = null;
+			if(hora != null) {
+			 cancion = hora.getCancion();
 			t.commit();
+			}
 			return cancion;
 			
 		} catch (PersistentException e) {
@@ -270,5 +317,18 @@ public class BD_Artista {
 	
 		}
 		
+	}
+
+	public Usuario cargar_Perfil(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista usuario = ArtistaDAO.getArtistaByORMID(iD);
+			t.commit();
+			return usuario;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}		
 	}
 }

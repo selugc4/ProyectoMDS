@@ -2,6 +2,7 @@ package clases;
 
 import bds.BDPrincipal;
 import bds.iActor_comun;
+import proyectoMDS2.MainView;
 import basededatos.Horas;
 import basededatos.Usuario;
 

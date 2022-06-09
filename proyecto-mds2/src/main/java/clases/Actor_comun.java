@@ -36,6 +36,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		this.v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		this.ID = iD;
 		
+		crearElementos();
 		botonIrCancion.getStyle().set("width", "10%");
 		botonIrCancion.setVisible(false);
 		botonIrCancion.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -67,7 +68,7 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		
 //		clr = new ContenedorListasReproduccion(0);
 		
-//		this.v1.add(cucr,ccf,cr,clr);
+		this.v1.add(cucr,ccf,cr,clr);
 		this.getStyle().set("width", "100%");
 		
 	
@@ -98,6 +99,15 @@ public class Actor_comun extends vistas.VistaActor_comun {
 		
 	}
 
+	public void crearElementos() {
+		cucr = new ContenedorUltimas_canciones_reproducidas();
+		ccf = new ContenedorCanciones_favoritas();
+		cr = new ContenedorRecomendaciones();
+		clr = new ContenedorListasReproduccion(0);
+	
+		ve = new Ver_estadisticas();
+		
+	}
 	public Cabecera_comun getCc() {
 		return cc;
 	}

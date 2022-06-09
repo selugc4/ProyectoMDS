@@ -20,6 +20,7 @@ public class Canciones_favoritas extends Canciones {
 	private void cargar_Canciones_Favoritas() {
 		ArrayList<Cancion__Vista_actor_comun_> vlrp = new ArrayList<Cancion__Vista_actor_comun_>();
 		Cancion[] canciones = iac.cargar_Canciones_Favoritas();
+		if(canciones != null) {
 		for(int i = 0; i < canciones.length; i++) {	
 			Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i]);
 			vlrp.add(aux);
@@ -28,6 +29,8 @@ public class Canciones_favoritas extends Canciones {
 		_ver_lista_de_Reproduccion = vlrp;
 		
 		mostrarLista();
+		
+		}
 		
 	}
 	

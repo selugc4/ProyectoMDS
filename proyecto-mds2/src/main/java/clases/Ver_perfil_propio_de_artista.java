@@ -1,13 +1,31 @@
 package clases;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.io.FileUtils;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.upload.SucceededEvent;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.server.StreamResource;
+
+import basededatos.Usuario_Registrado;
+import bds.BDPrincipal;
+import bds.iActor_comun;
+import bds.iArtista;
 
 public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 //	private FileChooser _modificar_Foto;
@@ -30,6 +48,10 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 //		throw new UnsupportedOperationException();
 //	}
 	
+	private iActor_comun iac = new BDPrincipal();
+	private iArtista ia = new BDPrincipal();
+	
+	
 	
 	public ContenedorListas_Con_Sus_Canciones clc = new ContenedorListas_Con_Sus_Canciones();
 	public Canciones_mas_exitosas cme = new Canciones_mas_exitosas();
@@ -37,6 +59,9 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	public Artistas artistas = new Artistas();
 	public ContenedorAlbumes calb = new ContenedorAlbumes();
 	public ContenedorBotonAgregar cba = new ContenedorBotonAgregar();
+	
+
+	private String rutaArchivoFinal;
 	
 	public Ver_perfil_propio_de_artista() {
 		inicializar();
@@ -49,6 +74,20 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		this.getLabel().setText(nombre);
 	}
 	
+	public Ver_perfil_propio_de_artista(int iD) {
+		super(iD);
+		inicializar();
+		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
+		this.tipoUsuario = usuario.getTipoUsuario();
+		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
+		this.getLabel().setText(usuario.getNombre());
+		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
+		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
+		this.getVaadinTextField().setValue(usuario.getCorreo());
+		correoantiguo = usuario.getCorreo();
+		
+	}
+
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
 		this.getVaadinButton().setVisible(true);
@@ -85,15 +124,24 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	@Override
 	public void onComponentEvent(ClickEvent<Button> event) {
 		if(comprobarCorreo(getVaadinTextField().getValue())) {
+			ia.Modificar_correo(correoantiguo, getVaadinTextField().getValue());
+			if(correoexistente) {
+				Notification.show("Correo ya existente. Utilice otro");
+			}else {
 			Notification.show("Correo cambiado");
-			getVaadinTextField().setPlaceholder(getVaadinTextField().getValue());
 			getVaadinTextField().setReadOnly(true);
+			getVaadinButton1().setVisible(false);
+			}
 		}	
 		
 	}
 
 	private boolean comprobarCorreo(String value) {
-		return true;
+		String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		Pattern pattern = Pattern.compile(regex);
+		 
+		  Matcher matcher = pattern.matcher(value);
+		  return matcher.matches();
 	}
 
 });
@@ -119,6 +167,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				diag.close();
+				ia.Darse_de_baja(correoantiguo);
 				Notification.show("Dado de baja");
 				
 				
@@ -143,28 +192,71 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	@Override
 	public void onComponentEvent(ClickEvent<Button> event) {
 		getVaadinButton4().setVisible(true);
-		TextField tf = new TextField();
-		tf.setValue(getLabel().getText());
-		getVaadinHorizontalLayout4().add(tf);
+		Upload upload = new Upload();
+		MemoryBuffer mbuf = new MemoryBuffer();
+		upload.setReceiver(mbuf);
+		upload.addSucceededListener(new ComponentEventListener<SucceededEvent>() {
+			
+
+			@Override
+			public void onComponentEvent(SucceededEvent event) {
+				String separator = System.getProperty("file.separator");
+				String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"imagenes"+separator;
+				
+			
+				InputStream fileData = mbuf.getInputStream();	
+			    String fileName = event.getFileName();		  
+			    File ruta = new File(rutaArchivo+fileName);
+			    
+			   
+			    try {
+					FileUtils.copyInputStreamToFile(fileData, ruta);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				StreamResource imageResource2;
+				try {
+					InputStream aux2 = FileUtils.openInputStream(ruta);
+					imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+					Image image = new Image(imageResource2, "");
+					image.getStyle().set("width", "100%");
+					image.getStyle().set("height", "100%");
+
+					VerticalLayout vl = getVaadinVerticalLayout2().as(VerticalLayout.class);
+					vl.removeAll();
+					vl.add(image);
+					vl.setWidth("15%");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				rutaArchivoFinal =fileName;
+			
+			    
+			}});
+							
+		getVaadinHorizontalLayout6().removeAll();
+		getVaadinHorizontalLayout6().add(upload);
 		
 		getVaadinButton4().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(nombreValido(tf.getValue())) {
-					Notification.show("Nombre Cambiado");
-				}else
-					Notification.show("Error al cambiar el nombre");
-				
-				getVaadinHorizontalLayout4().remove(tf);
+				ia.Modificar_foto(rutaArchivoFinal , correoantiguo);
+				getVaadinHorizontalLayout6().removeAll();
 				getVaadinButton4().setVisible(false);
+				
 			}
 
+		
+				
+				
+			});
+
 			
-			private boolean nombreValido(String value) {
-				return true;
-			}
-		});
+		
 	
 		
 		

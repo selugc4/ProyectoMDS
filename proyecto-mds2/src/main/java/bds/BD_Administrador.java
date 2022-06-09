@@ -120,7 +120,10 @@ public class BD_Administrador {
 			}
 			Ver_estadisticas.horas = horas;
 			Horas hora = HorasDAO.getHorasByORMID(horasId);
-			Cancion cancion = hora.getCancion();
+			Cancion cancion = null;
+			if(hora != null) {
+			 cancion = hora.getCancion();
+			}
 			t.commit();
 			return cancion;
 			
@@ -162,5 +165,18 @@ public class BD_Administrador {
 	
 		}
 		
+	}
+
+	public Usuario cargar_Perfil(int iD) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador usuario = AdministradorDAO.getAdministradorByORMID(iD);
+			t.commit();
+			return usuario;
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
 	}
 }

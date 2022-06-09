@@ -11,7 +11,7 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 //	public Actor_comun _actor_comun;
 //	public Notificaciones _notificaciones;
 
-//	public Notificaciones notif = new Notificaciones();
+	public Notificaciones notif = new Notificaciones();
 	public Ver_perfil_propio perfil = new Ver_perfil_propio();
 	public Buscar_elementos buscador = new Buscar_elementos();
 /*	public void Inicio() {
@@ -41,9 +41,9 @@ public class Cabecera_comun extends vistas.VistaCabecera_comun {
 	public Ver_perfil_propio getVer_perfil_propio() {
 		return perfil;
 	}
-//	public Notificaciones getNotif() {
-//		return notif;
-//	}
+	public Notificaciones getNotif() {
+		return notif;
+	}
 	public Buscar_elementos getBuscador() {
 		return buscador;
 	}
