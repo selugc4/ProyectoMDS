@@ -394,8 +394,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		throw new UnsupportedOperationException();
 	}
 
-	public void cargar_Estilos(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Estilo[] cargar_Estilos(String aNombre) {
+		try{
+			return _bd_estilo.cargar_Estilos(aNombre);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public Cancion[] cargar_Canciones_Buscadas(String aNombre) {
@@ -418,15 +424,30 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Eliminar_estilo(int aIdEstilo) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_estilo.Eliminar_estilo(aIdEstilo);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Anadir_a_la_vista_de_cibernauta(int aIdCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			this._bd_cancion.Anadir_a_la_vista_de_cibernauta(aIdCancion);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Eliminar_Ultimo_Exito(int aIdCancion) {
-		throw new UnsupportedOperationException();
+		try {
+			this._bd_cancion.Eliminar_Ultimo_Exito(aIdCancion);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Dar_alta_artista(String aCorreo, String aNombre, String aContrasena, String[] aEstilos, String aFoto) {
@@ -552,7 +573,11 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	}
 
 	public void Modificar_Estilo(int aIdEstilo, String aNombre) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_estilo.Modificar_Estilo(aIdEstilo, aNombre);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Album[] cargar_Albumes_Admin(String aNombre) {

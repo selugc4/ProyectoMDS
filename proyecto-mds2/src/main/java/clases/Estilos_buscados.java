@@ -20,12 +20,12 @@ public class Estilos_buscados extends vistas.VistaEstilos_buscados {
 		mostrarLista();
 	}
 
-	private void mostrarLista() {
+	public void mostrarLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.removeAll();
 		vl.getStyle().set("width", "100%");
 		for(Estilo estilo : _estilo) {
 			vl.add(estilo);
 		}
-		
 	}
 }

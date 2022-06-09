@@ -185,8 +185,8 @@ public class BD_Usuario_Registrado {
 			if(usuario.getTipoUsuario()==0) {
 				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
 			}
-			UsuarioDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
+			UsuarioDAO.delete(usuario);
 			t.commit();
 		}catch (PersistentException e) {
 			t.rollback();

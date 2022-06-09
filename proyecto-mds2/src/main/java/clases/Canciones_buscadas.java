@@ -2,7 +2,15 @@ package clases;
 
 import java.util.ArrayList;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import basededatos.AlbumDAO;
+import basededatos.CancionDAO;
+import basededatos.Cancion;
+import bds.BDPrincipal;
+import bds.iAdministrador;
 
 public class Canciones_buscadas extends vistas.VistaCanciones_buscadas {
 
@@ -29,15 +37,18 @@ public class Canciones_buscadas extends vistas.VistaCanciones_buscadas {
 		
 	}
 	private void buscarCanciones(String value) {
-		lista.clear();
-		if(value != "") {
-		Cancion_encontrada cancion = new Cancion_encontrada(value);		
-		Cancion_encontrada cancion2 = new Cancion_encontrada(value);
-		
-		lista.add(cancion);
-		lista.add(cancion2);
+		this.getStyle().set("width", "100%");
+		try {
+			if(value != "") {
+			Cancion[]canciones = CancionDAO.listCancionByQuery("Titulo='"+value+"'", null);
+			for(Cancion cancion: canciones) {
+				lista.add(new Cancion_encontrada(cancion));
+			}
 		}
-		
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 	
 	public void actualizar(String value) {

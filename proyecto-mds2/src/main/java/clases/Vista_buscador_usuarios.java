@@ -26,14 +26,8 @@ public class Vista_buscador_usuarios extends vistas.VistaVista_buscador_usuarios
 		vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(usuarios);
 		this.getStyle().set("width", "100%");
-		this.getVaadinTextField().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>() {
-			
-			@Override
-			public void onComponentEvent(BlurEvent<TextField> event) {
+		this.getIronIcon().addEventListener("click", e -> {
 				usuarios.actualizar(getVaadinTextField().getValue());
-	
-				
-			}
 		
 		});
 	}

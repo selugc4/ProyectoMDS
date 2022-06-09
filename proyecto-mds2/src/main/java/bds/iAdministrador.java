@@ -13,7 +13,7 @@ public interface iAdministrador {
 
 	public void cargar_Ultimos_Exitos_Admin();
 
-	public void cargar_Estilos(String aNombre);
+	public Estilo[] cargar_Estilos(String aNombre);
 
 	public Cancion[] cargar_Canciones_Buscadas(String aNombre);
 
