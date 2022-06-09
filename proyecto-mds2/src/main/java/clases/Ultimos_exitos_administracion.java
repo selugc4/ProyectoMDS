@@ -41,7 +41,7 @@ public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_ad
 		Cancion[]canciones = iciber.cargar_Ultimos_Exitos();
 		if(canciones.length != 0) {
 		for(Cancion cancion: canciones) {
-			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.es_de.toArray()[0].getNombre());
+			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.getCancion_de().autor.toArray()[0].getNombre());
 			aux.id = cancion.getIdCancion();
 			lista.add(aux);
 			vl.add(aux);	

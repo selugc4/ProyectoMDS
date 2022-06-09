@@ -3,6 +3,11 @@ package clases;
 import bds.BDPrincipal;
 import bds.iActor_comun;
 import proyectoMDS2.MainView;
+
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+
 import basededatos.Horas;
 import basededatos.Usuario;
 
@@ -34,7 +39,14 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 		this.getLabel6().setText(cancion.getTitulo());
 		this.getLabel8().setText(Integer.toString(horas));
 			
+		}else {
+		this.getLabel2().setText("No se ha podido obtener");
+		this.getLabel4().setText("No se ha podido obtener");
+		this.getLabel6().setText("No se ha podido obtener");
+		this.getLabel8().setText("No se ha podido obtener");
 		}
+			
+		
 	
 		
 	}

@@ -24,8 +24,10 @@ public interface iArtista {
 
 	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo);
 
-	public void Seguir_artista(String aCorreoSeguidor, String aCorreoSeguido);
+	public void Seguir_artista(int idUsuario, int idArtista);
 
 	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento);
+
+	public void dejar_de_seguir_artista(int idUsuario, int idArtista);
 
 }

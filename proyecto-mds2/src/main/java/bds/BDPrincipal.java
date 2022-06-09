@@ -74,7 +74,7 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
 			if(usuario.getTipoUsuario() == 0) {
 			_bd_usuario_registrado.Eliminar_usuario(aCorreo);
-			}else if(usuario.getTipoUsuario() == 2) {
+			}else if(usuario.getTipoUsuario() == 1) {
 				_bd_artista.Darse_de_baja(aCorreo);
 			}
 		} catch (PersistentException e) {
@@ -257,8 +257,13 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 			e.printStackTrace();
 		}	}
 
-	public void Seguir_artista(String aCorreoSeguidor, String aCorreoSeguido) {
-		throw new UnsupportedOperationException();
+	public void Seguir_artista(int idUsuario, int idArtista) {
+		try {
+			_bd_artista.Seguir_artista(idUsuario, idArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void Anadir_Evento(String aCorreo, String aNombre, String aFecha, String aTipoEvento) {
@@ -719,6 +724,33 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	public void guardar_Modificacion_lista(int iD, String value, ArrayList<clases.Cancion> get_canciones) {
 		try {
 			_bd_lista_reproduccion.guardar_Modificacion_lista(iD,value,get_canciones);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	@Override
+	public boolean comprobar_Seguido(int idArtista) {
+		try {
+			if(_bd_administrador.comprobar_Seguido(idArtista) || _bd_artista.comprobar_Seguido(idArtista) || _bd_usuario_registrado.comprobar_Seguido(idArtista)) {
+				return true;
+			}else
+				return false;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+
+	@Override
+	public void dejar_de_seguir_artista(int idUsuario, int idArtista) {
+		try {
+			_bd_artista.dejar_de_seguir_artista(idUsuario,idArtista);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

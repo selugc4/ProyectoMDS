@@ -24,8 +24,6 @@ public class VistaVer_perfil_ajeno extends LitTemplate {
 	private Element vaadinVerticalLayout;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("img")
-	private Image img;
 	@Id("vaadinVerticalLayout1")
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinHorizontalLayout1")
@@ -60,7 +58,8 @@ public class VistaVer_perfil_ajeno extends LitTemplate {
 	private Element verticalExitosas;
 	@Id("verticalConciertos")
 	private Element verticalConciertos;
-
+	@Id("img")
+	private Image img;
 	/**
      * Creates a new VistaVer_perfil_ajeno.
      */

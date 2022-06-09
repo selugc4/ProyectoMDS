@@ -81,17 +81,31 @@ public class Artista extends Actor_comun {
 					
 		});
 		
-
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
+				ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						// TODO Auto-generated method stub
+						Artista.v1.removeAll();
+						Artista.v1.add(cucr);
+						Artista.v1.add(ccf);
+						Artista.v1.add(cr);
+						Artista.v1.add(clr);
+						Artista.v2.setVisible(true);
+					}
+				});
 				v1.add(ve);
 				v2.setVisible(false);	
 				
 			}
 		});
+		
+		
 				
 		
 					

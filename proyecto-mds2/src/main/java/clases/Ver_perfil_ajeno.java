@@ -22,8 +22,9 @@ public class Ver_perfil_ajeno extends  vistas.VistaVer_perfil_ajeno {
 	}
 	
 	public Ver_perfil_ajeno(int usuario) {
-		inicializar();
 		csl = new ContenedorSus_Listas(usuario);
+		inicializar();
+		
 	}
 
 

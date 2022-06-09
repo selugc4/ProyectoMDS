@@ -19,8 +19,8 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 	private boolean bloques = false;
 	
 	public ContenedorSus_Listas(int usuario) {
+		slr = new Sus_listas_de_reproduccion(usuario);
 		inicializar();
-//		slr = new Sus_listas_de_reproduccion(false,usuario);
 		
 	this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
@@ -29,7 +29,10 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				tamano = 5;
 				pagina = 0;
 				slr.mostrar(tamano);
-				getLabel4().setText("Página " +(pagina+1)+" de " + slr.ldr.size()/tamano);
+				if(slr.ldr.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				}
+				getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 			
 			}
 		});
@@ -40,7 +43,10 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				tamano = 10;
 				pagina = 0;
 				slr.mostrar(tamano);
-				getLabel4().setText("Página " +(pagina+1)+" de " + slr.ldr.size()/tamano);
+				if(slr.ldr.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				}
+				getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 				
 			}
 			
@@ -53,7 +59,10 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				tamano = 15;
 				pagina = 0;
 				slr.mostrar(tamano);
-				getLabel4().setText("Página " +(pagina+1)+" de " +  slr.ldr.size()/tamano);
+				if(slr.ldr.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				}
+				getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 			
 			}
 		});
@@ -67,12 +76,18 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				if(pagina <  slr.ldr.size()/tamano-1) {
 				++pagina;
 				slr.mostrar(tamano, pagina);
-				getLabel4().setText("Página " +(pagina+1)+" de " +  slr.ldr.size()/tamano);
+				if(slr.ldr.size()/tamano == 0) {
+					getLabel4().setText("Página 1 de 1");
+				}else
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 				}}else {
 					if(pagina <  slr.ldr.size()/tamano-1) {
 						++pagina;
 						slr.mostrarBloques(tamano, pagina);
-						getLabel4().setText("Página " +(pagina+1)+" de " +  slr.ldr.size()/tamano);
+						if(slr.ldr.size()/tamano == 0) {
+							getLabel4().setText("Página 1 de 1");
+						}else
+							getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 				}
 				}
 		}});
@@ -84,11 +99,17 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				if(pagina > 0) {
 					--pagina;
 					slr.mostrar(tamano, pagina);
-					getLabel4().setText("Página " +(pagina+1)+" de " +  slr.ldr.size()/tamano);
+					if(slr.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 				}}else {
 					--pagina;
 					slr.mostrarBloques(tamano, pagina);
-					getLabel4().setText("Página " +(pagina+1)+" de " +  slr.ldr.size()/tamano);
+					if(slr.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else
+						getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
 				}
 			}});	
 		
@@ -102,10 +123,21 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 				if(bloques) {		
 					tamano = 5;
 					slr.mostrar(tamano);
+					if(slr.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
+					}
 					bloques = false;
 				}else {
 					tamano = 6;
 					slr.mostrarBloques(tamano);
+					if(slr.ldr.size()/tamano == 0) {
+						getLabel4().setText("Página 1 de 1");
+					}else {
+					getLabel4().setText("Página " +(pagina+1)+" de " + ((slr.ldr.size()/tamano)+1));
+					}
+					bloques = true;
 					bloques = true;
 				
 			}
@@ -116,10 +148,14 @@ public class ContenedorSus_Listas extends Contenedor_modificar_listados {
 	
 	private void inicializar() {
 		this.getStyle().set("width","100%");
-		this.getLabelContenedor().setText("Listas de reproduccion");	
+		this.getLabelContenedor().setText("Sus listas de reproduccion");	
 		this.getVaadinButton().setVisible(false);
 		VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		vl.add(slr);
-		this.getLabel4().setText("Página 1 de " +  slr.ldr.size()/tamano );
+		if(slr.ldr.size()/tamano == 0) {
+			this.getLabel4().setText("Página 1 de 1");
+		} else
+			
+			this.getLabel4().setText("Página 1 de " + ((slr.ldr.size()/tamano)+1));
 }
 }

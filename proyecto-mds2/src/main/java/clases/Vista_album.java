@@ -26,6 +26,9 @@ public class Vista_album extends vistas.VistaVista_album {
 		this.getStyle().set("width", "100%");
 		this.cl = new Canciones_lista(album);
 		this.cl.getVaadinButton().setVisible(false);
+		this.getImg().setSrc("imagenes/"+album.getContiene_imagen().getUrl());
+		this.getImg().setWidth("250px");
+		this.getImg().setHeight("250px");
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(cl);
 	}

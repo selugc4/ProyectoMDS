@@ -33,11 +33,11 @@ public class ArtistaBuscador extends vistas.VistaArtistabuscador {
 				
 				@Override
 				public void onComponentEvent(ClickEvent<Image> event) {
-					VerticalLayout v1 = Usuario_registrado.v1;
+					VerticalLayout v1 = Actor_comun.v1;
 					v1.removeAll();
-					vpaj = new Ver_perfil_del_artista_ajeno();
+					vpaj = new Ver_perfil_del_artista_ajeno(artista.getORMID());
 					v1.add(vpaj);
-					Usuario_registrado.v2.setVisible(false);
+					Actor_comun.v2.setVisible(false);
 					
 				}
 			});

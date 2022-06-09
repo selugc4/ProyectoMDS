@@ -7,6 +7,8 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
+import basededatos.Administrador;
+import basededatos.AdministradorDAO;
 import basededatos.Album;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
@@ -28,6 +30,7 @@ import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import clases.Actor_comun;
 import clases.Cibernauta;
 import clases.Ver_estadisticas;
 import proyectoMDS2.MainView;
@@ -144,37 +147,83 @@ public class BD_Artista {
 	public void Darse_de_baja(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
-			usuario.favorita.clear();
-//			Cancion[] cancionesf = usuario.favorita.toArray();
-//			for(Cancion cancion: cancionesf) {
-//				cancion.favorita_de.remove(usuario);
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
+//			
+//			if(!usuario.favorita.isEmpty()) {
+//				Cancion[] cancionesf = usuario.favorita.toArray();
+//				for(Cancion cancion: cancionesf) {
+//					cancion.favorita_de.remove(usuario);
 //			}
-			usuario.horass.clear();
-			usuario.propietario.clear();
-			Lista_Reproduccion[]listas = usuario.propietario.toArray();
-			for(Lista_Reproduccion lista: listas) {
-				lista.seguidor.clear();
-				lista.contiene_cancion.clear();
-				Cancion[] cancionesl = lista.contiene_cancion.toArray();
-				for(Cancion cancionl: cancionesl) {
-					cancionl.contendor_cancion.remove(lista);
-				}
-				Lista_ReproduccionDAO.delete(lista);
-			}
-			usuario.recibe_notificacion.clear();
-//			Evento[]evento = usuario.recibe_notificacion.toArray();
-			usuario.seguido.clear();
-			usuario.seguidor_usuario.clear();
-			usuario.seguir.clear();
-			usuario.ultimo_exito.clear();
-			if(usuario.getTipoUsuario()==0) {
-				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
-			}
-			UsuarioDAO.delete(usuario);
+//			}
+//			
+//			if(!usuario.crea.isEmpty()) {
+//				for(Evento ev : usuario.crea.toArray()) {
+//					usuario.crea.remove(ev);
+//				}
+//			}
+//			if(!usuario.pertenece.isEmpty()) {
+//				for(Estilo estilo : usuario.pertenece.toArray()) {
+//					usuario.pertenece.remove(estilo);
+//				}
+//			}
+//			if(!usuario.propietario_album.isEmpty()) {
+//				for(Album album : usuario.propietario_album.toArray()) {
+//					usuario.propietario_album.remove(album);
+//				}
+//			}
+//			if(!usuario.tiene.isEmpty()){
+//				for(Cancion can : usuario.tiene.toArray()) {
+//					usuario.tiene.remove(can);
+//				}
+//			}
+//			
+//			if(!usuario.horass.isEmpty());{
+//				for(Horas hora : usuario.horass.toArray()) {
+//					usuario.horass.remove(hora);
+//				}
+//			}
+//		
+//			if(!usuario.propietario.isEmpty()) {
+//			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+//			for(Lista_Reproduccion lista: listas) {
+//				lista.seguidor.clear();
+//				lista.contiene_cancion.clear();
+//				Cancion[] cancionesl = lista.contiene_cancion.toArray();
+//				for(Cancion cancionl: cancionesl) {
+//					cancionl.contendor_cancion.remove(lista);
+//				}
+//				Lista_ReproduccionDAO.delete(lista);
+//			}
+//			}
+//			
+//			if(!usuario.recibe_notificacion.isEmpty()) {
+//				for(Evento evento : usuario.recibe_notificacion.toArray()) {
+//					usuario.recibe_notificacion.remove(evento);
+//				}
+//			}
+//			if(!usuario.seguido.isEmpty()) {
+//				for(Usuario user: usuario.seguido.toArray()) {
+//					usuario.seguido.remove(user);
+//				}
+//			}
+//
+//			if(!usuario.seguidor_usuario.isEmpty()) {
+//				for(Usuario user2 : usuario.seguidor_usuario.toArray()) {
+//					usuario.seguidor_usuario.remove(user2);
+//				}
+//			}
+//			if(!usuario.seguir.isEmpty()) {
+//				for(Lista_Reproduccion list : usuario.seguir.toArray()) {
+//					usuario.seguir.remove(list);
+//				}
+//			}
+//			usuario.
+			
+			ArtistaDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
+
 			t.commit();
-		}catch (PersistentException e) {
+			}catch (PersistentException e) {
 			t.rollback();
 		}
 	}
@@ -215,9 +264,13 @@ public class BD_Artista {
 			evento.setCreado_por(usuario);
 			evento.setFecha(aFecha);
 			evento.setTipoEvento(aTipoEvento);
-			evento.setNombre(aNombre);			
-			
+			evento.setNombre(aNombre);	
+			for(Usuario user: usuario.seguidor_usuario.toArray()) {
+				user.recibe_notificacion.add(evento);
+			}			
 			EventoDAO.save(evento);
+			
+			
 			
 			t.commit();
 		} catch (Exception e) {
@@ -298,8 +351,20 @@ public class BD_Artista {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Seguir_artista(String aCorreoSeguidor, String aCorreoSeguido) {
-		throw new UnsupportedOperationException();
+	public void Seguir_artista(int idUsuario, int idArtista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Artista artista = ArtistaDAO.loadArtistaByORMID(idArtista);
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+			artista.seguido.add(usuario);
+			
+			ArtistaDAO.save(artista);
+			t.commit();
+			
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
 	}
 
 	public Cancion obtener_Estadisticas(int iD) throws PersistentException {
@@ -376,4 +441,42 @@ public class BD_Artista {
 			return null;
 		}		
 	}
+
+		public boolean comprobar_Seguido(int idArtista) throws PersistentException {
+			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+			try {
+				Artista usuario = ArtistaDAO.getArtistaByORMID(Actor_comun.ID);
+				if(usuario != null) {
+					Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
+					if(usuario.seguidor_usuario.contains(artista)) {
+						return true;
+					}else
+						return false;
+				}else
+					t.commit();
+					return false;
+			
+				
+			} catch (PersistentException e) {
+				t.rollback();
+				return false;
+			}
+			
+	}
+
+		public void dejar_de_seguir_artista(int idUsuario, int idArtista) throws PersistentException {
+			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+			try {
+				Artista artista = ArtistaDAO.loadArtistaByORMID(idArtista);
+				Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+				artista.seguido.remove(usuario);
+				
+				ArtistaDAO.save(artista);
+				t.commit();
+				
+			} catch (Exception e) {
+				t.rollback();
+			}
+			
+		}
 }

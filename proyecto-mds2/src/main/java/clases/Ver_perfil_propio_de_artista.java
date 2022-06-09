@@ -98,14 +98,13 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		//CREAR LISTA
 		ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 									
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										Artista.v1.removeAll();
-										cslp.cl = new Creacion_lista(iD, 0);
-										Artista.v1.add(ca.cl);
-										
-									}
-								});
+		@Override
+		public void onComponentEvent(ClickEvent<Button> event) {
+		Artista.v1.removeAll();
+		cslp.cl = new Creacion_lista(iD, 0);
+		Artista.v1.add(ca.cl);	
+		}
+		});
 								
 		//FAVORITOS
 		getVaadinButton5().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

@@ -19,6 +19,7 @@ import basededatos.Horas;
 import basededatos.HorasDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import clases.Actor_comun;
 import clases.Cibernauta;
 import clases.Ver_estadisticas;
 import basededatos.Imagen;
@@ -279,5 +280,26 @@ public class BD_Usuario_Registrado {
 			t.rollback();
 	
 		}
+	}
+
+	public boolean comprobar_Seguido(int idArtista) throws PersistentException {
+			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+			try {
+				Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(Actor_comun.ID);
+				if(usuario != null) {
+					Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
+					if(usuario.seguidor_usuario.contains(artista)) {
+						return true;
+					}else
+						return false;
+				}else
+					t.commit();
+					return false;
+			
+				
+			} catch (PersistentException e) {
+				t.rollback();
+				return false;
+			}
 	}
 }

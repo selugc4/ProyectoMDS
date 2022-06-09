@@ -22,6 +22,7 @@ import basededatos.Usuario;
 import basededatos.UsuarioDAO;
 import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
+import clases.Actor_comun;
 import clases.Cibernauta;
 import clases.Ver_estadisticas;
 import proyectoMDS2.MainView;
@@ -178,5 +179,28 @@ public class BD_Administrador {
 			t.rollback();
 			return null;
 		}
+	}
+
+	public boolean comprobar_Seguido(int idArtista) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador usuario = AdministradorDAO.getAdministradorByORMID(Actor_comun.ID);
+			if(usuario != null) {
+				Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
+				if(usuario.seguidor_usuario.contains(artista)) {
+					return true;
+				}else
+					return false;
+			}else
+				t.commit();
+				return false;
+		
+			
+		} catch (PersistentException e) {
+			t.rollback();
+			return false;
+		}
+		
+		
 	}
 }

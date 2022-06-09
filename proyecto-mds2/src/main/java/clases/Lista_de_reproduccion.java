@@ -45,6 +45,24 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 		});
 	}
 
+	public Lista_de_reproduccion(Lista_Reproduccion lista, boolean b) {
+		inicializar();
+		this.getLabel().setText(lista.getNombreLista());
+		//CLICKER VER LISTA		
+		this.getVaadinHorizontalLayout2().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+				VerticalLayout aux = Usuario_registrado.v1;
+				vldr = new Ver_lista_de_Reproduccion(lista.getIdLista(), lista.getNombreLista());		
+				aux.removeAll();
+				aux.add(vldr);
+				Usuario_registrado.v2.setVisible(false);
+			}
+		});
+	}
+
+
 	private void inicializar() {
 		this.getVaadinButton().setVisible(false);
 		this.getVaadinButton1().setVisible(false);

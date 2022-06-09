@@ -18,9 +18,10 @@ public class Administrador extends Actor_comun {
 //	public Cabecera_administrador _cabecera_administrador;
 	
 	public Cabecera_administrador cabadmin = new Cabecera_administrador();
-	public static Ver_perfil_propio vpp = new Ver_perfil_propio();
+	public static Ver_perfil_propio vpp;
 	public Administrador(int iD) {
 		super(iD);
+		vpp = new Ver_perfil_propio(iD);
 //		clr = new ContenedorListasReproduccion(2);
 
 		

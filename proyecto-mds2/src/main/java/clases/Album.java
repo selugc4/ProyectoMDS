@@ -39,6 +39,8 @@ public class Album extends vistas.VistaAlbum {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				_vista_album = new Vista_album(album);
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(_vista_album);
 				
 			}
 		});

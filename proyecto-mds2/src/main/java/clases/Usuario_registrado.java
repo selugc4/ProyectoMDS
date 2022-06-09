@@ -98,27 +98,28 @@ public class Usuario_registrado extends Actor_comun {
 		
 
 	
-		ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();
-				v1.add(cucr);
-				v1.add(ccf);
-				v1.add(cr);
-				v1.add(clr);
-				v2.setVisible(true);	
-				
-			}
-		});
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 		
 		@Override
 		public void onComponentEvent(ClickEvent<Button> event) {
-			ve = new Ver_estadisticas();
 			v1.removeAll();
+			ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					crearElementos();
+					v1.removeAll();
+					v1.add(cucr);
+					v1.add(ccf);
+					v1.add(cr);
+					v1.add(clr);
+					v2.setVisible(true);	
+					
+				}
+			});
 			v1.add(ve);
 			v2.setVisible(false);	
+			
 			
 		}
 	});
