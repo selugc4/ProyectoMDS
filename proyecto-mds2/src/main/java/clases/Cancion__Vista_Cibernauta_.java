@@ -56,7 +56,7 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 		if(cancion.es_de.isEmpty()) {
 			this.getLabelDebajoArtista().setText("No asignado");
 		}else {
-			this.getLabelDebajoArtista().setText(cancion.es_de.toString());
+			this.getLabelDebajoArtista().setText(cancion.es_de.toArray()[0].getNombre());
 		}
 
 	
