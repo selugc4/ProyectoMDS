@@ -347,8 +347,14 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void cargar_Albumes_Buscador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public Album[] cargar_Albumes_Buscador(String aNombre) {
+		try {
+			return _bd_album.cargar_Albumes_Buscador(aNombre);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre) {
@@ -361,10 +367,6 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void anadir_Favorita(int aIdCancion, String aCorreo) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void anadir_Seguidor(int aIdLista) {
 		throw new UnsupportedOperationException();
 	}
@@ -375,7 +377,7 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 
 	public void anadir_Cancion_Favorita(int aIdCancion, int iD) {
 			try {
-				_bd_lista_reproduccion.anadir_Cancion_Favorita(aIdCancion, iD);
+				_bd_cancion.anadir_Cancion_Favorita(aIdCancion, iD);
 			} catch (PersistentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -404,8 +406,13 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 	}
 
-	public void seguir_Lista(int aIdLista, String aCorreo) {
-		throw new UnsupportedOperationException();
+	public void seguir_Lista(int aIdLista, int id) {
+		try {
+			_bd_lista_reproduccion.seguir_Lista(aIdLista, id);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Cancion[] cargar_Canciones_Lista(int aIdLista) {

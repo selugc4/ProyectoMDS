@@ -34,7 +34,9 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 		if(cancion != null) {		
 		basededatos.Artista[] artista = cancion.getCancion_de().autor.toArray();
 		basededatos.Estilo[] estilos = artista[0].pertenece.toArray();
+		if(estilos.length != 0) {
 		this.getLabel2().setText(estilos[0].getNombre());
+		}
 		this.getLabel4().setText(artista[0].getNombre());
 		this.getLabel6().setText(cancion.getTitulo());
 		this.getLabel8().setText(Integer.toString(horas));
@@ -45,10 +47,6 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 		this.getLabel6().setText("No se ha podido obtener");
 		this.getLabel8().setText("No se ha podido obtener");
 		}
-			
-		
-	
-		
 	}
 	
 

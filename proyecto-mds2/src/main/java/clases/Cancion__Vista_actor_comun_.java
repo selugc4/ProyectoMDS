@@ -44,8 +44,12 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 		this.cancion = cancion;
 		
 		String cadena = "";
-		for(Artista artista : cancion.es_de.toArray()) {
-			cadena += artista.getNombre() + ", ";
+		for(int i =0; i < cancion.es_de.toArray().length;i++) {
+			if(cancion.es_de.toArray().length-1 != i) {
+			cadena += cancion.es_de.toArray()[i].getNombre() + ", ";
+			}else {
+				cadena += cancion.es_de.toArray()[i].getNombre();
+			}
 		}
 			if(cadena.equals("")) {
 				this.getLabelDebajoArtista().setText("Artista no Asignado");
