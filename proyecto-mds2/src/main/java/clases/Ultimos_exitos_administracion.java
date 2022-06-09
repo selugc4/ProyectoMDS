@@ -8,6 +8,11 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iAdministrador;
+import bds.iCibernauta;
+import basededatos.Cancion;
+
 public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_administracion{
 //	public Vector<Ultimo_exito> _ultimo_exito = new Vector<Ultimo_exito>();
 //	public ContenedorUltimosExitos _contenedorUltimosExitos;
@@ -15,22 +20,7 @@ public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_ad
 	public ArrayList<Ultimo_exito> lista = new ArrayList<Ultimo_exito>();
 	
 	public Ultimos_exitos_administracion() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		inicializar();
-		
-		lista.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				lista.remove(t);
-				vl.remove(t);
-				
-				
-			}
-		}));
-		
-		
-		
 	}
 
 	private void inicializar() {
@@ -38,29 +28,25 @@ public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_ad
 		
 	}
 	
-	public void agregar(String nombre, String artista) {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		Ultimo_exito aux = new Ultimo_exito(nombre, artista);
-		lista.add(aux);
-		vl.add(aux);
-		
+	public void agregar(Cancion cancion) {
+		iAdministrador iadmin= new BDPrincipal();
+		iadmin.Anadir_a_la_vista_de_cibernauta(cancion.getIdCancion());
 	}
-
-	private void obtenerLista() {
+	
+	public void obtenerLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-//		String tamano = String.valueOf(Ultimos_exitos.canciones.size());
-		for(int i = 0; i< 5; i++) {
-			Ultimo_exito aux = new Ultimo_exito("Cancion","Artista");
-//			Ultimo_exito aux = new Ultimo_exito(Ultimos_exitos.canciones.get(i).getLabel().getText(), Ultimos_exitos.canciones.get(i).getLabel1().getText());
+		vl.removeAll();
+		lista.clear();
+		iCibernauta iciber = new BDPrincipal();
+		Cancion[]canciones = iciber.cargar_Ultimos_Exitos();
+		if(canciones.length != 0) {
+		for(Cancion cancion: canciones) {
+			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.es_de.toArray()[0].getNombre());
+			aux.id = cancion.getIdCancion();
 			lista.add(aux);
-			vl.add(aux);
-			
+			vl.add(aux);	
+		}
 		}
 		
 	}
-
-	
-	
-	
-	
 }

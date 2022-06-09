@@ -17,6 +17,7 @@ import org.orm.PersistentTransaction;
 import com.mysql.cj.jdbc.jmx.LoadBalanceConnectionGroupManager;
 
 import basededatos.A12PersistentManager;
+import basededatos.Administrador;
 import basededatos.AdministradorDAO;
 import basededatos.Album;
 import basededatos.AlbumDAO;
@@ -252,12 +253,26 @@ public class BD_Cancion {
 		t.commit();
 	}
 
-	public void Anadir_a_la_vista_de_cibernauta(int aIdCancion) {
-		throw new UnsupportedOperationException();
+	public void Anadir_a_la_vista_de_cibernauta(int aIdCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador admin = AdministradorDAO.loadAdministradorByQuery("Nombre='Administrador'", null);
+			admin.ultimo_exito.add(CancionDAO.getCancionByORMID(aIdCancion));
+			t.commit();
+		}catch (Exception e) {
+			t.rollback();
+		}
+
 	}
 
-	public void Eliminar_Ultimo_Exito(int aIdCancion) {
-		throw new UnsupportedOperationException();
+	public void Eliminar_Ultimo_Exito(int aIdCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador admin = AdministradorDAO.loadAdministradorByQuery("Nombre='Administrador'", null);
+			admin.ultimo_exito.remove(CancionDAO.getCancionByORMID(aIdCancion));
+		}catch (Exception e) {
+			t.rollback();
+		}
 	}
 	
 	public void Dar_alta_cancion(String aTitulo, String aTitulo_Creditos, String aTitulo_Album, String aCompositores, String aProductores, String aInterpretes, String aArchivoMultimedia) throws PersistentException {

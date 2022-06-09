@@ -2,6 +2,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.BlurNotifier;
@@ -15,6 +17,7 @@ import com.vaadin.flow.component.textfield.TextField;
 
 import bds.BDPrincipal;
 import bds.iAdministrador;
+import net.bytebuddy.asm.Advice.This;
 import proyectoMDS2.MainView;
 
 public class Vista_administracion extends vistas.VistaVista_administracion{
@@ -72,15 +75,21 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public ContenedorUltimosExitos cue = new ContenedorUltimosExitos();
+	public static ContenedorUltimosExitos cue = new ContenedorUltimosExitos();
 	public Buscador_cancion_administracion bca = new Buscador_cancion_administracion();
-	public Estilos_buscados eb = new Estilos_buscados();
+	public static Estilos_buscados eb = new Estilos_buscados();
 	public Menu_dar_alta mda = new Menu_dar_alta();
 	public Vista_buscador_usuarios vbu = new Vista_buscador_usuarios();
+	public static VerticalLayout vgrLayout;
 	
 	public Vista_administracion() {
+		vgrLayout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		inicializar();
+		cue.uea.obtenerLista();
+		VerticalLayout vue = this.getVerticallUE().as(VerticalLayout.class);
+		vue.add(cue);
 		iAdministrador iadmin = new BDPrincipal();
+		
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -125,30 +134,14 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 			}
 		});
 		
-		this.bca.getCb().getLista().forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Notification.show("CLICK");
-				cue.getUea().agregar(t.getLabel().toString(), "Artista");
-				
-				
-			}
-		}));
-		
-		
-		this.getTfBuscador().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<TextField>>() {
-			
-			@Override
-			public void onComponentEvent(BlurEvent<TextField> event) {
-				eb = new Estilos_buscados(getTfBuscador().getValue());
-				VerticalLayout vl2 = getVerticalEstilos().as(VerticalLayout.class);
-				vl2.removeAll();
-				vl2.add(eb);
-				
-				
-			}
-		});
+//		this.bca.getCb().getLista().forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+//			
+//			@Override
+//			public void onComponentEvent(ClickEvent<Button> event) {
+//				Notification.show("CLICK");
+//				cue.getUea().agregar(t.getLabel().toString(), "Artista");
+//			}
+//		}));
 		
 		this.getBotonDarAlta().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -172,12 +165,30 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 				
 			}
 		});
+		this.getIronIcon().addEventListener("click", e -> {
+				VerticalLayout ve = this.getVerticalEstilos().as(VerticalLayout.class);
+				ve.removeAll();
+				for(int i = 0; i < eb._estilo.size();i++) {
+					eb._estilo.remove(i);
+				}
+				iAdministrador iad = new BDPrincipal();
+				basededatos.Estilo[] estilos = iad.cargar_Estilos(this.getTfBuscador().getValue());	
+				if(estilos!= null) {
+				for(basededatos.Estilo estilo: estilos) {
+				Estilo Estilob = new clases.Estilo(estilo.getNombre());
+				Estilob.idEstilo = estilo.getORMID();
+				eb._estilo.add(Estilob);
+				}
+				}
+				eb.mostrarLista();
+				ve.add(eb);
+		});
 	}
 	
 	private void inicializar() {
 		VerticalLayout vl = this.getVerticallUE().as(VerticalLayout.class);
 		
-		vl.add(cue);
+//		vl.add(cue);
 		
 	}
 	
