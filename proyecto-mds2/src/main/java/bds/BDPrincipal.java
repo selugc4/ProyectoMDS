@@ -84,10 +84,6 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 
 	}
 
-	public void Seguir_Usuario(String aCorreoSeguidor, String aCorreoSeguido) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Cancion[] cargar_Ultimos_Exitos() {
 
 		try {
@@ -713,6 +709,30 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 	public void dejar_de_seguir_artista(int idUsuario, int idArtista) {
 		try {
 			_bd_artista.dejar_de_seguir_artista(idUsuario,idArtista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	@Override
+	public void Seguir_Usuario(int idUsuario, int idUsuarioAjeno) {
+		try {
+			_bd_usuario_registrado.Seguir_Usuario(idUsuario, idUsuarioAjeno);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	@Override
+	public void Dejar_de_seguir_usuario(int idUsuario, int idUsuarioAjeno) {
+		try {
+			_bd_usuario_registrado.Dejar_de_seguir_usuario(idUsuario, idUsuarioAjeno);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

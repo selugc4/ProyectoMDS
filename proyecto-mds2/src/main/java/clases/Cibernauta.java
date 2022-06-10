@@ -53,6 +53,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
+				ue = new Ultimos_exitos();
 				v1.removeAll();	
 				v1.add(ue);
 		

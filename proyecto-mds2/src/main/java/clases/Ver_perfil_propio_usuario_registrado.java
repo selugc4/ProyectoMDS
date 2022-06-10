@@ -49,6 +49,13 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		this.getVaadinTextField().setValue(usuario.getCorreo());
 		correoantiguo = usuario.getCorreo();
 		
+		
+		
+		
+	}
+
+	@Override
+	protected void otrosClicks(int id) {
 		ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -70,10 +77,7 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 				
 			}
 		});
-		
-		
 	}
-
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
 		this.getVaadinButton().setVisible(true);

@@ -9,5 +9,7 @@ public interface iUsuario_registrado {
 
 	public void Darse_de_baja(String aCorreo);
 
-	public void Seguir_Usuario(String aCorreoSeguidor, String aCorreoSeguido);
+	public void Seguir_Usuario(int idUsuario, int idUsuarioAjeno);
+
+	public void Dejar_de_seguir_usuario(int idUsuario, int idUsuarioAjeno);
 }

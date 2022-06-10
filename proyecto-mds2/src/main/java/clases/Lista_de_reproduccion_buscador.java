@@ -57,7 +57,7 @@ public class Lista_de_reproduccion_buscador extends vistas.VistaLista_de_reprodu
 		this.getVaadinVerticalLayout().addEventListener("click", e -> {
 			VerticalLayout a = Actor_comun.v1;
 			a.removeAll();
-			vlra = new Ver_lista_de_reproduccion_ajena(lista.getIdLista(), lista.getNombreLista());
+			vlra = new Ver_lista_de_reproduccion_ajena(lista.getIdLista(), lista.getNombreLista(), lista.getAutor().getNombre(), lista.getAutor().getID());
 			a.add(vlra);
 			Actor_comun.v2.setVisible(false);
 		});

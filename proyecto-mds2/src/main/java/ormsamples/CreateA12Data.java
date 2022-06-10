@@ -18,6 +18,7 @@ import basededatos.Cancion;
 import basededatos.CancionDAO;
 import basededatos.Estilo;
 import basededatos.EstiloDAO;
+import basededatos.Evento;
 import basededatos.EventoDAO;
 import basededatos.Horas;
 import basededatos.HorasDAO;
@@ -80,6 +81,56 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='jesus@cambio.es'", null);
+			Cancion[] cancionesf = usuario.favorita.toArray();
+			for(Cancion cancion: cancionesf) {
+				cancion.favorita_de.remove(usuario);
+			}
+			
+			
+			Horas[] horas = usuario.horass.toArray();
+			for(Horas hora: horas) {
+				usuario.horass.remove(hora);
+				HorasDAO.delete(hora);
+			}
+			Lista_Reproduccion[]listas = usuario.propietario.toArray();
+			for(Lista_Reproduccion lista: listas) {
+				Usuario[]usuarios = lista.seguidor.toArray();
+				for(Usuario usuario1: usuarios) {
+					lista.seguidor.remove(usuario1);
+				}
+		
+			Cancion[] cancionesl = lista.contiene_cancion.toArray();
+			for(Cancion cancionl: cancionesl) {
+				lista.contiene_cancion.remove(cancionl);
+			}
+			Lista_ReproduccionDAO.delete(lista);
+			}
+			Evento[]eventos = usuario.recibe_notificacion.toArray();
+			for(Evento evento: eventos) {
+				usuario.recibe_notificacion.remove(evento);
+			}
+			Usuario[]usuariosS=usuario.seguido.toArray();
+			for(Usuario usuarioS:usuariosS) {
+				usuario.seguido.remove(usuarioS);
+			}
+			Usuario[]usuariosU=usuario.seguidor_usuario.toArray();
+			for(Usuario usuarioU:usuariosU) {
+				usuario.seguidor_usuario.remove(usuarioU);
+			}
+			Cancion[] cancionesu = usuario.ultimo_exito.toArray();
+			for(Cancion cancion: cancionesu) {
+				usuario.ultimo_exito.remove(cancion);
+			}
+		
+			Usuario_RegistradoDAO.delete(usuario);
+			ImagenDAO.delete(usuario.getContiene_imagen());
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 }

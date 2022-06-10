@@ -55,6 +55,7 @@ public class Modificar_y_crear_lista extends vistas.VistaModificar_y_crear_lista
 		
 		bc = new Buscador_cancion(tipo);
 		inicializar();
+		
 	}
 
 	protected void inicializar() {

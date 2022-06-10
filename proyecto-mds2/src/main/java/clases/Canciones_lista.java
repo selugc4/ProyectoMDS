@@ -2,6 +2,9 @@ package clases;
 
 import java.util.ArrayList;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -33,6 +36,7 @@ public class Canciones_lista extends vistas.VistaCanciones_lista {
 		this.getStyle().set("width", "100%");
 		this.getVaadinVerticalLayout1().setVisible(false);
 		
+		
 	}
 	public Canciones_lista() {
 	}
@@ -46,6 +50,17 @@ public class Canciones_lista extends vistas.VistaCanciones_lista {
 		}
 		rellenarLista(lista);
 		Cargar_Listas();
+		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Edicion_de_lista edl  = new Edicion_de_lista(Actor_comun.ID,1, idLista);
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(edl);
+				
+			}
+		});
 	}
 	public Canciones_lista(Album album) {
 		inicializar();

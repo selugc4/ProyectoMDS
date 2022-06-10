@@ -64,6 +64,13 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 
 		
 		
+		otrosClicks(id);
+		clickCambiarCorreo();
+		
+		
+	}
+
+	protected void otrosClicks(int id) {
 		ca.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
@@ -94,8 +101,6 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 				getVaadinButton1().setVisible(true);
 			}
 		});
-		
-		clickCambiarCorreo();
 		
 		
 	}

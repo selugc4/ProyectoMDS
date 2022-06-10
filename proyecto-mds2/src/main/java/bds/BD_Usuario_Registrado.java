@@ -159,42 +159,39 @@ public class BD_Usuario_Registrado {
 	public void Eliminar_usuario(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreo+"'", null);
-			usuario.favorita.clear();
-//			Cancion[] cancionesf = usuario.favorita.toArray();
-//			for(Cancion cancion: cancionesf) {
-//				cancion.favorita_de.remove(usuario);
-//			}
-			usuario.horass.clear();
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='jesus@cambio.es'", null);
+			Cancion[] cancionesf = usuario.favorita.toArray();
+			for(Cancion cancion: cancionesf) {
+				cancion.favorita_de.remove(usuario);
+			}
+			
+			
 			Horas[] horas = usuario.horass.toArray();
 			for(Horas hora: horas) {
 				usuario.horass.remove(hora);
+				HorasDAO.delete(hora);
 			}
-			usuario.propietario.clear();
 			Lista_Reproduccion[]listas = usuario.propietario.toArray();
 			for(Lista_Reproduccion lista: listas) {
-				lista.seguidor.clear();
 				Usuario[]usuarios = lista.seguidor.toArray();
 				for(Usuario usuario1: usuarios) {
 					lista.seguidor.remove(usuario1);
 				}
-				lista.contiene_cancion.clear();
-				Cancion[] cancionesl = lista.contiene_cancion.toArray();
-				for(Cancion cancionl: cancionesl) {
-					cancionl.contendor_cancion.remove(lista);
-				}
-				Lista_ReproduccionDAO.delete(lista);
+		
+			Cancion[] cancionesl = lista.contiene_cancion.toArray();
+			for(Cancion cancionl: cancionesl) {
+				lista.contiene_cancion.remove(cancionl);
+			}
+			Lista_ReproduccionDAO.delete(lista);
 			}
 			Evento[]eventos = usuario.recibe_notificacion.toArray();
 			for(Evento evento: eventos) {
 				usuario.recibe_notificacion.remove(evento);
 			}
-			usuario.seguido.clear();
 			Usuario[]usuariosS=usuario.seguido.toArray();
 			for(Usuario usuarioS:usuariosS) {
 				usuario.seguido.remove(usuarioS);
 			}
-			usuario.seguidor_usuario.clear();
 			Usuario[]usuariosU=usuario.seguidor_usuario.toArray();
 			for(Usuario usuarioU:usuariosU) {
 				usuario.seguidor_usuario.remove(usuarioU);
@@ -203,13 +200,8 @@ public class BD_Usuario_Registrado {
 			for(Cancion cancion: cancionesu) {
 				usuario.ultimo_exito.remove(cancion);
 			}
-			usuario.seguidor_usuario.clear();
-			usuario.seguir.clear();
-			usuario.ultimo_exito.clear();
-			if(usuario.getTipoUsuario()==0) {
-				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
-			}
-			UsuarioDAO.delete(usuario);
+		
+			Usuario_RegistradoDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
 			t.commit();
 		}catch (PersistentException e) {
@@ -217,8 +209,16 @@ public class BD_Usuario_Registrado {
 		}
 	}
 
-	public void Seguir_Usuario(String aCorreoSeguidor, String aCorreoSeguido) {
-		throw new UnsupportedOperationException();
+	public void Seguir_Usuario(int idUsuario, int idUsuarioAjeno) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuarioAjeno);
+			Usuario_Registrado usuarioseguidor = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuario);
+			usuario.seguido.add(usuarioseguidor);
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
 	}
 
 	public Usuario_Registrado[] cargar_Usuarios(String aNombre) throws PersistentException {
@@ -324,5 +324,18 @@ public class BD_Usuario_Registrado {
 				t.rollback();
 				return false;
 			}
+	}
+
+	public void Dejar_de_seguir_usuario(int idUsuario, int idUsuarioAjeno) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuarioAjeno);
+			Usuario_Registrado usuarioseguidor = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuario);
+			usuario.seguido.remove(usuarioseguidor);
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
+		
 	}
 }

@@ -58,6 +58,7 @@ public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduc
 		v1.add(cancionesLista);
 		
 		
+		
 	}
 
 	//	public void Compartir() {

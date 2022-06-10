@@ -68,10 +68,15 @@ public class BD_Album {
 			album.setContiene_imagen(img);	
 			for (int i = 0; i < aArtistas.length;i++) {
 				album.autor.add(aArtistas[i]);
+				for(int j = 0; i < aCanciones.length;) {
+					aCanciones[j].es_de.add(aArtistas[i]);
+				}
 			}
+			
 			
 			for(int i = 0; i< aCanciones.length; i++) {
 				album.contiene_cancion.add(aCanciones[i]);
+				
 			}
 			
 				AlbumDAO.save(album);
