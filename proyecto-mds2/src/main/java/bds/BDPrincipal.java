@@ -739,4 +739,24 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 		
 	}
+
+
+	@Override
+	public void reproducir(int iD, int idCancion) {
+		try {
+		Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
+		if(usuario.getTipoUsuario() == 0) {
+			_bd_usuario_registrado.reproducir(iD, idCancion);
+		}
+		else if(usuario.getTipoUsuario() == 1) {
+			_bd_artista.reproducir(iD, idCancion);
+		}
+		else {
+			_bd_administrador.reproducir(iD, idCancion);
+		}
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

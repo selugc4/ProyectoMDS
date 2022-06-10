@@ -52,6 +52,8 @@ public class Cancion_busqueda extends vistas.VistaCancion_busqueda{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				iActor_comun iac = new BDPrincipal();
+				iac.reproducir(Actor_comun.ID, cancion.getIdCancion());
 				Actor_comun.rc.reproducir(cancion.getArchivoMultimedia());
 				Notification.show("Reproduciendo");
 			}

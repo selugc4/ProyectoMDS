@@ -9,6 +9,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Cancion;
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iAdministrador;
 
 public class Cancion_administrador extends vistas.VistaCancion_administrador {
@@ -56,6 +57,8 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Actor_comun.rc.reproducir(cancion.getArchivoMultimedia());
+				iActor_comun iac = new BDPrincipal();
+				iac.reproducir(Actor_comun.ID, cancion.getIdCancion());
 				Notification.show("Reproduciendo");
 			}
 			});

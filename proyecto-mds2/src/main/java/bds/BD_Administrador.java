@@ -213,4 +213,25 @@ public class BD_Administrador {
 		
 		
 	}
+
+	public void reproducir(int iD, int idCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador usuario = AdministradorDAO.loadAdministradorByORMID(iD);
+			Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+			Horas horas = HorasDAO.loadHorasByQuery("UsuarioID='"+iD+"'AND CancionIdCancion='"+idCancion+"'", null);
+			if(horas == null) {
+				horas = HorasDAO.createHoras();
+				horas.setCancion(cancion);
+				horas.setUsuario(usuario);
+				horas.setHoras(1);
+			}else {
+				horas.setHoras(horas.getHoras()+1);
+			}
+			HorasDAO.save(horas);
+			t.commit();
+	}catch (PersistentException e) {
+		t.rollback();
+	}
+}
 }

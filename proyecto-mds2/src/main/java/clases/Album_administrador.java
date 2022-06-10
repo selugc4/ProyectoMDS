@@ -30,6 +30,7 @@ public class Album_administrador extends Album {
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
 				Administrador.v1.removeAll();
+				_vista_album = new Vista_album(album);
 				Administrador.v1.add(_vista_album);
 				Administrador.v2.setVisible(false);
 			}			

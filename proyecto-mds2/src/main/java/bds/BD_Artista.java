@@ -271,8 +271,9 @@ public class BD_Artista {
 			evento.setFecha(aFecha);
 			evento.setTipoEvento(aTipoEvento);
 			evento.setNombre(aNombre);	
-			for(Usuario user: usuario.seguidor_usuario.toArray()) {
+			for(Usuario user: usuario.seguido.toArray()) {
 				user.recibe_notificacion.add(evento);
+				UsuarioDAO.save(user);
 			}			
 			EventoDAO.save(evento);
 			
@@ -530,6 +531,28 @@ public class BD_Artista {
 				t.commit();
 				
 			} catch (Exception e) {
+				t.rollback();
+			}
+			
+		}
+
+		public void reproducir(int iD, int idCancion) throws PersistentException {
+			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+			try {
+				Artista usuario = ArtistaDAO.loadArtistaByORMID(iD);
+				Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+				Horas horas = HorasDAO.loadHorasByQuery("UsuarioID='"+iD+"'AND CancionIdCancion='"+idCancion+"'", null);
+				if(horas == null) {
+					horas = HorasDAO.createHoras();
+					horas.setCancion(cancion);
+					horas.setUsuario(usuario);
+					horas.setHoras(1);
+				}else {
+					horas.setHoras(horas.getHoras()+1);
+				}
+				HorasDAO.save(horas);
+				t.commit();
+			}catch (PersistentException e) {
 				t.rollback();
 			}
 			

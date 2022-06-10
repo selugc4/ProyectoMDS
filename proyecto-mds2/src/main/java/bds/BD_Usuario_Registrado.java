@@ -13,6 +13,7 @@ import basededatos.AdministradorDAO;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
+import basededatos.CancionDAO;
 import basededatos.Evento;
 import basededatos.EventoDAO;
 import basededatos.Horas;
@@ -237,10 +238,6 @@ public class BD_Usuario_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Eliminar_usuarios(String aCorreo) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Cancion obtener_Estadisticas(int iD) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
@@ -332,6 +329,28 @@ public class BD_Usuario_Registrado {
 			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuarioAjeno);
 			Usuario_Registrado usuarioseguidor = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuario);
 			usuario.seguido.remove(usuarioseguidor);
+			t.commit();
+		}catch (PersistentException e) {
+			t.rollback();
+		}
+		
+	}
+
+	public void reproducir(int iD, int idCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(iD);
+			Cancion cancion = CancionDAO.loadCancionByORMID(idCancion);
+			Horas horas = HorasDAO.loadHorasByQuery("UsuarioID='"+iD+"'AND CancionIdCancion='"+idCancion+"'", null);
+			if(horas == null) {
+				horas = HorasDAO.createHoras();
+				horas.setCancion(cancion);
+				horas.setUsuario(usuario);
+				horas.setHoras(1);
+			}else {
+				horas.setHoras(horas.getHoras()+1);
+			}
+			HorasDAO.save(horas);
 			t.commit();
 		}catch (PersistentException e) {
 			t.rollback();

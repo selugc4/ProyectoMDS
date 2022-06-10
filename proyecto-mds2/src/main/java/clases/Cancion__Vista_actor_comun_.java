@@ -17,6 +17,8 @@ import com.vaadin.flow.server.AbstractStreamResource;
 import com.vaadin.flow.server.StreamResource;
 
 import basededatos.Artista;
+import bds.BDPrincipal;
+import bds.iActor_comun;
 public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 //	public Canciones _canciones;
 //	public Reproductor_completo _reproductor_completo;
@@ -65,7 +67,6 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 			this.getLabelAlbum().setText(cancion.getCancion_de().getTitutloAlbum());
 			}else
 				this.getLabelAlbum().setText("Album no asignado");
-		
 		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
 		this.getImg().setWidth("125px");
 		this.getImg().setHeight("125px");
@@ -77,8 +78,10 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 				public void onComponentEvent(ClickEvent<Image> event) {
 					rcs.vcre = new Ver_creditos(cancion);
 					rcs._ir_a_cancion = new Ir_a_cancion(cancion);
-			
+					
 					rcs.reproducir(cancion.getArchivoMultimedia());
+					iActor_comun iac = new BDPrincipal();
+					iac.reproducir(Actor_comun.ID, cancion.getIdCancion());
 					
 				}
 			});
@@ -92,7 +95,6 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 	public basededatos.Cancion getCancion() {
 		return cancion;
 	}
-
 	void inicializar() {
 	this.getStyle().set("width", "100%");
 	this.getLabelAlbum().setVisible(false);

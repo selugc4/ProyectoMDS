@@ -133,6 +133,15 @@ public class MainView extends VerticalLayout {
 						
 					}else if(usuario == 1) {
 						Artista artista = new Artista(ID);
+						artista.ca.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								remove(artista);
+								ciber.ue.Cargar_Ultimos_Exitos();
+								add(ciber);
+							}
+						});
 						remove(ciber);
 						add(artista);
 					}else if(usuario == 2) {

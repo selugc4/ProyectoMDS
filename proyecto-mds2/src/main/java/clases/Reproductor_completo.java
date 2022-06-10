@@ -1,4 +1,8 @@
 package clases;
+
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Reproductor_completo extends Reproductor_canciones_simple {
 //	private Button _anterior_CancionB;
 //	private Button _siguiente_CancionB;
@@ -17,7 +21,6 @@ public class Reproductor_completo extends Reproductor_canciones_simple {
 	public void reproducir(String ruta) {
 		this.getElement().setAttribute("src", "canciones/"+ruta);
 		Actor_comun.botonIrCancion.setVisible(true);
-		
 	}
 
 //	public void Anterior_cancion() {

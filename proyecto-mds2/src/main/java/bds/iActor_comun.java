@@ -52,4 +52,6 @@ public interface iActor_comun {
 	public Usuario cargar_Perfil(int id);
 
 	public boolean comprobar_Seguido(int idArtista);
+
+	public void reproducir(int iD, int idCancion);
 }

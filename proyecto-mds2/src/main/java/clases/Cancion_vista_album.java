@@ -6,6 +6,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import bds.BDPrincipal;
+import bds.iActor_comun;
+
 public class Cancion_vista_album extends Cancion__Vista_actor_comun_ {
 //	private Button _boton_ReproducirB;
 //	private Label _duracionL;
@@ -41,9 +44,9 @@ public class Cancion_vista_album extends Cancion__Vista_actor_comun_ {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				rcs.vcre = new Ver_creditos(cancion__Vista_actor_comun_.getCancion());
 				rcs._ir_a_cancion = new Ir_a_cancion(cancion__Vista_actor_comun_.getCancion());
-		
 				rcs.reproducir(cancion__Vista_actor_comun_.getCancion().getArchivoMultimedia());
-				
+				iActor_comun iac = new BDPrincipal();
+				iac.reproducir(Actor_comun.ID, cancion__Vista_actor_comun_.getCancion().getIdCancion());
 			}
 		});
 	}
