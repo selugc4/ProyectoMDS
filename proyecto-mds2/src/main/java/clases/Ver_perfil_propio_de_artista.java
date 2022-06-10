@@ -81,9 +81,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		artistas = new Artistas(iD);
 		calb = new ContenedorAlbumes(iD);
 		cba = new ContenedorBotonAgregar(iD);
-		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);
-		this.ca = new ContenedorAgregar_perfil_propio();
-		
+		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);		
 
 		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
 		this.tipoUsuario = usuario.getTipoUsuario();
@@ -138,7 +136,6 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		cslp = new ContenedorSus_Listas_Propio(1);
 		
 		
-		vl.add(ca);
 		vl2.add(clc);
 		hl.add(calb);
 		vl3.add(cme);
@@ -155,32 +152,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		}
 	});
 	
-  this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-	
-	@Override
-	public void onComponentEvent(ClickEvent<Button> event) {
-		if(comprobarCorreo(getVaadinTextField().getValue())) {
-			ia.Modificar_correo(correoantiguo, getVaadinTextField().getValue());
-			if(correoexistente) {
-				Notification.show("Correo ya existente. Utilice otro");
-			}else {
-			Notification.show("Correo cambiado");
-			getVaadinTextField().setReadOnly(true);
-			getVaadinButton1().setVisible(false);
-			}
-		}	
-		
-	}
 
-	private boolean comprobarCorreo(String value) {
-		String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-		Pattern pattern = Pattern.compile(regex);
-		 
-		  Matcher matcher = pattern.matcher(value);
-		  return matcher.matches();
-	}
-
-});
   
   this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 	
@@ -285,21 +257,38 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 				getVaadinButton4().setVisible(false);
 				
 			}
-
-		
-				
-				
+			
 			});
 
-			
-		
-	
-		
-		
 	}
-});
-  
+}); 	}
+	 @Override
+	  protected void clickCambiarCorreo() {
+		  this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					if(comprobarCorreo(getVaadinTextField().getValue())) {
+						ia.Modificar_correo(correoantiguo, getVaadinTextField().getValue());
+						if(correoexistente) {
+							Notification.show("Correo ya existente. Utilice otro");
+						}else {
+						Notification.show("Correo cambiado");
+						getVaadinTextField().setReadOnly(true);
+						getVaadinButton1().setVisible(false);
+						}
+					}	
+					
+				}
 
-	
-}
+				private boolean comprobarCorreo(String value) {
+					String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+					Pattern pattern = Pattern.compile(regex);
+					 
+					  Matcher matcher = pattern.matcher(value);
+					  return matcher.matches();
+				}
+
+			});
+	  }
 }

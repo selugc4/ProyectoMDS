@@ -2,6 +2,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import org.orm.PersistentException;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -9,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Cancion;
 import basededatos.Lista_Reproduccion;
+import basededatos.UsuarioDAO;
 import bds.BDPrincipal;
 import bds.iActor_comun;
 
@@ -69,7 +72,21 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Actor_comun.v1.removeAll();
-				Actor_comun.v1.add(Usuario_registrado.vpp);
+				try {
+					basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+					if(usuario.getTipoUsuario() == 0) {
+					Actor_comun.v1.add(Usuario_registrado.vpp);
+					}else if(usuario.getTipoUsuario() == 1) {
+						Actor_comun.v1.add(Artista.vppa);
+					}else
+						Actor_comun.v1.add(Administrador.vpp);
+					
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
 				
 			}
 		});

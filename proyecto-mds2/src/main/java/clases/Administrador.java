@@ -21,35 +21,29 @@ public class Administrador extends Actor_comun {
 	public static Ver_perfil_propio vpp;
 	public Administrador(int iD) {
 		super(iD);
-		vpp = new Ver_perfil_propio(iD);
 //		clr = new ContenedorListasReproduccion(2);
 
-		
+		crearElementos();
+		vpp = new Ver_perfil_propio(iD);
 
 //		this.v1.add(clr);
-    	this.getStyle().set("width", "100%");
-
 
 		Reproductor_completo rc = Actor_comun.getRc();
-		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
-		VerticalLayout v2 = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		this.getVaadinHorizontalLayout().add(cabadmin);
 
 		
 		cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				vl.removeAll();
-				vl.add(cabadmin.getVer_perfil_propio());
-				vl.add(cabadmin.getVer_perfil_propio().getContenedorAgregar_perfil_propio());
-				v2.replace(getVaadinButton(), rc);
+				v1.removeAll();
+				v1.add(vpp);
 			}
 		});
 
 		cabadmin.getIconoBusqueda().addEventListener("click", e -> {
-			vl.removeAll();			
+			v1.removeAll();			
 			cabadmin.buscar(cabadmin.getTfBusqueda().getValue());
-			vl.add(cabadmin.badmin);
+			v1.add(cabadmin.badmin);
 			v2.setVisible(false);
 			
 		});
@@ -57,14 +51,13 @@ public class Administrador extends Actor_comun {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Image> event) {
-				vl.removeAll();
-				v2.removeAll();
-				vl.add(cabadmin);
-				vl.add(cucr);
-				vl.add(ccf);
-				vl.add(cr);
-				vl.add(clr);
-				v2.add(rc);  
+				v1.removeAll();
+				crearElementos();
+				v1.add(cucr);
+				v1.add(ccf);
+				v1.add(cr);
+				v1.add(clr);
+				v2.setVisible(true);  
 
 			}
 		});
@@ -73,12 +66,8 @@ public class Administrador extends Actor_comun {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				vl.removeAll();
-				v2.removeAll();
-				vl.add(cabadmin);
-				vl.add(cabadmin.getVadmin());
-				v2.add(rc);
-				
+				v1.removeAll();
+				v1.add(cabadmin.getVadmin());				
 				
 				
 			}
@@ -88,21 +77,61 @@ public class Administrador extends Actor_comun {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-//				Dialog diag = new Dialog(cabadmin.getNotif());
-//				diag.setDraggable(true);
-//				diag.open();
+				Dialog diag = new Dialog(cabadmin.getNotif());
+				diag.setDraggable(true);
+				diag.open();
 				
-			}
-		});
+				cabadmin.getNotif()._notificacion.forEach(t -> t.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						VerticalLayout vl = cabadmin.getNotif().getVaadinVerticalLayout().as(VerticalLayout.class);
+						cabadmin.getNotif()._notificacion.remove(t);
+						vl.remove(t);
+						cabadmin.getNotif().eliminarNotificacion();
+						if(cabadmin.getNotif()._notificacion.size() == 0) {
+							diag.close();
+						}
+						
+						
+					}
+		}));
+			}});
 	
 		this.cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				vl.removeAll();
-				vl.add(cabadmin);
-				vl.add(vpp);
-				vl.add(rc);
+				vpp = new Ver_perfil_propio(iD);
+				v1.removeAll();
+				v1.add(vpp);
+				v2.setVisible(false);
+				
+			}
+		});
+		
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
+				ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						crearElementos();
+						v1.removeAll();
+						v1.add(cucr);
+						v1.add(ccf);
+						v1.add(cr);
+						v1.add(clr);
+						v2.setVisible(true);	
+						
+					}
+				});
+				v1.add(ve);
+				v2.setVisible(false);	
+				
 				
 			}
 		});

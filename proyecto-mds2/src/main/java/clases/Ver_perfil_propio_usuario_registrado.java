@@ -85,50 +85,8 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		
 		VerticalLayout vl = this.getVerticalSusListas().as(VerticalLayout.class);
 		vl.add(ca);
-		
-		
-		
 
-		
-		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				getVaadinTextField().setReadOnly(false);
-				getVaadinButton1().setVisible(true);
-			}
-		});
-		
-	  this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-		
-		@Override
-		public void onComponentEvent(ClickEvent<Button> event) {
-			if(comprobarCorreo(getVaadinTextField().getValue())) {
-				iur.modificar_Correo(correoantiguo, getVaadinTextField().getValue());
-				if(correoexistente) {
-					Notification.show("Correo ya existente. Utilice otro");
-				}else {
-				Notification.show("Correo cambiado");
-				getVaadinTextField().setReadOnly(true);
-				getVaadinButton1().setVisible(false);
-				}
-				
-			}else {
-				Notification.show("Escriba un correo válido");
-			}
-			
-		}
-
-		private boolean comprobarCorreo(String value) {
-			String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-			Pattern pattern = Pattern.compile(regex);
-			 
-			  Matcher matcher = pattern.matcher(value);
-			  return matcher.matches();
-			  
-			
-		}
-	});
+	
 	  
 		 this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
  			
@@ -170,13 +128,48 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
  				
  			}				
  			
- 		});
-		 
-		
+ 		});	
 			
  	
 	  
 }
+	
+	@Override
+	protected void clickCambiarCorreo() {
+		 this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					if(comprobarCorreo(getVaadinTextField().getValue())) {
+						iur.modificar_Correo(correoantiguo, getVaadinTextField().getValue());
+						if(correoexistente) {
+							Notification.show("Correo ya existente. Utilice otro.");
+						}else {
+						Notification.show("Correo cambiado");
+						getVaadinTextField().setReadOnly(true);
+						getVaadinButton1().setVisible(false);
+						}
+						
+					}else {
+						Notification.show("Escriba un correo válido");
+					}
+					
+				}
+
+					private boolean comprobarCorreo(String value) {
+						String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+						Pattern pattern = Pattern.compile(regex);
+						 
+						  Matcher matcher = pattern.matcher(value);
+						  return matcher.matches();
+						  
+						
+					}
+					
+				});
+		
+		
+	}
 //	public void Darse_de_baja() {
 //		throw new UnsupportedOperationException();
 //	}

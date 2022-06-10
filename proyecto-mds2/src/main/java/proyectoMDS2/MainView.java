@@ -163,12 +163,12 @@ public class MainView extends VerticalLayout {
 	
     
 //    
-//      	Artista artista = new Artista(14);
-//    	add(artista);
+      	Artista artista = new Artista(14);
+    	add(artista);
 //    	
 //    	Administrador admin = new Administrador(6);
 //    	add(admin);
-//		
+////		
 //     	Usuario_registrado usuario = new Usuario_registrado(8);
 //    	add(usuario);    
 //		

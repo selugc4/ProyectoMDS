@@ -102,8 +102,18 @@ public class BD_Administrador {
 		}
 	}
 
-	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) {
-		throw new UnsupportedOperationException();
+	public void Modificar_correo(String aCorreoAntiguo, String aCorreoNuevo) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Administrador usuario = AdministradorDAO.loadAdministradorByQuery("Correo='"+aCorreoAntiguo+"'", null);	
+			usuario.setCorreo(aCorreoNuevo);
+			AdministradorDAO.save(usuario);
+			t.commit();
+			
+			
+		} catch (PersistentException e) {
+			t.rollback();
+		}		
 	}
 
 	public Cancion obtener_Estadisticas(int iD) throws PersistentException {
