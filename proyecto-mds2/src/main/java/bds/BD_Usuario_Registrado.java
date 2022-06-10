@@ -159,17 +159,25 @@ public class BD_Usuario_Registrado {
 	public void Eliminar_usuario(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+aCorreo+"'", null);
+			Usuario usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreo+"'", null);
 			usuario.favorita.clear();
 //			Cancion[] cancionesf = usuario.favorita.toArray();
 //			for(Cancion cancion: cancionesf) {
 //				cancion.favorita_de.remove(usuario);
 //			}
 			usuario.horass.clear();
+			Horas[] horas = usuario.horass.toArray();
+			for(Horas hora: horas) {
+				usuario.horass.remove(hora);
+			}
 			usuario.propietario.clear();
 			Lista_Reproduccion[]listas = usuario.propietario.toArray();
 			for(Lista_Reproduccion lista: listas) {
 				lista.seguidor.clear();
+				Usuario[]usuarios = lista.seguidor.toArray();
+				for(Usuario usuario1: usuarios) {
+					lista.seguidor.remove(usuario1);
+				}
 				lista.contiene_cancion.clear();
 				Cancion[] cancionesl = lista.contiene_cancion.toArray();
 				for(Cancion cancionl: cancionesl) {
@@ -177,17 +185,32 @@ public class BD_Usuario_Registrado {
 				}
 				Lista_ReproduccionDAO.delete(lista);
 			}
-			usuario.recibe_notificacion.clear();
-//			Evento[]evento = usuario.recibe_notificacion.toArray();
+			Evento[]eventos = usuario.recibe_notificacion.toArray();
+			for(Evento evento: eventos) {
+				usuario.recibe_notificacion.remove(evento);
+			}
 			usuario.seguido.clear();
+			Usuario[]usuariosS=usuario.seguido.toArray();
+			for(Usuario usuarioS:usuariosS) {
+				usuario.seguido.remove(usuarioS);
+			}
+			usuario.seguidor_usuario.clear();
+			Usuario[]usuariosU=usuario.seguidor_usuario.toArray();
+			for(Usuario usuarioU:usuariosU) {
+				usuario.seguidor_usuario.remove(usuarioU);
+			}
+			Cancion[] cancionesu = usuario.ultimo_exito.toArray();
+			for(Cancion cancion: cancionesu) {
+				usuario.ultimo_exito.remove(cancion);
+			}
 			usuario.seguidor_usuario.clear();
 			usuario.seguir.clear();
 			usuario.ultimo_exito.clear();
 			if(usuario.getTipoUsuario()==0) {
 				Usuario_RegistradoDAO.delete(Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(usuario.getID()));
 			}
-			ImagenDAO.delete(usuario.getContiene_imagen());
 			UsuarioDAO.delete(usuario);
+			ImagenDAO.delete(usuario.getContiene_imagen());
 			t.commit();
 		}catch (PersistentException e) {
 			t.rollback();

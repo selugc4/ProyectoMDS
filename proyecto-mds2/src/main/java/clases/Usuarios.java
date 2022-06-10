@@ -26,6 +26,7 @@ public class Usuarios extends vistas.VistaUsuarios {
 
 	private void mostrarResultados() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.removeAll();
 		HorizontalLayout hl = new HorizontalLayout();
 		for(int i = 0; i < _usuario.size(); i++) {
 			hl.add(_usuario.get(i));

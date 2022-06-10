@@ -329,6 +329,10 @@ public class BD_Cancion {
 			for(Lista_Reproduccion lista: listas) {
 				lista.contiene_cancion.remove(cancion);
 			}
+			Artista[]artistas = cancion.es_de.toArray();
+			for(Artista artista: artistas) {
+				cancion.es_de.remove(artista);
+			}
 			CancionDAO.delete(cancion);
 			t.commit();
 		}catch (Exception e) {

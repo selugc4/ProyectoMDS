@@ -17,10 +17,12 @@ public class Recomendaciones extends Canciones {
 		private void cargar_Recomendaciones() {
 			ArrayList<Cancion__Vista_actor_comun_> vlrp = new ArrayList<Cancion__Vista_actor_comun_>();
 			Cancion[] canciones = iac.cargar_Recomendaciones();
+			if(canciones.length!=0) {
 			for(int i = 0; i < canciones.length; i++) {	
 				Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i]);
 				vlrp.add(aux);
 
+			}
 			}
 			_ver_lista_de_Reproduccion = vlrp;
 			
