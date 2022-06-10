@@ -382,10 +382,6 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-		
-		
 	}
 
 	public void anadir_Cancion_Lista(int aIdCancion, int aIdLista) {
