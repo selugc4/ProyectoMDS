@@ -65,11 +65,17 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 			this.getLabelDchaTitulo().setText(cancion.getTitulo());
 			if(cancion.getCancion_de() != null) {
 			this.getLabelAlbum().setText(cancion.getCancion_de().getTitutloAlbum());
-			}else
+			this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
+			}else {
 				this.getLabelAlbum().setText("Album no asignado");
-		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
-		this.getImg().setWidth("125px");
-		this.getImg().setHeight("125px");
+				this.getImg().setSrc("imagenes/fotoalbum.png");
+			}
+			
+			this.getImg().setWidth("125px");
+			this.getImg().setHeight("125px");
+	
+			
+	
 		
 		
 			this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {

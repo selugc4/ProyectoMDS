@@ -35,8 +35,10 @@ public class Administrador extends Actor_comun {
 		cabadmin.getBotonPerfil().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				vpp = new Ver_perfil_propio(iD);
 				v1.removeAll();
 				v1.add(vpp);
+				v2.setVisible(false);
 			}
 		});
 
@@ -67,7 +69,8 @@ public class Administrador extends Actor_comun {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
-				v1.add(cabadmin.getVadmin());				
+				v1.add(cabadmin.getVadmin());
+				v2.setVisible(false);
 				
 				
 			}
