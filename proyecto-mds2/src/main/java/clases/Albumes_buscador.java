@@ -20,7 +20,7 @@ public class Albumes_buscador extends vistas.VistaAlbumes_buscador {
 	}
 	public Albumes_buscador(String valor) {
 		this.getStyle().set("width", "100%");
-		this.getLabel().setText("Artistas");
+		this.getLabel().setText("Álbumes");
 		Cargar_Listas(valor);
 		Mostrar_Lista();
 	}

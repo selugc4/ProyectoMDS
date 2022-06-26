@@ -47,7 +47,7 @@ public class ArtistaBuscador extends vistas.VistaArtistabuscador {
 			public void onComponentEvent(ClickEvent<HorizontalLayout> event) {
 				VerticalLayout v1 = Usuario_registrado.v1;
 				v1.removeAll();
-				vpaj = new Ver_perfil_del_artista_ajeno();
+				vpaj = new Ver_perfil_del_artista_ajeno(artista.getORMID());
 				v1.add(vpaj);
 				Usuario_registrado.v2.setVisible(false);
 			}

@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 @customElement('vista-verificacion')
@@ -28,16 +29,18 @@ export class VistaVerificacion extends LitElement {
     <label id="labelDesc2">Descripción verificación</label>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="height: 100%; align-self: center; flex-direction: row; align-items: center;" id="horizontalCodigo">
-   <label style="width: 100%; margin-top: var(--lumo-space-s); margin-right: var(--lumo-space-xl);" id="labelCodigo">Código</label>
-   <vaadin-text-field placeholder="Código" style="margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-xl); width: 30%;" id="tfCodigo"></vaadin-text-field>
-   <vaadin-button id="botonVolverEnviar">
-     Volver a enviar código 
-   </vaadin-button>
+  <vaadin-horizontal-layout theme="spacing" style="height: 100%; align-self: center; align-items: center; flex-direction: row; width: 50%; justify-content: center;" id="horizontalCodigo">
+   <label style="margin-top: var(--lumo-space-s); margin-right: var(--lumo-space-xl);" id="labelCodigo">Código</label>
+   <vaadin-text-field placeholder="Código" style="margin-right: var(--lumo-space-xl); margin-left: var(--lumo-space-xl);" id="tfCodigo"></vaadin-text-field>
+   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 35%;">
+    <vaadin-button id="botonVolverEnviar" style="width: 100%;">
+      Volver a enviar código 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout style="flex-direction: row; flex-shrink: 0; align-self: center; align-items: center; justify-content: space-between;" theme="spacing-xl" id="vaadinHorizontalLayout6">
    <vaadin-button style="flex-shrink: 1; flex-grow: 1; margin-right: var(--lumo-space-xl);" id="botonVolver">
-    Volver atrás
+     Volver atrás 
    </vaadin-button>
    <vaadin-button style="flex-grow: 1; margin-left: var(--lumo-space-xl);" id="botonAceptar">
      Aceptar 

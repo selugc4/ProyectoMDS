@@ -27,17 +27,7 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 	
 	private basededatos.Cancion cancion;
 	public Cancion__Vista_actor_comun_() {
-		inicializar();
-		 
-		this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Image> event) {
-				rcs.setSource("http://www.groovydomain.com/gallery/music/ORIGINAL/Queen/Greatest%20Hits%20(Parlophone)/16%20We%20Will%20Rock%20You.mp3");
-				
-			}
-		});
-			
+		inicializar();	
 		
 	}
 	
@@ -75,8 +65,6 @@ public class Cancion__Vista_actor_comun_ extends Cancion_con_imagen {
 			this.getImg().setHeight("125px");
 	
 			
-	
-		
 		
 			this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 				

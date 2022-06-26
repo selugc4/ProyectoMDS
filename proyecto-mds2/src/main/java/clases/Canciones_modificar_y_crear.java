@@ -53,7 +53,7 @@ public class Canciones_modificar_y_crear extends vistas.VistaCanciones_modificar
 	}
 	
 	public void actualizar() {
-		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.removeAll();
 		for(int i = 0; i < _canciones.size(); i++) {
 			vl.add(_canciones.get(i));

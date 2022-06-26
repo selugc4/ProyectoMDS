@@ -55,6 +55,8 @@ public class VistaVerificacion extends LitTemplate {
 	private Button botonAceptar;
 	@Id("botonCContrasena")
 	private Button botonCContrasena;
+	@Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
 	public Element getVertical() {
 		return vertical;
 	}
@@ -157,6 +159,13 @@ public class VistaVerificacion extends LitTemplate {
 	public void setBotonCContrasena(Button botonCContrasena) {
 		this.botonCContrasena = botonCContrasena;
 	}
+	public HorizontalLayout getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
 
+	
     
 }

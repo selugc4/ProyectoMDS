@@ -33,6 +33,7 @@ public class Verificacion_registro extends Verificacion {
 	
 	
 	void inicializar() {
+		this.getStyle().set("width", "100%");
 		this.getBotonCContrasena().setVisible(false);
 		this.getLabelTitulo().setText("Confirmacion de registro");
 		this.getLabelDesc1().setText("Se ha enviado un correo a su email con");

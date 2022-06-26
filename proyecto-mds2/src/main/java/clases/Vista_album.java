@@ -26,6 +26,24 @@ public class Vista_album extends vistas.VistaVista_album {
 		this.getStyle().set("width", "100%");
 		this.cl = new Canciones_lista(album);
 		this.cl.getVaadinButton().setVisible(false);
+		this.getLabel().setText(album.getTitutloAlbum());
+		if(album.autor.isEmpty()) {
+			this.getLabel1().setText("Artista no asignado");
+		}else {
+			basededatos.Artista[] artistas = album.autor.toArray();
+			String cadena = "";
+			for(int i = 0; i< artistas.length; i++) {
+				if(i == artistas.length-1) {
+					cadena+= artistas[i].getNombre();
+				}else
+					cadena += artistas[i].getNombre() +", ";
+			}
+			
+			this.getLabel1().setText(cadena);
+		}
+		
+		this.getLabel2().setText(album.getFechaEdicion());
+			
 		this.getImg().setSrc("imagenes/"+album.getContiene_imagen().getUrl());
 		this.getImg().setWidth("250px");
 		this.getImg().setHeight("250px");

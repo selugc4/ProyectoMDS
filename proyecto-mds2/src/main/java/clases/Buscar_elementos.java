@@ -24,18 +24,24 @@ public class Buscar_elementos extends vistas.VistaBuscar_elementos {
 		listas.removeAll();
 		artistas.removeAll();
 		albumes.removeAll();
-		if(!value.isEmpty()) {
+		if(!value.isEmpty() ) {
 			_canciones_busqueda = new Canciones_busqueda(value);
-			canciones.add(_canciones_busqueda);
 			_artistas.artista = value;
 			_artistas = new Artistas();
-			_artistas.mostrar();
-			artistas.add(_artistas);
+			_artistas.mostrar();			
 			_listas_de_reproduccion_buscador = new Listas_de_reproduccion_buscador(value);
-			listas.add(_listas_de_reproduccion_buscador);
-			_albumes = new Albumes_buscador(value);
-			albumes.add(_albumes);
-			sinresultados.setVisible(false);
+			_artistas.getLabel().setText("Artistas");			
+			_albumes = new Albumes_buscador(value);			
+			if(_canciones_busqueda._cancion_busqueda.isEmpty() && _artistas._artistaBuscador.isEmpty() && _listas_de_reproduccion_buscador._lista_de_reproduccion_buscador.isEmpty() && _albumes._album.isEmpty()) {
+				sinresultados.setVisible(true);
+			}else {
+				canciones.add(_canciones_busqueda);
+				artistas.add(_artistas);
+				listas.add(_listas_de_reproduccion_buscador);
+				albumes.add(_albumes);
+				sinresultados.setVisible(false);
+			}
+				
 		}else {	
 		sinresultados.setVisible(true);
 		}

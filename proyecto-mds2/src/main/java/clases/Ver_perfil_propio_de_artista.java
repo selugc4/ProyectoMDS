@@ -81,10 +81,11 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		artistas = new Artistas(iD);
 		calb = new ContenedorAlbumes(iD);
 		cba = new ContenedorBotonAgregar(iD);
-		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);		
-
+		
 		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
 		this.tipoUsuario = usuario.getTipoUsuario();
+		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);		
+
 		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
 		this.getLabel().setText(usuario.getNombre());
 		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
@@ -99,7 +100,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		@Override
 		public void onComponentEvent(ClickEvent<Button> event) {
 		Artista.v1.removeAll();
-		cslp.cl = new Creacion_lista(iD, 0);
+		ca.cl = new Creacion_lista(iD, 0);
 		Artista.v1.add(ca.cl);	
 		}
 		});
@@ -133,7 +134,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		
 		clc = new ContenedorListas_Con_Sus_Canciones(correoantiguo);
 		cme = new Canciones_mas_exitosas(correoantiguo);
-		cslp = new ContenedorSus_Listas_Propio(1);
+//		cslp = new ContenedorSus_Listas_Propio(1);
 		
 		
 		vl2.add(clc);

@@ -24,8 +24,8 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 	}
 	public Creacion_lista(int usuario, int tipo) {
 		super(usuario,tipo);
-		
-		this.getLabel().setText("Crear listas");
+
+		this.getLabel().setText("Crear lista");
 		this.getVaadinButton().setVisible(false);
 		this.getVaadinButton2().setText("Crear lista");
 		
