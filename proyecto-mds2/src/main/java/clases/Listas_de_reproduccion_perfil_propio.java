@@ -26,6 +26,7 @@ public class Listas_de_reproduccion_perfil_propio extends vistas.VistaListas_de_
 	}
 	
 	private void cargar_Listas_Propias(int id) {
+		listas.clear();
 		Lista_Reproduccion[] aux = iac.cargar_Listas_Propias(id);
 		for(Lista_Reproduccion a : aux) {
 			listas.add(new Lista_de_reproduccion_propia(a.getNombreLista(), a.getAutor().getTipoUsuario(), a.getIdLista()));

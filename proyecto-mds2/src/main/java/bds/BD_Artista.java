@@ -319,7 +319,7 @@ public class BD_Artista {
 	public void Eliminar_artista(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='artista2@artista.es'", null);
+			Artista usuario = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
 			
 			if(!usuario.favorita.isEmpty()) {
 				Cancion[] cancionesf = usuario.favorita.toArray();

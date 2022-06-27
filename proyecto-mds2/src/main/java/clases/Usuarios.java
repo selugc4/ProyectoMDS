@@ -2,10 +2,7 @@ package clases;
 
 import java.util.ArrayList;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -26,7 +23,6 @@ public class Usuarios extends vistas.VistaUsuarios {
 
 	private void mostrarResultados() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.removeAll();
 		HorizontalLayout hl = new HorizontalLayout();
 		for(int i = 0; i < _usuario.size(); i++) {
 			hl.add(_usuario.get(i));

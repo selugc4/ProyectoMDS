@@ -31,7 +31,6 @@ public class Estilo extends vistas.VistaEstilo{
 public static int idEstilo;
 	public Estilo(String estilo) {
 		this.getStyle().set("width", "100%");
-		
 		this.getLabel().setText(estilo);
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override

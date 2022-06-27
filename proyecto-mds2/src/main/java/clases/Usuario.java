@@ -24,7 +24,6 @@ public class Usuario extends vistas.VistaUsuario{
 	public Usuario(Usuario_Registrado usuario) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(usuario.getNombre());
-		vpp = new Ver_perfil_propio_usuario_registrado(usuario.getID());
 		this.getImg().setSrc("imagenes/" + usuario.getContiene_imagen().getUrl());
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
@@ -72,6 +71,7 @@ public class Usuario extends vistas.VistaUsuario{
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Administrador.v1.removeAll();
+				vpp = new Ver_perfil_propio_usuario_registrado(usuario.getID());
 				Administrador.v1.add(vpp);
 			}
 		});

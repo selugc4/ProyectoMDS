@@ -160,7 +160,7 @@ public class BD_Usuario_Registrado {
 	public void Eliminar_usuario(String aCorreo) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='jesus@cambio.es'", null);
+			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByQuery("Correo='"+aCorreo+"'", null);
 			Cancion[] cancionesf = usuario.favorita.toArray();
 			for(Cancion cancion: cancionesf) {
 				cancion.favorita_de.remove(usuario);

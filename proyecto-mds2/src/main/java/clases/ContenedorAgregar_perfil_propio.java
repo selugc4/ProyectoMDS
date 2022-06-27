@@ -15,8 +15,8 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 	private int tamano = 5;
 	private int pagina = 0;
 	
-	public ContenedorAgregar_perfil_propio() {
-		inicializar();
+	public ContenedorAgregar_perfil_propio(int idUsuario) {
+		inicializar(idUsuario);
 		
 		this.getHorizontal5().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
@@ -91,12 +91,12 @@ public class ContenedorAgregar_perfil_propio extends Contenedor_agregar {
 	
 	}
 
-	private void inicializar() {
+	private void inicializar(int idUsuario) {
 		this.getImg().setVisible(false);
 		VerticalLayout vl = this.getVaadinVerticalLayout2().as(VerticalLayout.class);
 		this.getLabelContenedor().setText("Tus listas de reproducción");
 		
-		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(Actor_comun.ID);
+		_listas_de_reproduccion_perfil_propio = new Listas_de_reproduccion_perfil_propio(idUsuario);
 		
 		vl.add(_listas_de_reproduccion_perfil_propio);
 		

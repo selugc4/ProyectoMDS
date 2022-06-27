@@ -27,8 +27,11 @@ public class Albumes_administrador extends Albumes_buscador {
 		aux.removeAll();
 		iAdministrador iadmin = new BDPrincipal();
 		Album[] albumes = iadmin.cargar_Albumes_Admin(buscador);
-		for(int i = 0; i < 3 && i<albumes.length; i++) {
-			aux.add(new Album_administrador(albumes[i]));
+		for(int i = 0; i < albumes.length;i++) {
+			_album_administrador.add(new Album_administrador(albumes[i]));
+		}
+		for(int i = 0; i < 3 && i<_album_administrador.size(); i++) {
+			aux.add(_album_administrador.get(i));
 		}	
 	}
 }

@@ -125,6 +125,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				v1.removeAll();
 				v1.add(cc.getReg());
 				
 			}

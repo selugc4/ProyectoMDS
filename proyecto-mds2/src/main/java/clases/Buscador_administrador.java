@@ -34,21 +34,28 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 		listas.removeAll();
 		artistas.removeAll();
 		albumes.removeAll();
+		users.removeAll();
 		if(!value.isEmpty()) {
 			Artistas_administrador.artista = value;
 			Artistas_administrador aa = new Artistas_administrador();
 			aa.mostrarAdmin();
-			artistas.add(aa);
 			ca.actualizar(value);
-			canciones.add(ca);
 			Listas_de_reproduccion_administrador ldra = new Listas_de_reproduccion_administrador(value);
-			listas.add(ldra);
 			Albumes_administrador alba= new Albumes_administrador(value);
-			albumes.add(alba);
 			usuarios.actualizar(value);
-			users.add(usuarios);
 			sinresultados.setVisible(false);
+			if(ca._canciones_administrador.isEmpty() && aa._artistaBuscador.isEmpty() && ldra._lista_de_reproduccion_administrador.isEmpty() && alba._album_administrador.isEmpty()&& usuarios._usuario.isEmpty()) {
+				sinresultados.setVisible(true);
 		}else {	
+			artistas.add(aa);
+			canciones.add(ca);
+			listas.add(ldra);
+			albumes.add(alba);
+			users.add(usuarios);
+		sinresultados.setVisible(false);
+		}
+		}
+		else {
 		sinresultados.setVisible(true);
 		}
 		

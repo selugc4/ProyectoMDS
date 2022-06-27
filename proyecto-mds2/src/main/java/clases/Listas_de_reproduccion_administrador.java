@@ -19,7 +19,7 @@ public class Listas_de_reproduccion_administrador extends Listas_de_reproduccion
 		actualizar(valor);
 	}
 	private void mostrarResultados() {
-		VerticalLayout vl = super.getVaadinVerticalLayout().as(VerticalLayout.class);
+		VerticalLayout vl = super.getVaadinVerticalLayout1().as(VerticalLayout.class);
 		vl.removeAll();
 		for(int i = 0; i <_lista_de_reproduccion_administrador.size(); i++) {
 			vl.add(_lista_de_reproduccion_administrador.get(i));

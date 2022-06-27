@@ -18,14 +18,14 @@ export class VistaEstilo extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; align-items: center;" id="vaadinHorizontalLayout1">
+ <vaadin-horizontal-layout theme="spacing" style="width: 140%; padding: var(--lumo-space-s);" id="vaadinHorizontalLayout">
+  <vaadin-horizontal-layout theme="spacing" style="width: 140%; align-items: center;" id="vaadinHorizontalLayout1">
    <label id="label">Estilo </label>
-   <vaadin-horizontal-layout theme="spacing" style="width: 100%;" id="vaadinHorizontalLayout2">
-    <vaadin-button style="width: 100%;" id="vaadinButton">
+   <vaadin-horizontal-layout theme="spacing" style="width: 140%;" id="vaadinHorizontalLayout2">
+    <vaadin-button id="vaadinButton" style="width: 140%;">
       Modificar 
     </vaadin-button>
-    <vaadin-button style="width: 100%;" id="vaadinButton1">
+    <vaadin-button style="width: 140%;" id="vaadinButton1">
       Eliminar 
     </vaadin-button>
    </vaadin-horizontal-layout>

@@ -20,7 +20,7 @@ export class VistaVista_buscador_usuarios extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="align-items: center; justify-content: center; width: 100%; flex-shrink: 1;" id="vaadinHorizontalLayout">
   <label style="font-size: 30px;" id="label">Buscador usuario: </label>
-  <vaadin-text-field placeholder="Search" style="width: 15%;" id="vaadinTextField">
+  <vaadin-text-field placeholder="Search" style="width: 40%;" id="vaadinTextField">
    <iron-icon icon="lumo:search" slot="prefix" id="ironIcon"></iron-icon>
   </vaadin-text-field>
  </vaadin-horizontal-layout>

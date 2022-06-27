@@ -50,10 +50,9 @@ public class Listas_de_reproduccion extends vistas.VistaListas_de_reproduccion {
 
 	private void mostrarLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout1().as(VerticalLayout.class);
+		vl.removeAll();
 		for(Lista_de_reproduccion listaaux : this.lista) {
 			vl.add(listaaux);
 		}
-		
-		
 	}
 }
