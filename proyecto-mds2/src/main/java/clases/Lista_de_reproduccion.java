@@ -21,6 +21,7 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 		throw new UnsupportedOperationException();
 	}
 	*/
+	public int idLista;
 	public Ver_lista_de_Reproduccion vldr = new Ver_lista_de_Reproduccion();
 		
 	public Lista_de_reproduccion(String aux) {
@@ -31,6 +32,7 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 
 	public Lista_de_reproduccion(Lista_Reproduccion lista) {
 		inicializar();
+		idLista = lista.getIdLista();
 		this.getLabel().setText(lista.getNombreLista());
 		//CLICKER VER LISTA		
 		this.getVaadinHorizontalLayout2().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {

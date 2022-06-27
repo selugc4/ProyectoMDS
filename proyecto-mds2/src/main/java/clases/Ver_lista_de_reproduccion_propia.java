@@ -25,11 +25,11 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 	private iActor_comun iac = new BDPrincipal();
 	
 	public Ver_lista_de_reproduccion_propia(int usuario) {
-	 inicializarFavoritos();	
+	 inicializarFavoritos(usuario);	
 	 el = new Edicion_de_lista(usuario,1);
 	}
 	
-	private void inicializarFavoritos() {
+	private void inicializarFavoritos(int usuario) {
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout1().setVisible(true);
 		this.getLabel().setText("Favoritas");		
@@ -63,6 +63,7 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Actor_comun.v1.removeAll();
+				el = new Edicion_de_lista(usuario, 1); 
 				Actor_comun.v1.add(el);
 				
 			}
@@ -75,10 +76,13 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 				try {
 					basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
 					if(usuario.getTipoUsuario() == 0) {
+					Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
 					Actor_comun.v1.add(Usuario_registrado.vpp);
 					}else if(usuario.getTipoUsuario() == 1) {
+						Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
 						Actor_comun.v1.add(Artista.vppa);
 					}else
+						Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
 						Actor_comun.v1.add(Administrador.vpp);
 					
 				} catch (PersistentException e) {
@@ -99,7 +103,33 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 			cancionesLista = new Canciones_lista(lista);
 			VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 			v1.add(cancionesLista);
-			
+	
+			this.getVaadinButton4().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					Actor_comun.v1.removeAll();
+					try {
+						basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+						if(usuario.getTipoUsuario() == 0) {
+						Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+						Actor_comun.v1.add(Usuario_registrado.vpp);
+						}else if(usuario.getTipoUsuario() == 1) {
+							Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
+							Actor_comun.v1.add(Artista.vppa);
+						}else
+							Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
+							Actor_comun.v1.add(Administrador.vpp);
+						
+					} catch (PersistentException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+					
+				}
+			});
 			
 		}
 	
@@ -126,6 +156,52 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 			cancionesLista.Cargar_Listas();
 		}
 		v1.add(cancionesLista);
+		
+		this.cancionesLista.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				
+				try {
+					basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+					Actor_comun.v1.removeAll();
+					el = new Edicion_de_lista(usuario.getTipoUsuario(), 1, iD); 
+					el.cargarLista(string);
+					Actor_comun.v1.add(el);
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+		});
+		this.getVaadinButton4().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Actor_comun.v1.removeAll();
+				try {
+					basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
+					if(usuario.getTipoUsuario() == 0) {
+					Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+					Actor_comun.v1.add(Usuario_registrado.vpp);
+					}else if(usuario.getTipoUsuario() == 1) {
+						Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
+						Actor_comun.v1.add(Artista.vppa);
+					}else
+						Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
+						Actor_comun.v1.add(Administrador.vpp);
+					
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
 	}
 
 	public void inicializar() {
@@ -139,24 +215,6 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 		this.getVaadinButton3().setVisible(false);
 		
 		
-		this.cancionesLista.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Actor_comun.v1.removeAll();
-				Actor_comun.v1.add(el);
-				
-			}
-		});
-		this.getVaadinButton4().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Actor_comun.v1.removeAll();
-				Actor_comun.v1.add(Usuario_registrado.vpp);
-				
-			}
-		});
 	}
 	
 //	public void ventanaEditar() {

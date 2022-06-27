@@ -23,7 +23,18 @@ public class Listas_de_reproduccion_con_sus_canciones extends vistas.VistaListas
 		Lista_Reproduccion[] lr = ia.cargar_Listas_Sus_Canciones(correoantiguo);
 		if(lr != null) {
 		for(Lista_Reproduccion aux : lr) {
-			ldr.add(new Lista_de_reproduccion(aux));
+			boolean contiene = false;
+			for(Lista_de_reproduccion a : ldr) {
+				
+				if(a.idLista == aux.getIdLista()) {
+					contiene = true;
+				}
+				
+			}
+			if(!contiene) {
+				ldr.add(new Lista_de_reproduccion(aux));	
+			}
+			
 		}		
 		mostrar(5);
 		}

@@ -275,6 +275,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 							Notification.show("Correo ya existente. Utilice otro");
 						}else {
 						Notification.show("Correo cambiado");
+						correoantiguo = getVaadinTextField().getValue();
 						getVaadinTextField().setReadOnly(true);
 						getVaadinButton1().setVisible(false);
 						}

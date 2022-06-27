@@ -51,16 +51,6 @@ public class Canciones_lista extends vistas.VistaCanciones_lista {
 		rellenarLista(lista);
 		Cargar_Listas();
 		
-		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Edicion_de_lista edl  = new Edicion_de_lista(Actor_comun.ID,1, idLista);
-				Actor_comun.v1.removeAll();
-				Actor_comun.v1.add(edl);
-				
-			}
-		});
 	}
 	public Canciones_lista(Album album) {
 		inicializar();

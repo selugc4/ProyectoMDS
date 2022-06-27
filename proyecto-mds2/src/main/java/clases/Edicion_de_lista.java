@@ -45,6 +45,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 		this.idLista = iD;
 		this.getLabel().setText("Modificar");		
 		mostrarTitulo(iD);
+		this.getVaadinTextField().setReadOnly(true);
 		
 		this.getVaadinButton2().setText("Modificar lista");
 		
@@ -73,17 +74,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 			
 			});
 		
-		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				//GUARDAR CAMBIOS
-				iac.guardar_Modificacion_lista(idLista, getVaadinTextField().getValue(), cmc.get_canciones());
-				Notification.show("Cambios Guardados");
-				
-			}
-		});
-		
+
 		
 		
 
@@ -108,6 +99,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 		this.getLabel().setText("Modificar");
 		
 		this.getVaadinButton2().setText("Modificar lista");
+		this.getVaadinTextField().setReadOnly(true);
 
 		
 		
@@ -137,7 +129,6 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 
 	public void cargarLista(String nombreLista) {
 		this.getVaadinTextField().setValue(nombreLista);
-		this.getVaadinTextField().setReadOnly(true);
 		basededatos.Cancion[] canciones = iac.cargar_Canciones_Modificar(idLista);
 		for(basededatos.Cancion cancion : canciones) {
 			Edicion_de_lista.cmc.agregarCancion(cancion.getTitulo(), cancion.getIdCancion());

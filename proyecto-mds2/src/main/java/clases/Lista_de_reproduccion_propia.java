@@ -25,8 +25,6 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 	public Lista_de_reproduccion_propia(String string, int usuario, int iD) {
 		this.getLabel().setText(string);
 		inicializar();
-		edl = new Edicion_de_lista(usuario,1, iD);
-		edl.cargarLista(string);
 		vlrp = new Ver_lista_de_reproduccion_propia(string,iD);
 		
 		
@@ -37,15 +35,21 @@ public class Lista_de_reproduccion_propia extends vistas.VistaLista_de_reproducc
 			
 				if(usuario == 0) {
 					VerticalLayout vl = Usuario_registrado.v1;
+					edl = new Edicion_de_lista(usuario,1, iD);
+					edl.cargarLista(string);
 					vl.removeAll();
 					vl.add(edl);
 				}else if(usuario == 1) {
 					VerticalLayout vl = Artista.v1;
 					vl.removeAll();
+					edl = new Edicion_de_lista(usuario,1, iD);
+					edl.cargarLista(string);
 					vl.add(edl);
 				}else if(usuario == 2) {
 					VerticalLayout vl = Administrador.v1;
 					vl.removeAll();
+					edl = new Edicion_de_lista(usuario,1, iD);
+					edl.cargarLista(string);
 					vl.add(edl);
 				}
 			}
