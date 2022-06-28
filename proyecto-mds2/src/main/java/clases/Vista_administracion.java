@@ -12,6 +12,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
@@ -75,19 +76,18 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 //		throw new UnsupportedOperationException();
 //	}
 	
-	public static ContenedorUltimosExitos cue = new ContenedorUltimosExitos();
-	public Buscador_cancion_administracion bca = new Buscador_cancion_administracion();
+	public ContenedorUltimosExitos cue;
+	public Buscador_cancion_administracion bca;
 	public static Estilos_buscados eb = new Estilos_buscados();
 	public Menu_dar_alta mda = new Menu_dar_alta();
 	public Vista_buscador_usuarios vbu = new Vista_buscador_usuarios();
-	public static VerticalLayout vgrLayout;
-	
+	public VerticalLayout vgrLayout;
+	public VerticalLayout vue;
 	public Vista_administracion() {
 		vgrLayout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		inicializar();
-		cue.uea.obtenerLista();
-		VerticalLayout vue = this.getVerticallUE().as(VerticalLayout.class);
-		vue.add(cue);
+		cue = new ContenedorUltimosExitos();
+		bca = new Buscador_cancion_administracion();
+		inicializarUltimos(cue);
 		iAdministrador iadmin = new BDPrincipal();
 		
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -184,12 +184,10 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 				ve.add(eb);
 		});
 	}
-	
-	private void inicializar() {
-		VerticalLayout vl = this.getVerticallUE().as(VerticalLayout.class);
-		
-//		vl.add(cue);
-		
+	public void inicializarUltimos(ContenedorUltimosExitos cont) {
+		vue = this.getVerticallUE().as(VerticalLayout.class);
+		vue.removeAll();
+		vue.add(cont);
 	}
 	
 }

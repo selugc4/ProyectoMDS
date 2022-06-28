@@ -32,6 +32,7 @@ import basededatos.Usuario_Registrado;
 import basededatos.Usuario_RegistradoDAO;
 import bds.BDPrincipal;
 import bds.iActor_comun;
+import bds.iAdministrador;
 import clases.Actor_comun;
 import clases.Cancion__Vista_actor_comun_;
 import clases.Cancion_administrador;
@@ -81,14 +82,9 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
-		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
-		try {
-			Usuario_Registrado user = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(1);
-			Cancion cancion = CancionDAO.getCancionByORMID(2);
-			t.commit();
-		}catch (PersistentException e) {
-			t.rollback();
-		}
+
+		iAdministrador iadmin = new BDPrincipal();
+		iadmin.Eliminar_Ultimo_Exito(11);
 	}
 
 }

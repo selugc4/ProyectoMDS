@@ -35,10 +35,10 @@ public static int idEstilo;
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout vl = Vista_administracion.vgrLayout;
 				_vista_modificacion_estilo = new Vista_modificacion_estilo(idEstilo);
-				vl.removeAll();
-				vl.add(_vista_modificacion_estilo);
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(_vista_modificacion_estilo);
+				Actor_comun.v2.setVisible(false);
 			}
 		});
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

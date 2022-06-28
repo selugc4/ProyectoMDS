@@ -17,6 +17,7 @@ public class Buscador_cancion_administracion extends vistas.VistaBuscador_cancio
 	
 	public Buscador_cancion_administracion() {
 		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.remove(cb);
 		vl.add(cb);
 		this.getStyle().set("width", "100%");
 		this.getIronIcon().addEventListener("click", e -> {

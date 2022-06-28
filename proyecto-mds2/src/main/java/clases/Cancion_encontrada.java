@@ -3,6 +3,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Cancion;
 import bds.BDPrincipal;
@@ -20,18 +21,22 @@ public class Cancion_encontrada extends vistas.VistaCancion_encontrada {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				boolean nocontiene = true;
-				if(!Vista_administracion.cue.uea.lista.isEmpty()) {
-				for(Ultimo_exito exito: Vista_administracion.cue.uea.lista) {
-					if(exito.id == cancion.getIdCancion()) {
+				iAdministrador iadmin = new BDPrincipal();
+				Cancion[]canciones = iadmin.cargar_Ultimos_Exitos();
+				if(canciones.length != 0) {
+				for(Cancion cancion1: canciones) {
+					if(cancion1.getIdCancion() == cancion.getIdCancion()) {
 						Notification.show("Cancion ya agregada");
 						nocontiene = false;
+						break;
 					}
 				}
 			}
 				if(nocontiene == true) {
-					Vista_administracion.cue.uea.agregar(cancion);
 					Anadir_a_la_vista_de_cibernauta(cancion.getIdCancion());
-					Vista_administracion.cue.uea.obtenerLista();
+					Actor_comun.v1.removeAll();
+					Actor_comun.v1.add(new Vista_administracion());
+					Actor_comun.v2.setVisible(false);
 				}
 			}
 		});

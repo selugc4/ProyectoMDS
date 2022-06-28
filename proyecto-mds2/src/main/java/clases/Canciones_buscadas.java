@@ -38,17 +38,11 @@ public class Canciones_buscadas extends vistas.VistaCanciones_buscadas {
 	}
 	private void buscarCanciones(String value) {
 		this.getStyle().set("width", "100%");
-		try {
-			if(value != "") {
-			Cancion[]canciones = CancionDAO.listCancionByQuery("Titulo='"+value+"'", null);
+		iAdministrador iadmin = new BDPrincipal();
+		Cancion[]canciones = iadmin.cargar_Canciones_Buscadas(value);
 			for(Cancion cancion: canciones) {
 				lista.add(new Cancion_encontrada(cancion));
 			}
-		}
-		}catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
 	}
 	
 	public void actualizar(String value) {

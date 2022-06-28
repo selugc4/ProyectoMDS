@@ -28,23 +28,18 @@ public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_ad
 		
 	}
 	
-	public void agregar(Cancion cancion) {
-		iAdministrador iadmin= new BDPrincipal();
-		iadmin.Anadir_a_la_vista_de_cibernauta(cancion.getIdCancion());
-	}
-	
 	public void obtenerLista() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.removeAll();
-		lista.clear();
-		iCibernauta iciber = new BDPrincipal();
-		Cancion[]canciones = iciber.cargar_Ultimos_Exitos();
+		iAdministrador iadmin = new BDPrincipal();
+		Cancion[]canciones = iadmin.cargar_Ultimos_Exitos();
 		if(canciones.length != 0) {
 		for(Cancion cancion: canciones) {
-			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.getCancion_de().autor.toArray()[0].getNombre());
-			aux.id = cancion.getIdCancion();
+			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.getCancion_de().autor.toArray()[0].getNombre(), cancion.getORMID());
 			lista.add(aux);
-			vl.add(aux);	
+		}
+		for(Ultimo_exito exito: lista) {
+			vl.add(exito);
 		}
 		}
 		

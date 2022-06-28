@@ -49,5 +49,7 @@ public interface iAdministrador {
 	public void Modificar_Estilo(int aIdEstilo, String aNombre);
 
 	public Album[] cargar_Albumes_Admin(String aNombre);
+	
+	public Cancion[] cargar_Ultimos_Exitos();
 
 }

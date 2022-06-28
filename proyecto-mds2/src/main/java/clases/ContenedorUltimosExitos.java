@@ -13,6 +13,7 @@ public class ContenedorUltimosExitos extends vistas.VistaContenedorultimosexitos
 	
 	public ContenedorUltimosExitos() {
 		VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.removeAll();
 		vl.add(uea);
 	}
 
