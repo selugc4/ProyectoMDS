@@ -22,6 +22,7 @@ public class Administrador extends Actor_comun {
 	public Administrador(int iD) {
 		super(iD);
 //		clr = new ContenedorListasReproduccion(2);
+		this.ID = iD;
 
 		crearElementos();
 		vpp = new Ver_perfil_propio(iD);

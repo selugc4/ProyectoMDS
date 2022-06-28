@@ -35,6 +35,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 //		throw new UnsupportedOperationException();
 //	}
 	private iActor_comun iac = new BDPrincipal();
+	private int usuario;
 	
 	public Edicion_de_lista() {
 		
@@ -45,6 +46,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 		this.idLista = iD;
 		this.getLabel().setText("Modificar");		
 		mostrarTitulo(iD);
+		this.usuario = usuario;
 		this.getVaadinTextField().setReadOnly(true);
 		
 		this.getVaadinButton2().setText("Modificar lista");
@@ -140,6 +142,21 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				//GUARDAR CAMBIOS
 				iac.guardar_Modificacion_lista(idLista, getVaadinTextField().getValue(), cmc.get_canciones());
+				Actor_comun.v1.removeAll();
+				if(usuario == 0) {
+					VerticalLayout vl = Usuario_registrado.v1;
+					vl.removeAll();
+					vl.add(Usuario_registrado.vpp);
+				}else if(usuario == 1) {
+					VerticalLayout vl = Artista.v1;
+					vl.removeAll();
+					vl.add(Artista.vppa);
+				}else if(usuario == 2) {
+					VerticalLayout vl = Administrador.v1;
+					vl.removeAll();
+					vl.add(Administrador.vpp);
+				}
+						
 				Notification.show("Cambios Guardados");
 				
 			}

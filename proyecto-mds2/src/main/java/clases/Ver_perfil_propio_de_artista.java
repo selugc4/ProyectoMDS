@@ -51,7 +51,8 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 	private iActor_comun iac = new BDPrincipal();
 	private iArtista ia = new BDPrincipal();
 	
-	
+	public static Dialog darseBaja;
+	public static Button botonsi = new Button("Si");
 	
 	public ContenedorListas_Con_Sus_Canciones clc; 
 	public Canciones_mas_exitosas cme;
@@ -144,6 +145,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		hl2.add(artistas);
 	
 	
+	
 	this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 		
 		@Override
@@ -153,49 +155,39 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		}
 	});
 	
+	 this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				darseBaja= new Dialog();
+				VerticalLayout vl = new VerticalLayout();
+				HorizontalLayout hl = new HorizontalLayout();
+			
+				Button botonno = new Button("No");
+				hl.add(botonsi, botonno);
+				vl.add("Está seguro de darse de baja?");
+				vl.add(hl);
+				
+				darseBaja.add(vl);
+				darseBaja.open();
+				
+				
+				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+							darseBaja.close();
+							
+						
+					}
+				});
+				
+			}
+		});
+	
 
   
-  this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 	
-	@Override
-	public void onComponentEvent(ClickEvent<Button> event) {
-		Dialog diag = new Dialog();
-		VerticalLayout vl = new VerticalLayout();
-		HorizontalLayout hl = new HorizontalLayout();
-		Button botonsi = new Button("Si");
-		Button botonno = new Button("No");
-		hl.add(botonsi, botonno);
-		vl.add("Está seguro de darse de baja?");
-		vl.add(hl);
-		
-		diag.add(vl);
-		diag.open();
-		
-		botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				diag.close();
-				ia.Darse_de_baja(correoantiguo);
-				Notification.show("Dado de baja");
-				
-				
-			}
-		});
-		
-		botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-					diag.close();
-				
-			}
-		});
-		
-	}				
-	
-});
-  
   this.getVaadinButton3().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 	
 	@Override

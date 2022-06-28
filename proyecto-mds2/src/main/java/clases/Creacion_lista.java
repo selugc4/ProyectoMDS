@@ -24,10 +24,13 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 	}
 	public Creacion_lista(int usuario, int tipo) {
 		super(usuario,tipo);
+		
+		this.getStyle().set("width", "100%");
 
 		this.getLabel().setText("Crear lista");
 		this.getVaadinButton().setVisible(false);
 		this.getVaadinButton2().setText("Crear lista");
+		
 		
 		
 		this.getVaadinButton3().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -63,8 +66,28 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 					// GUARDAR LISTA
 					iac.crear_Lista(getVaadinTextField().getValue(), cmc.get_canciones());
 					
+					if(Ver_perfil_propio.tipoUsuario == 0) {
+						VerticalLayout vl = Usuario_registrado.v1;
+						Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+						vl.removeAll();
+						vl.add(Usuario_registrado.vpp);
+					}else if(Ver_perfil_propio.tipoUsuario == 1) {
+						VerticalLayout vl = Artista.v1;
+						Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
+						vl.removeAll();
+						vl.add(Artista.vppa);
+					}else if(Ver_perfil_propio.tipoUsuario == 2) {
+						VerticalLayout vl = Administrador.v1;
+						Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
+						vl.removeAll();
+						vl.add(Administrador.vpp);
+					}
 					Notification.show("Lista creada");
-				}
+						
+				}	
+					
+					
+				
 						
 			}
 		});

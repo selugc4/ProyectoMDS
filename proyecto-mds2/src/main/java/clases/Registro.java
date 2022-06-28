@@ -194,7 +194,6 @@ public class Registro extends vistas.VistaRegistro {
 
 	public void registrarse() {
 		iciber.guardar_Datos(this.getTfemail().getValue(), this.getTfusuario().getValue(), getTfcontrasena1().getValue(), fileName);
-		
 	}
 	
 	private boolean validarCorreoInterno(String value) {
@@ -214,7 +213,7 @@ public class Registro extends vistas.VistaRegistro {
 	}
 	
 	public boolean validarDatos() {
-		if(iciber.validar_Datos(this.getTfemail().getValue(),this.getTfusuario().getValue())){
+		if(iciber.validar_Datos(this.getTfusuario().getValue(),this.getTfemail().getValue())){
 			return true;
 		
 		}else

@@ -24,6 +24,9 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 	
 	private iActor_comun iac = new BDPrincipal();
 	private iUsuario_registrado iur = new BDPrincipal();
+	
+	public static Dialog darseBaja;
+	public static Button botonsi = new Button("Si");
 
 
 	
@@ -92,48 +95,47 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 
 	
 	  
+		
+		 
+		 this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					getVaadinTextField().setReadOnly(false);
+					getVaadinButton1().setVisible(true);
+				}
+			});
+			
+		 
 		 this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
- 			
- 			@Override
- 			public void onComponentEvent(ClickEvent<Button> event) {
- 				Dialog diag = new Dialog();
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				darseBaja= new Dialog();
  				VerticalLayout vl = new VerticalLayout();
  				HorizontalLayout hl = new HorizontalLayout();
- 				Button botonsi = new Button("Si");
+ 			
  				Button botonno = new Button("No");
  				hl.add(botonsi, botonno);
  				vl.add("Está seguro de darse de baja?");
  				vl.add(hl);
  				
- 				diag.add(vl);
- 				diag.open();
+ 				darseBaja.add(vl);
+ 				darseBaja.open();
  				
- 				botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
- 					
- 					@Override
- 					public void onComponentEvent(ClickEvent<Button> event) {
- 						diag.close();
- 						iur.Darse_de_baja(correoantiguo);
- 						Notification.show("Dado de baja");
- 						
- 						
- 					}
- 				});
  				
  				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
  					
  					@Override
  					public void onComponentEvent(ClickEvent<Button> event) {
- 							diag.close();
+ 							darseBaja.close();
  							
  						
  					}
  				});
- 				
- 			}				
- 			
- 		});	
-			
+				
+			}
+		});
  	
 	  
 }
@@ -175,7 +177,4 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 		
 		
 	}
-//	public void Darse_de_baja() {
-//		throw new UnsupportedOperationException();
-//	}
 }

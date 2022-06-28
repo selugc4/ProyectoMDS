@@ -18,17 +18,17 @@ export class VistaModificar_y_crear_lista extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
- <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: flex-start; margin: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
-  <label style="font-size:40px; font-weight:bold; align-self: center;" id="label">Modificar o crear lista</label>
-  <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end;" id="vaadinHorizontalLayout1">
-   <vaadin-button style="margin: var(--lumo-space-xl); align-self: center; flex-grow: 0; flex-shrink: 1;" id="vaadinButton">
+ <vaadin-horizontal-layout theme="spacing" style="width: 35%; justify-content: flex-start; margin: var(--lumo-space-xl);" id="vaadinHorizontalLayout">
+  <label style="font-size:40px; font-weight:bold; align-self: center; width: 100%;" id="label">Modificar o crear lista</label>
+  <vaadin-horizontal-layout theme="spacing" style="justify-content: flex-end; width: 50%;" id="vaadinHorizontalLayout1">
+   <vaadin-button style="margin: var(--lumo-space-xl); align-self: center; flex-grow: 0; flex-shrink: 1; width: 100%;" id="vaadinButton">
      Eliminar lista 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); width: 95%;" id="vaadinHorizontalLayout2">
+ <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); width: 15%;" id="vaadinHorizontalLayout2">
   <label style="margin-right: var(--lumo-space-xl); align-self: center;" id="label1">Título:</label>
-  <vaadin-text-field label="" placeholder="Título de la lista" style="align-self: center;" id="vaadinTextField"></vaadin-text-field>
+  <vaadin-text-field label="" placeholder="Título de la lista" style="align-self: center; width: 100%;" id="vaadinTextField"></vaadin-text-field>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="margin-left: var(--lumo-space-xl); align-self: flex-start; align-items: center;" id="vaadinHorizontalLayout3">
   <label style="margin-right: var(--lumo-space-xl);" id="label2">Lista de canciones</label>
@@ -38,10 +38,10 @@ export class VistaModificar_y_crear_lista extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout5" style="height: 100%; width: 50%;"></vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: flex-end; margin-top: var(--lumo-space-xl); margin-right: var(--lumo-space-xl); align-items: center; width: 50%;" id="vaadinVerticalLayout1">
-  <vaadin-button id="vaadinButton2">
+  <vaadin-button id="vaadinButton2" style="width: 20%;">
     Crear o modificar lista 
   </vaadin-button>
-  <vaadin-button id="vaadinButton3">
+  <vaadin-button id="vaadinButton3" style="width: 20%;">
     Volver atrás 
   </vaadin-button>
  </vaadin-vertical-layout>

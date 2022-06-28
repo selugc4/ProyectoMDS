@@ -75,49 +75,21 @@ public class MainView extends VerticalLayout {
 					ciber.iniciarSesion();
 					if(usuario == 0) {
 						Usuario_registrado user = new Usuario_registrado(ID);
-						user.cur.vpp.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								Dialog diag = new Dialog();
-				 				VerticalLayout vl = new VerticalLayout();
-				 				HorizontalLayout hl = new HorizontalLayout();
-				 				Button botonsi = new Button("Si");
-				 				Button botonno = new Button("No");
-				 				hl.add(botonsi, botonno);
-				 				vl.add("Está seguro de darse de baja?");
-				 				vl.add(hl);
-				 				
-				 				diag.add(vl);
-				 				diag.open();
-				 				
-				 				botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				 					
-				 					@Override
-				 					public void onComponentEvent(ClickEvent<Button> event) {
-				 						diag.close();
-				 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
-										ciber.ue.Cargar_Ultimos_Exitos();
-										remove(user);
-										add(ciber);
-				 						Notification.show("Dado de baja");
-				 						
-				 						
-				 					}
-				 				});
-				 				
-				 				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-				 					
-				 					@Override
-				 					public void onComponentEvent(ClickEvent<Button> event) {
-				 							diag.close();
-				 							
-				 						
-				 					}
-				 				});
-								
-							}
-						});
+						
+						user.vpp.botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		 					
+		 					@Override
+		 					public void onComponentEvent(ClickEvent<Button> event) {
+		 						user.vpp.darseBaja.close();
+		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
+								ciber.ue.Cargar_Ultimos_Exitos();
+								remove(user);
+								add(ciber);
+		 						Notification.show("Dado de baja");
+		 					
+		 						
+		 					}
+		 				});
 						
 						user.cur.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							
@@ -133,6 +105,19 @@ public class MainView extends VerticalLayout {
 						
 					}else if(usuario == 1) {
 						Artista artista = new Artista(ID);
+						artista.vppa.botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								artista.vppa.darseBaja.close();
+		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
+								ciber.ue.Cargar_Ultimos_Exitos();
+								remove(artista);
+								add(ciber);
+		 						Notification.show("Dado de baja");
+								
+							}
+						});
 						artista.ca.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							
 							@Override
@@ -144,6 +129,7 @@ public class MainView extends VerticalLayout {
 						});
 						remove(ciber);
 						add(artista);
+						
 					}else if(usuario == 2) {
 						Administrador admin = new Administrador(ID);	
 						admin.cabadmin.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
