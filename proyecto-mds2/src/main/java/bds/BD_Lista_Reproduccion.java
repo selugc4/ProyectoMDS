@@ -133,11 +133,11 @@ public class BD_Lista_Reproduccion {
 		}	
 		}
 
-	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> aCanciones) throws PersistentException {
+	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> aCanciones, int idUsuario) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 
 		try {
-			Usuario usuario = UsuarioDAO.getUsuarioByORMID(Actor_comun.ID);
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(idUsuario);
 			Lista_Reproduccion lr = Lista_ReproduccionDAO.createLista_Reproduccion();
 			lr.setNombreLista(aNombre_Lista);
 			for(clases.Cancion canciones: aCanciones) {

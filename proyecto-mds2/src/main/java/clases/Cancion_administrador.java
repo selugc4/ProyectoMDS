@@ -51,6 +51,7 @@ public class Cancion_administrador extends vistas.VistaCancion_administrador {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Eliminar_cancion(cancion.getIdCancion());
+				Notification.show("Canción eliminada");
 			}
 		});
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

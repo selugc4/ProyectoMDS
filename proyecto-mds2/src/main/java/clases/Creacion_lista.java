@@ -64,7 +64,7 @@ public class Creacion_lista extends Modificar_y_crear_lista {
 					Notification.show("Por favor, inserte un nombre de lista");
 				} else {
 					// GUARDAR LISTA
-					iac.crear_Lista(getVaadinTextField().getValue(), cmc.get_canciones());
+					iac.crear_Lista(getVaadinTextField().getValue(), cmc.get_canciones(), usuario);
 					
 					if(Ver_perfil_propio.tipoUsuario == 0) {
 						VerticalLayout vl = Usuario_registrado.v1;

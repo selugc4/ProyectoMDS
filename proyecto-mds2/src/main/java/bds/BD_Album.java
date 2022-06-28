@@ -33,8 +33,17 @@ public class BD_Album {
 		}
 	}
 
-	public Album cargar_Album(int aIdAlbum) {
-		throw new UnsupportedOperationException();
+	public Album cargar_Album(int aIdAlbum) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Album album = AlbumDAO.getAlbumByORMID(aIdAlbum);
+			t.commit();
+			return album;
+		}
+		catch (Exception e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public Album[] cargar_Albumes_Artista(int iD) throws PersistentException {
@@ -123,6 +132,7 @@ public class BD_Album {
 			for(int i = 0; i< aCanciones.length; i++) {
 				album.contiene_cancion.add(aCanciones[i]);
 			}
+			AlbumDAO.save(album);
 				t.commit();
 		}
 		catch (Exception e) {

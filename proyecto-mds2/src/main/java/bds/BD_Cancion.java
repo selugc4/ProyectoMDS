@@ -144,8 +144,16 @@ public class BD_Cancion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cancion cargar_Datos_Cancion(int aIdCancion) {
-		throw new UnsupportedOperationException();
+	public Cancion cargar_Datos_Cancion(int aIdCancion) throws PersistentException {
+		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+		try {
+			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
+			t.commit();
+			return cancion;
+		}catch (PersistentException e) {
+			t.rollback();
+			return null;
+		}
 	}
 
 	public Cancion[] obtener_Canciones_Album(int aIdAlbum) throws PersistentException {
@@ -352,6 +360,7 @@ public class BD_Cancion {
 			cancion.setProductores(aProductores);
 			cancion.setTitulo(aTitulo);
 			cancion.setTituloCreditos(aTituloCredito+ "\n" + aTitulo_Album);
+			CancionDAO.save(cancion);
 			t.commit();
 		}catch (Exception e) {
 			t.rollback();

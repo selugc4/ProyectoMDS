@@ -667,9 +667,9 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		
 	}
 
-	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList) {
+	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList, int idUsuario) {
 		try {
-			_bd_lista_reproduccion.crear_Lista(aNombre_Lista, arrayList);
+			_bd_lista_reproduccion.crear_Lista(aNombre_Lista, arrayList, idUsuario);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -739,8 +739,26 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 		}
 		
 	}
-
-
+	@Override
+	public Album cargar_Album(int aIdAlbum) {
+		try {
+			return _bd_album.cargar_Album(aIdAlbum);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public Cancion cargar_Datos_Cancion(int aIdCancion) {
+		try {
+			return _bd_cancion.cargar_Datos_Cancion(aIdCancion);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 	@Override
 	public void reproducir(int iD, int idCancion) {
 		try {

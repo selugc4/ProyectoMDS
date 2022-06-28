@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -25,6 +26,14 @@ public class Usuario extends vistas.VistaUsuario{
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(usuario.getNombre());
 		this.getImg().setSrc("imagenes/" + usuario.getContiene_imagen().getUrl());
+		this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Image> event) {
+				Ver_perfil_usuario_ajeno vpuj= new Ver_perfil_usuario_ajeno(usuario.getID());
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(vpuj);
+			}
+		});
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override

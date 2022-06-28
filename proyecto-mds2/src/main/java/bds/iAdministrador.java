@@ -51,5 +51,8 @@ public interface iAdministrador {
 	public Album[] cargar_Albumes_Admin(String aNombre);
 	
 	public Cancion[] cargar_Ultimos_Exitos();
+	
+	public Album cargar_Album(int id);
 
+	public Cancion cargar_Datos_Cancion(int aIdCancion);
 }

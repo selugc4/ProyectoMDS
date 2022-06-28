@@ -25,6 +25,7 @@ public class Albumes_administrador extends Albumes_buscador {
 		HorizontalLayout aux = this.getVaadinHorizontalLayout();
 		aux.getStyle().set("width", "100%");
 		aux.removeAll();
+		_album_administrador.clear();
 		iAdministrador iadmin = new BDPrincipal();
 		Album[] albumes = iadmin.cargar_Albumes_Admin(buscador);
 		for(int i = 0; i < albumes.length;i++) {

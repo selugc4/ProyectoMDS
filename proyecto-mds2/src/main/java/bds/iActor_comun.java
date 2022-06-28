@@ -42,7 +42,7 @@ public interface iActor_comun {
 
 	public void eliminar_Lista_Reproduccion(int idLista);
 
-	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList);
+	public void crear_Lista(String aNombre_Lista, ArrayList<clases.Cancion> arrayList, int idUsuario);
 
 	public Evento[] obtener_Notificaciones(int iD);
 

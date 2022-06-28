@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import bds.BDPrincipal;
@@ -52,6 +53,7 @@ public class Album_administrador extends Album {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Eliminar_album(album);	
+				Notification.show("Album eliminado");
 			}
 		});
 	}

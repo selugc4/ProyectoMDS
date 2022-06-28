@@ -3,6 +3,7 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -35,6 +36,7 @@ public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Eliminar_lista(lista.getIdLista());
+				Notification.show("Lista eliminada");
 			}
 		});
 	}

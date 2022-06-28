@@ -1,6 +1,8 @@
 package clases;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,6 +16,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iAdministrador;
 
 public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion {
@@ -46,9 +49,15 @@ public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion
 		String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator + "META-INF" +separator+ "resources"+separator+"canciones"+separator;
 		
 		iAdministrador iadmin = new BDPrincipal();
-		
-		this.getStyle().set("width", "100%");
+		basededatos.Cancion cancion = iadmin.cargar_Datos_Cancion(idCancion);
+		this.getVaadinTextField().setValue(cancion.getTitulo());
+		this.getVaadinTextField1().setValue(cancion.getTituloCreditos());
+		this.getVaadinTextField2().setValue(cancion.getCancion_de().getTitutloAlbum());
+		this.getVaadinTextArea().setValue(cancion.getCompositores());
+		this.getVaadinTextArea1().setValue(cancion.getProductores());
+		this.getVaadinTextArea2().setValue(cancion.getIntepretes());
 		MemoryBuffer mbuf = new MemoryBuffer();
+		this.getStyle().set("width", "100%");
 		
 		this.getVaadinUpload().setReceiver(mbuf);	
 		this.getVaadinUpload().addSucceededListener(event ->{

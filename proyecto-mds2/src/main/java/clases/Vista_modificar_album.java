@@ -21,6 +21,7 @@ import basededatos.ArtistaDAO;
 import basededatos.CancionDAO;
 import basededatos.UsuarioDAO;
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iAdministrador;
 
 public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
@@ -58,29 +59,31 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 		canciones = new Canciones_modificar_y_crear(id, 2);
 		canciones.actualizar();
 		iAdministrador iadmin = new BDPrincipal();
+		basededatos.Album album = iadmin.cargar_Album(id);
+		this.getVaadinTextField().setValue(album.getTitutloAlbum());
+		this.getVaadinTextField1().setValue(album.autor.toArray()[0].getNombre());
+		this.getVaadinHorizontalLayout5().setVisible(false);
 		MemoryBuffer mbuf = new MemoryBuffer();
 		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);	
 		vl.add(canciones);
 		
-		File imagenDefault = new File(rutaArchivo+"fotoalbum.png");
+		
+		File imagenDefault = new File(rutaArchivo+album.getContiene_imagen().getUrl());
 		InputStream aux ;
 		StreamResource imageResource;
 		try {
 			aux = FileUtils.openInputStream(imagenDefault);
-			imageResource = new StreamResource("fotoDefaultAlbum.png",() -> aux); 
+			imageResource = new StreamResource(album.getContiene_imagen().getUrl(),() -> aux); 
 			Image image = new Image(imageResource, "");
 			image.getStyle().set("height", "125px");
 			image.getStyle().set("width", "125px");
 			vertical.add(image);
 		} catch (IOException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
-		
-		
-		this.getVaadinUpload().setReceiver(mbuf);	
-		this.getVaadinUpload().addSucceededListener(event ->{
-
-		
+			this.getVaadinUpload().setReceiver(mbuf);	
+			this.getVaadinUpload().addSucceededListener(event ->{
 
 			fileData = mbuf.getInputStream();
 	
@@ -119,7 +122,7 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if(getVaadinTextField().getValue().isEmpty()||getVaadinDatePicker().getValue() == null|| canciones._canciones.size()==0) {
+				if(getVaadinTextField().getValue().isEmpty()|| canciones._canciones.size()==0) {
 					Notification.show("Debe rellenar todos los campos");
 				}
 				else {

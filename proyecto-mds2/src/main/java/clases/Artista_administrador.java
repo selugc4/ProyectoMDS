@@ -3,6 +3,7 @@ package clases;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -40,6 +41,7 @@ public class Artista_administrador extends ArtistaBuscador{
 	public void Eliminar_artista(String correo) {
 		iAdministrador iadmin = new BDPrincipal();
 		iadmin.eliminar_Artista(correo);
+		Notification.show("Artista eliminado");
 	}
 
 	public void ventanaEditarArtista() {
