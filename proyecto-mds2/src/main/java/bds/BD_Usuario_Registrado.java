@@ -19,6 +19,7 @@ import basededatos.EventoDAO;
 import basededatos.Horas;
 import basededatos.HorasDAO;
 import basededatos.Usuario_Registrado;
+import basededatos.Usuario_RegistradoCriteria;
 import basededatos.Usuario_RegistradoDAO;
 import clases.Actor_comun;
 import clases.Cibernauta;
@@ -225,7 +226,9 @@ public class BD_Usuario_Registrado {
 	public Usuario_Registrado[] cargar_Usuarios(String aNombre) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado [] usuarios = Usuario_RegistradoDAO.listUsuario_RegistradoByQuery("Nombre='"+aNombre+"'", null);
+			Usuario_RegistradoCriteria urc = new Usuario_RegistradoCriteria();
+			urc.nombre.like("%"+aNombre+"%");
+			Usuario_Registrado [] usuarios = Usuario_RegistradoDAO.listUsuario_RegistradoByCriteria(urc);
 			t.commit();
 			return usuarios;
 		}catch (PersistentException e) {

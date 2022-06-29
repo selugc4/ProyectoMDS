@@ -36,14 +36,17 @@ public class Cancion_busqueda extends vistas.VistaCancion_busqueda{
 	public Cancion_busqueda(Cancion cancion) {
 		this.getStyle().set("width", "100%");
 		this.getLabel().setText(cancion.getTitulo());
-		this.getLabel1().setText(cancion.es_de.toArray()[0].getNombre());
+		if(cancion.es_de.isEmpty()) {
+			this.getLabel1().setText("Artistas No Asignados");
+		}else
+			this.getLabel1().setText(cancion.es_de.toArray()[0].getNombre());
 		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				iActor_comun iac = new BDPrincipal();
 				iac.anadir_Cancion_Favorita(cancion.getIdCancion(), Actor_comun.ID);
-				Notification.show("Cancion añadida" );
+				Notification.show("Cancion añadida a favoritos" );
 			}
 	
 		});
@@ -52,13 +55,16 @@ public class Cancion_busqueda extends vistas.VistaCancion_busqueda{
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				Actor_comun.getRc().vcre = new Ver_creditos(cancion);
+				Actor_comun.getRc()._ir_a_cancion = new Ir_a_cancion(cancion);
 				iActor_comun iac = new BDPrincipal();
 				iac.reproducir(Actor_comun.ID, cancion.getIdCancion());
+				
 				Actor_comun.rc.reproducir(cancion.getArchivoMultimedia());
-				Notification.show("Reproduciendo");
 			}
 		});
 		
+		if(!this.getLabel1().getText().equals("Artistas No Asignados")) {
 		this.getVaadinHorizontalLayout1().addClickListener(new ComponentEventListener<ClickEvent<HorizontalLayout>>() {
 			
 			@Override
@@ -72,6 +78,7 @@ public class Cancion_busqueda extends vistas.VistaCancion_busqueda{
 				
 			}
 		});
+		}
 	}
-	
+
 }

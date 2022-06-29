@@ -8,8 +8,10 @@ import org.orm.PersistentTransaction;
 
 import basededatos.A12PersistentManager;
 import basededatos.Album;
+import basededatos.AlbumCriteria;
 import basededatos.AlbumDAO;
 import basededatos.Artista;
+import basededatos.ArtistaCriteria;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
@@ -23,7 +25,10 @@ public class BD_Album {
 	public Album[] cargar_Albumes_Buscador(String aNombre) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Album[]albumes = AlbumDAO.listAlbumByQuery("TitutloAlbum='"+aNombre+"'", null);
+			AlbumCriteria albumCriteria = new AlbumCriteria();
+			albumCriteria.titutloAlbum.like("%"+aNombre+"%");
+			
+			Album[]albumes = AlbumDAO.listAlbumByCriteria(albumCriteria);
 			t.commit();
 			return albumes;
 		}
@@ -144,7 +149,9 @@ public class BD_Album {
 	public Album[] cargar_Albumes_Admin(String aNombre) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Album[]albumes = AlbumDAO.listAlbumByQuery("TitutloAlbum='"+aNombre+"'", null);
+			AlbumCriteria ac = new AlbumCriteria();
+			ac.titutloAlbum.like("%"+aNombre+"%");
+			Album[]albumes = AlbumDAO.listAlbumByCriteria(ac);
 			t.commit();
 			return albumes;
 		}

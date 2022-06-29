@@ -17,7 +17,7 @@ public class Vista_album extends vistas.VistaVista_album {
 	public Vista_album() {
 		this.getStyle().set("width", "100%");
 		this.cl.getLabel1().setText("No se han añadido canciones a este Álbum");
-		this.cl.getVaadinButton().setVisible(false);;
+		this.cl.getVaadinButton().setVisible(false);
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.add(cl);
 	}
@@ -25,6 +25,7 @@ public class Vista_album extends vistas.VistaVista_album {
 	public Vista_album(Album album) {
 		this.getStyle().set("width", "100%");
 		this.cl = new Canciones_lista(album);
+		this.cl.getLabel1().setText("No se han añadido canciones a este Álbum");
 		this.cl.getVaadinButton().setVisible(false);
 		this.getLabel().setText(album.getTitutloAlbum());
 		if(album.autor.isEmpty()) {
@@ -42,6 +43,7 @@ public class Vista_album extends vistas.VistaVista_album {
 			this.getLabel1().setText(cadena);
 		}
 		
+	
 		this.getLabel2().setText(album.getFechaEdicion());
 			
 		this.getImg().setSrc("imagenes/"+album.getContiene_imagen().getUrl());

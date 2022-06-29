@@ -24,6 +24,7 @@ import basededatos.AlbumDAO;
 import basededatos.Artista;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
+import basededatos.CancionCriteria;
 import basededatos.CancionDAO;
 import basededatos.Estilo;
 import basededatos.EstiloDAO;
@@ -212,7 +213,9 @@ public class BD_Cancion {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 
 		try {
-			Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='"+aNombre+"'", null);		
+			CancionCriteria ccriteria = new CancionCriteria();
+			ccriteria.titulo.like("%"+aNombre+"%");
+			Cancion[] canciones = CancionDAO.listCancionByCriteria(ccriteria);
 			
 			t.commit();		
 			return canciones;
@@ -257,7 +260,9 @@ public class BD_Cancion {
 	public Cancion[] cargar_Canciones_Buscadas(String aNombre) throws PersistentException{
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-		Cancion[] canciones = CancionDAO.listCancionByQuery("Titulo='"+aNombre+"'", null);
+		CancionCriteria cc = new CancionCriteria();
+		cc.titulo.like("%"+aNombre+"%");
+		Cancion[] canciones = CancionDAO.listCancionByCriteria(cc);
 		t.commit();
 		return canciones;
 		}catch (PersistentException e) {

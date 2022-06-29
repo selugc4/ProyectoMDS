@@ -48,8 +48,10 @@ public class Albumes_buscador extends vistas.VistaAlbumes_buscador {
 	private void Cargar_Listas(String valor) {
 		iActor_comun iac = new BDPrincipal();
 		Album[] albumes = iac.cargar_Albumes_Buscador(valor);
+		if(albumes != null) {
 		for(int i = 0; i < 3 && i<albumes.length; i++) {		
 				_album.add(new clases.Album(albumes[i]));
 			}
 		}
+	}
 }

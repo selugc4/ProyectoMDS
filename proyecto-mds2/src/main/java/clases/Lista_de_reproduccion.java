@@ -46,6 +46,7 @@ public class Lista_de_reproduccion extends vistas.VistaLista_de_reproduccion {
 				Usuario_registrado.v2.setVisible(false);
 			}
 		});
+	
 	}
 
 	public Lista_de_reproduccion(Lista_Reproduccion lista, boolean b) {

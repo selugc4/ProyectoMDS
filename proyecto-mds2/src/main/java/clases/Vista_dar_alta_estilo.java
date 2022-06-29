@@ -21,6 +21,8 @@ public class Vista_dar_alta_estilo extends vistas.VistaVista_dar_alta_estilo{
 //		throw new UnsupportedOperationException();
 //	}
 	
+	public static boolean existente = false;
+	
 	public Vista_dar_alta_estilo() {
 		this.getStyle().set("width", "100%");
 		iAdministrador iadmin = new BDPrincipal();
@@ -35,10 +37,14 @@ public class Vista_dar_alta_estilo extends vistas.VistaVista_dar_alta_estilo{
 					Notification.show("El campo de estilo no puede estar vacío");
 				}else {
 					anadirEstilo(nombre);
+					if(existente) {
+						Notification.show("El estilo ya existe");
+					}else {
 					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 					vl.removeAll();
 					vl.add(new Menu_dar_alta());
 					Notification.show("Estilo agregado con exito");
+					}
 				
 			}
 			
@@ -48,6 +54,7 @@ public class Vista_dar_alta_estilo extends vistas.VistaVista_dar_alta_estilo{
 				// TODO Auto-generated method stub
 			
 				iadmin.Anadir_estilo(nombre);
+				
 				}
 			});
 		}

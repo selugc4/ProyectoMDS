@@ -1,5 +1,8 @@
 package clases;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -57,6 +60,7 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 		}
 		else {
 		sinresultados.setVisible(true);
+		
 		}
 		
 	}
@@ -65,6 +69,16 @@ public class Buscador_administrador extends vistas.VistaBuscador_administrador{
 
 	private void inicializar() {
 		this.getStyle().set("width", "100%");
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Actor_comun.v1.removeAll();
+				Vista_administracion aux = new Vista_administracion();
+				Actor_comun.v1.add(aux);
+				
+			}
+		});
 		
 	}
 }

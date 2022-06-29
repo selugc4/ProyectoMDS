@@ -32,6 +32,7 @@ public class Recuperar_contrasena extends vistas.VistaRecuperar_contrasena{
 	
 	private iCibernauta iciber = new BDPrincipal();
 	public Recuperar_contrasena() {
+		this.getStyle().set("width", "100%");
 			
 		
 	}

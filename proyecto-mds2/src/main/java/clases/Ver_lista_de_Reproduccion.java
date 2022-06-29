@@ -22,6 +22,7 @@ public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduc
 		this.getLabel().setText(nombre);
 		cancionesLista = new Canciones_lista(lista);
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		cancionesLista.getVaadinButton().setVisible(false);
 		v1.add(cancionesLista);
 		
 		
@@ -35,11 +36,14 @@ public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduc
 		this.getVaadinButton3().setVisible(false);
 		this.getVaadinHorizontalLayout1().setVisible(false);
 		
+		
+		
 	}
 	public Ver_lista_de_Reproduccion(String nombre) {
 		inicializar();
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		this.getLabel().setText(nombre);
+		cancionesLista.getVaadinButton().setVisible(false);
 		v1.add(cancionesLista);
 	}
 
@@ -48,12 +52,14 @@ public class Ver_lista_de_Reproduccion extends vistas.VistaVer_lista_de_reproduc
 	public Ver_lista_de_Reproduccion() {
 		inicializar();
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		cancionesLista.getVaadinButton().setVisible(false);
 		v1.add(cancionesLista);	}
 
 	public Ver_lista_de_Reproduccion(int idLista, String nombre) {
 		inicializar();		
 		this.getLabel().setText(nombre);
 		cancionesLista = new Canciones_lista(idLista);
+		cancionesLista.getVaadinButton().setVisible(false);
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		v1.add(cancionesLista);
 		

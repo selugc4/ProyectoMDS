@@ -11,6 +11,7 @@ import basededatos.Administrador;
 import basededatos.AdministradorDAO;
 import basededatos.Album;
 import basededatos.Artista;
+import basededatos.ArtistaCriteria;
 import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.Artista;
@@ -111,7 +112,9 @@ public class BD_Artista {
 	public Artista[] cargar_Artistas_Buscador(String aNombre) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-		Artista []usuario = ArtistaDAO.listArtistaByQuery("Nombre='"+aNombre+"'", null);
+		ArtistaCriteria artistaCriteria = new ArtistaCriteria();
+		artistaCriteria.nombre.like("%"+aNombre+"%");
+		Artista []usuario = ArtistaDAO.listArtistaByCriteria(artistaCriteria);
 		t.commit();
 		return usuario;
 		}

@@ -13,6 +13,7 @@ import basededatos.ArtistaDAO;
 import basededatos.Cancion;
 import basededatos.CancionDAO;
 import basededatos.Lista_Reproduccion;
+import basededatos.Lista_ReproduccionCriteria;
 import basededatos.Lista_ReproduccionDAO;
 import basededatos.Usuario;
 import basededatos.UsuarioDAO;
@@ -42,7 +43,9 @@ public class BD_Lista_Reproduccion {
 	public Lista_Reproduccion[] cargar_Listas_Buscador(String aNombre) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-		Lista_Reproduccion[] listas = Lista_ReproduccionDAO.listLista_ReproduccionByQuery("NombreLista='"+aNombre+"'", null);
+		Lista_ReproduccionCriteria lrcriteria = new Lista_ReproduccionCriteria();
+		lrcriteria.nombreLista.like("%"+aNombre+"%");
+		Lista_Reproduccion[] listas = Lista_ReproduccionDAO.listLista_ReproduccionByCriteria(lrcriteria);
 		t.commit();
 		return listas;
 		}catch (PersistentException e) {

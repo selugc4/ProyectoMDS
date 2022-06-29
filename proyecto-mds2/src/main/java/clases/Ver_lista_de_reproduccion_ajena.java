@@ -33,6 +33,7 @@ public class Ver_lista_de_reproduccion_ajena extends Ver_lista_de_Reproduccion {
 		
 		cancionesLista = new Canciones_lista(idLista);
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		cancionesLista.getVaadinButton().setVisible(false);
 		v1.add(cancionesLista);
 	}
 	public Ver_lista_de_reproduccion_ajena(int idLista, String nombreLista, String nombre, int id) {
@@ -72,6 +73,7 @@ public class Ver_lista_de_reproduccion_ajena extends Ver_lista_de_Reproduccion {
 		VerticalLayout v1 = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		v1.remove(cancionesLista);
 		cancionesLista = new Canciones_lista(idLista);
+		cancionesLista.getVaadinButton().setVisible(false);
 		
 
 		v1.add(cancionesLista);
@@ -80,7 +82,7 @@ public class Ver_lista_de_reproduccion_ajena extends Ver_lista_de_Reproduccion {
 	public void inicializar() {
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout1().setVisible(true);
-
+		this.cancionesLista.getVaadinButton().setVisible(false);
 		this.getVaadinButton().setVisible(false);
 
 		this.getVaadinButton2().setVisible(false);

@@ -89,6 +89,8 @@ public class Vista_administracion extends vistas.VistaVista_administracion{
 		bca = new Buscador_cancion_administracion();
 		inicializarUltimos(cue);
 		iAdministrador iadmin = new BDPrincipal();
+		this.getTfMostrar().setValue(Integer.toString(Ultimos_exitos.numeroUltimosExitos));
+		this.getTfReproducibles().setValue(Integer.toString(Reproductor_canciones_simple.reproducibles));
 		
 		this.getBotonMostrar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
