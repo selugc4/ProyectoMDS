@@ -82,9 +82,6 @@ public class CreateA12Data {
 		}
 	}
 	public static void main(String[] args) throws PersistentException {
-
-		iAdministrador iadmin = new BDPrincipal();
-		iadmin.Eliminar_Ultimo_Exito(11);
 	}
 
 }

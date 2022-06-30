@@ -18,8 +18,10 @@ import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.spring.annotation.EnableVaadin;
 
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iArtista;
 import bds.iUsuario_registrado;
+import clases.Actor_comun;
 import clases.Administrador;
 import clases.Artista;
 import clases.Cibernauta;
@@ -27,6 +29,7 @@ import clases.Iniciar_sesion;
 import clases.Usuario_registrado;
 import clases.Ver_perfil_propio_de_artista;
 import clases.Ver_perfil_propio_usuario_registrado;
+import clases.Vista_administracion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,6 +66,7 @@ public class MainView extends VerticalLayout {
 	public static int ID;
 	private iUsuario_registrado iur = new BDPrincipal();
 	private iArtista iar = new BDPrincipal();
+	private iActor_comun iac = new BDPrincipal();
     public MainView() {
     	this.getStyle().set("width", "100%");
     	Cibernauta ciber = new Cibernauta();
@@ -78,20 +82,19 @@ public class MainView extends VerticalLayout {
 					ciber.iniciarSesion();
 					if(usuario == 0) {
 						Usuario_registrado user = new Usuario_registrado(ID);
-						
 						user.vpp.botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 		 					
 		 					@Override
 		 					public void onComponentEvent(ClickEvent<Button> event) {
+		 						if(Actor_comun.ID != 1) {
 		 						user.vpp.darseBaja.close();
 		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
 								remove(user);
 								add(ciber);
 		 						Notification.show("Dado de baja");
-		 					
+		 						}
 		 					}
 		 				});
-						
 						user.cur.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							
 							@Override
@@ -109,14 +112,14 @@ public class MainView extends VerticalLayout {
 							
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
+								if(Actor_comun.ID != 1) {
 								artista.vppa.darseBaja.close();
-								
-		 						iar.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);
+		 						iar.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);					
 								remove(artista);
 								add(ciber);
 		 						Notification.show("Dado de baja");
-								
 							}
+						}
 						});
 						artista.ca.getBotonLogout().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							

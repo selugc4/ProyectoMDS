@@ -15,7 +15,7 @@ public class Artista extends Actor_comun {
 	
 	public Artista(int iD) {
 		super(iD);
-		
+		this.ID = iD;
 		crearElementos();
 	
 		ca = new Cabecera_artista();

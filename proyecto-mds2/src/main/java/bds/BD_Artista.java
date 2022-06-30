@@ -333,7 +333,6 @@ public class BD_Artista {
 					usuario.pertenece.add(aux);
 			}
 			UsuarioDAO.save(usuario);
-			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
