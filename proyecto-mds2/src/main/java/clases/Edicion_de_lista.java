@@ -5,7 +5,9 @@ import org.orm.PersistentException;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import basededatos.Lista_Reproduccion;
@@ -135,6 +137,66 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 		for(basededatos.Cancion cancion : canciones) {
 			Edicion_de_lista.cmc.agregarCancion(cancion.getTitulo(), cancion.getIdCancion());
 		}
+this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Dialog diag = new Dialog();
+				VerticalLayout vl = new VerticalLayout();
+				HorizontalLayout hl = new HorizontalLayout();
+				Button botonsi = new Button("Si");
+				Button botonno = new Button("No");
+				hl.add(botonsi, botonno);
+				vl.add("Está seguro de eliminar la lista? Lista: " +getVaadinTextField().getValue());
+				vl.add(hl);
+				
+				diag.add(vl);
+				diag.open();
+				
+				botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						iac.eliminar_Lista_Reproduccion(idLista);
+						diag.close();
+						Actor_comun.v1.removeAll();
+						if(usuario == 0) {
+							VerticalLayout vl = Usuario_registrado.v1;
+							Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+							vl.removeAll();
+							vl.add(Usuario_registrado.vpp);
+						}else if(usuario == 1) {
+							VerticalLayout vl = Artista.v1;
+							Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
+							vl.removeAll();
+							vl.add(Artista.vppa);
+						}else if(usuario == 2) {
+							VerticalLayout vl = Administrador.v1;
+							Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
+							vl.removeAll();
+							vl.add(Administrador.vpp);
+						}
+					
+				
+						Notification.show("Lista eliminada");
+						
+						
+					}
+				});
+				
+				
+				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+							diag.close();
+						
+					}
+				});
+				
+			}				
+		});
+		
 		
 		this.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			

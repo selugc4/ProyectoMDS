@@ -73,23 +73,21 @@ public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(getVaadinTextField().isEmpty()) {
 					Notification.show("El campo titulo no puede ser vacío. El resto sí.");
-				}else if(fileName == null || fileData == null ) {
-					Notification.show("No se ha agregado el archivo");
 				}else {
+					if(fileName != null) {
 				File ruta = new File(rutaArchivo + fileName);
 			    try {
 					FileUtils.copyInputStreamToFile(fileData, ruta);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}		  
-			
+				}
 				archivo = fileName; 
+					}
 				anadirCancion();
 				
-				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
-				vl.removeAll();
-				vl.add(new Menu_dar_alta());
+				Actor_comun.v1.removeAll();
+				Actor_comun.v1.add(new Vista_administracion());
 				Notification.show("Cancion modificada con exito");
 				
 				
@@ -102,9 +100,12 @@ public class Vista_modificar_cancion extends vistas.VistaVista_modificar_cancion
 				String compositores = getVaadinTextArea().getValue();
 				String productores =  getVaadinTextArea1().getValue();
 				String interpretes =  getVaadinTextArea().getValue();
-				
-				
-				String archivomultimedia = archivo;
+				String archivomultimedia;
+				if(archivo != null) {
+				archivomultimedia = archivo;
+				} else {
+				archivomultimedia = cancion.getArchivoMultimedia();
+				}
 				iadmin.Modificar_Cancion(idCancion, archivomultimedia, interpretes, productores, compositores, titulo, tituloC, tituloAlbum);
 			}
 			

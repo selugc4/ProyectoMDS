@@ -504,7 +504,7 @@ public class BD_Artista {
 		public boolean comprobar_Seguido(int idArtista) throws PersistentException {
 			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 			try {
-				Artista usuario = ArtistaDAO.getArtistaByORMID(Actor_comun.ID);
+				Usuario usuario = UsuarioDAO.getUsuarioByORMID(Actor_comun.ID);
 				if(usuario != null) {
 					Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
 					if(usuario.seguidor_usuario.contains(artista)) {

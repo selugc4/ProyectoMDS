@@ -178,7 +178,10 @@ public class Vista_dar_alta_album extends vistas.VistaVista_dar_alta_album{
 									}
 							j++;
 							}
-						}	
+						}
+					if(fileName == null) {
+						rutaArchivoFinal = "fotoalbum.png";
+					}
 					iadmin.Dar_alta_album(titulo, cancionesAlbum, artistas, rutaArchivoFinal, fechaEdicion);
 					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 					vl.removeAll();

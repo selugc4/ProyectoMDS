@@ -109,7 +109,9 @@ public class Cancion__Vista_Cibernauta_ extends Cancion_con_imagen {
 			
 		}});
 
-		}else {
+		}else {this.getImg().setSrc("imagenes/fotoalbum.png");
+		this.getImg().setHeight("100px");
+		this.getImg().setWidth("100px");
 				this.getImg().addClickListener(new ComponentEventListener<ClickEvent<Image>>() {
 				
 				@Override

@@ -32,26 +32,37 @@ public class Ver_estadisticas extends vistas.VistaVer_estadisticas{
 	public Ver_estadisticas() {
 		basededatos.Cancion cancion = iac.obtener_Estadisticas(Actor_comun.ID);
 		if(cancion != null) {		
-			if(cancion.getCancion_de() == null) {
+			if(cancion.getCancion_de() != null) {
+				if(cancion.getCancion_de().autor != null) {
 				basededatos.Artista[] artista = cancion.getCancion_de().autor.toArray();
-				if(!artista[0].pertenece.isEmpty()) {
+				if(artista.length != 0) {
+				if(artista[0].pertenece != null) {
 				basededatos.Estilo[] estilos = artista[0].pertenece.toArray();
 				if(estilos.length != 0) {
-					this.getLabel2().setText(estilos[0].getNombre());
-					this.getLabel4().setText(artista[0].getNombre());
-					this.getLabel6().setText(cancion.getTitulo());
-					this.getLabel8().setText(Integer.toString(horas));
+				this.getLabel2().setText(estilos[0].getNombre());
+				}
+				else{
+					this.getLabel2().setText("No se ha podido obtener");
 				}
 				}
-			
-			
+				else {
+					this.getLabel2().setText("No se ha podido obtener");
+				}
+				this.getLabel4().setText(artista[0].getNombre());
+				}else {
+					this.getLabel2().setText("No se ha podido obtener");
+					this.getLabel4().setText("No se ha podido obtener");
+				}
+				}else {
+					this.getLabel2().setText("No se ha podido obtener");
+					this.getLabel4().setText("No se ha podido obtener");
+				}
 			}else {					
 				this.getLabel2().setText("No se ha podido obtener");
 				this.getLabel4().setText("No se ha podido obtener");
-				this.getLabel6().setText("No se ha podido obtener");
-				this.getLabel8().setText("No se ha podido obtener");
 			}
-		
+			this.getLabel6().setText(cancion.getTitulo());
+			this.getLabel8().setText(Integer.toString(horas));
 			
 		}else {
 		this.getLabel2().setText("No se ha podido obtener");

@@ -63,25 +63,12 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 		this.getVaadinTextField().setValue(album.getTitutloAlbum());
 		this.getVaadinTextField1().setValue(album.autor.toArray()[0].getNombre());
 		this.getVaadinHorizontalLayout5().setVisible(false);
+		this.getStyle().set("width", "100%");		
 		MemoryBuffer mbuf = new MemoryBuffer();
 		VerticalLayout vertical = this.getVaadinVerticalLayout3().as(VerticalLayout.class);	
 		vl.add(canciones);
 		
-		
-		File imagenDefault = new File(rutaArchivo+album.getContiene_imagen().getUrl());
-		InputStream aux ;
-		StreamResource imageResource;
-		try {
-			aux = FileUtils.openInputStream(imagenDefault);
-			imageResource = new StreamResource(album.getContiene_imagen().getUrl(),() -> aux); 
-			Image image = new Image(imageResource, "");
-			image.getStyle().set("height", "125px");
-			image.getStyle().set("width", "125px");
-			vertical.add(image);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}	
+		this.getImg().setSrc("imagenes/"+album.getContiene_imagen().getUrl());	
 			this.getVaadinUpload().setReceiver(mbuf);	
 			this.getVaadinUpload().addSucceededListener(event ->{
 
@@ -115,7 +102,6 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 		
 		    
 		});
-		this.getStyle().set("width", "100%");		
 	
 		
 		this.getVaadinButton1().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -157,10 +143,14 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 						j++;
 					}
 					}	
+				if(fileName == null) {
+					rutaArchivoFinal = album.getContiene_imagen().getUrl();
+				}
 				iadmin.Modificar_album(id, titulo, cancionesAlbum, rutaArchivoFinal, artistas);
 				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 				vl.removeAll();
-				vl.add(new Menu_dar_alta());
+				vl.getStyle().set("align-items", "center");
+				vl.add(new Vista_administracion());
 				Notification.show("Album modificado con exito");
 				}
 			}

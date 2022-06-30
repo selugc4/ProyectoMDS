@@ -25,7 +25,7 @@ public class Usuario_registrado extends Actor_comun {
 
 	public Usuario_registrado(int iD) {	
 		super(iD);
-
+		this.ID = iD;
 		crearElementos();
 		cur = new Cabecera_usuario_registrado();
 		vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
@@ -103,6 +103,7 @@ public class Usuario_registrado extends Actor_comun {
 		@Override
 		public void onComponentEvent(ClickEvent<Button> event) {
 			v1.removeAll();
+			ve = new Ver_estadisticas();
 			ve.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 				
 				@Override

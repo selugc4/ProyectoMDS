@@ -82,6 +82,9 @@ public class BD_Album {
 			album.setContiene_imagen(img);	
 			for (int i = 0; i < aArtistas.length;i++) {
 				album.autor.add(aArtistas[i]);
+				for(int j = 0; j< aCanciones.length; j++) {
+					aCanciones[j].es_de.add(aArtistas[i]);
+				}
 				
 			}
 			
@@ -90,7 +93,6 @@ public class BD_Album {
 				album.contiene_cancion.add(aCanciones[i]);
 				
 			}
-			
 				AlbumDAO.save(album);
 				t.commit();
 		}
@@ -104,10 +106,15 @@ public class BD_Album {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
 			Album album = AlbumDAO.getAlbumByORMID(aIdAlbum);
-			album.autor.clear();
+			if(album.autor != null) {
 			Artista[]artistas = album.autor.toArray();
 			for(Artista artista: artistas) {
 				artista.propietario_album.remove(album);
+			}
+			}
+			Cancion[] canciones = album.contiene_cancion.toArray();
+			for(Cancion cancion: canciones) {
+				album.contiene_cancion.remove(cancion);
 			}
 			AlbumDAO.delete(album);
 			ImagenDAO.delete(album.getContiene_imagen());
@@ -128,6 +135,9 @@ public class BD_Album {
 			album.setContiene_imagen(img);	
 			for (int i = 0; i < aArtistas.length;i++) {
 				album.autor.add(aArtistas[i]);
+				for(int j = 0; j< aCanciones.length; j++) {
+					aCanciones[j].es_de.add(aArtistas[i]);
+				}
 			}
 			album.contiene_cancion.clear();
 			Cancion[]canciones = album.contiene_cancion.toArray();

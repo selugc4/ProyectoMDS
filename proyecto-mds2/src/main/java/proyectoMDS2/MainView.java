@@ -24,6 +24,7 @@ import clases.Artista;
 import clases.Cibernauta;
 import clases.Iniciar_sesion;
 import clases.Usuario_registrado;
+import clases.Ver_perfil_propio_de_artista;
 import clases.Ver_perfil_propio_usuario_registrado;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,12 +83,10 @@ public class MainView extends VerticalLayout {
 		 					public void onComponentEvent(ClickEvent<Button> event) {
 		 						user.vpp.darseBaja.close();
 		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
-								ciber.ue.Cargar_Ultimos_Exitos();
 								remove(user);
 								add(ciber);
 		 						Notification.show("Dado de baja");
 		 					
-		 						
 		 					}
 		 				});
 						
@@ -96,7 +95,6 @@ public class MainView extends VerticalLayout {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								remove(user);
-								ciber.ue.Cargar_Ultimos_Exitos();
 								add(ciber);
 							}
 						});
@@ -110,8 +108,7 @@ public class MainView extends VerticalLayout {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								artista.vppa.darseBaja.close();
-		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
-								ciber.ue.Cargar_Ultimos_Exitos();
+		 						iur.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);
 								remove(artista);
 								add(ciber);
 		 						Notification.show("Dado de baja");
@@ -123,7 +120,6 @@ public class MainView extends VerticalLayout {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								remove(artista);
-								ciber.ue.Cargar_Ultimos_Exitos();
 								add(ciber);
 							}
 						});
@@ -136,7 +132,6 @@ public class MainView extends VerticalLayout {
 							@Override
 								public void onComponentEvent(ClickEvent<Button> event) {
 								remove(admin);
-								ciber.ue.Cargar_Ultimos_Exitos();
 								add(ciber);
 								}		
 							});

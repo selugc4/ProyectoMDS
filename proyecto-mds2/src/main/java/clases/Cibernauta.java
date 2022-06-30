@@ -190,6 +190,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.replace(cc.getIs().getRc(), cc.getIs());
+				cc.getIs().getRc().getTfCorreo().clear();
 				
 			}
 		});
@@ -201,6 +202,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getIs().getRc().validar_correo()) {
 					v1.replace(cc.getIs().getRc(), cc.getIs().getRc().getVr());
+					cc.getIs().getRc().getTfCorreo().clear();
 				}else {
 					Notification.show("Correo no existente");
 				}
@@ -225,6 +227,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 					v1.replace(cc.getIs().getRc().getVr(), cc.getIs().getRc());
+					cc.getIs().getRc().getVr().getTfCodigo().clear();
 			}
 			
 		});
@@ -235,6 +238,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getIs().getRc().getVr().comprobarCodigo()) {
 					v1.replace(cc.getIs().getRc().getVr(), cc.getIs().getRc().getVr().getNc());
+					cc.getIs().getRc().getVr().getTfCodigo().clear();
 				}else
 					Notification.show("Codigo incorrecto. Compruebelo");
 					
@@ -249,7 +253,10 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.replace(cc.getIs().getRc().getVr().getNc(), cc.getIs().getRc().getVr());
-				
+				cc.getIs().getRc().getVr().getNc().getTfPass().clear();
+				cc.getIs().getRc().getVr().getNc().getTfPassC().clear();
+				cc.getIs().getRc().getVr().getNc().getLabelSec1().setText("Su contraseña tiene un nivel de seguridad");
+				cc.getIs().getRc().getVr().getNc().getVaadinProgressBar().getStyle().set("background-color", "none");
 			}
 		});
 		
@@ -261,6 +268,10 @@ public class Cibernauta extends vistas.VistaCibernauta {
 				if(cc.getIs().getRc().getVr().getNc().validarContrasena() && cc.getIs().getRc().getVr().getNc().passIguales()) {
 					cc.getIs().getRc().getVr().getNc().confirmar_contrasena();
 					v1.replace(cc.getIs().getRc().getVr().getNc(), ue);
+					cc.getIs().getRc().getVr().getNc().getTfPass().clear();
+					cc.getIs().getRc().getVr().getNc().getTfPassC().clear();
+					cc.getIs().getRc().getVr().getNc().getLabelSec1().setText("Su contraseña tiene un nivel de seguridad");
+					cc.getIs().getRc().getVr().getNc().getVaadinProgressBar().getStyle().set("background-color", "none");
 					Notification.show("Contraseña cambiada");
 				}else
 					Notification.show("Contraseña no válida o no coinciden");

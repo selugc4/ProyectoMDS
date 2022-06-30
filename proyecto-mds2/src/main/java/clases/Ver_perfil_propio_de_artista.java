@@ -26,6 +26,7 @@ import basededatos.Usuario_Registrado;
 import bds.BDPrincipal;
 import bds.iActor_comun;
 import bds.iArtista;
+import bds.iUsuario_registrado;
 
 public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 //	private FileChooser _modificar_Foto;
@@ -84,6 +85,9 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		cba = new ContenedorBotonAgregar(iD);
 		
 		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
+		while(usuario == null) {
+			usuario = iac.cargar_Perfil(iD);
+		}	
 		this.tipoUsuario = usuario.getTipoUsuario();
 		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);		
 
@@ -162,7 +166,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 				darseBaja= new Dialog();
 				VerticalLayout vl = new VerticalLayout();
 				HorizontalLayout hl = new HorizontalLayout();
-			
+				
 				Button botonno = new Button("No");
 				hl.add(botonsi, botonno);
 				vl.add("Está seguro de darse de baja?");
@@ -170,8 +174,22 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 				
 				darseBaja.add(vl);
 				darseBaja.open();
-				
-				
+				iActor_comun iac = new BDPrincipal();
+				if(iac.cargar_Perfil(Actor_comun.ID).getTipoUsuario() == 2) {
+					botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							darseBaja.close();
+							iUsuario_registrado iur = new BDPrincipal();
+	 						iur.Darse_de_baja(correoantiguo);
+							Actor_comun.v1.removeAll();
+							Actor_comun.v1.add(new Vista_administracion());
+	 						Notification.show("Dado de baja");
+							
+						}
+					});
+				}
 				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					
 					@Override

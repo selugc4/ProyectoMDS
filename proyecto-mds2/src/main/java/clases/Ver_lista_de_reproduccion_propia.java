@@ -14,6 +14,7 @@ import basededatos.Lista_Reproduccion;
 import basededatos.UsuarioDAO;
 import bds.BDPrincipal;
 import bds.iActor_comun;
+import bds.iAdministrador;
 
 public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion {
 //	private Button _editarB;
@@ -30,16 +31,20 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 	}
 	
 	private void inicializarFavoritos(int usuario) {
+		iActor_comun iac = new BDPrincipal();
+		basededatos.Usuario usuarioo = iac.cargar_Perfil(usuario);
 		this.getStyle().set("width", "100%");
 		this.getVaadinHorizontalLayout1().setVisible(true);
 		this.getLabel().setText("Favoritas");		
-		this.getLabel1().setText("Autor: Tú");
+		this.getLabel1().setText("Autor: "+usuarioo.getNombre());
 		ArrayList<Cancion__Vista_actor_comun_> vlrp = new ArrayList<Cancion__Vista_actor_comun_>();
-		Cancion[] canciones = iac.cargar_Canciones_Favoritas();
+		if(usuarioo.favorita != null) {
+		Cancion[] canciones = usuarioo.favorita.toArray();
 		for(int i = 0; i < canciones.length; i++) {	
 			Cancion__Vista_actor_comun_ aux = new Cancion__Vista_actor_comun_(canciones[i]);
 			vlrp.add(aux);
 
+		}
 		}
 		
 		if(vlrp.isEmpty()) {
@@ -73,25 +78,16 @@ public class Ver_lista_de_reproduccion_propia extends Ver_lista_de_Reproduccion 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Actor_comun.v1.removeAll();
-				try {
-					basededatos.Usuario usuario = UsuarioDAO.loadUsuarioByORMID(Actor_comun.ID);
-					if(usuario.getTipoUsuario() == 0) {
-					Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(Actor_comun.ID);
+					if(usuarioo.getTipoUsuario() == 0) {
+					Usuario_registrado.vpp = new Ver_perfil_propio_usuario_registrado(usuario);
 					Actor_comun.v1.add(Usuario_registrado.vpp);
-					}else if(usuario.getTipoUsuario() == 1) {
-						Artista.vppa = new Ver_perfil_propio_de_artista(Actor_comun.ID);
+					}else if(usuarioo.getTipoUsuario() == 1) {
+						Artista.vppa = new Ver_perfil_propio_de_artista(usuario);
 						Actor_comun.v1.add(Artista.vppa);
-					}else
-						Administrador.vpp = new Ver_perfil_propio(Actor_comun.ID);
+					}else {
+						Administrador.vpp = new Ver_perfil_propio(usuario);
 						Actor_comun.v1.add(Administrador.vpp);
-					
-				} catch (PersistentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-				
+					}
 			}
 		});
 		

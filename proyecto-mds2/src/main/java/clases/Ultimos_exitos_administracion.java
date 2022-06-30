@@ -35,8 +35,20 @@ public class Ultimos_exitos_administracion extends vistas.VistaUltimos_exitos_ad
 		Cancion[]canciones = iadmin.cargar_Ultimos_Exitos();
 		if(canciones.length != 0) {
 		for(Cancion cancion: canciones) {
+			if(cancion.getCancion_de() != null) {
+			if(cancion.getCancion_de().autor != null) {
 			Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), cancion.getCancion_de().autor.toArray()[0].getNombre(), cancion.getORMID());
 			lista.add(aux);
+			}
+			else {
+				Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), "Artista no asignado", cancion.getORMID());
+				lista.add(aux);
+			}
+			}
+			else {
+				Ultimo_exito aux = new Ultimo_exito(cancion.getTitulo(), "Artista no asignado", cancion.getORMID());
+				lista.add(aux);
+			}
 		}
 		for(Ultimo_exito exito: lista) {
 			vl.add(exito);

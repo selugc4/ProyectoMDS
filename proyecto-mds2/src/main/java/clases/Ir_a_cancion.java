@@ -55,7 +55,12 @@ public class Ir_a_cancion extends vistas.VistaIr_a_cancion {
 			
 		});
 		this.vc = new Ver_creditos(cancion);
+		if(cancion.getCancion_de() != null) {
 		this.getImg().setSrc("imagenes/"+cancion.getCancion_de().getContiene_imagen().getUrl());
+		}
+		else {
+			this.getImg().setSrc("imagenes/fotoalbum.png");
+		}
 		this.getLabel().setText(cancion.getTitulo());
 		if(cancion.es_de.isEmpty()) {
 			this.getLabel1().setVisible(false);

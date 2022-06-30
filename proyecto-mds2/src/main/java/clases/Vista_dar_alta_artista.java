@@ -145,6 +145,9 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 				}else if(!pass.equals(cpass)) {
 					Notification.show("Contraseñas iguales");
 				}else {
+					if(fileName == null) {
+						rutaArchivoFinal = "fotousuario.png";
+					}
 					iadmin.Dar_alta_artista(email, nombre, pass, estilos, rutaArchivoFinal);
 					VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 					vl.removeAll();

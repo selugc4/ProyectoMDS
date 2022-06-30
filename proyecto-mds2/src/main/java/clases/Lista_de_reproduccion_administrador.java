@@ -23,12 +23,12 @@ public class Lista_de_reproduccion_administrador extends Lista_de_reproduccion {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				VerticalLayout aux = Usuario_registrado.v1;
-				_edicion_de_lista = new Edicion_de_lista(Administrador.ID, 1, lista.getIdLista());
+				VerticalLayout aux = Actor_comun.v1;
+				_edicion_de_lista = new Edicion_de_lista(2, 1, lista.getIdLista());
 				_edicion_de_lista.cargarLista(lista.getNombreLista());
 				aux.removeAll();
 				aux.add(_edicion_de_lista);
-				Usuario_registrado.v2.setVisible(false);
+				Actor_comun.v2.setVisible(false);
 			}
 		});
 		super.getVaadinButton2().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

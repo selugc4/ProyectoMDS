@@ -214,8 +214,8 @@ public class BD_Usuario_Registrado {
 	public void Seguir_Usuario(int idUsuario, int idUsuarioAjeno) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuarioAjeno);
-			Usuario_Registrado usuarioseguidor = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuario);
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuarioAjeno);
+			Usuario usuarioseguidor = UsuarioDAO.loadUsuarioByORMID(idUsuario);
 			usuario.seguido.add(usuarioseguidor);
 			t.commit();
 		}catch (PersistentException e) {
@@ -308,10 +308,10 @@ public class BD_Usuario_Registrado {
 	public boolean comprobar_Seguido(int idArtista) throws PersistentException {
 			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 			try {
-				Usuario_Registrado usuario = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(Actor_comun.ID);
+				Usuario usuario = UsuarioDAO.getUsuarioByORMID(Actor_comun.ID);
 				if(usuario != null) {
-					Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
-					if(usuario.seguidor_usuario.contains(artista)) {
+					Usuario_Registrado user = Usuario_RegistradoDAO.getUsuario_RegistradoByORMID(idArtista);
+					if(usuario.seguidor_usuario.contains(user)) {
 						return true;
 					}else
 						return false;
@@ -329,8 +329,8 @@ public class BD_Usuario_Registrado {
 	public void Dejar_de_seguir_usuario(int idUsuario, int idUsuarioAjeno) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Usuario_Registrado usuario = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuarioAjeno);
-			Usuario_Registrado usuarioseguidor = Usuario_RegistradoDAO.loadUsuario_RegistradoByORMID(idUsuario);
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuarioAjeno);
+			Usuario usuarioseguidor = UsuarioDAO.loadUsuarioByORMID(idUsuario);
 			usuario.seguido.remove(usuarioseguidor);
 			t.commit();
 		}catch (PersistentException e) {

@@ -40,8 +40,10 @@ public class Ultimos_exitos extends vistas.VistaUltimos_exitos{
 		h1.getStyle().set("justify-content","space-between");
 		Cancion[] ue = iCiber.cargar_Ultimos_Exitos();
 		h1.removeAll();
+		if(ue != null) {
 		for(int i = 0; i < ue.length && i < numeroUltimosExitos; i++) {		
 			h1.add(new Cancion__Vista_Cibernauta_(ue[i]));
+		}
 		}
 	}
 }

@@ -46,8 +46,10 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 
 	public Ver_perfil_propio(int id) {
 		inicializar();
-		
 		basededatos.Usuario usuario = iac.cargar_Perfil(id);
+		while(usuario == null) {
+			usuario = iac.cargar_Perfil(id);
+		}	
 		this.tipoUsuario = usuario.getTipoUsuario();
 		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
 		this.getLabel().setText(usuario.getNombre());
@@ -88,6 +90,7 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Administrador.v1.removeAll();
+				vlpp = new Ver_lista_de_reproduccion_propia(id);
 				Administrador.v1.add(vlpp);
 				
 			}

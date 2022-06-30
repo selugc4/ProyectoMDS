@@ -122,7 +122,22 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
  				
  				darseBaja.add(vl);
  				darseBaja.open();
- 				
+ 				iActor_comun iac = new BDPrincipal();
+				if(iac.cargar_Perfil(Actor_comun.ID).getTipoUsuario() == 2) {
+					botonsi.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							darseBaja.close();
+							iUsuario_registrado iur = new BDPrincipal();
+	 						iur.Darse_de_baja(correoantiguo);
+							Actor_comun.v1.removeAll();
+							Actor_comun.v1.add(new Vista_administracion());
+	 						Notification.show("Dado de baja");
+							
+						}
+					});
+				}
  				
  				botonno.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
  					

@@ -48,8 +48,8 @@ public class BD_Cancion {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		Cancion[] canciones;
 		try {
-			Administrador admin = AdministradorDAO.loadAdministradorByQuery("Nombre='Administrador'", null);
-			canciones = CancionDAO.listCancionByQuery("UsuarioID='"+admin.getID()+"'", null);
+			Administrador admin = AdministradorDAO.loadAdministradorByORMID(1);
+			canciones = CancionDAO.listCancionByQuery("UsuarioID='"+admin.getORMID()+"'", null);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

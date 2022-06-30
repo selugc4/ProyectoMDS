@@ -34,24 +34,17 @@ public class Lista_de_reproduccion_buscador extends vistas.VistaLista_de_reprodu
 	
 	public Lista_de_reproduccion_buscador() {
 		this.getStyle().set("width", "100%");
+		this.getVaadinButton().setVisible(false);
 		this.getVaadinVerticalLayout().addEventListener("click", e -> {
 			VerticalLayout a = Actor_comun.v1;
 			a.removeAll();
 			a.add(vlra);
 			Actor_comun.v2.setVisible(false);
 		});
-		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				Notification.show("Seguido");
-				
-			}
-			
-		});
 	}
 	public Lista_de_reproduccion_buscador(Lista_Reproduccion lista) {
 		this.getStyle().set("width", "100%");
+		this.getVaadinButton().setVisible(false);
 		this.getLabel().setText(lista.getNombreLista());
 		this.getLabel1().setText(lista.getAutor().getNombre());
 		this.getVaadinVerticalLayout().addEventListener("click", e -> {
@@ -60,17 +53,6 @@ public class Lista_de_reproduccion_buscador extends vistas.VistaLista_de_reprodu
 			vlra = new Ver_lista_de_reproduccion_ajena(lista.getIdLista(), lista.getNombreLista(), lista.getAutor().getNombre(), lista.getAutor().getID());
 			a.add(vlra);
 			Actor_comun.v2.setVisible(false);
-		});
-		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				iActor_comun iac = new BDPrincipal();
-				iac.seguir_Lista(lista.getIdLista(), Actor_comun.ID);
-				Notification.show("Seguido");
-				
-			}
-			
 		});
 	}
 }

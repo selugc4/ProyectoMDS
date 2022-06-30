@@ -194,10 +194,10 @@ public class BD_Administrador {
 	public boolean comprobar_Seguido(int idArtista) throws PersistentException {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Administrador usuario = AdministradorDAO.getAdministradorByORMID(Actor_comun.ID);
+			Usuario usuario = UsuarioDAO.getUsuarioByORMID(Actor_comun.ID);
 			if(usuario != null) {
-				Artista artista = ArtistaDAO.getArtistaByORMID(idArtista);
-				if(usuario.seguidor_usuario.contains(artista)) {
+				Administrador admin = AdministradorDAO.getAdministradorByORMID(idArtista);
+				if(usuario.seguidor_usuario.contains(admin)) {
 					return true;
 				}else
 					return false;
