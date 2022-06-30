@@ -41,16 +41,7 @@ public class Ver_perfil_propio_usuario_registrado extends Ver_perfil_propio {
 	}
 	public Ver_perfil_propio_usuario_registrado(int id) {
 		super(id);
-		
 		inicializar();
-		basededatos.Usuario usuario = iac.cargar_Perfil(id);
-		this.tipoUsuario = usuario.getTipoUsuario();
-		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
-		this.getLabel().setText(usuario.getNombre());
-		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
-		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
-		this.getVaadinTextField().setValue(usuario.getCorreo());
-		correoantiguo = usuario.getCorreo();
 		
 		
 		

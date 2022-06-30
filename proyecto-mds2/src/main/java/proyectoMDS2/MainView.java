@@ -18,6 +18,7 @@ import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.spring.annotation.EnableVaadin;
 
 import bds.BDPrincipal;
+import bds.iArtista;
 import bds.iUsuario_registrado;
 import clases.Administrador;
 import clases.Artista;
@@ -61,6 +62,7 @@ public class MainView extends VerticalLayout {
 	public static int usuario = 0;
 	public static int ID;
 	private iUsuario_registrado iur = new BDPrincipal();
+	private iArtista iar = new BDPrincipal();
     public MainView() {
     	this.getStyle().set("width", "100%");
     	Cibernauta ciber = new Cibernauta();
@@ -108,7 +110,8 @@ public class MainView extends VerticalLayout {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								artista.vppa.darseBaja.close();
-		 						iur.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);
+								
+		 						iar.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);
 								remove(artista);
 								add(ciber);
 		 						Notification.show("Dado de baja");

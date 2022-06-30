@@ -158,76 +158,98 @@ public class BD_Artista {
 					cancion.favorita_de.remove(usuario);
 			}
 			}		
+
 			
 			if(!usuario.crea.isEmpty()) {
-				for(Evento ev : usuario.crea.toArray()) {
+				Evento[] evs = usuario.crea.toArray();
+				for(Evento ev : evs) {
 					EventoDAO.delete(ev);
+					usuario.crea.remove(ev);
 				}
 			}
 			if(!usuario.pertenece.isEmpty()) {
-				for(Estilo estilo : usuario.pertenece.toArray()) {
+				Estilo[] estilos =  usuario.pertenece.toArray();
+				for(Estilo estilo : estilos) {
 					usuario.pertenece.remove(estilo);
 				}
 			}
 			if(!usuario.propietario_album.isEmpty()) {
-				for(Album album : usuario.propietario_album.toArray()) {
+				Album[] albumes = usuario.propietario_album.toArray();
+				for(Album album : albumes) {
 					usuario.propietario_album.remove(album);
 				}
 			}
 			if(!usuario.tiene.isEmpty()){
-				for(Cancion can : usuario.tiene.toArray()) {
+				Cancion[] canciones = usuario.tiene.toArray();
+				for(Cancion can : canciones) {
 					usuario.tiene.remove(can);
 				}
 			}
 			
 			if(!usuario.horass.isEmpty());{
-				for(Horas hora : usuario.horass.toArray()) {
+				Horas[] horas = usuario.horass.toArray();
+				for(Horas hora: horas) {
 					usuario.horass.remove(hora);
+					HorasDAO.delete(hora);
 				}
 			}
 		
 			if(!usuario.propietario.isEmpty()) {
 			Lista_Reproduccion[]listas = usuario.propietario.toArray();
 			for(Lista_Reproduccion lista: listas) {
-				lista.seguidor.clear();
-				lista.contiene_cancion.clear();
+				if(!lista.seguidor.isEmpty()) {
+					Usuario[] usuarios = lista.seguidor.toArray();
+					for(Usuario user: usuarios ) {
+						lista.seguidor.remove(user);
+					}
+				}
+			
+				if(!lista.contiene_cancion.isEmpty()) {
 				Cancion[] cancionesl = lista.contiene_cancion.toArray();
 				for(Cancion cancionl: cancionesl) {
 					cancionl.contendor_cancion.remove(lista);
+				}
 				}
 				Lista_ReproduccionDAO.delete(lista);
 			}
 			}
 			
 			if(!usuario.recibe_notificacion.isEmpty()) {
-				for(Evento evento : usuario.recibe_notificacion.toArray()) {
+				Evento[] eventos = usuario.recibe_notificacion.toArray();
+				for(Evento evento : eventos) {
 					usuario.recibe_notificacion.remove(evento);
 				}
 			}
 			if(!usuario.seguido.isEmpty()) {
-				for(Usuario user: usuario.seguido.toArray()) {
+				Usuario[] usuarios = usuario.seguido.toArray();
+				for(Usuario user: usuarios) {
 					usuario.seguido.remove(user);
 				}
 			}
 
 			if(!usuario.seguidor_usuario.isEmpty()) {
-				for(Usuario user2 : usuario.seguidor_usuario.toArray()) {
+				Usuario[] usuarios = usuario.seguidor_usuario.toArray();
+				for(Usuario user2 : usuarios) {
 					usuario.seguidor_usuario.remove(user2);
 				}
 			}
 			if(!usuario.seguir.isEmpty()) {
-				for(Lista_Reproduccion list : usuario.seguir.toArray()) {
+				Lista_Reproduccion[] listas = usuario.seguir.toArray();
+				for(Lista_Reproduccion list : listas) {
 					usuario.seguir.remove(list);
 				}
 			}
 
 			if(!usuario.ultimo_exito.isEmpty()) {
-				for(Cancion c : usuario.ultimo_exito.toArray()) {
+				Cancion[] canciones= usuario.ultimo_exito.toArray();
+				for(Cancion c : canciones) {
 					usuario.ultimo_exito.remove(c);
 				}
 			}
+		
 			ArtistaDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
+			
 
 			t.commit();
 			}catch (PersistentException e) {
@@ -330,82 +352,106 @@ public class BD_Artista {
 					cancion.favorita_de.remove(usuario);
 			}
 			}		
+
 			
 			if(!usuario.crea.isEmpty()) {
-				for(Evento ev : usuario.crea.toArray()) {
+				Evento[] evs = usuario.crea.toArray();
+				for(Evento ev : evs) {
 					EventoDAO.delete(ev);
+					usuario.crea.remove(ev);
 				}
 			}
 			if(!usuario.pertenece.isEmpty()) {
-				for(Estilo estilo : usuario.pertenece.toArray()) {
+				Estilo[] estilos =  usuario.pertenece.toArray();
+				for(Estilo estilo : estilos) {
 					usuario.pertenece.remove(estilo);
 				}
 			}
 			if(!usuario.propietario_album.isEmpty()) {
-				for(Album album : usuario.propietario_album.toArray()) {
+				Album[] albumes = usuario.propietario_album.toArray();
+				for(Album album : albumes) {
 					usuario.propietario_album.remove(album);
 				}
 			}
 			if(!usuario.tiene.isEmpty()){
-				for(Cancion can : usuario.tiene.toArray()) {
+				Cancion[] canciones = usuario.tiene.toArray();
+				for(Cancion can : canciones) {
 					usuario.tiene.remove(can);
 				}
 			}
 			
 			if(!usuario.horass.isEmpty());{
-				for(Horas hora : usuario.horass.toArray()) {
+				Horas[] horas = usuario.horass.toArray();
+				for(Horas hora: horas) {
 					usuario.horass.remove(hora);
+					HorasDAO.delete(hora);
 				}
 			}
 		
 			if(!usuario.propietario.isEmpty()) {
 			Lista_Reproduccion[]listas = usuario.propietario.toArray();
 			for(Lista_Reproduccion lista: listas) {
-				lista.seguidor.clear();
-				lista.contiene_cancion.clear();
+				if(!lista.seguidor.isEmpty()) {
+					Usuario[] usuarios = lista.seguidor.toArray();
+					for(Usuario user: usuarios ) {
+						lista.seguidor.remove(user);
+					}
+				}
+			
+				if(!lista.contiene_cancion.isEmpty()) {
 				Cancion[] cancionesl = lista.contiene_cancion.toArray();
 				for(Cancion cancionl: cancionesl) {
 					cancionl.contendor_cancion.remove(lista);
+				}
 				}
 				Lista_ReproduccionDAO.delete(lista);
 			}
 			}
 			
 			if(!usuario.recibe_notificacion.isEmpty()) {
-				for(Evento evento : usuario.recibe_notificacion.toArray()) {
+				Evento[] eventos = usuario.recibe_notificacion.toArray();
+				for(Evento evento : eventos) {
 					usuario.recibe_notificacion.remove(evento);
 				}
 			}
 			if(!usuario.seguido.isEmpty()) {
-				for(Usuario user: usuario.seguido.toArray()) {
+				Usuario[] usuarios = usuario.seguido.toArray();
+				for(Usuario user: usuarios) {
 					usuario.seguido.remove(user);
 				}
 			}
 
 			if(!usuario.seguidor_usuario.isEmpty()) {
-				for(Usuario user2 : usuario.seguidor_usuario.toArray()) {
+				Usuario[] usuarios = usuario.seguidor_usuario.toArray();
+				for(Usuario user2 : usuarios) {
 					usuario.seguidor_usuario.remove(user2);
 				}
 			}
 			if(!usuario.seguir.isEmpty()) {
-				for(Lista_Reproduccion list : usuario.seguir.toArray()) {
+				Lista_Reproduccion[] listas = usuario.seguir.toArray();
+				for(Lista_Reproduccion list : listas) {
 					usuario.seguir.remove(list);
 				}
 			}
 
 			if(!usuario.ultimo_exito.isEmpty()) {
-				for(Cancion c : usuario.ultimo_exito.toArray()) {
+				Cancion[] canciones= usuario.ultimo_exito.toArray();
+				for(Cancion c : canciones) {
 					usuario.ultimo_exito.remove(c);
 				}
 			}
+		
 			ArtistaDAO.delete(usuario);
 			ImagenDAO.delete(usuario.getContiene_imagen());
+			
 
 			t.commit();
 			}catch (PersistentException e) {
 			t.rollback();
 			
 		}
+			
+		
 			
 	}
 

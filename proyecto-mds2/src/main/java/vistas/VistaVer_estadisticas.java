@@ -28,34 +28,34 @@ public class VistaVer_estadisticas extends LitTemplate {
 	private Label label;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinSplitLayout")
-	private SplitLayout vaadinSplitLayout;
 	@Id("vaadinVerticalLayout2")
 	private Element vaadinVerticalLayout2;
 	@Id("label1")
 	private Label label1;
 	@Id("label2")
 	private Label label2;
-	@Id("vaadinSplitLayout1")
-	private SplitLayout vaadinSplitLayout1;
 	@Id("label3")
 	private Label label3;
 	@Id("label4")
 	private Label label4;
-	@Id("vaadinSplitLayout2")
-	private SplitLayout vaadinSplitLayout2;
 	@Id("label5")
 	private Label label5;
 	@Id("label6")
 	private Label label6;
 	@Id("label7")
 	private Label label7;
-	@Id("vaadinSplitLayout3")
-	private SplitLayout vaadinSplitLayout3;
 	@Id("vaadinButton")
 	private Button vaadinButton;
 	@Id("label8")
 	private Label label8;
+	@Id("vaadinHorizontalLayout1")
+	private HorizontalLayout vaadinHorizontalLayout1;
+	@Id("vaadinHorizontalLayout2")
+	private HorizontalLayout vaadinHorizontalLayout2;
+	@Id("vaadinHorizontalLayout3")
+	private HorizontalLayout vaadinHorizontalLayout3;
+	@Id("vaadinHorizontalLayout4")
+	private HorizontalLayout vaadinHorizontalLayout4;
 
 	/**
      * Creates a new VistaVer_estadisticas.
@@ -96,13 +96,6 @@ public class VistaVer_estadisticas extends LitTemplate {
 		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
 	}
 
-	public SplitLayout getVaadinSplitLayout() {
-		return vaadinSplitLayout;
-	}
-
-	public void setVaadinSplitLayout(SplitLayout vaadinSplitLayout) {
-		this.vaadinSplitLayout = vaadinSplitLayout;
-	}
 
 	public Element getVaadinVerticalLayout2() {
 		return vaadinVerticalLayout2;
@@ -128,14 +121,6 @@ public class VistaVer_estadisticas extends LitTemplate {
 		this.label2 = label2;
 	}
 
-	public SplitLayout getVaadinSplitLayout1() {
-		return vaadinSplitLayout1;
-	}
-
-	public void setVaadinSplitLayout1(SplitLayout vaadinSplitLayout1) {
-		this.vaadinSplitLayout1 = vaadinSplitLayout1;
-	}
-
 	public Label getLabel3() {
 		return label3;
 	}
@@ -152,13 +137,6 @@ public class VistaVer_estadisticas extends LitTemplate {
 		this.label4 = label4;
 	}
 
-	public SplitLayout getVaadinSplitLayout2() {
-		return vaadinSplitLayout2;
-	}
-
-	public void setVaadinSplitLayout2(SplitLayout vaadinSplitLayout2) {
-		this.vaadinSplitLayout2 = vaadinSplitLayout2;
-	}
 
 	public Label getLabel5() {
 		return label5;
@@ -184,14 +162,6 @@ public class VistaVer_estadisticas extends LitTemplate {
 		this.label7 = label7;
 	}
 
-	public SplitLayout getVaadinSplitLayout3() {
-		return vaadinSplitLayout3;
-	}
-
-	public void setVaadinSplitLayout3(SplitLayout vaadinSplitLayout3) {
-		this.vaadinSplitLayout3 = vaadinSplitLayout3;
-	}
-
 	public Button getVaadinButton() {
 		return vaadinButton;
 	}
@@ -207,5 +177,39 @@ public class VistaVer_estadisticas extends LitTemplate {
 	public void setLabel8(Label label8) {
 		this.label8 = label8;
 	}
+
+	public HorizontalLayout getVaadinHorizontalLayout1() {
+		return vaadinHorizontalLayout1;
+	}
+
+	public void setVaadinHorizontalLayout1(HorizontalLayout vaadinHorizontalLayout1) {
+		this.vaadinHorizontalLayout1 = vaadinHorizontalLayout1;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout2() {
+		return vaadinHorizontalLayout2;
+	}
+
+	public void setVaadinHorizontalLayout2(HorizontalLayout vaadinHorizontalLayout2) {
+		this.vaadinHorizontalLayout2 = vaadinHorizontalLayout2;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout3() {
+		return vaadinHorizontalLayout3;
+	}
+
+	public void setVaadinHorizontalLayout3(HorizontalLayout vaadinHorizontalLayout3) {
+		this.vaadinHorizontalLayout3 = vaadinHorizontalLayout3;
+	}
+
+	public HorizontalLayout getVaadinHorizontalLayout4() {
+		return vaadinHorizontalLayout4;
+	}
+
+	public void setVaadinHorizontalLayout4(HorizontalLayout vaadinHorizontalLayout4) {
+		this.vaadinHorizontalLayout4 = vaadinHorizontalLayout4;
+	}
+	
+	
 
 }

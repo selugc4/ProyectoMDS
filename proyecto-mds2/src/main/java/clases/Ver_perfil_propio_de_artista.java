@@ -83,20 +83,7 @@ public class Ver_perfil_propio_de_artista extends Ver_perfil_propio {
 		artistas = new Artistas(iD);
 		calb = new ContenedorAlbumes(iD);
 		cba = new ContenedorBotonAgregar(iD);
-		
-		basededatos.Usuario usuario = iac.cargar_Perfil(iD);
-		while(usuario == null) {
-			usuario = iac.cargar_Perfil(iD);
-		}	
-		this.tipoUsuario = usuario.getTipoUsuario();
-		this.vlpp = new Ver_lista_de_reproduccion_propia(tipoUsuario);		
 
-		this.getImg().setSrc("imagenes/"+usuario.getContiene_imagen().getUrl());
-		this.getLabel().setText(usuario.getNombre());
-		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
-		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
-		this.getVaadinTextField().setValue(usuario.getCorreo());
-		correoantiguo = usuario.getCorreo();
 		inicializar();
 		
 		//CREAR LISTA
