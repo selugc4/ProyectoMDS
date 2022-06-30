@@ -605,4 +605,19 @@ public class BD_Artista {
 			}
 			
 		}
+
+		public boolean comprobarArtista(String correo, String nombre) throws PersistentException {
+			PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
+			try {
+				Usuario usuario = UsuarioDAO.loadUsuarioByQuery("Correo='"+correo+"' OR Nombre='" + nombre+"'", null);
+				if(usuario == null) {
+					return true;
+				}else {
+					return false;
+				}
+			}catch (PersistentException e) {
+				t.rollback();
+				return false;
+			}
+		}
 }

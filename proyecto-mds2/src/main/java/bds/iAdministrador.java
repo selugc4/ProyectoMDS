@@ -7,6 +7,7 @@ import basededatos.Artista;
 import basededatos.Cancion;
 import basededatos.Estilo;
 import basededatos.Imagen;
+import basededatos.Usuario;
 import basededatos.Usuario_Registrado;
 
 public interface iAdministrador {
@@ -55,4 +56,6 @@ public interface iAdministrador {
 	public Album cargar_Album(int id);
 
 	public Cancion cargar_Datos_Cancion(int aIdCancion);
+	
+	public boolean comprobarArtista(String correo, String nombre);
 }

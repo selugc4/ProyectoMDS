@@ -22,14 +22,13 @@ public class Usuarios extends vistas.VistaUsuarios {
 	}
 
 	private void mostrarResultados() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.removeAll();
 		HorizontalLayout hl = new HorizontalLayout();
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);	
+		vl.remove(hl);
 		for(int i = 0; i < _usuario.size(); i++) {
 			hl.add(_usuario.get(i));
-		}
+		}	
 		vl.add(hl);
-		
 	}
 	private void buscarUsuarios(String value) {	
 		iAdministrador iAdmin = new BDPrincipal();

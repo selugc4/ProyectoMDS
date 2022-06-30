@@ -68,9 +68,15 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
+				cc.reg.getTfemail().clear();
+				cc.reg.getTfusuario().clear();
+				cc.reg.getTfccontrasena().clear();
+				cc.reg.getTfcontrasena1().clear();
+				cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
+				cc.getReg().getNivelSec().setText("");
 				v1.add(cc.getReg());
-				
-			}
+//				cc.getReg().getImg().setSrc("imagenes/fotousuario.png");
+				}
 		});
 		
 		//REGISTRARSE 
@@ -81,7 +87,14 @@ public class Cibernauta extends vistas.VistaCibernauta {
 				if(cc.getReg().validarDatosInternos()) {
 					if(cc.getReg().validarDatos()) {
 					cc.getReg().registrarse();
-					v1.replace(cc.getReg(),cc.getReg().getVr());
+					v1.removeAll();
+					v1.add(cc.getReg().getVr());
+					cc.reg.getTfemail().clear();
+					cc.reg.getTfusuario().clear();
+					cc.reg.getTfccontrasena().clear();
+					cc.reg.getTfcontrasena1().clear();
+					cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
+					cc.getReg().getNivelSec().setText("");
 					Notification.show("Revise su correo");
 					}else
 						Notification.show("El nombre de usuario o el correo están siendo utilizados");
@@ -137,7 +150,6 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getReg().getVr().comprobarCodigo()) {
-					cc.reg = new Registro();
 					v1.removeAll();
 					v1.add(ue);
 					Notification.show("Registro completado. Ya puede iniciar sesión");
@@ -154,8 +166,14 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				v1.removeAll();				
-				v1.add(cc.getReg());			
+				v1.removeAll();
+				cc.reg.getTfemail().clear();
+				cc.reg.getTfusuario().clear();
+				cc.reg.getTfccontrasena().clear();
+				cc.reg.getTfcontrasena1().clear();
+				cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
+				cc.getReg().getNivelSec().setText("");
+				v1.add(cc.getReg());		
 			}
 		});
 

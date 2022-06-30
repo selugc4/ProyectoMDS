@@ -61,7 +61,9 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 		iAdministrador iadmin = new BDPrincipal();
 		basededatos.Album album = iadmin.cargar_Album(id);
 		this.getVaadinTextField().setValue(album.getTitutloAlbum());
+		if(album.autor.toArray().length > 0) {
 		this.getVaadinTextField1().setValue(album.autor.toArray()[0].getNombre());
+		}
 		this.getVaadinHorizontalLayout5().setVisible(false);
 		this.getStyle().set("width", "100%");		
 		MemoryBuffer mbuf = new MemoryBuffer();

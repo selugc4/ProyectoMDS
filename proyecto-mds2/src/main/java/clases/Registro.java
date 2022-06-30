@@ -89,7 +89,6 @@ public class Registro extends vistas.VistaRegistro {
 	}
 	
 	public Registro() {
-		
 		HorizontalLayout hl = this.getHorizontalimg();
 		
 		this.getStyle().set("width", "100%" );

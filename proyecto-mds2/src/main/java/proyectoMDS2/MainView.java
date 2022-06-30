@@ -88,9 +88,9 @@ public class MainView extends VerticalLayout {
 		 					public void onComponentEvent(ClickEvent<Button> event) {
 		 						if(Actor_comun.ID != 1) {
 		 						user.vpp.darseBaja.close();
-		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
 								remove(user);
 								add(ciber);
+		 						iur.Darse_de_baja(Ver_perfil_propio_usuario_registrado.correoantiguo);
 		 						Notification.show("Dado de baja");
 		 						}
 		 					}
@@ -113,10 +113,10 @@ public class MainView extends VerticalLayout {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								if(Actor_comun.ID != 1) {
-								artista.vppa.darseBaja.close();
-		 						iar.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);					
+								artista.vppa.darseBaja.close();			
 								remove(artista);
 								add(ciber);
+		 						iar.Darse_de_baja(Ver_perfil_propio_de_artista.correoantiguo);		
 		 						Notification.show("Dado de baja");
 							}
 						}

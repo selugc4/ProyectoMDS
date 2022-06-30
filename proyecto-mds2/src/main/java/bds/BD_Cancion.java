@@ -346,9 +346,17 @@ public class BD_Cancion {
 			for(Lista_Reproduccion lista: listas) {
 				lista.contiene_cancion.remove(cancion);
 			}
+			Usuario[]usuarios = cancion.favorita_de.toArray();
+			for(Usuario usuario: usuarios) {
+				cancion.favorita_de.remove(usuario);
+			}
 			Artista[]artistas = cancion.es_de.toArray();
 			for(Artista artista: artistas) {
 				cancion.es_de.remove(artista);
+			}
+			Horas[] horass = cancion.horass.toArray();
+			for(Horas horas:horass) {
+				HorasDAO.delete(horas);
 			}
 			CancionDAO.delete(cancion);
 			t.commit();

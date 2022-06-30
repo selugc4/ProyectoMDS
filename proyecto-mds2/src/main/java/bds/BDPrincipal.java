@@ -777,4 +777,19 @@ public class BDPrincipal implements iUsuario_registrado, iCibernauta, iArtista, 
 			e.printStackTrace();
 		}
 	}
+
+
+	@Override
+	public boolean comprobarArtista(String correo, String nombre) {
+		try {
+			return _bd_artista.comprobarArtista(correo, nombre);
+		}catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+
+
 }

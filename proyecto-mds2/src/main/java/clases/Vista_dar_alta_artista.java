@@ -29,6 +29,7 @@ import com.vaadin.flow.server.VaadinService;
 
 import basededatos.Estilo;
 import bds.BDPrincipal;
+import bds.iActor_comun;
 import bds.iAdministrador;
 
 public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
@@ -138,11 +139,14 @@ public class Vista_dar_alta_artista extends vistas.VistaVista_dar_alta_artista {
 				String[] estilos = getVaadinTextField4().getValue().split(",");
 				
 				
-
+				iAdministrador iadmin = new BDPrincipal();
 				
 				if (email.isEmpty() || nombre.isEmpty() || pass.isEmpty() || cpass.isEmpty() || estilos.length == 0) {
 					Notification.show("Debe rellenar todos los campos");
-				}else if(!pass.equals(cpass)) {
+				}else if(!iadmin.comprobarArtista(email, nombre)) {
+					Notification.show("Correo o nombre ya existentes");
+				}
+				else if(!pass.equals(cpass)) {
 					Notification.show("Contraseñas iguales");
 				}else {
 					if(fileName == null) {
