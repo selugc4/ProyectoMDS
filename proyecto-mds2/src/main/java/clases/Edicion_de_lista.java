@@ -137,7 +137,7 @@ public class Edicion_de_lista extends Modificar_y_crear_lista {
 		for(basededatos.Cancion cancion : canciones) {
 			Edicion_de_lista.cmc.agregarCancion(cancion.getTitulo(), cancion.getIdCancion());
 		}
-this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		this.getVaadinButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

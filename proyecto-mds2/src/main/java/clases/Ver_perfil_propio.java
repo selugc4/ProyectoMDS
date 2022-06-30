@@ -55,7 +55,7 @@ public class Ver_perfil_propio extends vistas.VistaVer_perfil_propio {
 		this.getLabel1().setText("Seguidores: " +usuario.seguido.size());
 		this.getLabel2().setText("Seguidos: " +usuario.seguidor_usuario.size());
 		this.getVaadinTextField().setValue(usuario.getCorreo());
-		correoantiguo = usuario.getCorreo();	
+		correoantiguo = this.getVaadinTextField().getValue();
 		this.ca = new ContenedorAgregar_perfil_propio(id);
 		this.vlpp = new Ver_lista_de_reproduccion_propia(id);
 		

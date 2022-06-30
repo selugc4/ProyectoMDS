@@ -69,6 +69,8 @@ public class BD_Lista_Reproduccion {
 			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(id);
 			lista.seguidor.add(usuario);
 			
+			UsuarioDAO.save(usuario);
+			
 			Lista_ReproduccionDAO.save(lista);
 			t.commit();
 			
@@ -82,7 +84,7 @@ public class BD_Lista_Reproduccion {
 
 		try {
 			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
-			Lista_Reproduccion[] lista = usuario.propietario.toArray();		
+			Lista_Reproduccion[] lista = usuario.propietario.toArray("NombreLista", false);		
 
 			t.commit();
 			return lista;
@@ -118,17 +120,22 @@ public class BD_Lista_Reproduccion {
 		PersistentTransaction t = A12PersistentManager.instance().getSession().beginTransaction();
 		try {
 			Lista_Reproduccion lista = Lista_ReproduccionDAO.loadLista_ReproduccionByORMID(aIdLista);
-			lista.contiene_cancion.clear();
 			Cancion[]canciones = lista.contiene_cancion.toArray();
 			for(Cancion cancion: canciones) {
 				cancion.contendor_cancion.remove(lista);
+				CancionDAO.save(cancion);
 			}
-			lista.seguidor.clear();
 			Usuario[]usuarios = lista.seguidor.toArray();
 			for(Usuario usuario: usuarios) {
 				usuario.seguir.remove(lista);
+				UsuarioDAO.save(usuario);
 			}
+			Usuario usuario = lista.getAutor();
+			usuario.propietario.remove(lista);
+			UsuarioDAO.save(usuario);
 			Lista_ReproduccionDAO.delete(lista);
+			
+			
 			t.commit();
 		}catch (PersistentException e) {
 			t.rollback();
@@ -146,8 +153,10 @@ public class BD_Lista_Reproduccion {
 			for(clases.Cancion canciones: aCanciones) {
 				Cancion cancion = CancionDAO.loadCancionByORMID(canciones.getIdCancion());
 				lr.contiene_cancion.add(cancion);
+				CancionDAO.save(cancion);
 			}
 			lr.setAutor(usuario);
+			UsuarioDAO.save(usuario);
 			Lista_ReproduccionDAO.save(lr);
 
 			t.commit();
@@ -165,11 +174,13 @@ public class BD_Lista_Reproduccion {
 		try {
 			Artista artista = ArtistaDAO.loadArtistaByQuery("Correo='"+aCorreo+"'", null);
 			ArrayList<Cancion> canciones = new ArrayList<Cancion>();
+			if(artista.propietario_album != null) {
 			Album[] album = artista.propietario_album.toArray();
 			for(Album alb: album) {
 				for(Cancion can : alb.contiene_cancion.toArray()) {
 					canciones.add(can);
 				}
+			}
 			}
 			ArrayList<Lista_Reproduccion> listas = new ArrayList<Lista_Reproduccion>();
 			for(Cancion c : canciones) {
@@ -185,7 +196,7 @@ public class BD_Lista_Reproduccion {
 			listas.toArray(definitiva);
 			t.commit();			
 			if(definitiva != null) {
-			return definitiva;
+				return definitiva;
 			}else
 				return null;
 			
@@ -206,12 +217,17 @@ public class BD_Lista_Reproduccion {
 			Lista_Reproduccion lr = Lista_ReproduccionDAO.getLista_ReproduccionByORMID(iD);
 			for(Cancion cancion : lr.contiene_cancion.toArray()) {
 				lr.contiene_cancion.remove(cancion);
+				CancionDAO.save(cancion);
 			}
 			for(clases.Cancion canciones: get_canciones) {
 				
 				Cancion cancion = CancionDAO.loadCancionByORMID(canciones.getIdCancion());
 				lr.contiene_cancion.add(cancion);
+				CancionDAO.save(cancion);
 			}
+			
+			Usuario usuario = lr.getAutor();
+			UsuarioDAO.save(usuario);
 	
 			Lista_ReproduccionDAO.save(lr);
 

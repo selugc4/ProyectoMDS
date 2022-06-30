@@ -65,7 +65,8 @@ public class BD_Cancion {
 			Usuario usuario = UsuarioDAO.getUsuarioByORMID(iD);
 			Cancion cancion = CancionDAO.getCancionByORMID(aIdCancion);
 			usuario.favorita.add(cancion);
-			UsuarioDAO.save(usuario);			
+			UsuarioDAO.save(usuario);	
+			CancionDAO.save(cancion);
 
 			t.commit();
 			
@@ -200,6 +201,7 @@ public class BD_Cancion {
 			Lista_Reproduccion lr = Lista_ReproduccionDAO.loadLista_ReproduccionByQuery("NombreLista='"+nombrelista+"'", null);
 			cancion.contendor_cancion.add(lr);
 			CancionDAO.save(cancion);
+			Lista_ReproduccionDAO.save(lr);
 			
 			t.commit();			
 			
