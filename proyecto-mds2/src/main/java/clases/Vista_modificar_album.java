@@ -62,7 +62,17 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 		basededatos.Album album = iadmin.cargar_Album(id);
 		this.getVaadinTextField().setValue(album.getTitutloAlbum());
 		if(album.autor.toArray().length > 0) {
-		this.getVaadinTextField1().setValue(album.autor.toArray()[0].getNombre());
+		basededatos.Artista[]artistasss = album.autor.toArray();
+		String cadenaArtista = "";
+		for(int i = 0; i < artistasss.length;i++) {
+			if(i == artistasss.length - 1) {
+			cadenaArtista += artistasss[i].getNombre();	
+			}
+			else {
+			cadenaArtista += artistasss[i].getNombre()+",";
+			}
+		}
+		this.getVaadinTextField1().setValue(cadenaArtista);
 		}
 		this.getVaadinHorizontalLayout5().setVisible(false);
 		this.getStyle().set("width", "100%");		
@@ -136,8 +146,13 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 					int j = 0;
 					for(String artista: NombreArtistas) {
 						try {
-							basededatos.Artista artistaAlbum = ArtistaDAO.getArtistaByORMID(UsuarioDAO.loadUsuarioByQuery("Nombre='"+artista+"'", null).getID());
-							artistas[j] = artistaAlbum;
+							basededatos.Artista artistaAlbum = ArtistaDAO.loadArtistaByQuery("Nombre='"+artista+"'", null);
+							if(artistaAlbum == null) {
+								artistas = new basededatos.Artista[0];
+								Notification.show("No se encuentra el artista");
+							}else {
+								artistas[j] = artistaAlbum;
+							}
 						} catch (PersistentException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -148,12 +163,17 @@ public class Vista_modificar_album extends vistas.VistaVista_modificar_album {
 				if(fileName == null) {
 					rutaArchivoFinal = album.getContiene_imagen().getUrl();
 				}
+				if(artistas.length != 0 && !titulo.isEmpty()) {
 				iadmin.Modificar_album(id, titulo, cancionesAlbum, rutaArchivoFinal, artistas);
 				VerticalLayout vl = getVaadinVerticalLayout().as(VerticalLayout.class);
 				vl.removeAll();
 				vl.getStyle().set("align-items", "center");
 				vl.add(new Vista_administracion());
 				Notification.show("Album modificado con exito");
+				}
+				else {
+				Notification.show("Deben rellenarse todos los campos");
+				}
 				}
 			}
 		});

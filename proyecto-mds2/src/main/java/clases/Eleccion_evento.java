@@ -48,8 +48,12 @@ public class Eleccion_evento extends vistas.VistaEleccion_evento {
 				
 				ia.Anadir_Evento(Ver_perfil_propio_de_artista.correoantiguo, getVaadinTextField().getValue(), fechaEdicion, "Festival");
 				vl.removeAll();
+				if(Actor_comun.ID == 1) {
+					vl.add(new Vista_administracion());
+				}
+				else {
 				vl.add(Artista.vppa);
-				
+				}
 				Notification.show("Concierto creado");
 				}
 				

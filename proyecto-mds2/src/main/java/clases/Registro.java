@@ -76,14 +76,7 @@ public class Registro extends vistas.VistaRegistro {
 	public Verificacion_registro vr = new Verificacion_registro();
 	
 	iCibernauta iciber = new BDPrincipal();
-	
-	private InputStream fileData;
-	private String fileName;
-	private File ruta;
-	String separator = System.getProperty("file.separator");
-	private String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator+ "META-INF" +separator+ "resources"+ separator+ "imagenes" + separator;
-	String rutaArchivoFinal;
-	
+	public String fileName;
 	public Verificacion_registro getVr() {
 		return vr;
 	}
@@ -95,42 +88,42 @@ public class Registro extends vistas.VistaRegistro {
 		this.getImg().setSrc("imagenes/fotousuario.png");
 		
 		fileName = "fotousuario.png";
-				
-		MemoryBuffer mbuf = new MemoryBuffer();
-		this.getVaadinUpload().setReceiver(mbuf);	
-		this.getVaadinUpload().addSucceededListener(event ->{
-
-		
-
-			fileData = mbuf.getInputStream();
-	
-		    fileName = event.getFileName();		  
-		    ruta = new File(rutaArchivo + fileName);
-		    
-		   
-		    try {
-				FileUtils.copyInputStreamToFile(fileData, ruta);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			StreamResource imageResource2;
-			try {
-				InputStream aux2 = FileUtils.openInputStream(ruta);
-				imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
-				Image image = new Image(imageResource2, "");
-				image.getStyle().set("height", "125px");
-				image.getStyle().set("width", "125px");
-				hl.removeAll();
-				hl.add(image);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		    
-		});
+//				
+//		MemoryBuffer mbuf = new MemoryBuffer();
+//		this.getVaadinUpload().setReceiver(mbuf);	
+//		this.getVaadinUpload().addSucceededListener(event ->{
+//
+//		
+//
+//			fileData = mbuf.getInputStream();
+//	
+//		    fileName = event.getFileName();		  
+//		    ruta = new File(rutaArchivo + fileName);
+//		    
+//		   
+//		    try {
+//				FileUtils.copyInputStreamToFile(fileData, ruta);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//			StreamResource imageResource2;
+//			try {
+//				InputStream aux2 = FileUtils.openInputStream(ruta);
+//				imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+//				Image image = new Image(imageResource2, "");
+//				image.getStyle().set("height", "125px");
+//				image.getStyle().set("width", "125px");
+//				this.setImg(image);
+//				hl.removeAll();
+//				hl.add(this.getImg());
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//		    });
 		
 		
 		this.getTfcontrasena1().addBlurListener(new ComponentEventListener<BlurNotifier.BlurEvent<PasswordField>>() {

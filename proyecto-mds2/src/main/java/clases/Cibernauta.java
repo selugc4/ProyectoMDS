@@ -1,5 +1,11 @@
 package clases;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.commons.io.FileUtils;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -8,6 +14,9 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.page.Viewport;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.server.StreamResource;
 
 import bds.BDPrincipal;
 import bds.iCibernauta;
@@ -23,6 +32,11 @@ public class Cibernauta extends vistas.VistaCibernauta {
 	public Cabecera_cibernauta cc = new Cabecera_cibernauta();
 	public Ultimos_exitos ue= new Ultimos_exitos();
 	public static Reproductor_canciones_simple rcs = new Reproductor_canciones_simple();
+	public InputStream fileData;
+	private File ruta;
+	String separator = System.getProperty("file.separator");
+	public String rutaArchivo = System.getProperty("user.dir")+ separator+ "src" + separator+ "main" +separator+ "resources" + separator+ "META-INF" +separator+ "resources"+ separator+ "imagenes" + separator;
+	String rutaArchivoFinal;
 	
 	public static String correo;
 	
@@ -68,14 +82,52 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
+				cc.getReg().getImg().setSrc("imagenes/fotousuario.png");
 				cc.reg.getTfemail().clear();
 				cc.reg.getTfusuario().clear();
 				cc.reg.getTfccontrasena().clear();
 				cc.reg.getTfcontrasena1().clear();
 				cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
+				cc.reg.getHorizontalUpload().removeAll();
+				Upload upload = new Upload();
+				cc.reg.fileName = "fotousuario.png";
+				fileData = null;
+				MemoryBuffer mbuf = new MemoryBuffer();
+				upload.setReceiver(mbuf);	
+				upload.addSucceededListener(evento ->{
+
+					fileData = mbuf.getInputStream();
+			
+				    cc.reg.fileName = evento.getFileName();		  
+				    ruta = new File(rutaArchivo + cc.reg.fileName);
+				    
+				   
+				    try {
+						FileUtils.copyInputStreamToFile(fileData, ruta);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					StreamResource imageResource2;
+					try {
+						InputStream aux2 = FileUtils.openInputStream(ruta);
+						imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+						Image image = new Image(imageResource2, "");
+						image.getStyle().set("height", "125px");
+						image.getStyle().set("width", "125px");
+						cc.reg.setImg(image);
+						cc.reg.getHorizontalimg().removeAll();
+						cc.reg.getHorizontalimg().add(image);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				    });
+				cc.reg.getHorizontalUpload().add(upload);
 				cc.getReg().getNivelSec().setText("");
 				v1.add(cc.getReg());
-//				cc.getReg().getImg().setSrc("imagenes/fotousuario.png");
 				}
 		});
 		
@@ -88,13 +140,9 @@ public class Cibernauta extends vistas.VistaCibernauta {
 					if(cc.getReg().validarDatos()) {
 					cc.getReg().registrarse();
 					v1.removeAll();
+					cc.getReg().getVr().getTfCodigo().clear();
 					v1.add(cc.getReg().getVr());
-					cc.reg.getTfemail().clear();
-					cc.reg.getTfusuario().clear();
-					cc.reg.getTfccontrasena().clear();
-					cc.reg.getTfcontrasena1().clear();
-					cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
-					cc.getReg().getNivelSec().setText("");
+					
 					Notification.show("Revise su correo");
 					}else
 						Notification.show("El nombre de usuario o el correo están siendo utilizados");
@@ -125,8 +173,9 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();			
+				cc.is.getTfUsuario().clear();
+				cc.is.getTfPass().clear();
 				v1.add(cc.getIs());
-				
 			}
 		});
 		
@@ -167,12 +216,51 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				v1.removeAll();
+				cc.getReg().getImg().setSrc("imagenes/fotousuario.png");
 				cc.reg.getTfemail().clear();
 				cc.reg.getTfusuario().clear();
 				cc.reg.getTfccontrasena().clear();
 				cc.reg.getTfcontrasena1().clear();
 				cc.reg.getVaadinProgressBar().getStyle().set("background-color", "none");
 				cc.getReg().getNivelSec().setText("");
+				cc.reg.getHorizontalUpload().removeAll();
+				Upload upload = new Upload();
+				cc.reg.fileName = "fotousuario.png";
+				fileData = null;
+				MemoryBuffer mbuf = new MemoryBuffer();
+				upload.setReceiver(mbuf);	
+				upload.addSucceededListener(evento ->{
+
+					fileData = mbuf.getInputStream();
+			
+				    cc.reg.fileName = evento.getFileName();		  
+				    ruta = new File(rutaArchivo + cc.reg.fileName);
+				    
+				   
+				    try {
+						FileUtils.copyInputStreamToFile(fileData, ruta);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					StreamResource imageResource2;
+					try {
+						InputStream aux2 = FileUtils.openInputStream(ruta);
+						imageResource2 = new StreamResource("fotoSubida.png",() -> aux2); 
+						Image image = new Image(imageResource2, "");
+						image.getStyle().set("height", "125px");
+						image.getStyle().set("width", "125px");
+						cc.reg.setImg(image);
+						cc.reg.getHorizontalimg().removeAll();
+						cc.reg.getHorizontalimg().add(image);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				    });
+				cc.reg.getHorizontalUpload().add(upload);
 				v1.add(cc.getReg());		
 			}
 		});
@@ -207,6 +295,8 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				cc.is.getTfUsuario().clear();
+				cc.is.getTfPass().clear();
 				v1.replace(cc.getIs().getRc(), cc.getIs());
 				cc.getIs().getRc().getTfCorreo().clear();
 				
@@ -219,6 +309,7 @@ public class Cibernauta extends vistas.VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				if(cc.getIs().getRc().validar_correo()) {
+					cc.getReg().getVr().getTfCodigo().clear();
 					v1.replace(cc.getIs().getRc(), cc.getIs().getRc().getVr());
 					cc.getIs().getRc().getTfCorreo().clear();
 				}else {

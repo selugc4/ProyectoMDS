@@ -132,20 +132,41 @@ public class BD_Album {
 			Imagen img = ImagenDAO.createImagen();
 			img.setUrl(aImagen);
 			ImagenDAO.save(img);
-			album.setContiene_imagen(img);	
+			album.setContiene_imagen(img);
+			for(int j = 0; j< aCanciones.length; j++) {
+			if(aCanciones[j].es_de != null) {
+				Artista[] artistas = aCanciones[j].es_de.toArray();
+				for(Artista artista: artistas) {
+					aCanciones[j].es_de.remove(artista);
+					ArtistaDAO.save(artista);
+					CancionDAO.save(aCanciones[j]);
+				}
+			}
+			}
+			if(album.autor != null) {
+			Artista[] artistas = album.autor.toArray();
+			for(Artista artista: artistas) {
+				album.autor.remove(artista);
+				ArtistaDAO.save(artista);
+			}
+			}
 			for (int i = 0; i < aArtistas.length;i++) {
 				album.autor.add(aArtistas[i]);
 				for(int j = 0; j< aCanciones.length; j++) {
 					aCanciones[j].es_de.add(aArtistas[i]);
+					ArtistaDAO.save(aArtistas[i]);
+					CancionDAO.save(aCanciones[j]);
 				}
 			}
 			album.contiene_cancion.clear();
 			Cancion[]canciones = album.contiene_cancion.toArray();
 			for(Cancion cancion: canciones) {
 				album.contiene_cancion.remove(cancion);
+				CancionDAO.save(cancion);
 			}
 			for(int i = 0; i< aCanciones.length; i++) {
 				album.contiene_cancion.add(aCanciones[i]);
+				CancionDAO.save(aCanciones[i]);
 			}
 			AlbumDAO.save(album);
 				t.commit();
